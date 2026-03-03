@@ -49,7 +49,7 @@ export default function Layout({ children }: LayoutProps) {
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link to="/" className="z-50 relative">
-            <img src="https://res.cloudinary.com/dzipj6lnb/image/upload/v1772556017/maya_ai_logo_png_vwcqoa.png" alt="Maya AI" className="h-32 w-auto" />
+            <img src="https://res.cloudinary.com/dzipj6lnb/image/upload/v1772556017/maya_ai_logo_png_vwcqoa.png" alt="Maya AI" className="h-52 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
