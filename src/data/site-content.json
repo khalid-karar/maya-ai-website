@@ -1,0 +1,403 @@
+{
+  "config": {
+    "defaultLang": "ar",
+    "domains": ["mayaai.sa", "mayatradingllc.com"],
+    "fonts": {
+      "ar": "Cairo, sans-serif",
+      "en": "Montserrat, sans-serif"
+    }
+  },
+  "common": {
+    "contact": {
+      "ksa": {
+        "entity": { "ar": "مايا للذكاء الاصطناعي", "en": "Maya AI" },
+        "address": {
+          "ar": "طريق الإمام عبدالله بن سعود بن عبدالعزيز، غرناطة، الرياض 13242، المملكة العربية السعودية",
+          "en": "Al Imam Abdullah Bin Saud Bin Abdulaziz Rd, Ghirnatah, Riyadh 13242, Saudi Arabia"
+        },
+        "phone": "+966 50 477 9551"
+      },
+      "usa": {
+        "entity": { "ar": "مايا للتجارة ذ.م.م", "en": "Maya Trading LLC" },
+        "address": {
+          "ar": "2800 Eisenhower Ave. #220, Alexandria, VA 22314, USA",
+          "en": "2800 Eisenhower Ave. #220, Alexandria, VA 22314, USA"
+        },
+        "phone": "+1 202 802 1976"
+      },
+      "emails": ["info@mayaai.sa", "sales@mayaai.sa", "partnerships@mayaai.sa"]
+    },
+    "footer": {
+      "operatingEntities": {
+        "ar": "الكيانات التشغيلية: مايا للذكاء الاصطناعي (السعودية) • مايا للتجارة (أمريكا)",
+        "en": "Operating Entities: Maya AI (KSA) • Maya Trading LLC (USA)"
+      },
+      "disclaimer": {
+        "ar": "المحتوى للأغراض المعلوماتية؛ تخضع جميع عمليات النشر لمتطلبات الامتثال.",
+        "en": "Content is informational; deployments subject to compliance requirements."
+      },
+      "rights": {
+        "ar": "جميع الحقوق محفوظة © 2026 مايا للذكاء الاصطناعي",
+        "en": "© 2026 Maya AI. All rights reserved."
+      }
+    }
+  },
+  "nav": [
+    { "id": "platform", "path": "/", "label": { "ar": "المنصّة", "en": "Platform" } },
+    { "id": "solutions", "path": "/solutions", "label": { "ar": "الحلول", "en": "Solutions" } },
+    { "id": "geoai", "path": "/geoai", "label": { "ar": "الذكاء الجغرافي", "en": "GeoAI" } },
+    { "id": "programs", "path": "/national-programs", "label": { "ar": "البرامج الوطنية", "en": "National Programs" } },
+    { "id": "company", "path": "/company", "label": { "ar": "الشركة", "en": "Company" } },
+    { "id": "contact", "path": "/contact", "label": { "ar": "تواصل", "en": "Contact" } }
+  ],
+  "pages": {
+    "home": {
+      "hero": {
+        "video": "/assets/hero.mp4",
+        "poster": "/assets/hero-poster.jpg",
+        "headline": {
+          "ar": "ذكاء سيادي.\nعلى مستوى وطني.",
+          "en": "Sovereign Intelligence.\nNational Scale."
+        },
+        "subhead": {
+          "ar": "بنية تحتية للذكاء الاصطناعي مصممة للعمليات الحرجة، والذكاء الجيومكاني، والحوكمة الآلية.",
+          "en": "Enterprise-grade AI infrastructure engineered for critical operations, geospatial intelligence, and automated governance."
+        },
+        "cta": {
+          "primary": { "label": { "ar": "ابدأ الآن", "en": "Get Started" }, "path": "/contact" }
+        },
+        "status": { "ar": "النظام يعمل", "en": "System Operational" }
+      },
+      "pillars": {
+        "headline": { "ar": "القدرات الأساسية", "en": "Core Capabilities" },
+        "subhead": { "ar": "ذكاء متكامل عبر ثلاثة مجالات سيادية.", "en": "Integrated intelligence across three sovereign domains." },
+        "items": [
+          {
+            "title": { "ar": "الأنظمة الوطنية", "en": "National Systems" },
+            "desc": { "ar": "وحدات عالية الامتثال لإدارة النفايات، وذكاء المياه، وعمليات الطوارئ.", "en": "High-compliance modules for waste, water, and emergency ops." },
+            "icon": "Shield"
+          },
+          {
+            "title": { "ar": "الذكاء الجيومكاني", "en": "GeoAI Intelligence" },
+            "desc": { "ar": "رؤية حاسوبية عبر الأقمار الصناعية للمراقبة البيئية ورسم خرائط البنية التحتية.", "en": "Satellite computer vision for environmental and infrastructure mapping." },
+            "icon": "Globe"
+          },
+          {
+            "title": { "ar": "عملاء المؤسسات", "en": "Enterprise Agents" },
+            "desc": { "ar": "قوى عاملة ذاتية للخدمة، وإدارة الطلبات، ومهام الاستقبال.", "en": "Autonomous workforce for service, orders, and reception." },
+            "icon": "Cpu"
+          }
+        ]
+      },
+      "governance": {
+        "headline": { "ar": "الحوكمة أولاً", "en": "Governance First" },
+        "features": [
+          { "label": { "ar": "سجلات تدقيق كاملة", "en": "Full Audit Trails" } },
+          { "label": { "ar": "توطين البيانات (محلي/حكومي)", "en": "Data Residency (Local/Gov)" } },
+          { "label": { "ar": "بيئات منظمة", "en": "Regulated Environments" } },
+          { "label": { "ar": "تجربة مستخدم عربية أولاً", "en": "Arabic-First UX" } }
+        ]
+      },
+      "deployment": {
+        "headline": { "ar": "نماذج النشر", "en": "Deployment Models" },
+        "subhead": { "ar": "مرونة كاملة لتلبية متطلبات السيادة.", "en": "Full flexibility to meet sovereignty requirements." },
+        "options": [
+          { 
+            "title": { "ar": "سحابة سيادية", "en": "Sovereign Cloud" }, 
+            "description": { "ar": "نشر كامل داخل المملكة (KSA Region).", "en": "Full deployment within KSA Region." },
+            "badge": { "ar": "الأكثر طلباً", "en": "Most Popular" }
+          },
+          { 
+            "title": { "ar": "داخل المنشأة (Air-gapped)", "en": "On-Premise (Air-gapped)" }, 
+            "description": { "ar": "للمواقع الأمنية والدفاعية الحساسة.", "en": "For sensitive security and defense sites." },
+            "badge": { "ar": "أمان عالي", "en": "High Security" }
+          },
+          { 
+            "title": { "ar": "سحابة هجينة", "en": "Hybrid Cloud" }, 
+            "description": { "ar": "توازن بين المرونة والتحكم.", "en": "Balance between flexibility and control." },
+            "badge": { "ar": "مؤسسي", "en": "Enterprise" }
+          }
+        ]
+      },
+      "global": {
+        "headline": { "ar": "تواجد عالمي", "en": "Global Presence" },
+        "locations": [
+          { "city": "Riyadh", "role": { "ar": "المقر الرئيسي", "en": "HQ" } },
+          { "city": "Washington DC", "role": { "ar": "مكتب تجاري", "en": "Trade Office" } },
+          { "city": "London", "role": { "ar": "بحث وتطوير", "en": "R&D" } }
+        ]
+      },
+      "cta": {
+        "headline": { "ar": "جاهز للبدء؟", "en": "Ready to Start?" },
+        "subhead": { "ar": "ابدأ رحلة التحول الرقمي مع بنية تحتية آمنة وموثوقة.", "en": "Begin your digital transformation with secure infrastructure." },
+        "form": {
+          "title": { "ar": "طلب استشارة", "en": "Request Consultation" },
+          "submitLabel": { "ar": "إرسال", "en": "Submit" },
+          "disclaimer": { "ar": "بياناتك محمية بموجب اتفاقية عدم الإفصاح.", "en": "Your data is protected under NDA." }
+        }
+      }
+    },
+    "nationalPrograms": {
+      "hero": {
+        "title": { "ar": "البرامج الوطنية", "en": "National Programs" },
+        "subtitle": { "ar": "بنية تحتية رقمية سيادية للقطاعات الحكومية والحيوية.", "en": "Sovereign digital infrastructure for government and vital sectors." },
+        "disclaimer": { "ar": "ملاحظة: التفاصيل الفنية والوثائق التنفيذية متاحة للجهات المؤهلة عند الطلب.", "en": "Note: Technical details and executive documents are available to qualified entities upon request." }
+      },
+      "systems": [
+        {
+          "id": "registry",
+          "title": { "ar": "السجل الوطني الموحد", "en": "Unified National Registry" },
+          "desc": { "ar": "منصة مركزية لتوحيد مصادر البيانات الحكومية وضمان موثوقية المعلومات عبر الوزارات والهيئات.", "en": "Centralized platform unifying government data sources ensuring information reliability across ministries and agencies." },
+          "features": [
+            { "ar": "مصدر موحد للحقيقة", "en": "Single Source of Truth" },
+            { "ar": "تكامل حكومي آمن", "en": "Secure Government Integration" },
+            { "ar": "سجل تدقيق شامل", "en": "Comprehensive Audit Trail" }
+          ],
+          "readiness": "strategic"
+        },
+        {
+          "id": "emergency",
+          "title": { "ar": "مركز إدارة الطوارئ والأزمات", "en": "Emergency & Crisis Management Center" },
+          "desc": { "ar": "غرفة عمليات رقمية لإدارة الاستجابة للكوارث والأزمات مع تحليل تنبؤي للمخاطر.", "en": "Digital operations room for disaster response management with predictive risk analysis." },
+          "features": [
+            { "ar": "تنسيق الاستجابة المشتركة", "en": "Joint Response Coordination" },
+            { "ar": "تحليل المخاطر التنبؤي", "en": "Predictive Risk Analysis" },
+            { "ar": "اتصالات آمنة ومشفرة", "en": "Secure Encrypted Comms" }
+          ],
+          "readiness": "strategic"
+        },
+        { 
+          "id": "maaiq",
+          "title": { "ar": "مياه (MaaIQ)", "en": "MaaIQ Water Intel" }, 
+          "desc": { "ar": "تحليلات تنبؤية لشبكات المياه الوطنية.", "en": "Predictive analytics for water networks." },
+          "features": [
+            { "ar": "كشف التسربات", "en": "Leak Detection" },
+            { "ar": "إدارة الأصول", "en": "Asset Management" },
+            { "ar": "تنبؤ بالطلب", "en": "Demand Forecasting" }
+          ],
+          "readiness": "strategic"
+        },
+        { 
+          "id": "shadow",
+          "title": { "ar": "عمليات الطوارئ (Shadow)", "en": "Emergency Ops (Shadow)" }, 
+          "desc": { "ar": "وعي ظرفي فوري للحوادث الحرجة.", "en": "Real-time situational awareness." },
+          "features": [
+            { "ar": "تكامل البيانات الحية", "en": "Live Data Integration" },
+            { "ar": "تتبع الموارد", "en": "Resource Tracking" },
+            { "ar": "محاكاة السيناريوهات", "en": "Scenario Simulation" }
+          ],
+          "readiness": "strategic"
+        }
+      ],
+      "governance": {
+        "title": { "ar": "معايير الحوكمة والسيادة", "en": "Governance & Sovereignty Standards" },
+        "items": [
+          { "title": { "ar": "توطين البيانات", "en": "Data Residency" }, "desc": { "ar": "تخزين ومعالجة كاملة داخل الحدود الجغرافية للمملكة.", "en": "Full storage and processing within Kingdom borders." } },
+          { "title": { "ar": "سجل التدقيق", "en": "Audit Trail" }, "desc": { "ar": "تتبع غير قابل للتعديل لجميع الإجراءات والوصول للبيانات.", "en": "Immutable tracking of all actions and data access." } },
+          { "title": { "ar": "الامتثال السيبراني", "en": "Cyber Compliance" }, "desc": { "ar": "متوافق مع ضوابط الهيئة الوطنية للأمن السيبراني (NCA).", "en": "Compliant with NCA controls." } }
+        ]
+      },
+      "cta": {
+        "title": { "ar": "ابدأ المحادثة الاستراتيجية", "en": "Start Strategic Conversation" },
+        "button": { "ar": "تواصل معنا", "en": "Contact Us" }
+      }
+    },
+    "geoai": {
+      "hero": {
+        "title": { "ar": "ستوديو الذكاء الجيومكاني", "en": "GeoAI Studio" },
+        "subtitle": { "ar": "ذكاء بحجم الكوكب.\nدقة بمستوى الشارع.", "en": "Planetary-scale intelligence.\nStreet-level precision." },
+        "description": { "ar": "منصة تحليلية متقدمة تدمج صور الأقمار الصناعية مع الرؤية الحاسوبية لتقديم رؤى قابلة للتنفيذ.", "en": "Advanced analytics platform integrating satellite imagery with computer vision to deliver actionable insights." }
+      },
+      "cta": {
+        "title": { "ar": "اطلب برنامجاً تجريبياً", "en": "Request a Pilot" },
+        "subtitle": { "ar": "نشر سريع خلال 2-4 أسابيع مع نتائج ملموسة.", "en": "Rapid deployment in 2-4 weeks with tangible results." },
+        "button": { "ar": "تواصل معنا", "en": "Contact Us" }
+      },
+      "sampleImagery": {
+        "note": { "ar": "ملاحظة: الصور المعروضة هي أمثلة عامة. جميع بيانات العملاء تخضع لبروتوكولات سرية صارمة.", "en": "Note: Displayed imagery is generic. All client data is subject to strict confidentiality protocols." },
+        "watermark": "Maya GeoAI"
+      },
+      "tabs": [
+        {
+          "id": "solar",
+          "label": { "ar": "الطاقة الشمسية", "en": "Solar Energy" },
+          "readiness": "available",
+          "detects": { "ar": "رصد الألواح الشمسية ومراقبة النمو.", "en": "Solar panel detection and growth monitoring." },
+          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
+          "buyers": { "ar": "وزارة الطاقة، شركات المرافق", "en": "Ministry of Energy, Utilities" },
+          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
+        },
+        {
+          "id": "infrastructure",
+          "label": { "ar": "البنية التحتية", "en": "Infrastructure" },
+          "readiness": "available",
+          "detects": { "ar": "مراقبة التوسع العمراني والإنشاءات.", "en": "Urban expansion and construction monitoring." },
+          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
+          "buyers": { "ar": "الأمانات، التخطيط العمراني", "en": "Municipalities, Urban Planning" },
+          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
+        },
+        {
+          "id": "vegetation",
+          "label": { "ar": "الغطاء النباتي", "en": "Vegetation" },
+          "readiness": "available",
+          "detects": { "ar": "تحليل الغطاء النباتي وتقييم الصحة.", "en": "Green cover analysis and health assessment." },
+          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
+          "buyers": { "ar": "الهيئات البيئية، مبادرات التشجير", "en": "Environmental Agencies, Greening Initiatives" },
+          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
+        },
+        {
+          "id": "disaster",
+          "label": { "ar": "إدارة الكوارث", "en": "Disaster Ops" },
+          "readiness": "available",
+          "detects": { "ar": "تقييم الأضرار وتحليل الأثر.", "en": "Damage assessment and impact analysis." },
+          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
+          "buyers": { "ar": "الدفاع المدني، وكالات الإغاثة", "en": "Civil Defense, Relief Agencies" },
+          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
+        },
+        {
+          "id": "mobility",
+          "label": { "ar": "التنقل والحشود", "en": "Mobility" },
+          "readiness": "available",
+          "detects": { "ar": "تحليل تدفق الحركة وكثافة الحشود.", "en": "Traffic flow and crowd density analysis." },
+          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
+          "buyers": { "ar": "وزارة النقل، منظمو الفعاليات", "en": "Ministry of Transport, Event Organizers" },
+          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
+        },
+        {
+          "id": "industrial",
+          "label": { "ar": "القطاع الصناعي", "en": "Industrial" },
+          "readiness": "available",
+          "detects": { "ar": "مراقبة النشاط وتقدير الأحجام.", "en": "Activity monitoring and volume estimation." },
+          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
+          "buyers": { "ar": "وزارة الصناعة، شركات التعدين", "en": "Ministry of Industry, Mining Corps" },
+          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
+        }
+      ]
+    },
+    "solutions": {
+      "hero": {
+        "title": { "ar": "الحلول المتكاملة", "en": "Integrated Solutions" },
+        "subtitle": { "ar": "بنية تحتية معيارية للذكاء الاصطناعي.", "en": "Modular AI infrastructure." },
+        "description": { "ar": "مجموعة شاملة من أدوات الذكاء الاصطناعي المصممة للمؤسسات الحكومية والشركات الكبرى.", "en": "Comprehensive suite of AI tools designed for government entities and large enterprises." }
+      },
+      "cta": {
+        "text": { "ar": "لم تجد ما تبحث عنه؟", "en": "Don't see what you need?" },
+        "link": { "ar": "تواصل مع فريق هندسة الحلول", "en": "Contact Solutions Architecture Team" }
+      },
+      "categories": [
+        {
+          "id": "compliance",
+          "label": { "ar": "منصات الامتثال", "en": "Compliance Platforms" },
+          "description": { "ar": "أتمتة التنظيم والرقابة.", "en": "Automated regulation and oversight." },
+          "items": [
+            { 
+              "title": { "ar": "تدوير 360", "en": "Tadweer360" }, 
+              "readiness": "pilot",
+              "desc": { "ar": "تصنيف النفايات وتتبع الامتثال.", "en": "Waste classification and compliance tracking." },
+              "buyer": { "ar": "البلديات", "en": "Municipalities" },
+              "deployment": { "ar": "حسب المتطلبات: سحابة سيادية / داخل المنشأة / هجينة", "en": "Per Requirements: Sovereign / On-Prem / Hybrid" }
+            },
+            { 
+              "title": { "ar": "تدقيق كود البناء", "en": "BIM Code Checking" }, 
+              "readiness": "pilot",
+              "desc": { "ar": "تحقق آلي من الامتثال الهندسي.", "en": "Automated engineering compliance verification." },
+              "buyer": { "ar": "التخطيط العمراني", "en": "Urban Planning" },
+              "deployment": { "ar": "حسب المتطلبات: سحابة سيادية / داخل المنشأة / هجينة", "en": "Per Requirements: Sovereign / On-Prem / Hybrid" }
+            },
+            {
+              "title": { "ar": "منصة الرقابة والتفتيش الذكي", "en": "Smart Inspection Platform" },
+              "readiness": "pilot",
+              "desc": { "ar": "نظام إدارة عمليات التفتيش الميداني مدعوم بالذكاء الاصطناعي.", "en": "AI-powered field inspection management system." },
+              "buyer": { "ar": "البلديات / الجهات الرقابية", "en": "Municipalities / Regulators" },
+              "deployment": { "ar": "حسب المتطلبات: سحابة سيادية / داخل المنشأة / هجينة", "en": "Per Requirements: Sovereign / On-Prem / Hybrid" }
+            }
+          ]
+        },
+        {
+          "id": "agents",
+          "label": { "ar": "عملاء الذكاء الاصطناعي", "en": "Enterprise AI Agents" },
+          "description": { "ar": "قوى عاملة رقمية ذكية.", "en": "Intelligent digital workforce." },
+          "items": [
+            { 
+              "title": { "ar": "مركز الاتصال السيادي", "en": "Sovereign Call Center" }, 
+              "readiness": "available",
+              "desc": { "ar": "وكلاء صوت ذاتيون للدعم الحكومي.", "en": "Autonomous voice agents for gov support." },
+              "buyer": { "ar": "الوزارات", "en": "Ministries" },
+              "deployment": { "ar": "سحابة سيادية", "en": "Sovereign Cloud" }
+            },
+            { 
+              "title": { "ar": "نظام طلبات الضيافة", "en": "Hospitality Order AI" }, 
+              "readiness": "available",
+              "desc": { "ar": "نظام طلب صوتي للمؤسسات.", "en": "Voice-native ordering system." },
+              "buyer": { "ar": "الفنادق الكبرى", "en": "Major Hotels" },
+              "deployment": { "ar": "Edge" }
+            },
+            { 
+              "title": { "ar": "موظف الاستقبال الآمن", "en": "Secure Receptionist" }, 
+              "readiness": "available",
+              "desc": { "ar": "أتمتة الدخول وإدارة الزوار.", "en": "Access automation and visitor mgmt." },
+              "buyer": { "ar": "المقرات الأمنية", "en": "Security HQs" },
+              "deployment": { "ar": "On-Device" }
+            }
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "hero": {
+        "title": { "ar": "تواصل مع الفريق", "en": "Contact Our Team" },
+        "subtitle": { "ar": "اطلب استشارة سرية مع مهندسي الحلول لدينا.", "en": "Schedule a confidential consultation." }
+      },
+      "form": {
+        "name": { "ar": "الاسم الكامل", "en": "Full Name" },
+        "email": { "ar": "البريد الإلكتروني للعمل", "en": "Work Email" },
+        "org": { "ar": "الجهة / المؤسسة", "en": "Organization" },
+        "phone": { "ar": "رقم الهاتف", "en": "Phone" },
+        "type": { "ar": "نوع الاستفسار", "en": "Inquiry Type" },
+        "message": { "ar": "الرسالة", "en": "Message" },
+        "submit": { "ar": "إرسال الطلب", "en": "Submit Request" }
+      }
+    },
+    "requestModal": {
+      "title": { "ar": "طلب مذكرة (محدود التداول)", "en": "Request Brief (Restricted)" },
+      "fields": {
+        "name": { "ar": "الاسم الكامل", "en": "Full Name" },
+        "entity": { "ar": "الجهة / الشركة", "en": "Entity / Company" },
+        "position": { "ar": "المنصب", "en": "Position" },
+        "sector": { "ar": "القطاع", "en": "Sector" },
+        "scope": { "ar": "نطاق الاهتمام", "en": "Scope of Interest" },
+        "location": { "ar": "المدينة / الدولة", "en": "City / Country" },
+        "email": { "ar": "البريد الإلكتروني", "en": "Email" },
+        "phone": { "ar": "الهاتف", "en": "Phone" },
+        "nda": { "ar": "هل تحتاج NDA قبل مشاركة التفاصيل؟", "en": "Require NDA?" },
+        "notes": { "ar": "ملاحظات", "en": "Notes" }
+      },
+      "options": {
+        "sectors": [
+          { "value": "gov", "label": { "ar": "حكومي", "en": "Government" } },
+          { "value": "water", "label": { "ar": "مياه", "en": "Water" } },
+          { "value": "municipality", "label": { "ar": "بلديات", "en": "Municipalities" } },
+          { "value": "security", "label": { "ar": "أمن", "en": "Security" } },
+          { "value": "environment", "label": { "ar": "بيئة", "en": "Environment" } },
+          { "value": "energy", "label": { "ar": "طاقة", "en": "Energy" } },
+          { "value": "private", "label": { "ar": "قطاع خاص", "en": "Private Sector" } },
+          { "value": "other", "label": { "ar": "أخرى", "en": "Other" } }
+        ],
+        "scopes": [
+          { "value": "bim", "label": { "ar": "BIM / كود البناء", "en": "BIM / Code Checking" } },
+          { "value": "waste", "label": { "ar": "إدارة النفايات", "en": "Waste Management" } },
+          { "value": "water", "label": { "ar": "ذكاء المياه", "en": "Water Intelligence" } },
+          { "value": "emergency", "label": { "ar": "عمليات الطوارئ", "en": "Emergency Ops" } },
+          { "value": "geoai", "label": { "ar": "الذكاء الجيومكاني", "en": "GeoAI" } },
+          { "value": "voice", "label": { "ar": "وكلاء الصوت", "en": "Voice Agents" } }
+        ],
+        "nda": [
+          { "value": "yes", "label": { "ar": "نعم", "en": "Yes" } },
+          { "value": "no", "label": { "ar": "لا", "en": "No" } }
+        ]
+      },
+      "submit": { "ar": "إرسال الطلب", "en": "Submit Request" },
+      "success": { "ar": "تم استلام الطلب. سيتم التواصل خلال 1–2 يوم عمل.", "en": "Request received. We will contact you within 1-2 business days." }
+    }
+  }
+}

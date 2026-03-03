@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Montserrat:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-maya-navy: #151328;
+  --color-maya-gold: #ac8530;
+  --color-maya-light-gold: #e9d893;
+  --color-maya-dark-gold: #8a6a26;
+  
+  --font-display: "Montserrat", "Space Grotesk", sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: "Cairo", sans-serif;
+  
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.7s ease-out;
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
+
+/* Base Styles */
+body {
+  background-color: var(--color-maya-navy);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700; /* Bold for Nexa feel */
+  letter-spacing: -0.02em;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--color-maya-light-gold) 0%, var(--color-maya-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-panel {
+  background: rgba(21, 19, 40, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(172, 133, 48, 0.2);
+}
