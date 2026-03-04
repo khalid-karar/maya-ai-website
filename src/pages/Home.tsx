@@ -65,7 +65,7 @@ export default function Home() {
       <section className="relative h-screen w-full overflow-hidden flex items-center">
         <HeroVideo 
           poster="/assets/hero-poster.jpg"
-          videoSrc="https://res.cloudinary.com/dzipj6lnb/video/upload/v1772554147/Maya_AI_Homepage_Video-final_bvjfn8.mp4"
+          videoSrc="https://res.cloudinary.com/dzipj6lnb/video/upload/v1772660724/loop_high_quality_vu40cn.mp4"
         />
 
         <div className="container mx-auto px-6 relative z-20 pt-20">
