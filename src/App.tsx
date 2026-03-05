@@ -13,6 +13,7 @@ import Contact from './pages/Contact';
 import { LanguageProvider } from './context/LanguageContext';
 
 import NationalPrograms from './pages/NationalPrograms';
+import Company from './pages/Company';
 
 // Placeholder pages for routing structure
 const PlaceholderPage = ({ title }: { title: string }) => (
@@ -35,7 +36,7 @@ export default function App() {
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/geoai" element={<GeoAI />} />
             <Route path="/enterprise-agents" element={<PlaceholderPage title="Enterprise Agents" />} />
-            <Route path="/company" element={<Contact />} />
+            <Route path="/company" element={<Company />} />
             <Route path="/about" element={<Contact />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

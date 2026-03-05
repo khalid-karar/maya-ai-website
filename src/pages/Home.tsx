@@ -132,7 +132,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Solutions Grid (using categories from solutions page) */}
+      {/* Featured Solutions Grid */}
       <section className="py-24 bg-[#0e0c1d] border-t border-white/5">
         <div className="container mx-auto px-6">
           <div className="mb-16 text-center max-w-3xl mx-auto">
@@ -173,6 +173,37 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Partners / Trusted By Marquee Section (Moved Here) */}
+      {homeContent.partners && (
+        <section className="py-12 bg-[#0a0816] border-y border-white/5 overflow-hidden">
+          <div className="container mx-auto px-6 mb-8 text-center">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-white/40">
+              {homeContent.partners.title[language]}
+            </h3>
+          </div>
+          
+          {/* Gradient Edges for smooth fade in/out */}
+          <div className="relative w-full flex">
+            <div className="absolute left-0 top-0 w-24 md:w-48 h-full bg-gradient-to-r from-[#0a0816] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 w-24 md:w-48 h-full bg-gradient-to-l from-[#0a0816] to-transparent z-10 pointer-events-none" />
+            
+            <motion.div 
+              className="flex gap-16 md:gap-32 items-center min-w-max px-8"
+              animate={{ x: direction === 'rtl' ? ["0%", "50%"] : ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+            >
+              {/* Duplicate the array to make the infinite scroll seamless */}
+              {[...homeContent.partners.logos, ...homeContent.partners.logos].map((logo, idx) => (
+                <div key={idx} className="flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                  {/* <span className="text-xl md:text-2xl font-display font-bold text-white/80">{logo.name}</span> */}
+                  <img src={logo.src} alt={logo.name} className="h-12 w-auto object-contain" />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* GeoAI Showcase */}
       <section className="py-24 bg-maya-navy relative overflow-hidden">

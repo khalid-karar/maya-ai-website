@@ -56,17 +56,33 @@
         "video": "/assets/hero.mp4",
         "poster": "/assets/hero-poster.jpg",
         "headline": {
-          "ar": "ذكاء سيادي.\nعلى مستوى وطني.",
-          "en": "Sovereign Intelligence.\nNational Scale."
+          "ar": "نصنع المستقبل",
+          "en": "We Create the Future"
         },
         "subhead": {
-          "ar": "بنية تحتية للذكاء الاصطناعي مصممة للعمليات الحرجة، والذكاء الجيومكاني، والحوكمة الآلية.",
-          "en": "Enterprise-grade AI infrastructure engineered for critical operations, geospatial intelligence, and automated governance."
+          "ar": "نحن في MAYA AI لا نكتفي بمواكبة المستقبل بل نصنعه، فندمج قوة الذكاء الاصطناعي مع الإبداع البشري لنعيد تعريف ما هو ممكن ونحول البيانات المعقدة إلى قرارات ذكية تدفع أعمالكم نحو آفاق جديدة من التميز.",
+          "en": "At MAYA AI, we don't just keep up with the future; we create it. We merge the power of AI with human creativity to redefine what's possible, transforming complex data into smart decisions that drive your business toward new horizons of excellence."
         },
         "cta": {
           "primary": { "label": { "ar": "ابدأ الآن", "en": "Get Started" }, "path": "/contact" }
         },
         "status": { "ar": "النظام يعمل", "en": "System Operational" }
+      },
+      "partners": {
+        "title": { "ar": "شركاء النجاح", "en": "Trusted By" },
+        "logos": [
+          { "name": "DEFRA", "src": "/assets/partners/DEFRA.png" },
+          { "name": "JAXA", "src": "/assets/partners/JAXA.png" },
+          { "name": "NOAA", "src": "/assets/partners/NOAA.png" },
+          { "name": "USGS", "src": "/assets/partners/USGS.png" },
+          { "name": "ROOFR", "src": "/assets/partners/ROOFR.png" },
+          { "name": "Land Registry", "src": "/assets/partners/Land-Registry.png" },
+          { "name": "Network Rail", "src": "/assets/partners/Network-Rail.png" },
+          { "name": "FIFCO", "src": "/assets/partners/FIFCO.png" },
+          { "name": "UNSW", "src": "/assets/partners/UNSW.png" },
+          { "name": "Canopy Consulting", "src": "/assets/partners/Canopy-Consulting.png" },
+          { "name": "Spatial Plans", "src": "/assets/partners/Spatial-Plans.png" }
+        ]
       },
       "pillars": {
         "headline": { "ar": "القدرات الأساسية", "en": "Core Capabilities" },
@@ -398,6 +414,63 @@
       },
       "submit": { "ar": "إرسال الطلب", "en": "Submit Request" },
       "success": { "ar": "تم استلام الطلب. سيتم التواصل خلال 1–2 يوم عمل.", "en": "Request received. We will contact you within 1-2 business days." }
+    },
+    "company": {
+      "hero": {
+        "title": { "ar": "عن الشركة", "en": "About Us" },
+        "subtitle": { "ar": "نبني بنية تحتية رقمية سيادية لمستقبل آمن وذكي.", "en": "Building sovereign digital infrastructure for a secure, smart future." }
+      },
+      "sections": {
+        "whoWeAre": {
+          "title": { "ar": "من نحن", "en": "Who We Are" },
+          "content": { 
+            "ar": "شركة رائدة في مجال الذكاء الاصطناعي السيادي، متخصصة في بناء بنية تحتية رقمية متقدمة وآمنة للقطاعات الحكومية والحيوية والمؤسسات الكبرى.", 
+            "en": "A leading sovereign AI company, specializing in building advanced and secure digital infrastructure for government, vital sectors, and large enterprises." 
+          }
+        },
+        "identity": {
+          "title": { "ar": "هويتنا", "en": "Our Identity" },
+          "content": { 
+            "ar": "نجمع بين الابتكار التقني العالمي والفهم العميق للمتطلبات الوطنية، لنقدم حلولاً تحترم سيادة البيانات وتدفع عجلة التحول الرقمي بثقة.", 
+            "en": "We combine global technological innovation with a deep understanding of national requirements, delivering solutions that respect data sovereignty and confidently drive digital transformation." 
+          }
+        },
+        "mission": {
+          "title": { "ar": "رسالتنا", "en": "Our Mission" },
+          "content": { 
+            "ar": "تمكين المؤسسات من تسخير قوة الذكاء الاصطناعي في بيئة آمنة وموثوقة، مع الالتزام التام بأعلى معايير الحوكمة والخصوصية والامتثال.", 
+            "en": "Empowering organizations to harness the power of AI in a secure and reliable environment, with an unwavering commitment to the highest standards of governance, privacy, and compliance." 
+          }
+        },
+        "vision": {
+          "title": { "ar": "هدفنا", "en": "Our Vision" },
+          "content": { 
+            "ar": "أن نكون الممكن الرئيسي للذكاء الاصطناعي السيادي في المنطقة، والركيزة الأساسية لمستقبل رقمي مستدام ومحصن.", 
+            "en": "To be the primary enabler of sovereign AI in the region, and the foundational pillar for a sustainable and fortified digital future." 
+          }
+        }
+      },
+      "values": {
+        "title": { "ar": "قيمنا", "en": "Our Values" },
+        "items": [
+          {
+            "title": { "ar": "السيادة", "en": "Sovereignty" },
+            "desc": { "ar": "حماية مطلقة للبيانات الوطنية.", "en": "Absolute protection of national data." }
+          },
+          {
+            "title": { "ar": "الابتكار", "en": "Innovation" },
+            "desc": { "ar": "ريادة التقنيات المستقبلية للذكاء الاصطناعي.", "en": "Pioneering future AI technologies." }
+          },
+          {
+            "title": { "ar": "الموثوقية", "en": "Reliability" },
+            "desc": { "ar": "أداء مؤسسي لا يساوم في العمليات الحرجة.", "en": "Uncompromising enterprise performance in critical ops." }
+          },
+          {
+            "title": { "ar": "الامتثال", "en": "Compliance" },
+            "desc": { "ar": "التوافق التام مع المعايير واللوائح الوطنية.", "en": "Strict adherence to national standards and regulations." }
+          }
+        ]
+      }
     }
   }
 }
