@@ -75,18 +75,19 @@
       "partners": {
         "title": { "ar": "المنظومة المرجعية", "en": "Reference Ecosystem" },
         "logos": [
-          { "name": "DEFRA", "src": "/assets/partners/DEFRA.png" },
-          { "name": "JAXA", "src": "https://upload.wikimedia.org/wikipedia/commons/8/85/Jaxa_logo.svg" },
-          { "name": "NOAA", "src": "https://upload.wikimedia.org/wikipedia/commons/7/79/NOAA_logo.svg" },
-          { "name": "USGS", "src": "https://upload.wikimedia.org/wikipedia/commons/c/cd/USGS_logo.svg" },
-          { "name": "ROOFR", "src": "/assets/partners/ROOFR.png" },
-          { "name": "Land Registry", "src": "/assets/partners/Land-Registry.png" },
-          { "name": "Network Rail", "src": "/assets/partners/Network-Rail.png" },
-          { "name": "FIFCO", "src": "/assets/partners/FIFCO.png" },
-          { "name": "UNSW", "src": "/assets/partners/UNSW.png" },
-          { "name": "Canopy Consulting", "src": "/assets/partners/Canopy-Consulting.png" },
-          { "name": "Spatial Plans", "src": "/assets/partners/Spatial-Plans.png" }
-        ]
+  { "name": "NASA", "src": "https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" },
+  { "name": "ESA", "src": "https://upload.wikimedia.org/wikipedia/commons/8/80/ESA_logo.svg" },
+  { "name": "NOAA", "src": "https://upload.wikimedia.org/wikipedia/commons/7/79/NOAA_logo.svg" },
+  { "name": "USGS", "src": "https://upload.wikimedia.org/wikipedia/commons/c/cd/USGS_logo.svg" },
+
+  { "name": "Esri", "src": "/assets/partners/esri.svg" },
+  { "name": "OpenStreetMap", "src": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Openstreetmap_logo.svg" },
+
+  { "name": "Planet", "src": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Planet_Labs_logo.svg" },
+  { "name": "Maxar", "src": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maxar_yellow_logo.svg" },
+
+  { "name": "UN-GGIM", "src": "https://upload.wikimedia.org/wikipedia/commons/9/98/UN-GGIM_logo.png" }
+]
       },
       "pillars": {
         "headline": { "ar": "القدرات الأساسية", "en": "Core Capabilities" },
