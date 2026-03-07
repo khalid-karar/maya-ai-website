@@ -339,6 +339,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      
 
       {/* Governance Strip */}
       <section className="py-20 bg-[#0e0c1d] border-y border-white/5">
@@ -359,6 +361,82 @@ export default function Home() {
         </div>
       </section>
 
+<section className="py-24 bg-[#0e0c1d] border-y border-white/5">
+  <div className="container mx-auto px-6">
+    <div className="max-w-3xl mb-14">
+      <h2 className="text-3xl md:text-5xl font-display mb-4">
+        {lang === 'ar' ? 'بنية المنصة' : 'Platform Architecture'}
+      </h2>
+      <p className="text-white/55 text-lg leading-relaxed">
+        {lang === 'ar'
+          ? 'من طبقة البيانات إلى الذكاء التشغيلي، تربط Maya AI بين المصادر، النماذج، والتطبيقات ضمن بنية موحدة قابلة للنشر.'
+          : 'From data ingestion to operational intelligence, Maya AI connects sources, models, and applications through a unified deployable architecture.'}
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="relative border border-white/10 bg-white/[0.02] p-6">
+        <div className="text-maya-gold text-xs font-bold uppercase tracking-widest mb-4">
+          {lang === 'ar' ? '01' : '01'}
+        </div>
+        <h3 className="text-xl font-display text-white mb-4">
+          {lang === 'ar' ? 'مصادر البيانات' : 'Data Sources'}
+        </h3>
+        <ul className="space-y-2 text-white/60 text-sm leading-relaxed">
+          <li>{lang === 'ar' ? 'صور أقمار صناعية' : 'Satellite Imagery'}</li>
+          <li>{lang === 'ar' ? 'أنظمة مؤسسية' : 'Enterprise Systems'}</li>
+          <li>{lang === 'ar' ? 'بيانات ميدانية' : 'Field Data'}</li>
+          <li>{lang === 'ar' ? 'أجهزة استشعار وIoT' : 'Sensors & IoT'}</li>
+        </ul>
+      </div>
+
+      <div className="relative border border-white/10 bg-white/[0.02] p-6">
+        <div className="text-maya-gold text-xs font-bold uppercase tracking-widest mb-4">
+          02
+        </div>
+        <h3 className="text-xl font-display text-white mb-4">
+          {lang === 'ar' ? 'منصة Maya AI' : 'Maya AI Platform'}
+        </h3>
+        <ul className="space-y-2 text-white/60 text-sm leading-relaxed">
+          <li>{lang === 'ar' ? 'نماذج ذكاء اصطناعي' : 'AI Models'}</li>
+          <li>{lang === 'ar' ? 'تحليلات جيومكانية' : 'Geospatial Analytics'}</li>
+          <li>{lang === 'ar' ? 'حوكمة وصلاحيات' : 'Governance & Access'}</li>
+          <li>{lang === 'ar' ? 'تدفق وتشغيل العمليات' : 'Workflow Orchestration'}</li>
+        </ul>
+      </div>
+
+      <div className="relative border border-white/10 bg-white/[0.02] p-6">
+        <div className="text-maya-gold text-xs font-bold uppercase tracking-widest mb-4">
+          03
+        </div>
+        <h3 className="text-xl font-display text-white mb-4">
+          {lang === 'ar' ? 'الأنظمة والتطبيقات' : 'Systems & Applications'}
+        </h3>
+        <ul className="space-y-2 text-white/60 text-sm leading-relaxed">
+          <li>Tadweer360</li>
+          <li>MaaIQ</li>
+          <li>{lang === 'ar' ? 'التفتيش الذكي' : 'Smart Inspection'}</li>
+          <li>{lang === 'ar' ? 'عملاء المؤسسات' : 'Enterprise Agents'}</li>
+        </ul>
+      </div>
+
+      <div className="relative border border-white/10 bg-white/[0.02] p-6">
+        <div className="text-maya-gold text-xs font-bold uppercase tracking-widest mb-4">
+          04
+        </div>
+        <h3 className="text-xl font-display text-white mb-4">
+          {lang === 'ar' ? 'الذكاء التشغيلي' : 'Operational Intelligence'}
+        </h3>
+        <ul className="space-y-2 text-white/60 text-sm leading-relaxed">
+          <li>{lang === 'ar' ? 'لوحات تنفيذية' : 'Executive Dashboards'}</li>
+          <li>{lang === 'ar' ? 'تنبيهات ومراقبة' : 'Monitoring & Alerts'}</li>
+          <li>{lang === 'ar' ? 'امتثال وتنبؤ' : 'Compliance & Forecasting'}</li>
+          <li>{lang === 'ar' ? 'دعم اتخاذ القرار' : 'Decision Support'}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
       {/* Featured Solutions */}
       <section className="py-24 bg-[#0e0c1d]">
         <div className="container mx-auto px-6">
