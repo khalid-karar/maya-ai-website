@@ -30,8 +30,16 @@ export default function Governance() {
     <div className="w-full bg-maya-navy min-h-screen pt-32 md:pt-36 pb-24">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5 bg-[#0a0816]">
+        
+        {/* Pattern Background Image */}
+        <div 
+          className="absolute inset-0 pointer-events-none bg-cover bg-center opacity-40 mix-blend-screen"
+          style={{ backgroundImage: "url('https://res.cloudinary.com/dzipj6lnb/image/upload/v1773752774/governance-pattern_qbxdkt.jpg')" }} 
+        />
+
+        {/* Existing Glowing Effects (Keep these to blend with the pattern) */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[860px] h-[360px] bg-maya-gold/5 blur-[130px] rounded-full" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[860px] h-[360px] bg-maya-gold/10 blur-[130px] rounded-full" />
           <div className="absolute bottom-0 right-0 w-[320px] h-[320px] bg-white/5 blur-[110px] rounded-full" />
         </div>
 
