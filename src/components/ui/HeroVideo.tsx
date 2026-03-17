@@ -97,13 +97,13 @@ export default function HeroVideo({ poster, videoSrc }: HeroVideoProps) {
         }}
       />
 
-      {/* Sound toggle - Safely at the bottom corner, floating on top of EVERYTHING */}
+      {/* Sound toggle - Floating safely at the top corner */}
       <button
         type="button"
         onClick={toggleMute}
         className={`
           absolute z-[100] pointer-events-auto
-          bottom-8 md:bottom-12
+          top-6 md:top-8
           ${direction === 'rtl' ? 'left-4 md:left-8' : 'right-4 md:right-8'}
           w-12 h-12 md:w-14 md:h-14 flex items-center justify-center
           rounded-full
