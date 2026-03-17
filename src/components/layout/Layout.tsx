@@ -55,7 +55,8 @@ export default function Layout({ children }: LayoutProps) {
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
           isScrolled
             ? 'bg-maya-navy/88 backdrop-blur-xl border-white/10 py-3'
-            : 'bg-transparent border-transparent py-4'
+            // هنا غيرنا الـ bg-transparent لتأثير الزجاج المظلل
+            : 'bg-[#0a0816]/50 backdrop-blur-md border-white/10 py-4' 
         )}
       >
         <div className="container mx-auto px-6">
@@ -165,7 +166,7 @@ export default function Layout({ children }: LayoutProps) {
       </AnimatePresence>
 
       {/* Main Content */}
-      <main className="relative">{children}</main>
+<main className="relative pt-24 md:pt-28">{children}</main>
 
       {/* Footer */}
       <footer className="bg-[#0e0c1d] border-t border-white/5 pt-20 pb-10">

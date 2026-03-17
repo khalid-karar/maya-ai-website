@@ -107,10 +107,10 @@ export default function Home() {
       <section className="relative min-h-screen w-full overflow-hidden flex items-center">
         <HeroVideo
           poster="/assets/hero-poster.jpg"
-          videoSrc="https://res.cloudinary.com/dzipj6lnb/video/upload/v1772660724/loop_high_quality_vu40cn.mp4"
+          videoSrc="https://res.cloudinary.com/dzipj6lnb/video/upload/v1773751729/Loop_video_medium_quality_f1sjvq.mp4"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-[#06040d]/38 via-[#06040d]/18 to-[#070511]/62 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#06040d]/90 via-[#06040d]/40 to-[#070511]/80 z-10 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(201,162,39,0.10),transparent_22%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.04),transparent_18%)] z-10 pointer-events-none" />
         <div className="container mx-auto px-6 relative z-20 pt-24 md:pt-28">
           <motion.div
@@ -343,18 +343,32 @@ export default function Home() {
       
 
       {/* Governance Strip */}
-      <section className="py-20 bg-[#0e0c1d] border-y border-white/5">
+      {/* Governance Strip */}
+      <section 
+        className="py-20 bg-[#0e0c1d] border-y border-white/5"
+        aria-labelledby="governance-heading"
+      >
         <div className="container mx-auto px-6">
+          
+          {/* Section Header - Natural Alignment */}
+          <div className="max-w-3xl mb-10">
+            <h2 id="governance-heading" className="text-3xl md:text-4xl font-display font-bold">
+              {homeContent.governance.headline[lang]}
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
             {homeContent.governance.features.map((feature, idx) => (
               <div
                 key={idx}
-                className="border border-white/10 bg-white/[0.02] p-6 flex items-start gap-4 hover:border-maya-gold/25 transition-colors"
+                className="border border-white/10 bg-white/[0.02] p-5 md:p-6 flex items-center gap-4 hover:border-maya-gold/25 transition-colors rounded-lg"
               >
-                <div className="w-10 h-10 rounded-full bg-maya-gold/10 text-maya-gold flex items-center justify-center shrink-0 mt-0.5">
-                  <Check size={16} />
+                <div className="w-10 h-10 rounded-full bg-maya-gold/10 text-maya-gold flex items-center justify-center shrink-0">
+                  <Check size={18} />
                 </div>
-                <div className="text-white/80 leading-relaxed">{feature.label[lang]}</div>
+                <h3 className="text-white/90 leading-snug font-medium text-sm md:text-base">
+                  {feature.label[lang]}
+                </h3>
               </div>
             ))}
           </div>
@@ -565,7 +579,12 @@ export default function Home() {
             </div>
 
             <div className="relative aspect-[16/10] md:aspect-video bg-black/50 border border-white/10 overflow-hidden group">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop')] bg-cover bg-center opacity-55 transition-all duration-700" />
+              <div 
+  className="absolute inset-0 bg-cover bg-center opacity-55 transition-all duration-700" 
+  style={{ 
+    backgroundImage: `url(${activeGeoTabContent?.image})` 
+  }}
+/>
               <div className="absolute inset-0 bg-gradient-to-t from-maya-navy via-[#0b0817]/30 to-transparent" />
 
               <div className="absolute top-5 right-5 z-20">

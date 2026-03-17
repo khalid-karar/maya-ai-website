@@ -394,6 +394,7 @@
         {
           "id": "solar",
           "label": { "ar": "الطاقة الشمسية", "en": "Solar Energy" },
+          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751440/solar-map_ite2av.jpg",
           "readiness": "available",
           "detects": { "ar": "رصد الألواح الشمسية ومراقبة النمو.", "en": "Solar panel detection and growth monitoring." },
           "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
@@ -403,6 +404,7 @@
         {
           "id": "infrastructure",
           "label": { "ar": "البنية التحتية", "en": "Infrastructure" },
+          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/infrastructure-map_sgrcqb.png",
           "readiness": "available",
           "detects": { "ar": "مراقبة التوسع العمراني والإنشاءات.", "en": "Urban expansion and construction monitoring." },
           "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
@@ -412,6 +414,7 @@
         {
           "id": "vegetation",
           "label": { "ar": "الغطاء النباتي", "en": "Vegetation" },
+          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/vegetation-map_e5a5yl.jpg",
           "readiness": "available",
           "detects": { "ar": "تحليل الغطاء النباتي وتقييم الصحة.", "en": "Green cover analysis and health assessment." },
           "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
@@ -421,6 +424,7 @@
         {
           "id": "disaster",
           "label": { "ar": "إدارة الكوارث", "en": "Disaster Ops" },
+          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/disaster-map_frvg4g.jpg",
           "readiness": "available",
           "detects": { "ar": "تقييم الأضرار وتحليل الأثر.", "en": "Damage assessment and impact analysis." },
           "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
@@ -430,6 +434,7 @@
         {
           "id": "mobility",
           "label": { "ar": "التنقل والحشود", "en": "Mobility" },
+          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751438/mobility-map_njppie.jpg",
           "readiness": "available",
           "detects": { "ar": "تحليل تدفق الحركة وكثافة الحشود.", "en": "Traffic flow and crowd density analysis." },
           "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
@@ -439,6 +444,7 @@
         {
           "id": "industrial",
           "label": { "ar": "القطاع الصناعي", "en": "Industrial" },
+          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751438/industrial-map_nrsgvi.jpg",
           "readiness": "available",
           "detects": { "ar": "مراقبة النشاط وتقدير الأحجام.", "en": "Activity monitoring and volume estimation." },
           "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
