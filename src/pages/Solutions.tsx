@@ -210,7 +210,7 @@ export default function Solutions() {
                           to="/contact"
                           className="mt-auto w-full py-3.5 flex items-center justify-center gap-2 bg-white/5 hover:bg-maya-gold hover:text-maya-navy border border-white/10 hover:border-transparent text-white transition-all duration-300 text-xs font-bold uppercase tracking-widest"
                         >
-                          Contact Maya
+                          Request a Private Briefing
                           {direction === 'rtl' ? (
                             <ArrowRight size={14} className="rotate-180" />
                           ) : (
@@ -273,7 +273,7 @@ export default function Solutions() {
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
               >
-                {solutionsContent.cta.link[lang]}
+                Request a Private Briefing
                 {direction === 'rtl' ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
               </Link>
             </div>

@@ -516,7 +516,7 @@ export default function GeoAI() {
               to="/contact"
               className="inline-flex items-center gap-2 px-10 py-5 bg-maya-gold text-maya-navy hover:bg-white transition-colors font-bold text-sm uppercase tracking-widest"
             >
-              Contact Maya
+              Request a Private Briefing
               {direction === 'rtl' ? (
                 <ArrowRight size={16} className="rotate-180" />
               ) : (

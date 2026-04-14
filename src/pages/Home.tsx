@@ -116,10 +116,10 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Link
-                to={homeContent.hero.cta.primary.path}
+                to="/contact"
                 className="px-8 py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest hover:bg-white transition-colors flex items-center justify-center gap-2"
               >
-                {homeContent.hero.cta.primary.label[lang]}
+                Start Strategic Conversation
                 {direction === 'rtl' ? (
                   <ArrowRight size={16} className="rotate-180" />
                 ) : (
@@ -128,10 +128,10 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
               </Link>
 
               <Link
-                to="/solutions"
+                to="/capabilities"
                 className="px-8 py-4 border border-white/15 bg-white/[0.03] text-white font-bold text-sm uppercase tracking-widest hover:bg-white/[0.08] transition-colors flex items-center justify-center gap-2"
               >
-                Explore Solutions
+                Explore Capabilities
                 {direction === 'rtl' ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
               </Link>
             </div>
@@ -151,16 +151,14 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
       </section>
 
       {/* What Maya does */}
-      <section className="py-24 border-t border-white/10">
+      <section className="py-20 md:py-24 border-t border-white/10">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
             <h2 className="text-3xl md:text-5xl font-display mb-6">
-              What Maya builds
+              Applied AI for serious operations
             </h2>
             <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-3xl">
-              Maya AI develops applied intelligence systems for organizations that need more than experimentation.
-              We build secure, operationally useful AI capabilities that help teams execute faster, make better decisions,
-              and handle complex workflows with greater consistency.
+              Maya designs and deploys intelligence systems proven across enterprise, infrastructure, and mission-critical environments. We don't build generic tools—we build operational AI that integrates into real workflows, scales with governance requirements, and delivers measurable value.
             </p>
           </div>
         </div>
@@ -306,6 +304,58 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
         </div>
       </section>
 
+      {/* All Capabilities Breadth */}
+      <section className="py-24 bg-[#0e0c1d] border-y border-white/5">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mb-12">
+            <h2 className="text-3xl md:text-4xl font-display mb-4">
+              Six core capability pillars
+            </h2>
+            <p className="text-white/55 text-lg leading-relaxed">
+              From workflow automation to spatial intelligence—Maya's capabilities span the full spectrum of applied AI. Organizations combine these to build sovereign-ready solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="border border-white/10 bg-white/[0.02] p-6 hover:border-maya-gold/20 transition-colors">
+              <div className="text-sm font-bold text-maya-gold uppercase tracking-widest mb-3">Execution</div>
+              <h3 className="text-lg font-display text-white mb-2">AI Agents & Workflow Automation</h3>
+              <p className="text-white/55 text-sm leading-relaxed">Structured automation for internal workflows, approvals, and service execution with human oversight.</p>
+            </div>
+
+            <div className="border border-white/10 bg-white/[0.02] p-6 hover:border-maya-gold/20 transition-colors">
+              <div className="text-sm font-bold text-maya-gold uppercase tracking-widest mb-3">Voice & Service</div>
+              <h3 className="text-lg font-display text-white mb-2">Voice & Service Intelligence</h3>
+              <p className="text-white/55 text-sm leading-relaxed">AI voice agents, call handling, service workflows, and customer interaction intelligence.</p>
+            </div>
+
+            <div className="border border-white/10 bg-white/[0.02] p-6 hover:border-maya-gold/20 transition-colors">
+              <div className="text-sm font-bold text-maya-gold uppercase tracking-widest mb-3">Visibility</div>
+              <h3 className="text-lg font-display text-white mb-2">Spatial & Operational Intelligence</h3>
+              <p className="text-white/55 text-sm leading-relaxed">Infrastructure monitoring, field operations, and environmental visibility through applied intelligence.</p>
+            </div>
+
+            <div className="border border-white/10 bg-white/[0.02] p-6 hover:border-maya-gold/20 transition-colors">
+              <div className="text-sm font-bold text-maya-gold uppercase tracking-widest mb-3">Knowledge</div>
+              <h3 className="text-lg font-display text-white mb-2">Knowledge & Document Intelligence</h3>
+              <p className="text-white/55 text-sm leading-relaxed">Document understanding, information extraction, knowledge retrieval, and content operationalization.</p>
+            </div>
+
+            <div className="border border-white/10 bg-white/[0.02] p-6 hover:border-maya-gold/20 transition-colors">
+              <div className="text-sm font-bold text-maya-gold uppercase tracking-widest mb-3">Applications</div>
+              <h3 className="text-lg font-display text-white mb-2">Custom AI Platforms & Applications</h3>
+              <p className="text-white/55 text-sm leading-relaxed">Purpose-built intelligence systems, dashboards, and operational platforms tailored to your environment.</p>
+            </div>
+
+            <div className="border border-white/10 bg-white/[0.02] p-6 hover:border-maya-gold/20 transition-colors">
+              <div className="text-sm font-bold text-maya-gold uppercase tracking-widest mb-3">Deployment</div>
+              <h3 className="text-lg font-display text-white mb-2">Private AI Deployment</h3>
+              <p className="text-white/55 text-sm leading-relaxed">Cloud, private cloud, on-prem, and hybrid deployment models aligned to your control and security requirements.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Spatial Intelligence */}
       <section className="py-24 bg-maya-navy relative overflow-hidden border-y border-white/5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(201,162,39,0.08),transparent_18%)] pointer-events-none" />
@@ -435,6 +485,57 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
         </div>
       </section>
 
+      {/* Credibility & Context */}
+      <section className="py-24 bg-[#0e0c1d] border-y border-white/5">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Technology & Infrastructure */}
+            <div>
+              <h3 className="text-sm font-bold text-maya-gold uppercase tracking-widest mb-2">
+                Technology & Infrastructure
+              </h3>
+              <h2 className="text-2xl md:text-3xl font-display text-white mb-6">
+                Built on enterprise-grade platforms
+              </h2>
+              <p className="text-white/60 text-sm mb-8 leading-relaxed">
+                Maya integrates with industry-leading cloud providers, data infrastructures, and operational systems. Solutions are architected for seamless integration within existing enterprise ecosystems.
+              </p>
+              <div className="space-y-3 text-white/70 text-sm">
+                <div>Cloud: AWS, Azure, Google Cloud</div>
+                <div>Integration: REST, gRPC, webhooks, enterprise messaging</div>
+                <div>Orchestration: Kubernetes, containerized deployment</div>
+                <div>Data: Enterprise databases, data lakes, data warehouses</div>
+              </div>
+            </div>
+
+            {/* Deployment Contexts */}
+            <div>
+              <h3 className="text-sm font-bold text-maya-gold uppercase tracking-widest mb-2">
+                Deployment Contexts
+              </h3>
+              <h2 className="text-2xl md:text-3xl font-display text-white mb-6">
+                Proven across serious environments
+              </h2>
+              <p className="text-white/60 text-sm mb-8 leading-relaxed">
+                Maya's systems operate in mission-critical, enterprise-scale, and compliance-heavy environments where operational reliability, security, and auditability are non-negotiable.
+              </p>
+              <div className="space-y-3 text-white/70 text-sm">
+                <div>✓ Enterprise operations and internal workflows</div>
+                <div>✓ Infrastructure and field operations</div>
+                <div>✓ Service delivery and customer workflows</div>
+                <div>✓ Compliance, oversight, and mission-critical contexts</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-14 pt-12 border-t border-white/10">
+            <p className="text-white/35 text-xs leading-relaxed max-w-3xl">
+              Maya prioritizes confidentiality in all client engagements. Specific organizational references, detailed case studies, deployment architectures, and implementation results are shared directly with appropriate confidentiality agreements.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-28 bg-maya-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-maya-gold/5" />
@@ -442,66 +543,30 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
           <div className="max-w-5xl mx-auto bg-[#0b0816] border border-white/10 p-10 md:p-12 shadow-2xl relative">
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-maya-light-gold to-maya-gold" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-display mb-6">
-                  {homeContent.cta.headline[lang]}
-                </h2>
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-display mb-6">
+                Ready to discuss sovereign AI deployment?
+              </h2>
 
-                <p className="text-white/62 mb-8 leading-relaxed text-base md:text-lg">
-                  {homeContent.cta.subhead[lang]}
-                </p>
+              <p className="text-white/62 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+                Share your operational environment, priorities, and deployment considerations. Our team will respond with strategic recommendations aligned to your context.
+              </p>
 
-                <div className="space-y-4">
-                  {homeContent.governance.features.slice(0, 3).map((feat, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-white/74 text-sm">
-                      <Check size={16} className="text-maya-gold shrink-0" />
-                      {feat.label[lang]}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-maya-gold text-maya-navy hover:bg-white transition-colors font-bold text-sm uppercase tracking-widest"
+              >
+                Request a Private Briefing
+                {direction === 'rtl' ? (
+                  <ArrowRight size={18} className="rotate-180" />
+                ) : (
+                  <ArrowRight size={18} />
+                )}
+              </Link>
 
-              <form className="space-y-4">
-                <h3 className="text-maya-gold mb-4 text-sm font-bold uppercase tracking-widest">
-                  {homeContent.cta.form.title[lang]}
-                </h3>
-
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    className="w-full bg-white/5 border border-white/10 p-3.5 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/30"
-                  />
-                </div>
-
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Work Email"
-                    className="w-full bg-white/5 border border-white/10 p-3.5 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/30"
-                  />
-                </div>
-
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Company"
-                    className="w-full bg-white/5 border border-white/10 p-3.5 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/30"
-                  />
-                </div>
-
-                <button
-                  type="button"
-                  className="w-full py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest hover:bg-white transition-colors mt-2"
-                >
-                  {homeContent.cta.form.submitLabel[lang]}
-                </button>
-
-                <p className="text-[11px] text-white/30 mt-4 leading-relaxed">
-                  {homeContent.cta.form.disclaimer[lang]}
-                </p>
-              </form>
+              <p className="text-white/35 text-xs mt-10">
+                Incoming inquiries are handled with professional confidentiality and reviewed in accordance with your organization's context and deployment requirements.
+              </p>
             </div>
           </div>
         </div>
