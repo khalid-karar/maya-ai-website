@@ -292,7 +292,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                 </p>
 
                 <Link
-                  to="/solutions"
+                  to={idx === 0 ? '/solutions?category=enterprise-operations' : idx === 1 ? '/solutions?category=service-workflows' : idx === 2 ? '/solutions?category=compliance-risk' : '/solutions?category=enterprise-operations'}
                   className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
                 >
                   Explore Solutions

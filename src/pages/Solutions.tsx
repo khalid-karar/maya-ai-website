@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -14,7 +14,7 @@ import {
   Lock,
   Briefcase,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import content from '../data/site-content.json';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/context/LanguageContext';
@@ -31,6 +31,20 @@ export default function Solutions() {
   const { language, direction } = useLanguage();
   const lang: Lang = language === 'en' ? 'en' : 'ar';
   const solutionsContent = content.pages.solutions;
+  const [searchParams] = useSearchParams();
+
+  // Scroll to category section when page loads with category query param
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    if (categoryParam) {
+      const categorySection = document.querySelector(`[data-solutions-category="${categoryParam}"]`);
+      if (categorySection) {
+        setTimeout(() => {
+          categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [searchParams]);
 
   const categoryMeta = {
     'enterprise-operations': {
@@ -128,6 +142,7 @@ export default function Solutions() {
                 viewport={{ once: true }}
                 transition={{ delay: categoryIndex * 0.06 }}
                 className="relative"
+                data-solutions-category={category.id}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-10 items-start mb-10">
                   <div className="lg:sticky lg:top-28">
