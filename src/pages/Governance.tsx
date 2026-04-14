@@ -6,10 +6,10 @@ import {
   Server,
   Database,
   CheckCircle2,
-  ArrowRight,
   ChevronLeft,
   ChevronRight,
   Building2,
+  Globe,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import content from '../data/site-content.json';
@@ -23,21 +23,22 @@ export default function Governance() {
   const lang: Lang = language === 'en' ? 'en' : 'ar';
   const pageContent = content.pages.governance;
 
-  const deploymentIcons = [Server, Lock, Building2];
-  const controlsIcons = [Database, Shield, Lock, CheckCircle2];
+  const pillarIcons = [Shield, Globe, Lock];
+  const deploymentIcons = [Globe, Shield, Lock, Server];
+  const controlsIcons = [Database, CheckCircle2, Shield, Building2];
 
   return (
     <div className="w-full bg-maya-navy min-h-screen pt-32 md:pt-36 pb-24">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5 bg-[#0a0816]">
-        
-        {/* Pattern Background Image */}
-        <div 
-          className="absolute inset-0 pointer-events-none bg-cover bg-center opacity-40 mix-blend-screen"
-          style={{ backgroundImage: "url('https://res.cloudinary.com/dzipj6lnb/image/upload/v1773752774/governance-pattern_qbxdkt.jpg')" }} 
+        <div
+          className="absolute inset-0 pointer-events-none bg-cover bg-center opacity-35 mix-blend-screen"
+          style={{
+            backgroundImage:
+              "url('https://res.cloudinary.com/dzipj6lnb/image/upload/v1773752774/governance-pattern_qbxdkt.jpg')",
+          }}
         />
 
-        {/* Existing Glowing Effects (Keep these to blend with the pattern) */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[860px] h-[360px] bg-maya-gold/10 blur-[130px] rounded-full" />
           <div className="absolute bottom-0 right-0 w-[320px] h-[320px] bg-white/5 blur-[110px] rounded-full" />
@@ -52,15 +53,8 @@ export default function Governance() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-gold/10 mb-6">
               <Shield size={14} className="text-maya-gold" />
-              <span
-                className={cn(
-                  'text-xs text-maya-gold',
-                  lang === 'en'
-                    ? 'font-mono uppercase tracking-widest'
-                    : 'font-semibold tracking-wide'
-                )}
-              >
-                {lang === 'ar' ? 'الثقة التشغيلية' : 'Operational Trust'}
+              <span className="text-xs text-maya-gold font-mono uppercase tracking-widest">
+                Deployment & Sovereign Control
               </span>
             </div>
 
@@ -81,24 +75,38 @@ export default function Governance() {
 
       {/* Pillars */}
       <section className="container mx-auto px-6 py-20 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {pageContent.pillars.map((item: any, idx: number) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.06 }}
-              className="border border-white/10 bg-white/[0.02] p-8 hover:border-maya-gold/25 transition-colors"
-            >
-              <div className="w-12 h-12 rounded-full bg-white/5 text-maya-gold flex items-center justify-center mb-5">
-                {idx === 0 ? <Database size={18} /> : idx === 1 ? <Shield size={18} /> : <Server size={18} />}
-              </div>
+        <div className="max-w-3xl mb-10">
+          <h2 className="text-3xl md:text-4xl font-display text-white mb-4">
+            Deployment built around security, control, and operational fit
+          </h2>
+          <p className="text-white/58 text-lg leading-relaxed">
+            Maya structures sovereign-ready solutions around the realities of each environment,
+            including security requirements, data sensitivity, integration boundaries, and operational constraints.
+          </p>
+        </div>
 
-              <h3 className="text-2xl font-display text-white mb-4">{item.title[lang]}</h3>
-              <p className="text-white/58 leading-relaxed">{item.desc[lang]}</p>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {pageContent.pillars.map((item: any, idx: number) => {
+            const Icon = pillarIcons[idx] || Shield;
+
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.06 }}
+                className="border border-white/10 bg-white/[0.02] p-8 hover:border-maya-gold/25 transition-colors"
+              >
+                <div className="w-12 h-12 rounded-full bg-white/5 text-maya-gold flex items-center justify-center mb-5">
+                  <Icon size={18} />
+                </div>
+
+                <h3 className="text-2xl font-display text-white mb-4">{item.title[lang]}</h3>
+                <p className="text-white/58 leading-relaxed">{item.desc[lang]}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
@@ -108,9 +116,13 @@ export default function Governance() {
           <h2 className="text-3xl md:text-4xl font-display text-white mb-4">
             {pageContent.deploymentModels.title[lang]}
           </h2>
+          <p className="text-white/58 text-lg leading-relaxed">
+            Deployment choices should reflect the environment, not force it. Maya supports sovereign-ready
+            deployment models that align to security, governance, and operational priorities.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {pageContent.deploymentModels.items.map((item: any, idx: number) => {
             const Icon = deploymentIcons[idx] || Server;
             return (
@@ -136,6 +148,10 @@ export default function Governance() {
           <h2 className="text-3xl md:text-4xl font-display text-white mb-4">
             {pageContent.controls.title[lang]}
           </h2>
+          <p className="text-white/58 text-lg leading-relaxed">
+            Sovereign solutions require more than hosting choices. They require operational controls,
+            auditability, access discipline, and implementation shaped around enterprise realities.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -170,6 +186,10 @@ export default function Governance() {
             <h2 className="text-3xl md:text-4xl font-display text-white mb-4">
               {pageContent.operatingModel.title[lang]}
             </h2>
+            <p className="text-white/58 text-lg leading-relaxed">
+              Maya serves organizations across Saudi Arabia and the United States through a unified model
+              focused on applied AI delivery, secure implementation, and long-term operational value.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -11,107 +11,82 @@ import {
   Server,
   Lock,
   MapPin,
-  Activity,
-  Building2,
   Briefcase,
-  Radar,
+  Building2,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import content from '../data/site-content.json';
 import { cn } from '@/lib/utils';
 import HeroVideo from '@/components/ui/HeroVideo';
 import { useLanguage } from '@/context/LanguageContext';
-import RequestModal from '@/components/ui/RequestModal';
 
 type Lang = 'ar' | 'en';
-type ReadinessType = 'available' | 'pilot' | 'strategic';
 
 export default function Home() {
   const { language, direction } = useLanguage();
   const lang: Lang = language === 'en' ? 'en' : 'ar';
 
   const homeContent = content.pages.home;
-  const geoContent = content.pages.geoai;
   const solutionsContent = content.pages.solutions;
+const geoHero = content?.pages?.geoai?.hero;
+const geoTabs = content?.pages?.geoai?.tabs ?? [];
 
-  const [activeGeoTab, setActiveGeoTab] = useState(geoContent.tabs[0].id);
-  const activeGeoTabContent = geoContent.tabs.find((t) => t.id === activeGeoTab);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedSolution, setSelectedSolution] = useState('');
-  const [selectedReadiness, setSelectedReadiness] = useState<ReadinessType>('available');
-
-  const readinessConfig = {
-    available: {
-      label: { ar: 'جاهز الآن', en: 'Available Now' },
-      color: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-      cta: { ar: 'اطلب عرضًا', en: 'Request Demo' },
-    },
-    pilot: {
-      label: { ar: 'جاهز للتجربة', en: 'Pilot Ready' },
-      color: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-      cta: { ar: 'اطلب مذكرة تجربة', en: 'Request Pilot Brief' },
-    },
-    strategic: {
-      label: { ar: 'برنامج استراتيجي', en: 'Strategic Program' },
-      color: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
-      cta: { ar: 'اطلب مذكرة تنفيذية', en: 'Request Executive Brief' },
-    },
-  } satisfies Record<
-    ReadinessType,
-    {
-      label: Record<Lang, string>;
-      color: string;
-      cta: Record<Lang, string>;
-    }
-  >;
-
-  const featuredSolutions = useMemo(() => {
-    return solutionsContent.categories
-      .slice(0, 2)
-      .flatMap((cat) => cat.items)
-      .slice(0, 4);
-  }, [solutionsContent.categories]);
-
-  const handleCtaClick = (solution: any) => {
-    const readiness = (solution.readiness || 'available') as ReadinessType;
-
-    if (readiness === 'available') {
-      window.location.href = '/contact';
-      return;
-    }
-
-    setSelectedSolution(solution.title[lang]);
-    setSelectedReadiness(readiness);
-    setIsModalOpen(true);
+  const capabilityIcons = {
+    Shield,
+    Globe,
+    Cpu,
   };
 
   const heroProofs = [
-    { ar: 'شركة سعودية', en: 'Saudi-Based Company' },
-    { ar: 'جاهزية حكومية ومؤسسية', en: 'Government & Enterprise Ready' },
-    { ar: 'سحابة سيادية / داخل المنشأة / هجينة', en: 'Sovereign / On-Prem / Hybrid' },
-    { ar: 'امتداد استراتيجي أمريكي', en: 'U.S. Strategic Extension' },
+    { ar: 'Applied AI for enterprise and mission-critical environments', en: 'Applied AI for enterprise and mission-critical environments' },
+    { ar: 'Operating across Saudi Arabia and the United States', en: 'Operating across Saudi Arabia and the United States' },
+    { ar: 'Cloud, private cloud, on-prem, and hybrid deployment', en: 'Cloud, private cloud, on-prem, and hybrid deployment' },
+    { ar: 'Built for security, control, and operational impact', en: 'Built for security, control, and operational impact' },
+  ];
+
+  const solutionHighlights = [
+    {
+      title: { ar: 'Enterprise Operations', en: 'Enterprise Operations' },
+      desc: {
+        ar: 'AI capabilities that improve execution across internal workflows, reporting, coordination, and structured business processes.',
+        en: 'AI capabilities that improve execution across internal workflows, reporting, coordination, and structured business processes.',
+      },
+    },
+    {
+      title: { ar: 'Customer & Service Workflows', en: 'Customer & Service Workflows' },
+      desc: {
+        ar: 'Human-supervised AI support for response handling, information access, and service operations.',
+        en: 'Human-supervised AI support for response handling, information access, and service operations.',
+      },
+    },
+    {
+      title: { ar: 'Compliance & Risk Operations', en: 'Compliance & Risk Operations' },
+      desc: {
+        ar: 'Applied intelligence for oversight, evidence handling, policy-linked processes, and environments where accountability matters.',
+        en: 'Applied intelligence for oversight, evidence handling, policy-linked processes, and environments where accountability matters.',
+      },
+    },
+    {
+      title: { ar: 'Infrastructure & Field Intelligence', en: 'Infrastructure & Field Intelligence' },
+      desc: {
+        ar: 'Operational visibility and intelligence support for environments linked to assets, infrastructure, and distributed activity.',
+        en: 'Operational visibility and intelligence support for environments linked to assets, infrastructure, and distributed activity.',
+      },
+    },
   ];
 
   return (
     <div className="w-full bg-maya-navy">
-      <RequestModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        solutionTitle={selectedSolution}
-        readinessType={selectedReadiness}
-      />
-
-      
       {/* Hero */}
       <section className="relative min-h-screen w-full overflow-hidden flex items-center">
         <HeroVideo
-          poster="/assets/hero-poster.jpg"
+          poster={homeContent.hero.poster}
           videoSrc="https://res.cloudinary.com/dzipj6lnb/video/upload/v1773751729/Loop_video_medium_quality_f1sjvq.mp4"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-[#06040d]/90 via-[#06040d]/40 to-[#070511]/80 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#06040d]/90 via-[#06040d]/45 to-[#070511]/82 z-10 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(201,162,39,0.10),transparent_22%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.04),transparent_18%)] z-10 pointer-events-none" />
+
         <div className="container mx-auto px-6 relative z-20 pt-24 md:pt-28">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
@@ -124,9 +99,7 @@ export default function Home() {
               <span
                 className={cn(
                   'text-xs text-maya-gold',
-                  lang === 'en'
-                    ? 'font-mono uppercase tracking-[0.22em]'
-                    : 'font-semibold tracking-normal'
+                  'font-mono uppercase tracking-[0.22em]'
                 )}
               >
                 {homeContent.hero.status[lang]}
@@ -158,7 +131,7 @@ export default function Home() {
                 to="/solutions"
                 className="px-8 py-4 border border-white/15 bg-white/[0.03] text-white font-bold text-sm uppercase tracking-widest hover:bg-white/[0.08] transition-colors flex items-center justify-center gap-2"
               >
-                {lang === 'ar' ? 'استكشف الحلول' : 'Explore Solutions'}
+                Explore Solutions
                 {direction === 'rtl' ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
               </Link>
             </div>
@@ -176,113 +149,22 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      <section className="py-28 border-t border-white/10">
-  <div className="container mx-auto px-6">
 
-    <div className="max-w-3xl mb-16">
-      <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-        {language === 'ar' ? 'نموذج التشغيل المؤسسي' : 'Institutional Operating Model'}
-      </h2>
-
-      <p className="text-white/60 text-lg">
-        {language === 'ar'
-          ? 'تعمل Maya AI مع الجهات الحكومية والمؤسسات الكبرى عبر مسار واضح يبدأ بالتقييم وينتهي بالنشر التشغيلي الكامل.'
-          : 'Maya AI works with governments and major institutions through a structured engagement model that moves from assessment to full operational deployment.'}
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-
-      {/* Step 1 */}
-      <div className="border border-white/10 p-6 rounded-xl bg-white/[0.02]">
-        <div className="text-maya-gold mb-4">01</div>
-        <h3 className="font-bold text-lg mb-3">
-          {language === 'ar' ? 'التقييم المؤسسي' : 'Institutional Assessment'}
-        </h3>
-        <p className="text-white/60 text-sm">
-          {language === 'ar'
-            ? 'تحليل التحديات التشغيلية والبيانات المتاحة لتحديد نطاق البرنامج.'
-            : 'Evaluate operational challenges and available data to define program scope.'}
-        </p>
-      </div>
-
-      {/* Step 2 */}
-      <div className="border border-white/10 p-6 rounded-xl bg-white/[0.02]">
-        <div className="text-maya-gold mb-4">02</div>
-        <h3 className="font-bold text-lg mb-3">
-          {language === 'ar' ? 'برنامج تجريبي' : 'Pilot Deployment'}
-        </h3>
-        <p className="text-white/60 text-sm">
-          {language === 'ar'
-            ? 'تنفيذ تجربة محدودة لقياس الأثر التشغيلي والتحقق من جدوى الحل.'
-            : 'Deploy a controlled pilot to validate operational impact and system performance.'}
-        </p>
-      </div>
-
-      {/* Step 3 */}
-      <div className="border border-white/10 p-6 rounded-xl bg-white/[0.02]">
-        <div className="text-maya-gold mb-4">03</div>
-        <h3 className="font-bold text-lg mb-3">
-          {language === 'ar' ? 'التكامل المؤسسي' : 'Operational Integration'}
-        </h3>
-        <p className="text-white/60 text-sm">
-          {language === 'ar'
-            ? 'دمج الأنظمة مع البنية التحتية الرقمية الحالية والأنظمة المؤسسية.'
-            : 'Integrate the platform with institutional systems and existing digital infrastructure.'}
-        </p>
-      </div>
-
-      {/* Step 4 */}
-      <div className="border border-white/10 p-6 rounded-xl bg-white/[0.02]">
-        <div className="text-maya-gold mb-4">04</div>
-        <h3 className="font-bold text-lg mb-3">
-          {language === 'ar' ? 'النشر التشغيلي' : 'Operational Deployment'}
-        </h3>
-        <p className="text-white/60 text-sm">
-          {language === 'ar'
-            ? 'توسيع الحل إلى مستوى مؤسسي أو وطني مع ضوابط الحوكمة والتشغيل.'
-            : 'Scale the system to institutional or national deployment with governance controls.'}
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>        
-      {/* Reference Ecosystem */}
-      {homeContent.partners && (
-        <section className="py-12 bg-[#0a0816] border-y border-white/5 overflow-hidden">
-          <div className="container mx-auto px-6 mb-8 text-center">
-            <h3
-              className={cn(
-                'text-sm text-white/40',
-                lang === 'en' ? 'font-bold uppercase tracking-widest' : 'font-bold tracking-wide'
-              )}
-            >
-              {homeContent.partners.title[lang]}
-            </h3>
+      {/* What Maya does */}
+      <section className="py-24 border-t border-white/10">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl">
+            <h2 className="text-3xl md:text-5xl font-display mb-6">
+              What Maya builds
+            </h2>
+            <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-3xl">
+              Maya AI develops applied intelligence systems for organizations that need more than experimentation.
+              We build secure, operationally useful AI capabilities that help teams execute faster, make better decisions,
+              and handle complex workflows with greater consistency.
+            </p>
           </div>
-
-          <div className="relative w-full flex">
-            <div className="absolute left-0 top-0 w-24 md:w-48 h-full bg-gradient-to-r from-[#0a0816] to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 w-24 md:w-48 h-full bg-gradient-to-l from-[#0a0816] to-transparent z-10 pointer-events-none" />
-
-            <motion.div
-              className="flex gap-16 md:gap-28 items-center min-w-max px-8"
-              animate={{ x: direction === 'rtl' ? ['0%', '50%'] : ['0%', '-50%'] }}
-              transition={{ repeat: Infinity, ease: 'linear', duration: 32 }}
-            >
-              {[...homeContent.partners.logos, ...homeContent.partners.logos].map((logo, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-                >
-                  <img src={logo.src} alt={logo.name} className="h-12 w-auto object-contain" />
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Core Capabilities */}
       <section className="py-24 bg-maya-navy relative">
@@ -298,7 +180,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {homeContent.pillars.items.map((item, idx) => {
-              const Icon = item.icon === 'Shield' ? Shield : item.icon === 'Globe' ? Globe : Cpu;
+              const Icon =
+                capabilityIcons[item.icon as keyof typeof capabilityIcons] || Cpu;
 
               return (
                 <motion.div
@@ -324,13 +207,10 @@ export default function Home() {
                   </p>
 
                   <Link
-                    to={idx === 1 ? '/geoai' : '/solutions'}
-                    className={cn(
-                      'inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto',
-                      lang === 'en' ? 'uppercase tracking-widest' : 'tracking-wide'
-                    )}
+                    to={idx === 1 ? '/capabilities' : '/solutions'}
+                    className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
                   >
-                    {lang === 'ar' ? 'اعرف المزيد' : 'Learn More'}
+                    Learn More
                     {direction === 'rtl' ? <ChevronLeft size={12} /> : <ChevronRight size={12} />}
                   </Link>
                 </motion.div>
@@ -339,22 +219,21 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      
 
-      {/* Governance Strip */}
-      {/* Governance Strip */}
-      <section 
+      {/* Why organizations choose Maya */}
+      <section
         className="py-20 bg-[#0e0c1d] border-y border-white/5"
-        aria-labelledby="governance-heading"
+        aria-labelledby="why-maya-heading"
       >
         <div className="container mx-auto px-6">
-          
-          {/* Section Header - Natural Alignment */}
           <div className="max-w-3xl mb-10">
-            <h2 id="governance-heading" className="text-3xl md:text-4xl font-display font-bold">
+            <h2 id="why-maya-heading" className="text-3xl md:text-4xl font-display font-bold mb-4">
               {homeContent.governance.headline[lang]}
             </h2>
+            <p className="text-white/55 text-lg leading-relaxed">
+              Our work is shaped around operational usefulness, secure deployment, and controlled execution.
+              We focus on systems that fit real enterprise environments rather than abstract demonstrations.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
@@ -375,273 +254,103 @@ export default function Home() {
         </div>
       </section>
 
-<section className="py-24 bg-[#0e0c1d] border-y border-white/5">
-  <div className="container mx-auto px-6">
-    <div className="max-w-3xl mb-14">
-      <h2 className="text-3xl md:text-5xl font-display mb-4">
-        {lang === 'ar' ? 'بنية المنصة' : 'Platform Architecture'}
-      </h2>
-      <p className="text-white/55 text-lg leading-relaxed">
-        {lang === 'ar'
-          ? 'من طبقة البيانات إلى الذكاء التشغيلي، تربط Maya AI بين المصادر، النماذج، والتطبيقات ضمن بنية موحدة قابلة للنشر.'
-          : 'From data ingestion to operational intelligence, Maya AI connects sources, models, and applications through a unified deployable architecture.'}
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <div className="relative border border-white/10 bg-white/[0.02] p-6">
-        <div className="text-maya-gold text-xs font-bold uppercase tracking-widest mb-4">
-          {lang === 'ar' ? '01' : '01'}
-        </div>
-        <h3 className="text-xl font-display text-white mb-4">
-          {lang === 'ar' ? 'مصادر البيانات' : 'Data Sources'}
-        </h3>
-        <ul className="space-y-2 text-white/60 text-sm leading-relaxed">
-          <li>{lang === 'ar' ? 'صور أقمار صناعية' : 'Satellite Imagery'}</li>
-          <li>{lang === 'ar' ? 'أنظمة مؤسسية' : 'Enterprise Systems'}</li>
-          <li>{lang === 'ar' ? 'بيانات ميدانية' : 'Field Data'}</li>
-          <li>{lang === 'ar' ? 'أجهزة استشعار وIoT' : 'Sensors & IoT'}</li>
-        </ul>
-      </div>
-
-      <div className="relative border border-white/10 bg-white/[0.02] p-6">
-        <div className="text-maya-gold text-xs font-bold uppercase tracking-widest mb-4">
-          02
-        </div>
-        <h3 className="text-xl font-display text-white mb-4">
-          {lang === 'ar' ? 'منصة Maya AI' : 'Maya AI Platform'}
-        </h3>
-        <ul className="space-y-2 text-white/60 text-sm leading-relaxed">
-          <li>{lang === 'ar' ? 'نماذج ذكاء اصطناعي' : 'AI Models'}</li>
-          <li>{lang === 'ar' ? 'تحليلات جيومكانية' : 'Geospatial Analytics'}</li>
-          <li>{lang === 'ar' ? 'حوكمة وصلاحيات' : 'Governance & Access'}</li>
-          <li>{lang === 'ar' ? 'تدفق وتشغيل العمليات' : 'Workflow Orchestration'}</li>
-        </ul>
-      </div>
-
-      <div className="relative border border-white/10 bg-white/[0.02] p-6">
-        <div className="text-maya-gold text-xs font-bold uppercase tracking-widest mb-4">
-          03
-        </div>
-        <h3 className="text-xl font-display text-white mb-4">
-          {lang === 'ar' ? 'الأنظمة والتطبيقات' : 'Systems & Applications'}
-        </h3>
-        <ul className="space-y-2 text-white/60 text-sm leading-relaxed">
-          <li>Tadweer360</li>
-          <li>MaaIQ</li>
-          <li>{lang === 'ar' ? 'التفتيش الذكي' : 'Smart Inspection'}</li>
-          <li>{lang === 'ar' ? 'عملاء المؤسسات' : 'Enterprise Agents'}</li>
-        </ul>
-      </div>
-
-      <div className="relative border border-white/10 bg-white/[0.02] p-6">
-        <div className="text-maya-gold text-xs font-bold uppercase tracking-widest mb-4">
-          04
-        </div>
-        <h3 className="text-xl font-display text-white mb-4">
-          {lang === 'ar' ? 'الذكاء التشغيلي' : 'Operational Intelligence'}
-        </h3>
-        <ul className="space-y-2 text-white/60 text-sm leading-relaxed">
-          <li>{lang === 'ar' ? 'لوحات تنفيذية' : 'Executive Dashboards'}</li>
-          <li>{lang === 'ar' ? 'تنبيهات ومراقبة' : 'Monitoring & Alerts'}</li>
-          <li>{lang === 'ar' ? 'امتثال وتنبؤ' : 'Compliance & Forecasting'}</li>
-          <li>{lang === 'ar' ? 'دعم اتخاذ القرار' : 'Decision Support'}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-      {/* Featured Solutions */}
+      {/* Solutions Preview */}
       <section className="py-24 bg-[#0e0c1d]">
         <div className="container mx-auto px-6">
           <div className="mb-14 max-w-3xl">
             <h2 className="text-3xl md:text-5xl font-display mb-4">
-              {solutionsContent.hero.title[lang]}
+              Where Maya creates value
             </h2>
             <p className="text-white/55 text-lg leading-relaxed">
-              {solutionsContent.hero.description[lang]}
+              Maya helps organizations apply AI where it can create real operational value,
+              from internal process execution to customer-facing workflows and decision support environments.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {featuredSolutions.map((item, idx) => {
-              const readinessKey = (item.readiness || 'available') as ReadinessType;
-              const readiness = readinessConfig[readinessKey];
+            {solutionHighlights.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.06 }}
+                className="p-8 border border-white/10 bg-maya-navy hover:border-maya-gold/30 transition-colors group relative overflow-hidden flex flex-col"
+              >
+                <div className="flex justify-between items-start gap-4 mb-5">
+                  <div className="w-11 h-11 rounded-full bg-white/5 text-maya-gold flex items-center justify-center shrink-0">
+                    {idx % 2 === 0 ? <Building2 size={18} /> : <Briefcase size={18} />}
+                  </div>
 
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.06 }}
-                  className="p-8 border border-white/10 bg-maya-navy hover:border-maya-gold/30 transition-colors group relative overflow-hidden flex flex-col"
+                  <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded border bg-white/5 text-white/70 border-white/10">
+                    Operational Use Case
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-display text-white mb-3">{item.title[lang]}</h3>
+
+                <p className="text-white/62 text-sm md:text-base mb-8 leading-relaxed flex-grow">
+                  {item.desc[lang]}
+                </p>
+
+                <Link
+                  to="/solutions"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
                 >
-                  <div className="flex justify-between items-start gap-4 mb-5">
-                    <div className="w-11 h-11 rounded-full bg-white/5 text-maya-gold flex items-center justify-center shrink-0">
-                      {idx % 2 === 0 ? <Building2 size={18} /> : <Briefcase size={18} />}
-                    </div>
-
-                    <span
-                      className={cn(
-                        'text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded border',
-                        readiness.color
-                      )}
-                    >
-                      {readiness.label[lang]}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl font-display text-white mb-3">{item.title[lang]}</h3>
-
-                  <p className="text-white/62 text-sm md:text-base mb-6 leading-relaxed flex-grow">
-                    {item.desc[lang]}
-                  </p>
-
-                  <div className="space-y-3 mb-8 text-sm">
-                    <div className="flex items-center gap-3 text-white/55">
-                      <Building2 size={14} className="text-maya-gold shrink-0" />
-                      <span>{item.buyer?.[lang]}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-white/55">
-                      <Server size={14} className="text-maya-gold shrink-0" />
-                      <span>{item.deployment?.[lang]}</span>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => handleCtaClick(item)}
-                    className={cn(
-                      'inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto',
-                      lang === 'en' ? 'uppercase tracking-widest' : 'tracking-wide'
-                    )}
-                  >
-                    {readiness.cta[lang]}
-                    {direction === 'rtl' ? <ChevronLeft size={12} /> : <ChevronRight size={12} />}
-                  </button>
-                </motion.div>
-              );
-            })}
+                  Explore Solutions
+                  {direction === 'rtl' ? <ChevronLeft size={12} /> : <ChevronRight size={12} />}
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* GeoAI Showcase */}
+      {/* Spatial Intelligence */}
       <section className="py-24 bg-maya-navy relative overflow-hidden border-y border-white/5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(201,162,39,0.08),transparent_18%)] pointer-events-none" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mb-12">
             <div className="inline-block px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-gold/10 mb-6">
-              <span
-                className={cn(
-                  'text-xs text-maya-gold',
-                  lang === 'en'
-                    ? 'font-mono uppercase tracking-widest'
-                    : 'font-semibold tracking-wide'
-                )}
-              >
-                {lang === 'ar' ? 'الذكاء الجيومكاني' : 'Geospatial Intelligence'}
+              <span className="text-xs text-maya-gold font-mono uppercase tracking-widest">
+                Spatial & Operational Intelligence
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-display mb-4">{geoContent.hero.title[lang]}</h2>
-            <p className="text-white/60 text-lg leading-relaxed whitespace-pre-line">
-              {geoContent.hero.description[lang]}
+            <h2 className="text-4xl md:text-5xl font-display mb-4">
+              {geoHero?.title?.[lang] ?? 'Spatial & Operational Intelligence'}
+            </h2>
+            <p className="text-white/60 text-lg leading-relaxed">
+              {geoHero?.description?.[lang] ?? 'Applied intelligence for environments where assets, infrastructure, and location matter.'}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-10 items-start">
-            <div className="space-y-2">
-              {geoContent.tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveGeoTab(tab.id)}
-                  className={cn(
-                    'w-full p-4 transition-all duration-300 border text-start',
-                    activeGeoTab === tab.id
-                      ? 'border-maya-gold/40 bg-white/[0.05] text-white'
-                      : 'border-white/10 text-white/45 hover:text-white/75 hover:bg-white/[0.02]'
-                  )}
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="font-bold">{tab.label[lang]}</span>
-                    <ChevronRight
-                      size={14}
-                      className={cn(
-                        'transition-transform',
-                        activeGeoTab === tab.id ? 'text-maya-gold' : 'text-white/30',
-                        direction === 'rtl' ? 'rotate-180' : ''
-                      )}
-                    />
-                  </div>
-                </button>
-              ))}
-            </div>
-
-            <div className="relative aspect-[16/10] md:aspect-video bg-black/50 border border-white/10 overflow-hidden group">
-              <div 
-  className="absolute inset-0 bg-cover bg-center opacity-55 transition-all duration-700" 
-  style={{ 
-    backgroundImage: `url(${activeGeoTabContent?.image})` 
-  }}
-/>
-              <div className="absolute inset-0 bg-gradient-to-t from-maya-navy via-[#0b0817]/30 to-transparent" />
-
-              <div className="absolute top-5 right-5 z-20">
-                <span
-                  className={cn(
-                    'text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded border',
-                    readinessConfig.available.color
-                  )}
-                >
-                  {readinessConfig.available.label[lang]}
-                </span>
-              </div>
-
-              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
-                <h3 className="text-2xl md:text-3xl font-display text-white mb-3">
-                  {activeGeoTabContent?.label[lang]}
-                </h3>
-
-                <p className="text-white/80 max-w-2xl mb-6 leading-relaxed">
-                  {activeGeoTabContent?.detects[lang]}
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  <div className="px-4 py-3 bg-black/45 border border-white/10">
-                    <div className="text-maya-gold text-xs mb-1">
-                      {lang === 'ar' ? 'المخرجات' : 'Outputs'}
-                    </div>
-                    <div className="text-white/80 text-sm">{activeGeoTabContent?.outputs[lang]}</div>
-                  </div>
-
-                  <div className="px-4 py-3 bg-black/45 border border-white/10">
-                    <div className="text-maya-gold text-xs mb-1">
-                      {lang === 'ar' ? 'الجهات المناسبة' : 'Target Buyers'}
-                    </div>
-                    <div className="text-white/80 text-sm">{activeGeoTabContent?.buyers[lang]}</div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                  <div className="inline-flex items-center gap-2 text-sm text-white/70">
-                    <Radar size={14} className="text-maya-gold" />
-                    {activeGeoTabContent?.pilot[lang]}
-                  </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {geoTabs.slice(0, 3).map((tab, idx) => (
+              <div
+                key={tab.id}
+                className="relative border border-white/10 bg-white/[0.02] overflow-hidden"
+              >
+                <div
+                  className="h-56 bg-cover bg-center opacity-55"
+                  style={{ backgroundImage: `url(${tab.image})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-maya-navy via-[#0b0817]/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-xl font-display text-white mb-2">{tab.label[lang]}</h3>
+                  <p className="text-white/75 text-sm leading-relaxed mb-4">
+                    {tab.detects[lang]}
+                  </p>
                   <Link
-                    to="/geoai"
-                    className={cn(
-                      'inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors',
-                      lang === 'en' ? 'uppercase tracking-widest' : 'tracking-wide'
-                    )}
+                    to="/capabilities"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors uppercase tracking-widest"
                   >
-                    {lang === 'ar' ? 'استكشف الذكاء الجيومكاني' : 'Explore GeoAI'}
+                    Learn More
                     {direction === 'rtl' ? <ChevronLeft size={12} /> : <ChevronRight size={12} />}
                   </Link>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -658,14 +367,22 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {homeContent.deployment.options.map((opt, idx) => (
               <div
                 key={idx}
                 className="bg-white/[0.02] border border-white/10 p-8 text-center hover:border-maya-gold/30 transition-colors"
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/5 mb-6 text-maya-gold">
-                  {idx === 0 ? <Server size={22} /> : idx === 1 ? <Lock size={22} /> : <Activity size={22} />}
+                  {idx === 0 ? (
+                    <Server size={22} />
+                  ) : idx === 1 ? (
+                    <Shield size={22} />
+                  ) : idx === 2 ? (
+                    <Lock size={22} />
+                  ) : (
+                    <Globe size={22} />
+                  )}
                 </div>
 
                 <h3 className="text-xl font-display text-white mb-3">{opt.title[lang]}</h3>
@@ -682,7 +399,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Operational Presence */}
+      {/* Operating Presence */}
       <section className="py-20 bg-maya-navy">
         <div className="container mx-auto px-6">
           <div className="border border-white/10 p-10 md:p-12 bg-white/[0.02]">
@@ -692,9 +409,7 @@ export default function Home() {
                   {homeContent.global.headline[lang]}
                 </h2>
                 <p className="text-white/50 max-w-xl leading-relaxed">
-                  {lang === 'ar'
-                    ? 'هيكل تشغيلي يربط التنفيذ المحلي في المملكة بالامتداد الاستراتيجي عبر الولايات المتحدة.'
-                    : 'An operating structure that connects local execution in the Kingdom with strategic extension through the United States.'}
+                  Maya serves organizations across Saudi Arabia and the United States through a unified operating model focused on applied AI delivery, secure implementation, and long-term operational value.
                 </p>
               </div>
 
@@ -720,7 +435,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Final CTA */}
       <section className="py-28 bg-maya-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-maya-gold/5" />
         <div className="container mx-auto px-6 relative z-10">
@@ -748,19 +463,14 @@ export default function Home() {
               </div>
 
               <form className="space-y-4">
-                <h3
-                  className={cn(
-                    'text-maya-gold mb-4',
-                    lang === 'en' ? 'text-sm font-bold uppercase tracking-widest' : 'text-sm font-bold tracking-wide'
-                  )}
-                >
+                <h3 className="text-maya-gold mb-4 text-sm font-bold uppercase tracking-widest">
                   {homeContent.cta.form.title[lang]}
                 </h3>
 
                 <div>
                   <input
                     type="text"
-                    placeholder={lang === 'ar' ? 'الاسم' : 'Name'}
+                    placeholder="Full Name"
                     className="w-full bg-white/5 border border-white/10 p-3.5 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/30"
                   />
                 </div>
@@ -768,7 +478,7 @@ export default function Home() {
                 <div>
                   <input
                     type="email"
-                    placeholder={lang === 'ar' ? 'البريد الإلكتروني للعمل' : 'Work Email'}
+                    placeholder="Work Email"
                     className="w-full bg-white/5 border border-white/10 p-3.5 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/30"
                   />
                 </div>
@@ -776,7 +486,7 @@ export default function Home() {
                 <div>
                   <input
                     type="text"
-                    placeholder={lang === 'ar' ? 'الجهة / المؤسسة' : 'Organization'}
+                    placeholder="Company"
                     className="w-full bg-white/5 border border-white/10 p-3.5 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/30"
                   />
                 </div>

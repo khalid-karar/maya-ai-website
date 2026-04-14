@@ -26,39 +26,44 @@ interface LanguageProviderProps {
 }
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
-  // Initialize state from localStorage if available, otherwise default to 'ar'
   const [language, setLanguageState] = useState<Language>(() => {
     if (typeof window !== 'undefined') {
       const savedLang = localStorage.getItem('lang') as Language;
-      return savedLang === 'en' ? 'en' : 'ar';
+      return savedLang === 'ar' ? 'ar' : 'en';
     }
-    return 'ar';
+    return 'en';
   });
 
   const direction: Direction = language === 'ar' ? 'rtl' : 'ltr';
 
-  // Update document attributes and localStorage whenever language changes
   useEffect(() => {
-    document.documentElement.lang = language;
-    document.documentElement.dir = direction;
-    localStorage.setItem('lang', language);
-  }, [language, direction]);
+    document.documentElement.lang = 'en';
+    document.documentElement.dir = 'ltr';
+    localStorage.setItem('lang', 'en');
+  }, []);
 
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
+  const setLanguage = (_lang: Language) => {
+    setLanguageState('en');
   };
 
   const toggleLanguage = () => {
-    setLanguageState(prev => prev === 'ar' ? 'en' : 'ar');
+    setLanguageState('en');
   };
 
-  // Simple translation helper
   const t = (key: string) => {
     return key;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, direction, setLanguage, toggleLanguage, t }}>
+    <LanguageContext.Provider
+      value={{
+        language: 'en',
+        direction: 'ltr',
+        setLanguage,
+        toggleLanguage,
+        t,
+      }}
+    >
       {children}
     </LanguageContext.Provider>
   );

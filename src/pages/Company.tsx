@@ -4,11 +4,11 @@ import {
   Target,
   Eye,
   Shield,
-  Cpu,
   CheckCircle2,
-  Scale,
   Building2,
   Globe2,
+  Briefcase,
+  Lock,
 } from 'lucide-react';
 import content from '../data/site-content.json';
 import { useLanguage } from '@/context/LanguageContext';
@@ -16,10 +16,10 @@ import { useLanguage } from '@/context/LanguageContext';
 type Lang = 'ar' | 'en';
 
 const valueIconMap = {
-  sovereignty: Shield,
-  innovation: Cpu,
+  practicality: Briefcase,
+  control: Lock,
   reliability: CheckCircle2,
-  compliance: Scale,
+  discipline: Shield,
 };
 
 export default function Company() {
@@ -44,15 +44,9 @@ export default function Company() {
             className="max-w-5xl mx-auto text-center"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-gold/10 mb-6">
-              <span
-  className={`text-xs text-maya-gold ${
-    lang === 'en'
-      ? 'font-mono uppercase tracking-[0.25em]'
-      : 'font-semibold tracking-normal'
-  }`}
->
-  {companyContent.hero.title[lang]}
-</span>
+              <span className="text-xs text-maya-gold font-mono uppercase tracking-[0.25em]">
+                {companyContent.hero.title[lang]}
+              </span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
@@ -80,7 +74,7 @@ export default function Company() {
       {/* Main Content */}
       <section className="py-20 md:py-24 relative">
         <div className="container mx-auto px-6">
-          {/* Who We Are */}
+          {/* About Maya */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +98,7 @@ export default function Company() {
             </div>
           </motion.div>
 
-          {/* Why Maya AI */}
+          {/* Why Maya */}
           <div className="mb-24 md:mb-28">
             <div className="max-w-3xl mb-10">
               <h2 className="text-3xl md:text-4xl font-display text-white mb-4">
@@ -136,7 +130,7 @@ export default function Company() {
             </div>
           </div>
 
-          {/* Identity + Operating Model */}
+          {/* How we operate + Operating Presence */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24 md:mb-28">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -176,13 +170,9 @@ export default function Company() {
               <div className="space-y-4">
                 {companyContent.operatingModel.items.map((item: any, idx: number) => (
                   <div key={idx} className="border border-white/8 bg-white/[0.02] p-4">
-                    <div
-  className={`text-sm text-maya-gold/90 mb-2 ${
-    lang === 'en' ? 'uppercase tracking-[0.2em]' : 'font-semibold'
-  }`}
->
-  {item.label[lang]}
-</div>
+                    <div className="text-sm text-maya-gold/90 mb-2 uppercase tracking-[0.2em]">
+                      {item.label[lang]}
+                    </div>
                     <div className="text-white/80 leading-relaxed">
                       {item.value[lang]}
                     </div>
@@ -192,7 +182,7 @@ export default function Company() {
             </motion.div>
           </div>
 
-          {/* Mission & Vision */}
+          {/* Mission & Focus */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24 md:mb-28">
             <motion.div
               initial={{ opacity: 0, x: direction === 'rtl' ? 30 : -30 }}
