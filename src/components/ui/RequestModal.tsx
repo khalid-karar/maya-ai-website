@@ -18,7 +18,7 @@ export default function RequestModal({
   solutionTitle,
   readinessType,
 }: RequestModalProps) {
-  const { language, direction } = useLanguage();
+  const { direction } = useLanguage();
   const modalContent = content.pages.requestModal;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -53,7 +53,6 @@ export default function RequestModal({
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             className="relative w-full max-w-2xl bg-maya-navy border border-white/10 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
           >
-            {/* Header */}
             <div className="p-6 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">
               <div>
                 <div className="flex items-center gap-2 text-maya-gold mb-1">
@@ -81,7 +80,6 @@ export default function RequestModal({
               </button>
             </div>
 
-            {/* Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar">
               {isSuccess ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
@@ -108,7 +106,6 @@ export default function RequestModal({
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Name */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
                         Full Name
@@ -120,7 +117,6 @@ export default function RequestModal({
                       />
                     </div>
 
-                    {/* Company */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
                         Company
@@ -132,7 +128,6 @@ export default function RequestModal({
                       />
                     </div>
 
-                    {/* Role */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
                         Role
@@ -144,7 +139,6 @@ export default function RequestModal({
                       />
                     </div>
 
-                    {/* Sector */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
                         Sector
@@ -165,7 +159,6 @@ export default function RequestModal({
                       </select>
                     </div>
 
-                    {/* Email */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
                         Email
@@ -177,7 +170,6 @@ export default function RequestModal({
                       />
                     </div>
 
-                    {/* Phone */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
                         Phone
@@ -193,7 +185,6 @@ export default function RequestModal({
                     </div>
                   </div>
 
-                  {/* Scope */}
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-white/60">
                       Area of Interest
@@ -214,7 +205,6 @@ export default function RequestModal({
                     </select>
                   </div>
 
-                  {/* Location */}
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-white/60">
                       City / Country
@@ -226,7 +216,6 @@ export default function RequestModal({
                     />
                   </div>
 
-                  {/* NDA */}
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-white/60 block mb-2">
                       Require NDA before deeper discussion?
@@ -243,7 +232,6 @@ export default function RequestModal({
                     </div>
                   </div>
 
-                  {/* Notes */}
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-white/60">
                       Notes
@@ -254,7 +242,6 @@ export default function RequestModal({
                     />
                   </div>
 
-                  {/* Submit */}
                   <button
                     type="submit"
                     disabled={isSubmitting}

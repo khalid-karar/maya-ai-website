@@ -59,53 +59,57 @@ export default function Layout({ children }: LayoutProps) {
         )}
       >
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between gap-6">
-            {/* Brand */}
-            <Link to="/" className="relative z-50 shrink-0 flex items-center">
-              <img
-                src="https://res.cloudinary.com/dzipj6lnb/image/upload/v1772830830/Just-Logo-No-Border_kgjs9d.png"
-                alt="Maya AI"
-                className={cn(
-                  'w-auto transition-all duration-300 object-contain',
-                  isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'
-                )}
-              />
-            </Link>
+          
+        <div className="flex items-center justify-between gap-6">
+  <div className="flex items-center gap-10 lg:gap-14">
+    {/* Brand */}
+    <Link to="/" className="relative z-50 shrink-0 flex items-center">
+      <img
+        src="https://res.cloudinary.com/dzipj6lnb/image/upload/v1772830830/Just-Logo-No-Border_kgjs9d.png"
+        alt="Maya AI"
+        className={cn(
+          'w-auto transition-all duration-300 object-contain',
+          isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'
+        )}
+      />
+    </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-8 lg:gap-10">
-              <nav className="flex items-center gap-6 lg:gap-8">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.id}
-                    to={link.path}
-                    className={cn(
-                      'relative text-sm font-medium transition-colors duration-300 hover:text-maya-gold',
-                      isActive(link.path) ? 'text-maya-gold' : 'text-white/78'
-                    )}
-                  >
-                    {link.label[lang]}
-                    <span
-                      className={cn(
-                        'absolute -bottom-2 left-0 h-[2px] bg-maya-gold transition-all duration-300',
-                        isActive(link.path) ? 'w-full' : 'w-0'
-                      )}
-                    />
-                  </Link>
-                ))}
-              </nav>
-            </div>
+    {/* Desktop Nav */}
+    <div className="hidden md:flex items-center">
+      <nav className="flex items-center gap-6 lg:gap-8">
+        {navLinks.map((link) => (
+          <Link
+            key={link.id}
+            to={link.path}
+            className={cn(
+              'relative text-sm font-medium transition-colors duration-300 hover:text-maya-gold',
+              isActive(link.path) ? 'text-maya-gold' : 'text-white/78'
+            )}
+          >
+            {link.label[lang]}
+            <span
+              className={cn(
+                'absolute -bottom-2 left-0 h-[2px] bg-maya-gold transition-all duration-300',
+                isActive(link.path) ? 'w-full' : 'w-0'
+              )}
+            />
+          </Link>
+        ))}
+      </nav>
+    </div>
+  </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden relative z-50 text-white"
-              onClick={() => setMobileMenuOpen((prev) => !prev)}
-              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-              type="button"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+  {/* Mobile Menu Button */}
+  <button
+    className="md:hidden relative z-50 text-white"
+    onClick={() => setMobileMenuOpen((prev) => !prev)}
+    aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+    type="button"
+  >
+    {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+  </button>
+</div>
+
         </div>
       </header>
 
