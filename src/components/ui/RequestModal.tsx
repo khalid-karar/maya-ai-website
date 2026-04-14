@@ -12,7 +12,12 @@ interface RequestModalProps {
   readinessType?: 'available' | 'pilot' | 'strategic';
 }
 
-export default function RequestModal({ isOpen, onClose, solutionTitle, readinessType }: RequestModalProps) {
+export default function RequestModal({
+  isOpen,
+  onClose,
+  solutionTitle,
+  readinessType,
+}: RequestModalProps) {
   const { language, direction } = useLanguage();
   const modalContent = content.pages.requestModal;
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,13 +26,11 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
-      // Reset after delay or keep success state until close
-    }, 1500);
+    }, 1200);
   };
 
   if (!isOpen) return null;
@@ -36,8 +39,7 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Backdrop */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -45,8 +47,7 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
           />
 
-          {/* Modal Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -58,21 +59,23 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
                 <div className="flex items-center gap-2 text-maya-gold mb-1">
                   <Lock size={14} />
                   <span className="text-[10px] font-mono uppercase tracking-widest">
-                    {language === 'ar' ? 'محدود التداول' : 'Restricted Access'}
+                    Restricted Discussion
                   </span>
                 </div>
                 <h2 className="text-xl font-display font-bold text-white">
-                  {modalContent.title[language]}
+                  {modalContent.title.en}
                 </h2>
                 {solutionTitle && (
                   <p className="text-white/50 text-sm mt-1">
-                    {language === 'ar' ? 'بخصوص:' : 'Re:'} {solutionTitle}
+                    Re: {solutionTitle}
                   </p>
                 )}
               </div>
-              <button 
+
+              <button
                 onClick={onClose}
                 className="p-2 hover:bg-white/10 rounded-full transition-colors text-white/50 hover:text-white"
+                type="button"
               >
                 <X size={20} />
               </button>
@@ -85,17 +88,21 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
                   <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center text-emerald-500 mb-6">
                     <CheckCircle2 size={32} />
                   </div>
+
                   <h3 className="text-2xl font-display font-bold text-white mb-2">
-                    {language === 'ar' ? 'تم استلام الطلب' : 'Request Received'}
+                    Request Received
                   </h3>
+
                   <p className="text-white/60 max-w-sm">
-                    {modalContent.success[language]}
+                    {modalContent.success.en}
                   </p>
-                  <button 
+
+                  <button
                     onClick={onClose}
                     className="mt-8 px-8 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors text-sm font-bold"
+                    type="button"
                   >
-                    {language === 'ar' ? 'إغلاق' : 'Close'}
+                    Close
                   </button>
                 </div>
               ) : (
@@ -104,35 +111,35 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
                     {/* Name */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
-                        {modalContent.fields.name[language]}
+                        Full Name
                       </label>
-                      <input 
+                      <input
                         required
-                        type="text" 
+                        type="text"
                         className="w-full bg-white/5 border border-white/10 rounded p-3 text-white text-sm focus:border-maya-gold outline-none transition-colors"
                       />
                     </div>
 
-                    {/* Entity */}
+                    {/* Company */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
-                        {modalContent.fields.entity[language]}
+                        Company
                       </label>
-                      <input 
+                      <input
                         required
-                        type="text" 
+                        type="text"
                         className="w-full bg-white/5 border border-white/10 rounded p-3 text-white text-sm focus:border-maya-gold outline-none transition-colors"
                       />
                     </div>
 
-                    {/* Position */}
+                    {/* Role */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
-                        {modalContent.fields.position[language]}
+                        Role
                       </label>
-                      <input 
+                      <input
                         required
-                        type="text" 
+                        type="text"
                         className="w-full bg-white/5 border border-white/10 rounded p-3 text-white text-sm focus:border-maya-gold outline-none transition-colors"
                       />
                     </div>
@@ -140,16 +147,19 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
                     {/* Sector */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
-                        {modalContent.fields.sector[language]}
+                        Sector
                       </label>
-                      <select 
+                      <select
                         required
+                        defaultValue=""
                         className="w-full bg-white/5 border border-white/10 rounded p-3 text-white text-sm focus:border-maya-gold outline-none transition-colors appearance-none"
                       >
-                        <option value="" disabled selected>{language === 'ar' ? 'اختر...' : 'Select...'}</option>
-                        {modalContent.options.sectors.map(opt => (
+                        <option value="" disabled className="bg-maya-navy text-white/50">
+                          Select...
+                        </option>
+                        {modalContent.options.sectors.map((opt) => (
                           <option key={opt.value} value={opt.value} className="bg-maya-navy">
-                            {opt.label[language]}
+                            {opt.label.en}
                           </option>
                         ))}
                       </select>
@@ -158,11 +168,11 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
                     {/* Email */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
-                        {modalContent.fields.email[language]}
+                        Email
                       </label>
-                      <input 
+                      <input
                         required
-                        type="email" 
+                        type="email"
                         className="w-full bg-white/5 border border-white/10 rounded p-3 text-white text-sm focus:border-maya-gold outline-none transition-colors"
                       />
                     </div>
@@ -170,30 +180,35 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
                     {/* Phone */}
                     <div className="space-y-2">
                       <label className="text-xs font-bold uppercase tracking-wider text-white/60">
-                        {modalContent.fields.phone[language]}
+                        Phone
                       </label>
-                      <input 
+                      <input
                         required
-                        type="tel" 
+                        type="tel"
                         dir="ltr"
-                        className={cn("w-full bg-white/5 border border-white/10 rounded p-3 text-white text-sm focus:border-maya-gold outline-none transition-colors", direction === 'rtl' ? 'text-right' : 'text-left')}
+                        className={cn(
+                          'w-full bg-white/5 border border-white/10 rounded p-3 text-white text-sm focus:border-maya-gold outline-none transition-colors text-left'
+                        )}
                       />
                     </div>
                   </div>
 
-                  {/* Scope of Interest */}
+                  {/* Scope */}
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-white/60">
-                      {modalContent.fields.scope[language]}
+                      Area of Interest
                     </label>
-                    <select 
+                    <select
                       required
+                      defaultValue=""
                       className="w-full bg-white/5 border border-white/10 rounded p-3 text-white text-sm focus:border-maya-gold outline-none transition-colors appearance-none"
                     >
-                      <option value="" disabled selected>{language === 'ar' ? 'اختر...' : 'Select...'}</option>
-                      {modalContent.options.scopes.map(opt => (
+                      <option value="" disabled className="bg-maya-navy text-white/50">
+                        Select...
+                      </option>
+                      {modalContent.options.scopes.map((opt) => (
                         <option key={opt.value} value={opt.value} className="bg-maya-navy">
-                          {opt.label[language]}
+                          {opt.label.en}
                         </option>
                       ))}
                     </select>
@@ -202,11 +217,11 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
                   {/* Location */}
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-white/60">
-                      {modalContent.fields.location[language]}
+                      City / Country
                     </label>
-                    <input 
+                    <input
                       required
-                      type="text" 
+                      type="text"
                       className="w-full bg-white/5 border border-white/10 rounded p-3 text-white text-sm focus:border-maya-gold outline-none transition-colors"
                     />
                   </div>
@@ -214,13 +229,15 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
                   {/* NDA */}
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-white/60 block mb-2">
-                      {modalContent.fields.nda[language]}
+                      Require NDA before deeper discussion?
                     </label>
-                    <div className="flex gap-6">
-                      {modalContent.options.nda.map(opt => (
+                    <div className="flex gap-6 flex-wrap">
+                      {modalContent.options.nda.map((opt) => (
                         <label key={opt.value} className="flex items-center gap-2 cursor-pointer group">
                           <input type="radio" name="nda" value={opt.value} className="accent-maya-gold" />
-                          <span className="text-white/80 text-sm group-hover:text-white transition-colors">{opt.label[language]}</span>
+                          <span className="text-white/80 text-sm group-hover:text-white transition-colors">
+                            {opt.label.en}
+                          </span>
                         </label>
                       ))}
                     </div>
@@ -229,16 +246,16 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
                   {/* Notes */}
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-white/60">
-                      {modalContent.fields.notes[language]}
+                      Notes
                     </label>
-                    <textarea 
+                    <textarea
                       rows={3}
                       className="w-full bg-white/5 border border-white/10 rounded p-3 text-white text-sm focus:border-maya-gold outline-none transition-colors resize-none"
                     />
                   </div>
 
                   {/* Submit */}
-                  <button 
+                  <button
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest hover:bg-white transition-colors rounded disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
@@ -246,7 +263,7 @@ export default function RequestModal({ isOpen, onClose, solutionTitle, readiness
                     {isSubmitting ? (
                       <div className="w-5 h-5 border-2 border-maya-navy/30 border-t-maya-navy rounded-full animate-spin" />
                     ) : (
-                      modalContent.submit[language]
+                      modalContent.submit.en
                     )}
                   </button>
                 </form>

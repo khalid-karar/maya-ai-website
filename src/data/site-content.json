@@ -1,522 +1,579 @@
 {
   "config": {
-    "defaultLang": "ar",
-    "domains": ["mayaai.sa", "mayatradingllc.com"],
+    "defaultLang": "en",
+    "domains": ["mayaai.sa", "mayaai.net"],
     "fonts": {
-      "ar": "Cairo, sans-serif",
-      "en": "Montserrat, sans-serif"
+      "ar": "Inter, sans-serif",
+      "en": "Inter, sans-serif"
     }
   },
   "common": {
     "contact": {
       "ksa": {
-        "entity": { "ar": "مايا للذكاء الاصطناعي", "en": "Maya AI" },
+        "entity": { "ar": "Maya AI", "en": "Maya AI" },
         "address": {
-          "ar": "طريق الإمام عبدالله بن سعود بن عبدالعزيز، غرناطة، الرياض 13242، المملكة العربية السعودية",
-          "en": "Al Imam Abdullah Bin Saud Bin Abdulaziz Rd, Ghirnatah, Riyadh 13242, Saudi Arabia"
+          "ar": "Riyadh, Saudi Arabia",
+          "en": "Riyadh, Saudi Arabia"
         },
         "phone": "+966 50 477 9551"
       },
       "usa": {
-        "entity": { "ar": "مايا للتجارة ذ.م.م", "en": "Maya Trading LLC" },
+        "entity": { "ar": "Maya AI", "en": "Maya AI" },
         "address": {
-          "ar": "2800 Eisenhower Ave. #220, Alexandria, VA 22314, USA",
-          "en": "2800 Eisenhower Ave. #220, Alexandria, VA 22314, USA"
+          "ar": "Alexandria, Virginia, USA",
+          "en": "Alexandria, Virginia, USA"
         },
         "phone": "+1 202 802 1976"
       },
-      "emails": ["info@mayaai.sa", "sales@mayaai.sa", "partnerships@mayaai.sa"]
+      "emails": ["info@mayaai.sa", "info@mayaai.net"]
     },
     "footer": {
       "operatingEntities": {
-        "ar": "الكيانات التشغيلية: مايا للذكاء الاصطناعي (السعودية) • مايا للتجارة (أمريكا)",
-        "en": "Operating Entities: Maya AI (KSA) • Maya Trading LLC (USA)"
+        "ar": "Operating Presence: Saudi Arabia • United States",
+        "en": "Operating Presence: Saudi Arabia • United States"
       },
       "disclaimer": {
-        "ar": "المحتوى المعروض في هذا الموقع لأغراض تعريفية فقط. ويخضع تنفيذ الأنظمة والحلول للمتطلبات التنظيمية والامتثال المؤسسي ذات الصلة.",
-        "en": "Content provided on this site is for informational purposes only. Deployment of systems and capabilities is subject to institutional,regulatory, and compliance requirements."
+        "ar": "Content on this site is provided for informational purposes only. Specific solutions, deployment models, and implementation scope are discussed in direct engagements.",
+        "en": "Content on this site is provided for informational purposes only. Specific solutions, deployment models, and implementation scope are discussed in direct engagements."
       },
       "rights": {
-        "ar": "جميع الحقوق محفوظة © 2026 مايا للذكاء الاصطناعي",
+        "ar": "© 2026 Maya AI. All rights reserved.",
         "en": "© 2026 Maya AI. All rights reserved."
       }
     }
   },
   "nav": [
-  { "id": "platform", "path": "/", "label": { "ar": "المنصّة", "en": "Platform" } },
-  { "id": "governance", "path": "/governance", "label": { "ar": "الحوكمة", "en": "Governance" } },
-  { "id": "Programs & Capabilities", "path": "/solutions", "label": { "ar": "البرامج والقدرات", "en": "Programs & Capabilities" } },
-  { "id": "geoai", "path": "/geoai", "label": { "ar": "الذكاء الجيومكاني", "en": "Geospatial Intelligence" } },
-  { "id": "programs", "path": "/national-programs", "label": { "ar": "البرامج الوطنية", "en": "National Programs" } },
-  { "id": "company", "path": "/company", "label": { "ar": "الشركة", "en": "Company" } },
-  { "id": "contact", "path": "/contact", "label": { "ar": "تواصل", "en": "Contact" } }
-],
+    { "id": "home", "path": "/", "label": { "ar": "Home", "en": "Home" } },
+    { "id": "capabilities", "path": "/capabilities", "label": { "ar": "Capabilities", "en": "Capabilities" } },
+    { "id": "solutions", "path": "/solutions", "label": { "ar": "Solutions", "en": "Solutions" } },
+    { "id": "deployment", "path": "/deployment", "label": { "ar": "Deployment", "en": "Deployment" } },
+    { "id": "company", "path": "/company", "label": { "ar": "Company", "en": "Company" } },
+    { "id": "contact", "path": "/contact", "label": { "ar": "Contact", "en": "Contact" } }
+  ],
   "pages": {
     "home": {
       "hero": {
         "video": "/assets/hero.mp4",
         "poster": "/assets/hero-poster.jpg",
         "headline": {
-          "ar": "ذكاء اصطناعي سيادي للقطاعات الوطنية والحيوية",
-          "en": "Sovereign AI for National and Vital Sectors"
+          "ar": "Secure AI systems for real-world operations",
+          "en": "Secure AI systems for real-world operations"
         },
         "subhead": {
-          "ar": "تصمم مايا AI وتطوّر وتشغّل أنظمة ذكاء اصطناعي موثوقة للجهات الحكومية والقطاعات الحساسة والمؤسسات الكبرى، مع تركيز على سيادة البيانات، الحوكمة، والجاهزية التشغيلية.",
-          "en": "Maya AI designs, develops, and operates trusted AI systems for government, critical sectors, and major enterprises, with a focus on data sovereignty, governance, and operational readiness."
+          "ar": "Maya AI designs and deploys applied intelligence systems that improve workflows, decision-making, and service delivery across enterprise and mission-critical environments. Operating across Saudi Arabia and the United States, we build for organizations that need capability, security, and operational impact.",
+          "en": "Maya AI designs and deploys applied intelligence systems that improve workflows, decision-making, and service delivery across enterprise and mission-critical environments. Operating across Saudi Arabia and the United States, we build for organizations that need capability, security, and operational impact."
         },
         "cta": {
           "primary": {
-            "label": { "ar": "اطلب إحاطة استراتيجية", "en": "Request Strategic Brief" },
+            "label": { "ar": "Request a Private Briefing", "en": "Request a Private Briefing" },
             "path": "/contact"
           }
         },
-        "status": { "ar": "جاهزية تشغيلية", "en": "Operationally Ready" }
+        "status": { "ar": "Operationally Ready", "en": "Operationally Ready" }
       },
-      "partners": {
-        "title": { "ar": "المنظومة المرجعية", "en": "Reference Ecosystem" },
-        "logos": [
-  { "name": "NASA", "src": "https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" },
-  { "name": "ESA", "src": "https://upload.wikimedia.org/wikipedia/commons/8/80/ESA_logo.svg" },
-  { "name": "NOAA", "src": "https://upload.wikimedia.org/wikipedia/commons/7/79/NOAA_logo.svg" },
-  { "name": "USGS", "src": "https://upload.wikimedia.org/wikipedia/commons/c/cd/USGS_logo.svg" },
-
-  { "name": "Esri", "src": "/assets/partners/esri.svg" },
-  { "name": "OpenStreetMap", "src": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Openstreetmap_logo.svg" },
-
-  { "name": "Planet", "src": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Planet_Labs_logo.svg" },
-  { "name": "Maxar", "src": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maxar_yellow_logo.svg" },
-
-  { "name": "UN-GGIM", "src": "https://upload.wikimedia.org/wikipedia/commons/9/98/UN-GGIM_logo.png" }
-]
-      },
+      "partners": null,
       "pillars": {
-        "headline": { "ar": "القدرات الأساسية", "en": "Core Capabilities" },
+        "headline": { "ar": "Core capabilities", "en": "Core capabilities" },
         "subhead": {
-          "ar": "بنية ذكاء متكاملة عبر ثلاثة مجالات سيادية قابلة للنشر على مستوى الجهات والمؤسسات.",
-          "en": "Integrated intelligence architecture across three sovereign domains built for institutional deployment."
+          "ar": "Applied AI capabilities designed for organizations that need secure deployment, operational usefulness, and measurable value.",
+          "en": "Applied AI capabilities designed for organizations that need secure deployment, operational usefulness, and measurable value."
         },
         "items": [
           {
-            "title": { "ar": "الأنظمة الوطنية", "en": "National Systems" },
+            "title": { "ar": "AI Agents & Automation", "en": "AI Agents & Automation" },
             "desc": {
-              "ar": "منصات سيادية عالية الامتثال تدعم الجهات الحكومية والقطاعات المنظمة في إدارة العمليات، الرقابة، والطوارئ.",
-              "en": "High-compliance sovereign systems supporting government operations, regulatory oversight, and emergency coordination."
+              "ar": "AI systems that support and accelerate structured workflows, service operations, and internal execution with appropriate human oversight.",
+              "en": "AI systems that support and accelerate structured workflows, service operations, and internal execution with appropriate human oversight."
             },
-            "icon": "Shield"
+            "icon": "Cpu"
           },
           {
-            "title": { "ar": "الذكاء الجيومكاني", "en": "Geospatial Intelligence" },
+            "title": { "ar": "Spatial & Operational Intelligence", "en": "Spatial & Operational Intelligence" },
             "desc": {
-              "ar": "تحليلات تعتمد على صور الأقمار الصناعية والرؤية الحاسوبية لاستخراج رؤى تشغيلية قابلة للتنفيذ على نطاق واسع.",
-              "en": "Satellite imagery analytics and computer vision delivering actionable operational insight at scale."
+              "ar": "Applied intelligence capabilities for environments where assets, infrastructure, location, and operational visibility matter.",
+              "en": "Applied intelligence capabilities for environments where assets, infrastructure, location, and operational visibility matter."
             },
             "icon": "Globe"
           },
           {
-            "title": { "ar": "عملاء المؤسسات", "en": "Enterprise Agents" },
+            "title": { "ar": "Private AI Deployment", "en": "Private AI Deployment" },
             "desc": {
-              "ar": "وكلاء ذكاء اصطناعي مؤسسيون لأتمتة الخدمة، الاستقبال، والعمليات الداخلية ضمن ضوابط حوكمة واضحة.",
-              "en": "Enterprise AI agents automating service, reception, and internal workflows within governed operating models."
+              "ar": "Flexible deployment models for organizations that require control over security, data handling, access, and integration boundaries.",
+              "en": "Flexible deployment models for organizations that require control over security, data handling, access, and integration boundaries."
             },
-            "icon": "Cpu"
+            "icon": "Shield"
           }
         ]
       },
       "governance": {
-        "headline": { "ar": "الحوكمة أولاً", "en": "Governance First" },
+        "headline": { "ar": "Built for serious operating environments", "en": "Built for serious operating environments" },
         "features": [
-          { "label": { "ar": "سجلات تدقيق كاملة", "en": "Full Audit Trails" } },
-          { "label": { "ar": "توطين البيانات", "en": "Data Residency" } },
-          { "label": { "ar": "ضوابط وصول وصلاحيات", "en": "Access Controls" } },
-          { "label": { "ar": "تجربة استخدام عربية أولاً", "en": "Arabic-First UX" } }
+          { "label": { "ar": "Secure by design", "en": "Secure by design" } },
+          { "label": { "ar": "Human-controlled execution", "en": "Human-controlled execution" } },
+          { "label": { "ar": "Auditability and traceability", "en": "Auditability and traceability" } },
+          { "label": { "ar": "Cross-market operating presence", "en": "Cross-market operating presence" } }
         ]
       },
       "deployment": {
-        "headline": { "ar": "نماذج النشر", "en": "Deployment Models" },
+        "headline": { "ar": "Deployment models", "en": "Deployment models" },
         "subhead": {
-          "ar": "خيارات نشر مرنة تلائم متطلبات السيادة، الأمن، وحساسية البيئة التشغيلية.",
-          "en": "Flexible deployment paths aligned with sovereignty, security, and operational sensitivity requirements."
+          "ar": "Deployment paths aligned to security, control, integration realities, and operational requirements.",
+          "en": "Deployment paths aligned to security, control, integration realities, and operational requirements."
         },
         "options": [
           {
-            "title": { "ar": "سحابة سيادية", "en": "Sovereign Cloud" },
-            "description": { "ar": "نشر كامل داخل المملكة للجهات التي تتطلب سيادة بيانات واضحة.", "en": "Full in-Kingdom deployment for institutions requiring clear data sovereignty." },
-            "badge": { "ar": "الأكثر طلباً", "en": "Most Popular" }
+            "title": { "ar": "Cloud", "en": "Cloud" },
+            "description": {
+              "ar": "For speed, scalability, and managed delivery.",
+              "en": "For speed, scalability, and managed delivery."
+            },
+            "badge": { "ar": "Scalable", "en": "Scalable" }
           },
           {
-            "title": { "ar": "داخل المنشأة", "en": "On-Premise" },
-            "description": { "ar": "للمواقع عالية الحساسية والبيئات الأمنية أو المعزولة.", "en": "For high-sensitivity, secure, or isolated environments." },
-            "badge": { "ar": "أمان عالي", "en": "High Security" }
+            "title": { "ar": "Private Cloud", "en": "Private Cloud" },
+            "description": {
+              "ar": "For stronger environmental control and enterprise isolation.",
+              "en": "For stronger environmental control and enterprise isolation."
+            },
+            "badge": { "ar": "Controlled", "en": "Controlled" }
           },
           {
-            "title": { "ar": "سحابة هجينة", "en": "Hybrid Cloud" },
-            "description": { "ar": "توازن عملي بين المرونة التشغيلية والتحكم المؤسسي.", "en": "A practical balance between operational flexibility and institutional control." },
-            "badge": { "ar": "مؤسسي", "en": "Enterprise" }
+            "title": { "ar": "On-Prem", "en": "On-Prem" },
+            "description": {
+              "ar": "For highly controlled or internally hosted environments.",
+              "en": "For highly controlled or internally hosted environments."
+            },
+            "badge": { "ar": "High Security", "en": "High Security" }
+          },
+          {
+            "title": { "ar": "Hybrid", "en": "Hybrid" },
+            "description": {
+              "ar": "For organizations balancing flexibility with governance requirements.",
+              "en": "For organizations balancing flexibility with governance requirements."
+            },
+            "badge": { "ar": "Flexible", "en": "Flexible" }
           }
         ]
       },
       "global": {
-        "headline": { "ar": "التواجد التشغيلي", "en": "Operational Presence" },
+        "headline": { "ar": "Operating presence", "en": "Operating presence" },
         "locations": [
           {
-            "city": "Riyadh, KSA",
-            "role": { "ar": "المقر الرئيسي", "en": "Headquarters" }
+            "city": "Saudi Arabia",
+            "role": { "ar": "Regional operating presence", "en": "Regional operating presence" }
           },
           {
-            "city": "Alexandria, Virginia, USA",
-            "role": { "ar": "الشركة الأم / مكتب استراتيجي", "en": "Parent Company / Strategic Office" }
+            "city": "United States",
+            "role": { "ar": "International operating presence", "en": "International operating presence" }
           }
         ]
       },
       "cta": {
-        "headline": { "ar": "ابدأ المحادثة الاستراتيجية", "en": "Start the Strategic Conversation" },
+        "headline": { "ar": "Start the conversation", "en": "Start the conversation" },
         "subhead": {
-          "ar": "تواصل مع فريق مايا AI لمناقشة الإحاطة، البرنامج التجريبي، أو نطاق الحل المناسب لجهتك.",
-          "en": "Connect with Maya AI to discuss a strategic brief, pilot program, or the right solution scope for your institution."
+          "ar": "Tell us about your environment, priorities, or the kind of capability you are exploring. Maya will respond with the most relevant next step.",
+          "en": "Tell us about your environment, priorities, or the kind of capability you are exploring. Maya will respond with the most relevant next step."
         },
         "form": {
-          "title": { "ar": "طلب استشارة", "en": "Request Consultation" },
-          "submitLabel": { "ar": "إرسال", "en": "Submit" },
-          "disclaimer": { "ar": "تُعامل جميع الطلبات وفق متطلبات السرية والامتثال.", "en": "All requests are handled in line with confidentiality and compliance requirements." }
+          "title": { "ar": "Request a private briefing", "en": "Request a private briefing" },
+          "submitLabel": { "ar": "Submit", "en": "Submit" },
+          "disclaimer": {
+            "ar": "All inquiries are handled with appropriate confidentiality.",
+            "en": "All inquiries are handled with appropriate confidentiality."
+          }
         }
       }
     },
     "governance": {
-  "hero": {
-    "title": { "ar": "الحوكمة والنشر", "en": "Governance & Deployment" },
-    "subtitle": {
-      "ar": "بنية تشغيلية مصممة للثقة، السيادة، والامتثال في البيئات الحكومية والمؤسسية.",
-      "en": "An operating foundation built for trust, sovereignty, and compliance in government and enterprise environments."
-    },
-    "description": {
-      "ar": "تصمم Maya AI حلولها بحيث تكون قابلة للنشر داخل البيئات الحساسة، مع ضوابط واضحة لتوطين البيانات، سجلات التدقيق، الصلاحيات، ونماذج النشر التي تراعي متطلبات الجهة.",
-      "en": "Maya AI designs its systems for deployment in sensitive environments, with clear controls for data residency, auditability, access management, and deployment models aligned to institutional requirements."
-    }
-  },
-  "pillars": [
-    {
-      "title": { "ar": "توطين البيانات", "en": "Data Residency" },
-      "desc": {
-        "ar": "خيارات تشغيل تحافظ على البيانات داخل المملكة أو ضمن بيئات معتمدة بحسب متطلبات الجهة.",
-        "en": "Deployment options that keep data inside the Kingdom or within approved environments based on institutional requirements."
+      "hero": {
+        "title": { "ar": "Deployment", "en": "Deployment" },
+        "subtitle": {
+          "ar": "Deployment built around security, control, and operational fit.",
+          "en": "Deployment built around security, control, and operational fit."
+        },
+        "description": {
+          "ar": "Maya structures AI systems around the realities of each environment, including security requirements, data sensitivity, integration boundaries, and operating constraints.",
+          "en": "Maya structures AI systems around the realities of each environment, including security requirements, data sensitivity, integration boundaries, and operating constraints."
+        }
+      },
+      "pillars": [
+        {
+          "title": { "ar": "Security by design", "en": "Security by design" },
+          "desc": {
+            "ar": "Access control, operational safeguards, and deployment discipline are built in from the start.",
+            "en": "Access control, operational safeguards, and deployment discipline are built in from the start."
+          }
+        },
+        {
+          "title": { "ar": "Deployment flexibility", "en": "Deployment flexibility" },
+          "desc": {
+            "ar": "Cloud, private cloud, on-prem, and hybrid options based on the needs of the environment.",
+            "en": "Cloud, private cloud, on-prem, and hybrid options based on the needs of the environment."
+          }
+        },
+        {
+          "title": { "ar": "Operational control", "en": "Operational control" },
+          "desc": {
+            "ar": "Human-reviewed workflows, auditability, and traceable execution where it matters.",
+            "en": "Human-reviewed workflows, auditability, and traceable execution where it matters."
+          }
+        }
+      ],
+      "deploymentModels": {
+        "title": { "ar": "Deployment models", "en": "Deployment models" },
+        "items": [
+          {
+            "title": { "ar": "Cloud", "en": "Cloud" },
+            "desc": {
+              "ar": "For speed, scalability, and managed delivery.",
+              "en": "For speed, scalability, and managed delivery."
+            }
+          },
+          {
+            "title": { "ar": "Private Cloud", "en": "Private Cloud" },
+            "desc": {
+              "ar": "For stronger environmental control and enterprise isolation.",
+              "en": "For stronger environmental control and enterprise isolation."
+            }
+          },
+          {
+            "title": { "ar": "On-Prem", "en": "On-Prem" },
+            "desc": {
+              "ar": "For highly controlled or internally hosted environments.",
+              "en": "For highly controlled or internally hosted environments."
+            }
+          },
+          {
+            "title": { "ar": "Hybrid", "en": "Hybrid" },
+            "desc": {
+              "ar": "For organizations balancing flexibility with governance requirements.",
+              "en": "For organizations balancing flexibility with governance requirements."
+            }
+          }
+        ]
+      },
+      "controls": {
+        "title": { "ar": "Core operating principles", "en": "Core operating principles" },
+        "items": [
+          {
+            "title": { "ar": "Role-based access", "en": "Role-based access" },
+            "desc": {
+              "ar": "Structured access aligned to teams, responsibilities, and control boundaries.",
+              "en": "Structured access aligned to teams, responsibilities, and control boundaries."
+            }
+          },
+          {
+            "title": { "ar": "Auditability", "en": "Auditability" },
+            "desc": {
+              "ar": "Traceability across actions, workflows, and system use.",
+              "en": "Traceability across actions, workflows, and system use."
+            }
+          },
+          {
+            "title": { "ar": "Human oversight", "en": "Human oversight" },
+            "desc": {
+              "ar": "Human-reviewed execution where operational risk, governance, or sensitivity requires it.",
+              "en": "Human-reviewed execution where operational risk, governance, or sensitivity requires it."
+            }
+          },
+          {
+            "title": { "ar": "Integration-aware delivery", "en": "Integration-aware delivery" },
+            "desc": {
+              "ar": "Implementation designed around existing systems and enterprise realities.",
+              "en": "Implementation designed around existing systems and enterprise realities."
+            }
+          }
+        ]
+      },
+      "operatingModel": {
+        "title": { "ar": "Operating model", "en": "Operating model" },
+        "items": [
+          {
+            "label": { "ar": "Saudi Arabia", "en": "Saudi Arabia" },
+            "value": {
+              "ar": "Regional delivery, implementation alignment, and direct engagement across the Saudi market.",
+              "en": "Regional delivery, implementation alignment, and direct engagement across the Saudi market."
+            }
+          },
+          {
+            "label": { "ar": "United States", "en": "United States" },
+            "value": {
+              "ar": "International operating presence and cross-market positioning.",
+              "en": "International operating presence and cross-market positioning."
+            }
+          },
+          {
+            "label": { "ar": "Path to production", "en": "Path to production" },
+            "value": {
+              "ar": "A structured progression from initial assessment to pilot and production deployment.",
+              "en": "A structured progression from initial assessment to pilot and production deployment."
+            }
+          }
+        ]
+      },
+      "cta": {
+        "title": { "ar": "Discuss the right deployment model", "en": "Discuss the right deployment model" },
+        "subtitle": {
+          "ar": "Connect with Maya to review your environment, security needs, and deployment priorities.",
+          "en": "Connect with Maya to review your environment, security needs, and deployment priorities."
+        },
+        "button": { "ar": "Contact Maya", "en": "Contact Maya" }
       }
     },
-    {
-      "title": { "ar": "الحوكمة من البداية", "en": "Governance by Design" },
-      "desc": {
-        "ar": "الامتثال، الصلاحيات، وسجلات التدقيق تُدمج في التصميم من اليوم الأول، وليست إضافات لاحقة.",
-        "en": "Compliance, permissions, and audit trails are built into the system from day one, not added later."
-      }
-    },
-    {
-      "title": { "ar": "مرونة النشر", "en": "Deployment Flexibility" },
-      "desc": {
-        "ar": "نماذج نشر تشمل السحابة السيادية، داخل المنشأة، والبيئات الهجينة وفق حساسية الاستخدام.",
-        "en": "Deployment paths include sovereign cloud, on-premise, and hybrid environments depending on operational sensitivity."
-      }
-    }
-  ],
-  "deploymentModels": {
-    "title": { "ar": "نماذج النشر", "en": "Deployment Models" },
-    "items": [
-      {
-        "title": { "ar": "سحابة سيادية", "en": "Sovereign Cloud" },
-        "desc": {
-          "ar": "للمؤسسات التي تتطلب مرونة تشغيلية مع الحفاظ على السيادة ومتطلبات الاستضافة المحلية.",
-          "en": "For institutions that require operational flexibility while preserving sovereignty and local hosting requirements."
-        }
-      },
-      {
-        "title": { "ar": "داخل المنشأة", "en": "On-Premise" },
-        "desc": {
-          "ar": "للمواقع الحساسة والجهات التي تحتاج تحكماً مباشراً بالبنية التحتية والبيانات.",
-          "en": "For sensitive sites and institutions requiring direct control over infrastructure and data."
-        }
-      },
-      {
-        "title": { "ar": "بيئات هجينة", "en": "Hybrid Environments" },
-        "desc": {
-          "ar": "مزيج عملي بين السرعة التشغيلية والتحكم المؤسسي بحسب طبيعة الأحمال والأنظمة المتكاملة.",
-          "en": "A practical balance between operational speed and institutional control depending on workload and integration needs."
-        }
-      }
-    ]
-  },
-  "controls": {
-    "title": { "ar": "ضوابط التشغيل والثقة", "en": "Operational Trust Controls" },
-    "items": [
-      {
-        "title": { "ar": "سجلات تدقيق", "en": "Audit Trails" },
-        "desc": {
-          "ar": "تتبع واضح للإجراءات، التعديلات، والوصول إلى البيانات.",
-          "en": "Clear traceability for actions, changes, and data access."
-        }
-      },
-      {
-        "title": { "ar": "الصلاحيات والوصول", "en": "Access & Permissions" },
-        "desc": {
-          "ar": "إدارة دقيقة للأدوار والصلاحيات بحسب الفرق والوظائف التشغيلية.",
-          "en": "Granular management of roles and permissions across operational teams."
-        }
-      },
-      {
-        "title": { "ar": "الفصل بين البيئات", "en": "Environment Segmentation" },
-        "desc": {
-          "ar": "فصل بين التطوير، الاختبار، والتشغيل بما يلائم متطلبات السلامة والامتثال.",
-          "en": "Segmentation across development, testing, and production environments in line with safety and compliance requirements."
-        }
-      },
-      {
-        "title": { "ar": "جاهزية التكامل", "en": "Integration Readiness" },
-        "desc": {
-          "ar": "تصميم يدعم التكامل مع الأنظمة المؤسسية ومصادر البيانات الحكومية أو التشغيلية.",
-          "en": "Architecture designed to integrate with enterprise systems and government or operational data sources."
-        }
-      }
-    ]
-  },
-  "operatingModel": {
-    "title": { "ar": "النموذج التشغيلي", "en": "Operating Model" },
-    "items": [
-      {
-        "label": { "ar": "السعودية", "en": "Saudi Arabia" },
-        "value": {
-          "ar": "تنفيذ محلي، مواءمة مع السياق الوطني، وإدارة العلاقة التشغيلية مع الجهات والعملاء.",
-          "en": "Local execution, national-context alignment, and operational engagement with institutions and clients."
-        }
-      },
-      {
-        "label": { "ar": "الولايات المتحدة", "en": "United States" },
-        "value": {
-          "ar": "امتداد استراتيجي للشركة الأم لدعم الشراكات الدولية والتعاملات العابرة للحدود.",
-          "en": "Strategic parent-company extension supporting international partnerships and cross-border engagement."
-        }
-      },
-      {
-        "label": { "ar": "التحول إلى الإنتاج", "en": "Path to Production" },
-        "value": {
-          "ar": "الانتقال من التقييم أو التجربة إلى النشر المؤسسي يتم وفق نطاق واضح، وضوابط تشغيل، وخطة تكامل قابلة للتنفيذ.",
-          "en": "Transition from evaluation or pilot to production follows a clear scope, operational controls, and an executable integration plan."
-        }
-      }
-    ]
-  },
-  "cta": {
-    "title": { "ar": "ناقش متطلبات النشر والحوكمة", "en": "Discuss Governance and Deployment Requirements" },
-    "subtitle": {
-      "ar": "تواصل مع فريق Maya AI لمراجعة متطلبات الجهة، نموذج النشر المناسب، وخطوات الانتقال إلى برنامج تجريبي أو تنفيذ فعلي.",
-      "en": "Connect with Maya AI to review institutional requirements, the right deployment model, and the path to pilot or operational rollout."
-    },
-    "button": { "ar": "تواصل معنا", "en": "Contact Us" }
-  }
-},
     "nationalPrograms": {
       "hero": {
-        "title": { "ar": "البرامج الوطنية", "en": "National Programs" },
-        "subtitle": { "ar": "بنية تحتية رقمية سيادية للقطاعات الحكومية والحيوية.", "en": "Sovereign digital infrastructure for government and vital sectors." },
-        "disclaimer": { "ar": "ملاحظة: التفاصيل الفنية والوثائق التنفيذية متاحة للجهات المؤهلة عند الطلب.", "en": "Note: Technical details and executive documents are available to qualified entities upon request." }
+        "title": { "ar": "Mission-Critical Environments", "en": "Mission-Critical Environments" },
+        "subtitle": {
+          "ar": "Applied AI for complex operating contexts.",
+          "en": "Applied AI for complex operating contexts."
+        },
+        "disclaimer": {
+          "ar": "Detailed implementation information is shared only in direct discussions.",
+          "en": "Detailed implementation information is shared only in direct discussions."
+        }
       },
       "systems": [
         {
-          "id": "registry",
-          "title": { "ar": "السجل الوطني الموحد", "en": "Unified National Registry" },
-          "desc": { "ar": "منصة مركزية لتوحيد مصادر البيانات الحكومية وضمان موثوقية المعلومات عبر الوزارات والهيئات.", "en": "Centralized platform unifying government data sources ensuring information reliability across ministries and agencies." },
+          "id": "operations",
+          "title": { "ar": "Operational Coordination", "en": "Operational Coordination" },
+          "desc": {
+            "ar": "AI-supported workflows for environments that require coordination, visibility, and faster response.",
+            "en": "AI-supported workflows for environments that require coordination, visibility, and faster response."
+          },
           "features": [
-            { "ar": "مصدر موحد للحقيقة", "en": "Single Source of Truth" },
-            { "ar": "تكامل حكومي آمن", "en": "Secure Government Integration" },
-            { "ar": "سجل تدقيق شامل", "en": "Comprehensive Audit Trail" }
+            { "ar": "Workflow support", "en": "Workflow support" },
+            { "ar": "Cross-team visibility", "en": "Cross-team visibility" },
+            { "ar": "Controlled execution", "en": "Controlled execution" }
           ],
           "readiness": "strategic"
         },
         {
-          "id": "emergency",
-          "title": { "ar": "مركز إدارة الطوارئ والأزمات", "en": "Emergency & Crisis Management Center" },
-          "desc": { "ar": "غرفة عمليات رقمية لإدارة الاستجابة للكوارث والأزمات مع تحليل تنبؤي للمخاطر.", "en": "Digital operations room for disaster response management with predictive risk analysis." },
+          "id": "monitoring",
+          "title": { "ar": "Monitoring & Decision Support", "en": "Monitoring & Decision Support" },
+          "desc": {
+            "ar": "Operational visibility and structured insight for high-value environments.",
+            "en": "Operational visibility and structured insight for high-value environments."
+          },
           "features": [
-            { "ar": "تنسيق الاستجابة المشتركة", "en": "Joint Response Coordination" },
-            { "ar": "تحليل المخاطر التنبؤي", "en": "Predictive Risk Analysis" },
-            { "ar": "اتصالات آمنة ومشفرة", "en": "Secure Encrypted Comms" }
-          ],
-          "readiness": "strategic"
-        },
-        {
-          "id": "maaiq",
-          "title": { "ar": "مياه (MaaIQ)", "en": "MaaIQ Water Intel" },
-          "desc": { "ar": "تحليلات تنبؤية لشبكات المياه الوطنية.", "en": "Predictive analytics for water networks." },
-          "features": [
-            { "ar": "كشف التسربات", "en": "Leak Detection" },
-            { "ar": "إدارة الأصول", "en": "Asset Management" },
-            { "ar": "تنبؤ بالطلب", "en": "Demand Forecasting" }
-          ],
-          "readiness": "strategic"
-        },
-        {
-          "id": "shadow",
-          "title": { "ar": "عمليات الطوارئ (Shadow)", "en": "Emergency Ops (Shadow)" },
-          "desc": { "ar": "وعي ظرفي فوري للحوادث الحرجة.", "en": "Real-time situational awareness." },
-          "features": [
-            { "ar": "تكامل البيانات الحية", "en": "Live Data Integration" },
-            { "ar": "تتبع الموارد", "en": "Resource Tracking" },
-            { "ar": "محاكاة السيناريوهات", "en": "Scenario Simulation" }
+            { "ar": "Insight layers", "en": "Insight layers" },
+            { "ar": "Prioritization support", "en": "Prioritization support" },
+            { "ar": "Operational reporting", "en": "Operational reporting" }
           ],
           "readiness": "strategic"
         }
       ],
       "governance": {
-        "title": { "ar": "معايير الحوكمة والسيادة", "en": "Governance & Sovereignty Standards" },
+        "title": { "ar": "Operating standards", "en": "Operating standards" },
         "items": [
-          { "title": { "ar": "توطين البيانات", "en": "Data Residency" }, "desc": { "ar": "تخزين ومعالجة كاملة داخل الحدود الجغرافية للمملكة.", "en": "Full storage and processing within Kingdom borders." } },
-          { "title": { "ar": "سجل التدقيق", "en": "Audit Trail" }, "desc": { "ar": "تتبع غير قابل للتعديل لجميع الإجراءات والوصول للبيانات.", "en": "Immutable tracking of all actions and data access." } },
-          { "title": { "ar": "الامتثال السيبراني", "en": "Cyber Compliance" }, "desc": { "ar": "متوافق مع ضوابط الهيئة الوطنية للأمن السيبراني (NCA).", "en": "Compliant with NCA controls." } }
+          {
+            "title": { "ar": "Security alignment", "en": "Security alignment" },
+            "desc": {
+              "ar": "Deployment aligned to environmental sensitivity and control requirements.",
+              "en": "Deployment aligned to environmental sensitivity and control requirements."
+            }
+          },
+          {
+            "title": { "ar": "Auditability", "en": "Auditability" },
+            "desc": {
+              "ar": "Traceable execution and reviewable workflows.",
+              "en": "Traceable execution and reviewable workflows."
+            }
+          },
+          {
+            "title": { "ar": "Operational fit", "en": "Operational fit" },
+            "desc": {
+              "ar": "Structured around real workflows, systems, and operating constraints.",
+              "en": "Structured around real workflows, systems, and operating constraints."
+            }
+          }
         ]
       },
       "cta": {
-        "title": { "ar": "ابدأ المحادثة الاستراتيجية", "en": "Start Strategic Conversation" },
-        "button": { "ar": "تواصل معنا", "en": "Contact Us" }
+        "title": { "ar": "Start the conversation", "en": "Start the conversation" },
+        "button": { "ar": "Contact Maya", "en": "Contact Maya" }
       }
     },
     "geoai": {
       "hero": {
-        "title": { "ar": "ستوديو الذكاء الجيومكاني", "en": "GeoAI Studio" },
-        "subtitle": { "ar": "ذكاء بحجم الكوكب.\nدقة بمستوى الشارع.", "en": "Planetary-scale intelligence.\nStreet-level precision." },
-        "description": { "ar": "منصة تحليلية متقدمة تدمج صور الأقمار الصناعية مع الرؤية الحاسوبية لتقديم رؤى قابلة للتنفيذ.", "en": "Advanced analytics platform integrating satellite imagery with computer vision to deliver actionable insights." }
+        "title": { "ar": "Spatial & Operational Intelligence", "en": "Spatial & Operational Intelligence" },
+        "subtitle": {
+          "ar": "Applied intelligence for environments where assets, infrastructure, and location matter.",
+          "en": "Applied intelligence for environments where assets, infrastructure, and location matter."
+        },
+        "description": {
+          "ar": "Maya applies intelligence capabilities to environments where physical context matters, helping organizations improve visibility, coordination, and informed action across distributed or infrastructure-linked workflows.",
+          "en": "Maya applies intelligence capabilities to environments where physical context matters, helping organizations improve visibility, coordination, and informed action across distributed or infrastructure-linked workflows."
+        }
       },
       "cta": {
-        "title": { "ar": "اطلب برنامجاً تجريبياً", "en": "Request a Pilot" },
-        "subtitle": { "ar": "نشر سريع خلال 2-4 أسابيع مع نتائج ملموسة.", "en": "Rapid deployment in 2-4 weeks with tangible results." },
-        "button": { "ar": "تواصل معنا", "en": "Contact Us" }
+        "title": { "ar": "Discuss a use case", "en": "Discuss a use case" },
+        "subtitle": {
+          "ar": "We can review the environment, data context, and deployment approach in a private conversation.",
+          "en": "We can review the environment, data context, and deployment approach in a private conversation."
+        },
+        "button": { "ar": "Talk to Maya", "en": "Talk to Maya" }
       },
       "sampleImagery": {
-        "note": { "ar": "ملاحظة: الصور المعروضة هي أمثلة عامة. جميع بيانات العملاء تخضع لبروتوكولات سرية صارمة.", "en": "Note: Displayed imagery is generic. All client data is subject to strict confidentiality protocols." },
-        "watermark": "Maya GeoAI"
+        "note": {
+          "ar": "Displayed visuals are representative only. Specific implementations are discussed privately.",
+          "en": "Displayed visuals are representative only. Specific implementations are discussed privately."
+        },
+        "watermark": "Maya AI"
       },
       "tabs": [
         {
-          "id": "solar",
-          "label": { "ar": "الطاقة الشمسية", "en": "Solar Energy" },
-          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751440/solar-map_ite2av.jpg",
-          "readiness": "available",
-          "detects": { "ar": "رصد الألواح الشمسية ومراقبة النمو.", "en": "Solar panel detection and growth monitoring." },
-          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
-          "buyers": { "ar": "وزارة الطاقة، شركات المرافق", "en": "Ministry of Energy, Utilities" },
-          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
-        },
-        {
           "id": "infrastructure",
-          "label": { "ar": "البنية التحتية", "en": "Infrastructure" },
+          "label": { "ar": "Infrastructure Monitoring", "en": "Infrastructure Monitoring" },
           "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/infrastructure-map_sgrcqb.png",
           "readiness": "available",
-          "detects": { "ar": "مراقبة التوسع العمراني والإنشاءات.", "en": "Urban expansion and construction monitoring." },
-          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
-          "buyers": { "ar": "الأمانات، التخطيط العمراني", "en": "Municipalities, Urban Planning" },
-          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
+          "detects": {
+            "ar": "Visibility across infrastructure-linked environments and physical assets.",
+            "en": "Visibility across infrastructure-linked environments and physical assets."
+          },
+          "outputs": {
+            "ar": "Dashboards, operational summaries, spatial outputs",
+            "en": "Dashboards, operational summaries, spatial outputs"
+          },
+          "buyers": {
+            "ar": "Infrastructure, operations, and field-based organizations",
+            "en": "Infrastructure, operations, and field-based organizations"
+          },
+          "pilot": { "ar": "Use-case review available", "en": "Use-case review available" }
         },
         {
-          "id": "vegetation",
-          "label": { "ar": "الغطاء النباتي", "en": "Vegetation" },
-          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/vegetation-map_e5a5yl.jpg",
-          "readiness": "available",
-          "detects": { "ar": "تحليل الغطاء النباتي وتقييم الصحة.", "en": "Green cover analysis and health assessment." },
-          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
-          "buyers": { "ar": "الهيئات البيئية، مبادرات التشجير", "en": "Environmental Agencies, Greening Initiatives" },
-          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
-        },
-        {
-          "id": "disaster",
-          "label": { "ar": "إدارة الكوارث", "en": "Disaster Ops" },
-          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/disaster-map_frvg4g.jpg",
-          "readiness": "available",
-          "detects": { "ar": "تقييم الأضرار وتحليل الأثر.", "en": "Damage assessment and impact analysis." },
-          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
-          "buyers": { "ar": "الدفاع المدني، وكالات الإغاثة", "en": "Civil Defense, Relief Agencies" },
-          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
-        },
-        {
-          "id": "mobility",
-          "label": { "ar": "التنقل والحشود", "en": "Mobility" },
+          "id": "field",
+          "label": { "ar": "Field Operations", "en": "Field Operations" },
           "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751438/mobility-map_njppie.jpg",
           "readiness": "available",
-          "detects": { "ar": "تحليل تدفق الحركة وكثافة الحشود.", "en": "Traffic flow and crowd density analysis." },
-          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
-          "buyers": { "ar": "وزارة النقل، منظمو الفعاليات", "en": "Ministry of Transport, Event Organizers" },
-          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
+          "detects": {
+            "ar": "Operational awareness for distributed assets, movement, and field-linked workflows.",
+            "en": "Operational awareness for distributed assets, movement, and field-linked workflows."
+          },
+          "outputs": {
+            "ar": "Dashboards, alerts, decision-support views",
+            "en": "Dashboards, alerts, decision-support views"
+          },
+          "buyers": {
+            "ar": "Operations, logistics, and service environments",
+            "en": "Operations, logistics, and service environments"
+          },
+          "pilot": { "ar": "Use-case review available", "en": "Use-case review available" }
         },
         {
-          "id": "industrial",
-          "label": { "ar": "القطاع الصناعي", "en": "Industrial" },
-          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751438/industrial-map_nrsgvi.jpg",
+          "id": "environment",
+          "label": { "ar": "Environmental Visibility", "en": "Environmental Visibility" },
+          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/vegetation-map_e5a5yl.jpg",
           "readiness": "available",
-          "detects": { "ar": "مراقبة النشاط وتقدير الأحجام.", "en": "Activity monitoring and volume estimation." },
-          "outputs": { "ar": "GeoJSON, Shapefile, تقارير لوحة المعلومات", "en": "GeoJSON, Shapefile, Dashboard Reports" },
-          "buyers": { "ar": "وزارة الصناعة، شركات التعدين", "en": "Ministry of Industry, Mining Corps" },
-          "pilot": { "ar": "خطة تجريبية: 2-4 أسابيع", "en": "Pilot Plan: 2-4 Weeks" }
+          "detects": {
+            "ar": "Structured visibility across physical and environmental conditions.",
+            "en": "Structured visibility across physical and environmental conditions."
+          },
+          "outputs": {
+            "ar": "Spatial outputs, reports, monitoring views",
+            "en": "Spatial outputs, reports, monitoring views"
+          },
+          "buyers": {
+            "ar": "Organizations managing land, assets, or large-area environments",
+            "en": "Organizations managing land, assets, or large-area environments"
+          },
+          "pilot": { "ar": "Use-case review available", "en": "Use-case review available" }
         }
       ]
     },
     "solutions": {
       "hero": {
-        "title": { "ar": "الحلول المتكاملة", "en": "Integrated Solutions" },
-        "subtitle": { "ar": "حلول ذكاء اصطناعي مصممة للجهات الحكومية والقطاعات الحيوية والمؤسسات الكبرى.", "en": "AI solutions designed for government, vital sectors, and major enterprises." },
-        "description": { "ar": "مجموعة منتقاة من الحلول القابلة للنشر ضمن أطر سيادية واضحة، مع جاهزية للحكومة، الامتثال، والبيئات عالية الحساسية.", "en": "A curated portfolio of deployable AI solutions built for sovereignty, compliance, and high-sensitivity environments." }
+        "title": { "ar": "Solutions", "en": "Solutions" },
+        "subtitle": {
+          "ar": "Applied AI for high-value operational workflows.",
+          "en": "Applied AI for high-value operational workflows."
+        },
+        "description": {
+          "ar": "Maya helps organizations apply AI where it can create real operational value, from internal process execution to customer-facing workflows and decision support environments.",
+          "en": "Maya helps organizations apply AI where it can create real operational value, from internal process execution to customer-facing workflows and decision support environments."
+        }
       },
       "cta": {
-        "text": { "ar": "لم تجد ما تبحث عنه؟", "en": "Don’t see what you need?" },
-        "link": { "ar": "تواصل مع فريق هندسة الحلول", "en": "Contact Solutions Architecture Team" }
+        "text": { "ar": "Need a more tailored discussion?", "en": "Need a more tailored discussion?" },
+        "link": { "ar": "Request a Private Briefing", "en": "Request a Private Briefing" }
       },
       "categories": [
         {
-          "id": "compliance",
-          "label": { "ar": "منصات الامتثال", "en": "Compliance Platforms" },
-          "description": { "ar": "حلول تنظّم الرقابة، التفتيش، والامتثال المؤسسي على نطاق عملي.", "en": "Solutions for institutional oversight, inspection, and compliance operations at scale." },
+          "id": "enterprise-operations",
+          "label": { "ar": "Enterprise Operations", "en": "Enterprise Operations" },
+          "description": {
+            "ar": "AI capabilities that improve execution across internal workflows, coordination, approvals, reporting, and structured business processes.",
+            "en": "AI capabilities that improve execution across internal workflows, coordination, approvals, reporting, and structured business processes."
+          },
           "items": [
             {
-              "title": { "ar": "تدوير 360", "en": "Tadweer360" },
-              "readiness": "pilot",
-              "desc": { "ar": "تصنيف النفايات وتتبع الامتثال عبر منصة تشغيلية متكاملة.", "en": "Waste classification and compliance tracking through an integrated operational platform." },
-              "buyer": { "ar": "البلديات", "en": "Municipalities" },
-              "deployment": { "ar": "حسب المتطلبات: سحابة سيادية / داخل المنشأة / هجينة", "en": "Per requirements: Sovereign / On-Prem / Hybrid" }
+              "title": { "ar": "Workflow Automation", "en": "Workflow Automation" },
+              "readiness": "available",
+              "desc": {
+                "ar": "Structured automation for high-value internal workflows and operational handoffs.",
+                "en": "Structured automation for high-value internal workflows and operational handoffs."
+              },
+              "buyer": { "ar": "Enterprise teams", "en": "Enterprise teams" },
+              "deployment": { "ar": "Cloud / Private Cloud / Hybrid", "en": "Cloud / Private Cloud / Hybrid" }
             },
             {
-              "title": { "ar": "تدقيق كود البناء", "en": "BIM Code Checking" },
-              "readiness": "pilot",
-              "desc": { "ar": "تحقق آلي من الامتثال الهندسي والاشتراطات التنظيمية.", "en": "Automated engineering compliance and regulatory code verification." },
-              "buyer": { "ar": "التخطيط العمراني", "en": "Urban Planning" },
-              "deployment": { "ar": "حسب المتطلبات: سحابة سيادية / داخل المنشأة / هجينة", "en": "Per requirements: Sovereign / On-Prem / Hybrid" }
-            },
-            {
-              "title": { "ar": "منصة الرقابة والتفتيش الذكي", "en": "Smart Inspection Platform" },
-              "readiness": "pilot",
-              "desc": { "ar": "نظام لإدارة عمليات التفتيش الميداني مدعوم بالذكاء الاصطناعي.", "en": "AI-powered field inspection operations management system." },
-              "buyer": { "ar": "البلديات / الجهات الرقابية", "en": "Municipalities / Regulators" },
-              "deployment": { "ar": "حسب المتطلبات: سحابة سيادية / داخل المنشأة / هجينة", "en": "Per requirements: Sovereign / On-Prem / Hybrid" }
+              "title": { "ar": "Decision Support", "en": "Decision Support" },
+              "readiness": "available",
+              "desc": {
+                "ar": "Visibility, prioritization, and insight support for operating teams and leadership.",
+                "en": "Visibility, prioritization, and insight support for operating teams and leadership."
+              },
+              "buyer": { "ar": "Operations and leadership functions", "en": "Operations and leadership functions" },
+              "deployment": { "ar": "Cloud / Private Cloud / On-Prem", "en": "Cloud / Private Cloud / On-Prem" }
             }
           ]
         },
         {
-          "id": "agents",
-          "label": { "ar": "عملاء الذكاء الاصطناعي", "en": "Enterprise AI Agents" },
-          "description": { "ar": "قوى عاملة رقمية ذكية لأتمتة الخدمة والاستقبال والعمليات اليومية.", "en": "Intelligent digital workforce for service, reception, and daily operational workflows." },
+          "id": "service-workflows",
+          "label": { "ar": "Customer & Service Workflows", "en": "Customer & Service Workflows" },
+          "description": {
+            "ar": "Human-supervised AI support for response handling, information access, workflow orchestration, and service operations.",
+            "en": "Human-supervised AI support for response handling, information access, workflow orchestration, and service operations."
+          },
           "items": [
             {
-              "title": { "ar": "مركز الاتصال السيادي", "en": "Sovereign Call Center" },
+              "title": { "ar": "Service Operations Support", "en": "Service Operations Support" },
               "readiness": "available",
-              "desc": { "ar": "وكلاء صوت ذاتيون لدعم الجهات الحكومية والخدمات المؤسسية.", "en": "Autonomous voice agents for government support and enterprise service operations." },
-              "buyer": { "ar": "الوزارات", "en": "Ministries" },
-              "deployment": { "ar": "سحابة سيادية", "en": "Sovereign Cloud" }
+              "desc": {
+                "ar": "AI assistance for service environments that require faster handling and better operational consistency.",
+                "en": "AI assistance for service environments that require faster handling and better operational consistency."
+              },
+              "buyer": { "ar": "Service and support organizations", "en": "Service and support organizations" },
+              "deployment": { "ar": "Cloud / Private Cloud / Hybrid", "en": "Cloud / Private Cloud / Hybrid" }
             },
             {
-              "title": { "ar": "نظام طلبات الضيافة", "en": "Hospitality Order AI" },
-              "readiness": "available",
-              "desc": { "ar": "نظام طلب صوتي للمؤسسات والضيافة التشغيلية.", "en": "Voice-native ordering system for institutional and hospitality operations." },
-              "buyer": { "ar": "الفنادق الكبرى", "en": "Major Hotels" },
-              "deployment": { "ar": "Edge", "en": "Edge" }
-            },
+              "title": { "ar": "Knowledge Access", "en": "Knowledge Access" },
+              "readiness": "pilot",
+              "desc": {
+                "ar": "Operational access to information across documents, records, and internal knowledge sources.",
+                "en": "Operational access to information across documents, records, and internal knowledge sources."
+              },
+              "buyer": { "ar": "Client-facing and internal teams", "en": "Client-facing and internal teams" },
+              "deployment": { "ar": "Private Cloud / On-Prem / Hybrid", "en": "Private Cloud / On-Prem / Hybrid" }
+            }
+          ]
+        },
+        {
+          "id": "compliance-risk",
+          "label": { "ar": "Compliance & Risk Operations", "en": "Compliance & Risk Operations" },
+          "description": {
+            "ar": "Applied intelligence for oversight, evidence handling, policy-linked processes, and environments where accountability matters.",
+            "en": "Applied intelligence for oversight, evidence handling, policy-linked processes, and environments where accountability matters."
+          },
+          "items": [
             {
-              "title": { "ar": "موظف الاستقبال الآمن", "en": "Secure Receptionist" },
-              "readiness": "available",
-              "desc": { "ar": "أتمتة الدخول وإدارة الزوار ضمن بيئات عالية الحساسية.", "en": "Access automation and visitor management for high-sensitivity environments." },
-              "buyer": { "ar": "المقرات الأمنية", "en": "Security HQs" },
-              "deployment": { "ar": "On-Device", "en": "On-Device" }
+              "title": { "ar": "Operational Oversight Support", "en": "Operational Oversight Support" },
+              "readiness": "pilot",
+              "desc": {
+                "ar": "Support for review, tracking, and process consistency in control-focused environments.",
+                "en": "Support for review, tracking, and process consistency in control-focused environments."
+              },
+              "buyer": { "ar": "Governance, compliance, and review teams", "en": "Governance, compliance, and review teams" },
+              "deployment": { "ar": "Private Cloud / On-Prem", "en": "Private Cloud / On-Prem" }
             }
           ]
         }
@@ -524,208 +581,212 @@
     },
     "contact": {
       "hero": {
-        "title": { "ar": "تواصل مع الفريق", "en": "Contact Our Team" },
-        "subtitle": { "ar": "اطلب استشارة سرية مع مهندسي الحلول لدينا.", "en": "Schedule a confidential consultation." }
+        "title": { "ar": "Start the conversation", "en": "Start the conversation" },
+        "subtitle": {
+          "ar": "Tell us about your environment, priorities, or the kind of capability you are exploring.",
+          "en": "Tell us about your environment, priorities, or the kind of capability you are exploring."
+        }
       },
       "form": {
-        "name": { "ar": "الاسم الكامل", "en": "Full Name" },
-        "email": { "ar": "البريد الإلكتروني للعمل", "en": "Work Email" },
-        "org": { "ar": "الجهة / المؤسسة", "en": "Organization" },
-        "phone": { "ar": "رقم الهاتف", "en": "Phone" },
-        "type": { "ar": "نوع الاستفسار", "en": "Inquiry Type" },
-        "message": { "ar": "الرسالة", "en": "Message" },
-        "submit": { "ar": "إرسال الطلب", "en": "Submit Request" }
+        "name": { "ar": "Full Name", "en": "Full Name" },
+        "email": { "ar": "Work Email", "en": "Work Email" },
+        "org": { "ar": "Company", "en": "Company" },
+        "phone": { "ar": "Phone", "en": "Phone" },
+        "type": { "ar": "Area of Interest", "en": "Area of Interest" },
+        "message": { "ar": "Message", "en": "Message" },
+        "submit": { "ar": "Send Inquiry", "en": "Send Inquiry" }
       }
     },
     "requestModal": {
-      "title": { "ar": "طلب مذكرة (محدود التداول)", "en": "Request Brief (Restricted)" },
+      "title": { "ar": "Request a Private Briefing", "en": "Request a Private Briefing" },
       "fields": {
-        "name": { "ar": "الاسم الكامل", "en": "Full Name" },
-        "entity": { "ar": "الجهة / الشركة", "en": "Entity / Company" },
-        "position": { "ar": "المنصب", "en": "Position" },
-        "sector": { "ar": "القطاع", "en": "Sector" },
-        "scope": { "ar": "نطاق الاهتمام", "en": "Scope of Interest" },
-        "location": { "ar": "المدينة / الدولة", "en": "City / Country" },
-        "email": { "ar": "البريد الإلكتروني", "en": "Email" },
-        "phone": { "ar": "الهاتف", "en": "Phone" },
-        "nda": { "ar": "هل تحتاج NDA قبل مشاركة التفاصيل؟", "en": "Require NDA?" },
-        "notes": { "ar": "ملاحظات", "en": "Notes" }
+        "name": { "ar": "Full Name", "en": "Full Name" },
+        "entity": { "ar": "Company", "en": "Company" },
+        "position": { "ar": "Role", "en": "Role" },
+        "sector": { "ar": "Sector", "en": "Sector" },
+        "scope": { "ar": "Area of Interest", "en": "Area of Interest" },
+        "location": { "ar": "City / Country", "en": "City / Country" },
+        "email": { "ar": "Email", "en": "Email" },
+        "phone": { "ar": "Phone", "en": "Phone" },
+        "nda": { "ar": "Require NDA before deeper discussion?", "en": "Require NDA before deeper discussion?" },
+        "notes": { "ar": "Notes", "en": "Notes" }
       },
       "options": {
         "sectors": [
-          { "value": "gov", "label": { "ar": "حكومي", "en": "Government" } },
-          { "value": "water", "label": { "ar": "مياه", "en": "Water" } },
-          { "value": "municipality", "label": { "ar": "بلديات", "en": "Municipalities" } },
-          { "value": "security", "label": { "ar": "أمن", "en": "Security" } },
-          { "value": "environment", "label": { "ar": "بيئة", "en": "Environment" } },
-          { "value": "energy", "label": { "ar": "طاقة", "en": "Energy" } },
-          { "value": "private", "label": { "ar": "قطاع خاص", "en": "Private Sector" } },
-          { "value": "other", "label": { "ar": "أخرى", "en": "Other" } }
+          { "value": "government", "label": { "ar": "Government", "en": "Government" } },
+          { "value": "enterprise", "label": { "ar": "Enterprise", "en": "Enterprise" } },
+          { "value": "infrastructure", "label": { "ar": "Infrastructure", "en": "Infrastructure" } },
+          { "value": "operations", "label": { "ar": "Operations", "en": "Operations" } },
+          { "value": "services", "label": { "ar": "Services", "en": "Services" } },
+          { "value": "other", "label": { "ar": "Other", "en": "Other" } }
         ],
         "scopes": [
-          { "value": "bim", "label": { "ar": "BIM / كود البناء", "en": "BIM / Code Checking" } },
-          { "value": "waste", "label": { "ar": "إدارة النفايات", "en": "Waste Management" } },
-          { "value": "water", "label": { "ar": "ذكاء المياه", "en": "Water Intelligence" } },
-          { "value": "emergency", "label": { "ar": "عمليات الطوارئ", "en": "Emergency Ops" } },
-          { "value": "geoai", "label": { "ar": "الذكاء الجيومكاني", "en": "Geospatial Intelligence" } },
-          { "value": "voice", "label": { "ar": "وكلاء الصوت", "en": "Voice Agents" } }
+          { "value": "automation", "label": { "ar": "AI Agents & Automation", "en": "AI Agents & Automation" } },
+          { "value": "knowledge", "label": { "ar": "Knowledge & Document Intelligence", "en": "Knowledge & Document Intelligence" } },
+          { "value": "spatial", "label": { "ar": "Spatial & Operational Intelligence", "en": "Spatial & Operational Intelligence" } },
+          { "value": "decision", "label": { "ar": "Decision Support Systems", "en": "Decision Support Systems" } },
+          { "value": "deployment", "label": { "ar": "Private AI Deployment", "en": "Private AI Deployment" } },
+          { "value": "general", "label": { "ar": "General Inquiry", "en": "General Inquiry" } }
         ],
         "nda": [
-          { "value": "yes", "label": { "ar": "نعم", "en": "Yes" } },
-          { "value": "no", "label": { "ar": "لا", "en": "No" } }
+          { "value": "yes", "label": { "ar": "Yes", "en": "Yes" } },
+          { "value": "no", "label": { "ar": "No", "en": "No" } }
         ]
       },
-      "submit": { "ar": "إرسال الطلب", "en": "Submit Request" },
-      "success": { "ar": "تم استلام الطلب. سيتم التواصل خلال 1–2 يوم عمل.", "en": "Request received. We will contact you within 1-2 business days." }
+      "submit": { "ar": "Submit Request", "en": "Submit Request" },
+      "success": {
+        "ar": "Request received. We will contact you shortly.",
+        "en": "Request received. We will contact you shortly."
+      }
     },
     "company": {
       "hero": {
-        "title": { "ar": "عن الشركة", "en": "About Maya AI" },
+        "title": { "ar": "Company", "en": "Company" },
         "subtitle": {
-          "ar": "نبني بنية الذكاء الاصطناعي السيادي للقطاعات الوطنية والحيوية.",
-          "en": "Building sovereign AI infrastructure for national and vital sectors."
+          "ar": "A focused AI company operating across Saudi Arabia and the United States.",
+          "en": "A focused AI company operating across Saudi Arabia and the United States."
         },
         "description": {
-          "ar": "مايا AI شركة سعودية متخصصة في تصميم وتطوير وتشغيل أنظمة الذكاء الاصطناعي للجهات الحكومية والقطاعات الحساسة والمؤسسات الكبرى، مع امتداد استراتيجي عبر شركتها الأم في الولايات المتحدة.",
-          "en": "Maya AI is a Saudi company specialized in designing, developing, and operating AI systems for government, critical sectors, and major enterprises, with a strategic extension through its U.S. parent company."
+          "ar": "Maya AI builds applied intelligence systems for organizations that need secure deployment, practical execution, and measurable operational value. We work across Saudi Arabia and the United States through a unified operating model centered on serious delivery.",
+          "en": "Maya AI builds applied intelligence systems for organizations that need secure deployment, practical execution, and measurable operational value. We work across Saudi Arabia and the United States through a unified operating model centered on serious delivery."
         },
         "proofs": [
-          { "ar": "شركة سعودية", "en": "Saudi-based Company" },
-          { "ar": "امتداد استراتيجي أمريكي", "en": "U.S. Strategic Parent Company" },
-          { "ar": "ذكاء اصطناعي سيادي", "en": "Sovereign AI Focus" },
-          { "ar": "جاهزية مؤسسية وحكومية", "en": "Government & Enterprise Ready" }
+          { "ar": "Applied AI", "en": "Applied AI" },
+          { "ar": "Secure deployment", "en": "Secure deployment" },
+          { "ar": "Saudi Arabia + United States", "en": "Saudi Arabia + United States" },
+          { "ar": "Enterprise-ready", "en": "Enterprise-ready" }
         ]
       },
       "sections": {
         "whoWeAre": {
-          "title": { "ar": "من نحن", "en": "Who We Are" },
+          "title": { "ar": "About Maya", "en": "About Maya" },
           "content": {
-            "ar": "مايا AI شركة سعودية متخصصة في تصميم وتطوير وتشغيل حلول الذكاء الاصطناعي السيادي للجهات الحكومية والقطاعات الحيوية والمؤسسات الكبرى. نبني أنظمة موثوقة وقابلة للتوسع، تراعي سيادة البيانات، ومتطلبات الامتثال، وحساسية البيئات التشغيلية الحرجة.",
-            "en": "Maya AI is a Saudi company specialized in designing, developing, and operating sovereign AI solutions for government entities, vital sectors, and large enterprises. We build trusted, scalable systems designed around data sovereignty, compliance requirements, and the sensitivities of critical operating environments."
+            "ar": "Maya was built around a simple principle: AI should improve real operations, not just generate interest. Our work focuses on applied systems that support execution, intelligence, and control across enterprise and mission-critical environments.",
+            "en": "Maya was built around a simple principle: AI should improve real operations, not just generate interest. Our work focuses on applied systems that support execution, intelligence, and control across enterprise and mission-critical environments."
           }
         },
         "identity": {
-          "title": { "ar": "هويتنا", "en": "Our Identity" },
+          "title": { "ar": "How we operate", "en": "How we operate" },
           "content": {
-            "ar": "تستند هويتنا إلى معادلة واضحة: خبرة تقنية عالمية، وتنفيذ محلي واعٍ بالسياق الوطني. لذلك نصمم حلولًا تجمع بين التقدم التقني والانضباط المؤسسي، وتحترم سيادة البيانات، وتنسجم مع أولويات الأمن والحوكمة والامتثال في المملكة.",
-            "en": "Our identity is built on a clear equation: global technical capability with local execution shaped by national context. We design solutions that combine technological advancement with institutional discipline, while aligning with data sovereignty, security, governance, and compliance priorities in the Kingdom."
+            "ar": "We combine cross-market perspective with practical delivery discipline. Our work is shaped around secure implementation, operational usefulness, and long-term fit inside real environments.",
+            "en": "We combine cross-market perspective with practical delivery discipline. Our work is shaped around secure implementation, operational usefulness, and long-term fit inside real environments."
           }
         },
         "mission": {
-          "title": { "ar": "رسالتنا", "en": "Our Mission" },
+          "title": { "ar": "Our mission", "en": "Our mission" },
           "content": {
-            "ar": "تحويل الذكاء الاصطناعي من تقنية واعدة إلى قدرة تشغيلية موثوقة داخل المؤسسات، من خلال حلول آمنة، محكومة، وقابلة للتطبيق الفعلي في البيئات الحساسة وعالية المتطلبات.",
-            "en": "To turn AI from a promising technology into a trusted operational capability inside institutions through secure, governed, and execution-ready solutions for sensitive, high-requirement environments."
+            "ar": "To turn AI into a trusted operational capability through systems that are useful, controlled, and built for deployment in serious environments.",
+            "en": "To turn AI into a trusted operational capability through systems that are useful, controlled, and built for deployment in serious environments."
           }
         },
         "vision": {
-          "title": { "ar": "هدفنا", "en": "Our Vision" },
+          "title": { "ar": "Our focus", "en": "Our focus" },
           "content": {
-            "ar": "أن نكون الشريك المرجعي للذكاء الاصطناعي السيادي في المملكة والمنطقة، عبر بناء حلول ومنظومات موثوقة تدعم الأمن الرقمي، وترفع الكفاءة، وتؤسس لتحول مستدام على مستوى البنية التحتية والمؤسسات.",
-            "en": "To become the reference partner for sovereign AI in the Kingdom and the wider region by building trusted systems that strengthen digital security, improve institutional performance, and enable sustainable transformation across infrastructure and enterprise environments."
+            "ar": "We focus on applied AI delivery for organizations that need security, practicality, and measurable value rather than broad experimentation.",
+            "en": "We focus on applied AI delivery for organizations that need security, practicality, and measurable value rather than broad experimentation."
           }
         }
       },
       "differentiators": {
-        "title": { "ar": "لماذا مايا AI", "en": "Why Maya AI" },
+        "title": { "ar": "Why Maya", "en": "Why Maya" },
         "subtitle": {
-          "ar": "نموذجنا مصمم لاحتياجات الجهات والمؤسسات التي لا يكفيها الذكاء الاصطناعي العام، بل تحتاج أنظمة موثوقة، محكومة، وقابلة للنشر داخل بيئات حساسة.",
-          "en": "Our model is designed for organizations that need more than general-purpose AI. They need governed, trusted, and deployable systems built for sensitive environments."
+          "ar": "Our model is designed for organizations that need more than general-purpose AI. They need secure, deployable, and operationally useful systems.",
+          "en": "Our model is designed for organizations that need more than general-purpose AI. They need secure, deployable, and operationally useful systems."
         },
         "items": [
           {
-            "title": { "ar": "سيادة رقمية عملية", "en": "Operational Sovereignty" },
+            "title": { "ar": "Operational usefulness", "en": "Operational usefulness" },
             "desc": {
-              "ar": "حلول مصممة لتلبية متطلبات توطين البيانات والبيئات المنظمة والجهات ذات الحساسية العالية.",
-              "en": "Solutions designed to meet data residency requirements, regulated environments, and the needs of high-sensitivity institutions."
+              "ar": "We focus on AI that fits real workflows and creates value in day-to-day operations.",
+              "en": "We focus on AI that fits real workflows and creates value in day-to-day operations."
             }
           },
           {
-            "title": { "ar": "تنفيذ محلي بخبرة عالمية", "en": "Local Execution, Global Capability" },
+            "title": { "ar": "Secure deployment", "en": "Secure deployment" },
             "desc": {
-              "ar": "نموذج تشغيلي يجمع بين التواجد المؤسسي في المملكة والامتداد الاستراتيجي عبر الولايات المتحدة.",
-              "en": "An operating model that combines institutional presence in the Kingdom with strategic extension through the United States."
+              "ar": "Deployment models aligned to control, security, and enterprise realities.",
+              "en": "Deployment models aligned to control, security, and enterprise realities."
             }
           },
           {
-            "title": { "ar": "الحوكمة من التصميم", "en": "Governance by Design" },
+            "title": { "ar": "Human-controlled execution", "en": "Human-controlled execution" },
             "desc": {
-              "ar": "سجلات تدقيق، ضوابط وصول، نماذج نشر مرنة، واعتبارات امتثال مدمجة منذ اليوم الأول.",
-              "en": "Audit trails, access controls, flexible deployment models, and embedded compliance considerations from day one."
+              "ar": "Automation where it helps, oversight where it matters.",
+              "en": "Automation where it helps, oversight where it matters."
             }
           },
           {
-            "title": { "ar": "جاهزية مؤسسية", "en": "Institutional Readiness" },
+            "title": { "ar": "Cross-market perspective", "en": "Cross-market perspective" },
             "desc": {
-              "ar": "من البرامج التجريبية السريعة إلى الحلول القابلة للتوسع على مستوى الجهات والمؤسسات الكبرى.",
-              "en": "From rapid pilot programs to scalable systems built for ministries, agencies, and major enterprises."
+              "ar": "Operating across Saudi Arabia and the United States with a unified company story.",
+              "en": "Operating across Saudi Arabia and the United States with a unified company story."
             }
           }
         ]
       },
       "operatingModel": {
-        "title": { "ar": "النموذج التشغيلي", "en": "Operating Model" },
+        "title": { "ar": "Operating presence", "en": "Operating presence" },
         "content": {
-          "ar": "نعمل من خلال هيكل يربط التنفيذ المحلي في المملكة بالامتداد الاستراتيجي عبر الولايات المتحدة، بما يدعم الشراكات الدولية، والانضباط التعاقدي، والقدرة على خدمة الجهات والمؤسسات ضمن أطر سيادية واضحة.",
-          "en": "We operate through a structure that connects local execution in Saudi Arabia with strategic extension through the United States, supporting international partnerships, contractual discipline, and the ability to serve institutions within clear sovereignty frameworks."
+          "ar": "Maya serves organizations across Saudi Arabia and the United States through a unified model focused on applied AI delivery, secure implementation, and long-term operational value.",
+          "en": "Maya serves organizations across Saudi Arabia and the United States through a unified model focused on applied AI delivery, secure implementation, and long-term operational value."
         },
         "items": [
           {
-            "label": { "ar": "السعودية", "en": "Saudi Arabia" },
+            "label": { "ar": "Saudi Arabia", "en": "Saudi Arabia" },
             "value": {
-              "ar": "التنفيذ المحلي، مواءمة المتطلبات الوطنية، وإدارة العلاقات التشغيلية مع الجهات والعملاء.",
-              "en": "Local execution, alignment with national requirements, and operational engagement with clients and institutions."
+              "ar": "Regional market engagement, implementation alignment, and direct delivery support.",
+              "en": "Regional market engagement, implementation alignment, and direct delivery support."
             }
           },
           {
-            "label": { "ar": "الولايات المتحدة", "en": "United States" },
+            "label": { "ar": "United States", "en": "United States" },
             "value": {
-              "ar": "امتداد استراتيجي للشركة الأم، ودعم للشراكات الدولية، والتعاملات التجارية العابرة للحدود.",
-              "en": "Strategic parent-company extension supporting international partnerships and cross-border commercial engagement."
+              "ar": "International operating presence and broader cross-market positioning.",
+              "en": "International operating presence and broader cross-market positioning."
             }
           },
           {
-            "label": { "ar": "النشر", "en": "Deployment" },
+            "label": { "ar": "Delivery approach", "en": "Delivery approach" },
             "value": {
-              "ar": "نماذج مرنة تشمل السحابة السيادية، والنشر داخل المنشأة، والبيئات الهجينة بحسب متطلبات الجهة.",
-              "en": "Flexible deployment models including sovereign cloud, on-premise, and hybrid environments based on institutional requirements."
+              "ar": "Understand the environment, define the right use case, choose the right deployment model, and build for sustained use.",
+              "en": "Understand the environment, define the right use case, choose the right deployment model, and build for sustained use."
             }
           }
         ]
       },
       "values": {
-        "title": { "ar": "قيمنا", "en": "Our Values" },
+        "title": { "ar": "Values", "en": "Values" },
         "items": [
           {
-            "key": "sovereignty",
-            "title": { "ar": "السيادة", "en": "Sovereignty" },
+            "key": "practicality",
+            "title": { "ar": "Practicality", "en": "Practicality" },
             "desc": {
-              "ar": "نصمم حلولنا على أساس أن البيانات الوطنية أصل استراتيجي يجب حمايته وإدارته ضمن أطر سيادية واضحة.",
-              "en": "We design our systems on the principle that national data is a strategic asset that must be protected and managed within clear sovereign frameworks."
+              "ar": "We care about systems that work in real operational settings.",
+              "en": "We care about systems that work in real operational settings."
             }
           },
           {
-            "key": "innovation",
-            "title": { "ar": "الابتكار", "en": "Innovation" },
+            "key": "control",
+            "title": { "ar": "Control", "en": "Control" },
             "desc": {
-              "ar": "نتبنى تقنيات الذكاء الاصطناعي المتقدمة عندما تكون قابلة للتطبيق، قابلة للقياس، وتخدم أثرًا مؤسسيًا حقيقيًا.",
-              "en": "We adopt advanced AI technologies when they are applicable, measurable, and capable of delivering real institutional impact."
+              "ar": "Security, access, and oversight are part of the design, not an afterthought.",
+              "en": "Security, access, and oversight are part of the design, not an afterthought."
             }
           },
           {
             "key": "reliability",
-            "title": { "ar": "الموثوقية", "en": "Reliability" },
+            "title": { "ar": "Reliability", "en": "Reliability" },
             "desc": {
-              "ar": "نبني أنظمة يمكن الاعتماد عليها في البيئات الحرجة، حيث تكون الاستمرارية والدقة والمرونة جزءًا أساسيًا من النجاح.",
-              "en": "We build systems that can be trusted in critical environments, where continuity, precision, and resilience are essential to success."
+              "ar": "We build for sustained use, not short-lived demos.",
+              "en": "We build for sustained use, not short-lived demos."
             }
           },
           {
-            "key": "compliance",
-            "title": { "ar": "الامتثال", "en": "Compliance" },
+            "key": "discipline",
+            "title": { "ar": "Discipline", "en": "Discipline" },
             "desc": {
-              "ar": "نعتبر الحوكمة والخصوصية والامتثال عناصر تأسيسية في التصميم، وليست إضافات لاحقة على الحل.",
-              "en": "We treat governance, privacy, and compliance as foundational design principles, not as features added later."
+              "ar": "Clear scope, thoughtful deployment, and serious execution.",
+              "en": "Clear scope, thoughtful deployment, and serious execution."
             }
           }
         ]

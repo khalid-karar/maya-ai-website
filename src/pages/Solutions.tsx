@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -11,23 +11,20 @@ import {
   ChevronLeft,
   ChevronRight,
   Building2,
-  Radar,
   Lock,
+  Briefcase,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import content from '../data/site-content.json';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/context/LanguageContext';
-import RequestModal from '@/components/ui/RequestModal';
 
 type Lang = 'ar' | 'en';
-type ReadinessType = 'available' | 'pilot' | 'strategic';
 
 const categoryIcons: Record<string, React.ElementType> = {
-  national: Shield,
-  geoai: Globe,
-  compliance: CheckCircle2,
-  agents: Cpu,
+  'enterprise-operations': Briefcase,
+  'service-workflows': Cpu,
+  'compliance-risk': Shield,
 };
 
 export default function Solutions() {
@@ -35,79 +32,23 @@ export default function Solutions() {
   const lang: Lang = language === 'en' ? 'en' : 'ar';
   const solutionsContent = content.pages.solutions;
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedSolution, setSelectedSolution] = useState('');
-  const [selectedReadiness, setSelectedReadiness] = useState<ReadinessType>('available');
-
-  const readinessConfig = {
-    available: {
-      label: { ar: 'جاهز الآن', en: 'Available Now' },
-      color: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-      cta: { ar: 'اطلب عرضًا', en: 'Request Demo' },
+  const categoryMeta = {
+    'enterprise-operations': {
+      eyebrow: { ar: 'Operational Execution', en: 'Operational Execution' },
+      accentIcon: Briefcase,
     },
-    pilot: {
-      label: { ar: 'جاهز للتجربة', en: 'Pilot Ready' },
-      color: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-      cta: { ar: 'اطلب مذكرة تجربة', en: 'Request Pilot Brief' },
+    'service-workflows': {
+      eyebrow: { ar: 'Service Enablement', en: 'Service Enablement' },
+      accentIcon: Cpu,
     },
-    strategic: {
-      label: { ar: 'برنامج استراتيجي', en: 'Strategic Program' },
-      color: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
-      cta: { ar: 'اطلب مذكرة تنفيذية', en: 'Request Executive Brief' },
+    'compliance-risk': {
+      eyebrow: { ar: 'Oversight & Control', en: 'Oversight & Control' },
+      accentIcon: Shield,
     },
-  } satisfies Record<
-    ReadinessType,
-    {
-      label: Record<Lang, string>;
-      color: string;
-      cta: Record<Lang, string>;
-    }
-  >;
-
-  const categoryMeta = useMemo(
-    () => ({
-      compliance: {
-        eyebrow: { ar: 'الرقابة والامتثال', en: 'Oversight & Compliance' },
-        accentIcon: CheckCircle2,
-      },
-      agents: {
-        eyebrow: { ar: 'الأتمتة المؤسسية', en: 'Enterprise Automation' },
-        accentIcon: Cpu,
-      },
-      national: {
-        eyebrow: { ar: 'الأنظمة الوطنية', en: 'National Systems' },
-        accentIcon: Shield,
-      },
-      geoai: {
-        eyebrow: { ar: 'الذكاء الجيومكاني', en: 'Geospatial Intelligence' },
-        accentIcon: Globe,
-      },
-    }),
-    []
-  );
-
-  const handleCtaClick = (solution: any) => {
-    const readiness = (solution.readiness || 'available') as ReadinessType;
-
-    if (readiness === 'available') {
-      window.location.href = '/contact';
-      return;
-    }
-
-    setSelectedSolution(solution.title[lang]);
-    setSelectedReadiness(readiness);
-    setIsModalOpen(true);
   };
 
   return (
     <div className="w-full bg-maya-navy min-h-screen pt-32 md:pt-36 pb-24">
-      <RequestModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        solutionTitle={selectedSolution}
-        readinessType={selectedReadiness}
-      />
-
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5 bg-[#0a0816]">
         <div className="absolute inset-0 pointer-events-none">
@@ -124,15 +65,8 @@ export default function Solutions() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-gold/10 mb-6">
               <Database size={14} className="text-maya-gold" />
-              <span
-                className={cn(
-                  'text-xs text-maya-gold',
-                  lang === 'en'
-                    ? 'font-mono uppercase tracking-widest'
-                    : 'font-semibold tracking-wide'
-                )}
-              >
-                {lang === 'ar' ? 'دليل الحلول' : 'Solution Architecture'}
+              <span className="text-xs text-maya-gold font-mono uppercase tracking-widest">
+                Solution Categories
               </span>
             </div>
 
@@ -146,28 +80,43 @@ export default function Solutions() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl">
               <div className="border border-white/10 bg-white/[0.03] px-4 py-3 text-white/80 text-sm">
-                {lang === 'ar' ? 'حلول قابلة للنشر' : 'Deployable Solutions'}
+                Operationally useful AI
               </div>
               <div className="border border-white/10 bg-white/[0.03] px-4 py-3 text-white/80 text-sm">
-                {lang === 'ar' ? 'امتثال وحوكمة من البداية' : 'Governance by Design'}
+                Secure deployment options
               </div>
               <div className="border border-white/10 bg-white/[0.03] px-4 py-3 text-white/80 text-sm">
-                {lang === 'ar' ? 'مرونة في النشر والسيادة' : 'Flexible Sovereign Deployment'}
+                Built for enterprise environments
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Solutions Categories */}
+      {/* Intro */}
+      <section className="container mx-auto px-6 pt-20 md:pt-24">
+        <div className="max-w-4xl">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+            Applied AI for high-value operational workflows
+          </h2>
+          <p className="text-white/58 text-lg md:text-xl leading-relaxed max-w-3xl">
+            Maya helps organizations apply AI where it can create real operational value, from internal
+            process execution to customer-facing workflows and environments where oversight, control, and
+            structured decision support matter.
+          </p>
+        </div>
+      </section>
+
+      {/* Solution Categories */}
       <section className="container mx-auto px-6 py-20 md:py-24">
         <div className="space-y-20">
           {solutionsContent.categories.map((category, categoryIndex) => {
             const Icon = categoryIcons[category.id] || Server;
-            const AccentIcon = categoryMeta[category.id as keyof typeof categoryMeta]?.accentIcon || Server;
+            const AccentIcon =
+              categoryMeta[category.id as keyof typeof categoryMeta]?.accentIcon || Server;
             const eyebrow =
               categoryMeta[category.id as keyof typeof categoryMeta]?.eyebrow || {
-                ar: 'الحلول',
+                ar: 'Solutions',
                 en: 'Solutions',
               };
 
@@ -180,21 +129,13 @@ export default function Solutions() {
                 transition={{ delay: categoryIndex * 0.06 }}
                 className="relative"
               >
-                {/* Category header */}
                 <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-10 items-start mb-10">
                   <div className="lg:sticky lg:top-28">
                     <div className="w-14 h-14 bg-maya-gold/10 border border-maya-gold/20 rounded-lg flex items-center justify-center text-maya-gold mb-6">
                       <Icon size={24} />
                     </div>
 
-                    <div
-                      className={cn(
-                        'text-maya-gold mb-3',
-                        lang === 'en'
-                          ? 'text-xs font-bold uppercase tracking-widest'
-                          : 'text-xs font-bold tracking-wide'
-                      )}
-                    >
+                    <div className="text-maya-gold mb-3 text-xs font-bold uppercase tracking-widest">
                       {eyebrow[lang]}
                     </div>
 
@@ -207,108 +148,77 @@ export default function Solutions() {
                     </p>
                   </div>
 
-                  {/* Cards */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                    {category.items.map((solution, idx) => {
-                      const readinessKey = (solution.readiness || 'available') as ReadinessType;
-                      const readiness = readinessConfig[readinessKey];
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
+                    {category.items.map((solution, idx) => (
+                      <motion.div
+                        key={idx}
+                        whileHover={{ y: -4 }}
+                        transition={{ duration: 0.2 }}
+                        className="group bg-white/[0.02] border border-white/10 hover:border-maya-gold/30 p-6 md:p-7 transition-all duration-300 flex flex-col min-h-[360px] relative overflow-hidden"
+                      >
+                        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                      return (
-                        <motion.div
-                          key={idx}
-                          whileHover={{ y: -4 }}
-                          transition={{ duration: 0.2 }}
-                          className="group bg-white/[0.02] border border-white/10 hover:border-maya-gold/30 p-6 md:p-7 transition-all duration-300 flex flex-col min-h-[410px] relative overflow-hidden"
-                        >
-                          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="flex items-start justify-between gap-4 mb-6">
+                          <div className="w-11 h-11 rounded-full bg-white/5 text-maya-gold flex items-center justify-center shrink-0">
+                            <AccentIcon size={18} />
+                          </div>
 
-                          <div className="flex items-start justify-between gap-4 mb-6">
-                            <div className="w-11 h-11 rounded-full bg-white/5 text-maya-gold flex items-center justify-center shrink-0">
-                              <AccentIcon size={18} />
+                          <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded border text-center bg-white/5 text-white/65 border-white/10">
+                            Solution Area
+                          </span>
+                        </div>
+
+                        <div className="mb-5">
+                          <h3 className="text-2xl font-display font-bold text-white group-hover:text-maya-gold transition-colors mb-3 leading-snug">
+                            {solution.title[lang]}
+                          </h3>
+
+                          <p className="text-white/62 text-sm md:text-base leading-relaxed">
+                            {solution.desc[lang]}
+                          </p>
+                        </div>
+
+                        <div className="space-y-4 mb-8">
+                          <div className="border border-white/8 bg-white/[0.02] p-4">
+                            <div className="text-white/35 mb-2 text-[10px] font-bold uppercase tracking-widest">
+                              Best Fit
                             </div>
+                            <div className="text-white/82 text-sm leading-relaxed flex items-start gap-2">
+                              <Building2 size={14} className="text-maya-gold shrink-0 mt-0.5" />
+                              <span>{solution.buyer[lang]}</span>
+                            </div>
+                          </div>
 
-                            <span
-                              className={cn(
-                                'text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded border text-center',
-                                readiness?.color || 'bg-white/5 text-white/50 border-white/10'
+                          <div className="border border-white/8 bg-white/[0.02] p-4">
+                            <div className="text-white/35 mb-2 text-[10px] font-bold uppercase tracking-widest">
+                              Deployment Options
+                            </div>
+                            <div className="text-white/82 text-sm leading-relaxed flex items-start gap-2">
+                              {solution.readiness === 'pilot' ? (
+                                <Globe size={14} className="text-maya-gold shrink-0 mt-0.5" />
+                              ) : solution.readiness === 'strategic' ? (
+                                <Lock size={14} className="text-maya-gold shrink-0 mt-0.5" />
+                              ) : (
+                                <Server size={14} className="text-maya-gold shrink-0 mt-0.5" />
                               )}
-                            >
-                              {readiness?.label[lang]}
-                            </span>
-                          </div>
-
-                          <div className="mb-5">
-                            <h3 className="text-2xl font-display font-bold text-white group-hover:text-maya-gold transition-colors mb-3 leading-snug">
-                              {solution.title[lang]}
-                            </h3>
-
-                            <p className="text-white/62 text-sm md:text-base leading-relaxed">
-                              {solution.desc[lang]}
-                            </p>
-                          </div>
-
-                          <div className="space-y-4 mb-8">
-                            <div className="border border-white/8 bg-white/[0.02] p-4">
-                              <div
-                                className={cn(
-                                  'text-white/35 mb-2',
-                                  lang === 'en'
-                                    ? 'text-[10px] font-bold uppercase tracking-widest'
-                                    : 'text-[11px] font-bold tracking-wide'
-                                )}
-                              >
-                                {lang === 'ar' ? 'الجهات المستهدفة' : 'Target Stakeholders'}
-                              </div>
-                              <div className="text-white/82 text-sm leading-relaxed flex items-start gap-2">
-                                <Building2 size={14} className="text-maya-gold shrink-0 mt-0.5" />
-                                <span>{solution.buyer[lang]}</span>
-                              </div>
-                            </div>
-
-                            <div className="border border-white/8 bg-white/[0.02] p-4">
-                              <div
-                                className={cn(
-                                  'text-white/35 mb-2',
-                                  lang === 'en'
-                                    ? 'text-[10px] font-bold uppercase tracking-widest'
-                                    : 'text-[11px] font-bold tracking-wide'
-                                )}
-                              >
-                                {lang === 'ar' ? 'خيارات النشر' : 'Deployment Options'}
-                              </div>
-                              <div className="text-white/82 text-sm leading-relaxed flex items-start gap-2">
-                                {readinessKey === 'strategic' ? (
-                                  <Lock size={14} className="text-maya-gold shrink-0 mt-0.5" />
-                                ) : readinessKey === 'pilot' ? (
-                                  <Radar size={14} className="text-maya-gold shrink-0 mt-0.5" />
-                                ) : (
-                                  <Server size={14} className="text-maya-gold shrink-0 mt-0.5" />
-                                )}
-                                <span>{solution.deployment[lang]}</span>
-                              </div>
+                              <span>{solution.deployment[lang]}</span>
                             </div>
                           </div>
+                        </div>
 
-                          <button
-                            onClick={() => handleCtaClick(solution)}
-                            className={cn(
-                              'mt-auto w-full py-3.5 flex items-center justify-center gap-2 bg-white/5 hover:bg-maya-gold hover:text-maya-navy border border-white/10 hover:border-transparent text-white transition-all duration-300',
-                              lang === 'en'
-                                ? 'text-xs font-bold uppercase tracking-widest'
-                                : 'text-xs font-bold tracking-wide'
-                            )}
-                            type="button"
-                          >
-                            {readiness?.cta[lang]}
-                            {direction === 'rtl' ? (
-                              <ArrowRight size={14} className="rotate-180" />
-                            ) : (
-                              <ArrowRight size={14} />
-                            )}
-                          </button>
-                        </motion.div>
-                      );
-                    })}
+                        <Link
+                          to="/contact"
+                          className="mt-auto w-full py-3.5 flex items-center justify-center gap-2 bg-white/5 hover:bg-maya-gold hover:text-maya-navy border border-white/10 hover:border-transparent text-white transition-all duration-300 text-xs font-bold uppercase tracking-widest"
+                        >
+                          Contact Maya
+                          {direction === 'rtl' ? (
+                            <ArrowRight size={14} className="rotate-180" />
+                          ) : (
+                            <ArrowRight size={14} />
+                          )}
+                        </Link>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
               </motion.section>
@@ -317,33 +227,56 @@ export default function Solutions() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
+      {/* Delivery principles */}
       <section className="container mx-auto px-6 pb-24">
         <div className="border border-white/10 bg-[#0b0816] p-10 md:p-12 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-maya-light-gold to-maya-gold" />
 
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 items-start">
             <div>
-              <p className="text-white/40 mb-3">{solutionsContent.cta.text[lang]}</p>
-              <h3 className="text-2xl md:text-3xl font-display text-white leading-tight">
-                {lang === 'ar'
-                  ? 'ناقش نطاق الحل المناسب لجهتك مع فريق هندسة الحلول.'
-                  : 'Discuss the right solution scope with our Solutions Architecture team.'}
+              <p className="text-white/40 mb-3">How Maya approaches delivery</p>
+              <h3 className="text-2xl md:text-3xl font-display text-white leading-tight mb-6">
+                Solutions are shaped around operational reality, not generic AI packaging.
               </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  'Built around operational outcomes',
+                  'Structured for secure deployment',
+                  'Designed for human oversight',
+                  'Aligned to enterprise integration realities',
+                  'Scoped for long-term maintainability',
+                  'Adapted to environment-specific constraints',
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3 text-white/78 text-sm">
+                    <CheckCircle2 size={16} className="text-maya-gold shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <Link
-              to="/contact"
-              className={cn(
-                'inline-flex items-center justify-center gap-2 px-8 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors',
-                lang === 'en'
-                  ? 'text-sm font-bold uppercase tracking-widest'
-                  : 'text-sm font-bold tracking-wide'
-              )}
-            >
-              {solutionsContent.cta.link[lang]}
-              {direction === 'rtl' ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
-            </Link>
+            <div className="border border-white/10 bg-white/[0.02] p-6">
+              <div className="w-12 h-12 rounded-full bg-maya-gold/10 text-maya-gold flex items-center justify-center mb-5">
+                <Database size={20} />
+              </div>
+
+              <h4 className="text-white text-xl font-display mb-3">
+                Need a more tailored discussion?
+              </h4>
+
+              <p className="text-white/55 text-sm leading-relaxed mb-6">
+                We can review your environment, priorities, and deployment considerations in a direct conversation.
+              </p>
+
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
+              >
+                {solutionsContent.cta.link[lang]}
+                {direction === 'rtl' ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

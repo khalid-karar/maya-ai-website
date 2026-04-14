@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/context/LanguageContext';
@@ -17,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const location = useLocation();
-  const { language, direction, toggleLanguage } = useLanguage();
+  const { language, direction } = useLanguage();
   const lang: Lang = language === 'en' ? 'en' : 'ar';
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function Layout({ children }: LayoutProps) {
       dir={direction}
       className={cn(
         'min-h-screen bg-maya-navy text-white selection:bg-maya-gold selection:text-maya-navy',
-        direction === 'rtl' ? 'font-arabic' : 'font-sans'
+        'font-sans'
       )}
     >
       {/* Navigation */}
@@ -55,8 +55,7 @@ export default function Layout({ children }: LayoutProps) {
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
           isScrolled
             ? 'bg-maya-navy/88 backdrop-blur-xl border-white/10 py-3'
-            // هنا غيرنا الـ bg-transparent لتأثير الزجاج المظلل
-            : 'bg-[#0a0816]/50 backdrop-blur-md border-white/10 py-4' 
+            : 'bg-[#0a0816]/50 backdrop-blur-md border-white/10 py-4'
         )}
       >
         <div className="container mx-auto px-6">
@@ -89,25 +88,12 @@ export default function Layout({ children }: LayoutProps) {
                     <span
                       className={cn(
                         'absolute -bottom-2 left-0 h-[2px] bg-maya-gold transition-all duration-300',
-                        isActive(link.path) ? 'w-full' : 'w-0 group-hover:w-full'
+                        isActive(link.path) ? 'w-full' : 'w-0'
                       )}
                     />
                   </Link>
                 ))}
               </nav>
-
-              <button
-                onClick={toggleLanguage}
-                className={cn(
-                  'border border-white/15 hover:bg-white/8 transition-colors flex items-center gap-2 rounded-md',
-                  lang === 'en'
-                    ? 'text-xs font-bold uppercase tracking-widest px-3 py-2'
-                    : 'text-xs font-bold tracking-wide px-3 py-2'
-                )}
-              >
-                <Globe size={14} />
-                {lang === 'ar' ? 'English' : 'العربية'}
-              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -146,27 +132,13 @@ export default function Layout({ children }: LayoutProps) {
                   {link.label[lang]}
                 </Link>
               ))}
-
-              <button
-                onClick={toggleLanguage}
-                className={cn(
-                  'border border-white/15 hover:bg-white/8 transition-colors flex items-center gap-2 mx-auto mt-2 rounded-md',
-                  lang === 'en'
-                    ? 'text-sm font-bold uppercase tracking-widest px-6 py-3'
-                    : 'text-sm font-bold tracking-wide px-6 py-3'
-                )}
-                type="button"
-              >
-                <Globe size={16} />
-                {lang === 'ar' ? 'English' : 'العربية'}
-              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* Main Content */}
-<main className="relative pt-24 md:pt-28">{children}</main>
+      <main className="relative pt-24 md:pt-28">{children}</main>
 
       {/* Footer */}
       <footer className="bg-[#0e0c1d] border-t border-white/5 pt-20 pb-10">
@@ -190,15 +162,30 @@ export default function Layout({ children }: LayoutProps) {
               </div>
             </div>
 
+            {/* US first */}
             <div>
-              <h4
-                className={cn(
-                  'text-maya-gold mb-6',
-                  lang === 'en'
-                    ? 'font-bold uppercase tracking-widest text-xs'
-                    : 'font-bold tracking-wide text-xs'
-                )}
-              >
+              <h4 className="text-maya-gold mb-6 font-bold uppercase tracking-widest text-xs">
+                {contactInfo.usa.entity[lang]}
+              </h4>
+
+              <div className="space-y-4 text-sm text-white/60">
+                <p>{contactInfo.usa.address[lang]}</p>
+
+                <div className="pt-2">
+                  <p className="text-white/40 mb-1 text-xs uppercase tracking-wider">
+                    Contact
+                  </p>
+                  <p dir="ltr" className="text-left">
+                    {contactInfo.usa.phone}
+                  </p>
+                  <p>{contactInfo.emails[1]}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Saudi second */}
+            <div>
+              <h4 className="text-maya-gold mb-6 font-bold uppercase tracking-widest text-xs">
                 {contactInfo.ksa.entity[lang]}
               </h4>
 
@@ -206,17 +193,10 @@ export default function Layout({ children }: LayoutProps) {
                 <p>{contactInfo.ksa.address[lang]}</p>
 
                 <div className="pt-2">
-                  <p
-                    className={cn(
-                      'text-white/40 mb-1',
-                      lang === 'en'
-                        ? 'text-xs uppercase tracking-wider'
-                        : 'text-xs tracking-wide'
-                    )}
-                  >
-                    {lang === 'ar' ? 'للتواصل' : 'Contact'}
+                  <p className="text-white/40 mb-1 text-xs uppercase tracking-wider">
+                    Contact
                   </p>
-                  <p dir="ltr" className={direction === 'rtl' ? 'text-right' : 'text-left'}>
+                  <p dir="ltr" className="text-left">
                     {contactInfo.ksa.phone}
                   </p>
                   <p>{contactInfo.emails[0]}</p>
@@ -225,49 +205,8 @@ export default function Layout({ children }: LayoutProps) {
             </div>
 
             <div>
-              <h4
-                className={cn(
-                  'text-maya-gold mb-6',
-                  lang === 'en'
-                    ? 'font-bold uppercase tracking-widest text-xs'
-                    : 'font-bold tracking-wide text-xs'
-                )}
-              >
-                {contactInfo.usa.entity[lang]}
-              </h4>
-
-              <div className="space-y-4 text-sm text-white/60">
-                <p>{contactInfo.usa.address[lang]}</p>
-
-                <div className="pt-2">
-                  <p
-                    className={cn(
-                      'text-white/40 mb-1',
-                      lang === 'en'
-                        ? 'text-xs uppercase tracking-wider'
-                        : 'text-xs tracking-wide'
-                    )}
-                  >
-                    {lang === 'ar' ? 'للتواصل' : 'Contact'}
-                  </p>
-                  <p dir="ltr" className={direction === 'rtl' ? 'text-right' : 'text-left'}>
-                    {contactInfo.usa.phone}
-                  </p>
-                  <p>{contactInfo.emails[1]}</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4
-                className={cn(
-                  'text-maya-gold mb-6',
-                  lang === 'en'
-                    ? 'font-bold uppercase tracking-widest text-xs'
-                    : 'font-bold tracking-wide text-xs'
-                )}
-              >
-                {lang === 'ar' ? 'روابط سريعة' : 'Quick Links'}
+              <h4 className="text-maya-gold mb-6 font-bold uppercase tracking-widest text-xs">
+                Quick Links
               </h4>
 
               <ul className="space-y-3 text-sm text-white/60">
