@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Shield,
@@ -17,7 +17,7 @@ import {
   CheckCircle2,
   Lock,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -206,8 +206,27 @@ const iconMap: Record<string, React.ElementType> = {
 export default function GeoAI() {
   const { language, direction } = useLanguage();
   const lang: Lang = language === 'en' ? 'en' : 'ar';
+  const [searchParams] = useSearchParams();
 
-  const [activeTab, setActiveTab] = useState(capabilityTabs[0].id);
+  // Initialize tab from query param or default to first tab
+  const tabParam = searchParams.get('tab');
+  const initialTab = tabParam && capabilityTabs.some(t => t.id === tabParam)
+    ? tabParam
+    : capabilityTabs[0].id;
+
+  const [activeTab, setActiveTab] = useState(initialTab);
+
+  // Scroll to capabilities section when page loads with query param
+  useEffect(() => {
+    if (tabParam) {
+      const capabilitiesSection = document.querySelector('[data-capabilities-section]');
+      if (capabilitiesSection) {
+        setTimeout(() => {
+          capabilitiesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [tabParam]);
 
   const activeContent =
     capabilityTabs.find((t) => t.id === activeTab) || capabilityTabs[0];
@@ -281,7 +300,7 @@ export default function GeoAI() {
       </section>
 
       {/* Main Interface */}
-      <section className="py-20 md:py-24">
+      <section className="py-20 md:py-24" data-capabilities-section>
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 items-start">
             {/* Sidebar */}
@@ -513,10 +532,10 @@ export default function GeoAI() {
             </p>
 
             <Link
-              to="/contact"
+              to="/contact#briefing-request"
               className="inline-flex items-center gap-2 px-10 py-5 bg-maya-gold text-maya-navy hover:bg-white transition-colors font-bold text-sm uppercase tracking-widest"
             >
-              Contact Maya
+              Request a Private Briefing
               {direction === 'rtl' ? (
                 <ArrowRight size={16} className="rotate-180" />
               ) : (

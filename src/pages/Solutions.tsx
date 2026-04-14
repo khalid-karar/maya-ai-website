@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -14,7 +14,7 @@ import {
   Lock,
   Briefcase,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import content from '../data/site-content.json';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/context/LanguageContext';
@@ -31,6 +31,20 @@ export default function Solutions() {
   const { language, direction } = useLanguage();
   const lang: Lang = language === 'en' ? 'en' : 'ar';
   const solutionsContent = content.pages.solutions;
+  const [searchParams] = useSearchParams();
+
+  // Scroll to category section when page loads with category query param
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    if (categoryParam) {
+      const categorySection = document.querySelector(`[data-solutions-category="${categoryParam}"]`);
+      if (categorySection) {
+        setTimeout(() => {
+          categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [searchParams]);
 
   const categoryMeta = {
     'enterprise-operations': {
@@ -94,17 +108,23 @@ export default function Solutions() {
       </section>
 
       {/* Intro */}
-      <section className="container mx-auto px-6 pt-20 md:pt-24">
-        <div className="max-w-4xl">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+      <section className="container mx-auto px-6 pt-24 md:pt-28 pb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl"
+        >
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-8 leading-tight">
             Applied AI for high-value operational workflows
           </h2>
-          <p className="text-white/58 text-lg md:text-xl leading-relaxed max-w-3xl">
+          <p className="text-white/62 text-lg md:text-xl leading-relaxed max-w-3xl">
             Maya helps organizations apply AI where it can create real operational value, from internal
             process execution to customer-facing workflows and environments where oversight, control, and
             structured decision support matter.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Solution Categories */}
@@ -128,6 +148,7 @@ export default function Solutions() {
                 viewport={{ once: true }}
                 transition={{ delay: categoryIndex * 0.06 }}
                 className="relative"
+                data-solutions-category={category.id}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-10 items-start mb-10">
                   <div className="lg:sticky lg:top-28">
@@ -152,54 +173,57 @@ export default function Solutions() {
                     {category.items.map((solution, idx) => (
                       <motion.div
                         key={idx}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: idx * 0.06 }}
                         whileHover={{ y: -4 }}
-                        transition={{ duration: 0.2 }}
-                        className="group bg-white/[0.02] border border-white/10 hover:border-maya-gold/30 p-6 md:p-7 transition-all duration-300 flex flex-col min-h-[360px] relative overflow-hidden"
+                        className="group bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/12 hover:border-maya-gold/35 p-7 md:p-8 transition-all duration-300 flex flex-col min-h-[380px] relative overflow-hidden"
                       >
                         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                        <div className="flex items-start justify-between gap-4 mb-6">
-                          <div className="w-11 h-11 rounded-full bg-white/5 text-maya-gold flex items-center justify-center shrink-0">
-                            <AccentIcon size={18} />
+                        <div className="flex items-start justify-between gap-4 mb-7">
+                          <div className="w-12 h-12 rounded-lg bg-maya-gold/15 text-maya-gold flex items-center justify-center shrink-0 group-hover:bg-maya-gold/25 transition-colors">
+                            <AccentIcon size={20} />
                           </div>
 
-                          <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded border text-center bg-white/5 text-white/65 border-white/10">
-                            Solution Area
+                          <span className="text-[9px] font-bold uppercase tracking-widest px-2.5 py-1.5 rounded border text-center bg-maya-gold/8 text-maya-gold/80 border-maya-gold/20 whitespace-nowrap">
+                            Solution
                           </span>
                         </div>
 
-                        <div className="mb-5">
-                          <h3 className="text-2xl font-display font-bold text-white group-hover:text-maya-gold transition-colors mb-3 leading-snug">
+                        <div className="mb-7">
+                          <h3 className="text-xl font-display font-bold text-white group-hover:text-maya-gold transition-colors mb-3 leading-snug">
                             {solution.title[lang]}
                           </h3>
 
-                          <p className="text-white/62 text-sm md:text-base leading-relaxed">
+                          <p className="text-white/65 text-sm md:text-base leading-relaxed">
                             {solution.desc[lang]}
                           </p>
                         </div>
 
-                        <div className="space-y-4 mb-8">
-                          <div className="border border-white/8 bg-white/[0.02] p-4">
-                            <div className="text-white/35 mb-2 text-[10px] font-bold uppercase tracking-widest">
+                        <div className="space-y-4 mb-8 flex-grow">
+                          <div className="border border-white/12 bg-white/[0.04] p-4 rounded-sm">
+                            <div className="text-white/45 mb-2.5 text-[9px] font-bold uppercase tracking-widest">
                               Best Fit
                             </div>
-                            <div className="text-white/82 text-sm leading-relaxed flex items-start gap-2">
-                              <Building2 size={14} className="text-maya-gold shrink-0 mt-0.5" />
+                            <div className="text-white/85 text-sm leading-relaxed flex items-start gap-2 font-medium">
+                              <Building2 size={15} className="text-maya-gold/70 shrink-0 mt-0.5" />
                               <span>{solution.buyer[lang]}</span>
                             </div>
                           </div>
 
-                          <div className="border border-white/8 bg-white/[0.02] p-4">
-                            <div className="text-white/35 mb-2 text-[10px] font-bold uppercase tracking-widest">
+                          <div className="border border-maya-gold/25 bg-maya-gold/[0.08] p-4 rounded-sm">
+                            <div className="text-maya-gold/70 mb-2.5 text-[9px] font-bold uppercase tracking-widest">
                               Deployment Options
                             </div>
-                            <div className="text-white/82 text-sm leading-relaxed flex items-start gap-2">
+                            <div className="text-white/90 text-sm leading-relaxed flex items-start gap-2">
                               {solution.readiness === 'pilot' ? (
-                                <Globe size={14} className="text-maya-gold shrink-0 mt-0.5" />
+                                <Globe size={15} className="text-maya-gold shrink-0 mt-0.5" />
                               ) : solution.readiness === 'strategic' ? (
-                                <Lock size={14} className="text-maya-gold shrink-0 mt-0.5" />
+                                <Lock size={15} className="text-maya-gold shrink-0 mt-0.5" />
                               ) : (
-                                <Server size={14} className="text-maya-gold shrink-0 mt-0.5" />
+                                <Server size={15} className="text-maya-gold shrink-0 mt-0.5" />
                               )}
                               <span>{solution.deployment[lang]}</span>
                             </div>
@@ -207,10 +231,10 @@ export default function Solutions() {
                         </div>
 
                         <Link
-                          to="/contact"
-                          className="mt-auto w-full py-3.5 flex items-center justify-center gap-2 bg-white/5 hover:bg-maya-gold hover:text-maya-navy border border-white/10 hover:border-transparent text-white transition-all duration-300 text-xs font-bold uppercase tracking-widest"
+                          to="/contact#briefing-request"
+                          className="mt-auto w-full py-3 flex items-center justify-center gap-2 bg-white/5 hover:bg-maya-gold hover:text-maya-navy border border-white/12 hover:border-transparent text-white transition-all duration-300 text-xs font-bold uppercase tracking-widest"
                         >
-                          Contact Maya
+                          Request Briefing
                           {direction === 'rtl' ? (
                             <ArrowRight size={14} className="rotate-180" />
                           ) : (
@@ -228,14 +252,20 @@ export default function Solutions() {
       </section>
 
       {/* Delivery principles */}
-      <section className="container mx-auto px-6 pb-24">
-        <div className="border border-white/10 bg-[#0b0816] p-10 md:p-12 relative overflow-hidden">
+      <section className="container mx-auto px-6 pb-24 pt-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="border border-white/12 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-10 md:p-12 relative overflow-hidden"
+        >
           <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-maya-light-gold to-maya-gold" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 items-start">
             <div>
-              <p className="text-white/40 mb-3">How Maya approaches delivery</p>
-              <h3 className="text-2xl md:text-3xl font-display text-white leading-tight mb-6">
+              <p className="text-white/50 mb-4 text-sm uppercase tracking-widest font-medium">How Maya Approaches Solutions</p>
+              <h3 className="text-2xl md:text-3xl font-display text-white leading-tight mb-8">
                 Solutions are shaped around operational reality, not generic AI packaging.
               </h3>
 
@@ -248,37 +278,50 @@ export default function Solutions() {
                   'Scoped for long-term maintainability',
                   'Adapted to environment-specific constraints',
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 text-white/78 text-sm">
-                    <CheckCircle2 size={16} className="text-maya-gold shrink-0" />
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-center gap-3 text-white/82 text-sm leading-relaxed"
+                  >
+                    <CheckCircle2 size={18} className="text-maya-gold/80 shrink-0" />
                     <span>{item}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
 
-            <div className="border border-white/10 bg-white/[0.02] p-6">
-              <div className="w-12 h-12 rounded-full bg-maya-gold/10 text-maya-gold flex items-center justify-center mb-5">
-                <Database size={20} />
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="border border-maya-gold/20 bg-maya-gold/[0.06] p-7 rounded-sm"
+            >
+              <div className="w-12 h-12 rounded-lg bg-maya-gold/15 text-maya-gold flex items-center justify-center mb-6">
+                <Database size={22} />
               </div>
 
-              <h4 className="text-white text-xl font-display mb-3">
-                Need a more tailored discussion?
+              <h4 className="text-white text-lg font-display mb-3 font-bold">
+                Need a tailored discussion?
               </h4>
 
-              <p className="text-white/55 text-sm leading-relaxed mb-6">
-                We can review your environment, priorities, and deployment considerations in a direct conversation.
+              <p className="text-white/60 text-sm leading-relaxed mb-6">
+                We can review your environment, priorities, and deployment considerations directly.
               </p>
 
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
+                className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-xs font-bold uppercase tracking-widest"
               >
-                {solutionsContent.cta.link[lang]}
+                Request a Private Briefing
                 {direction === 'rtl' ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
               </Link>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

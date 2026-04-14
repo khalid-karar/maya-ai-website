@@ -239,7 +239,7 @@ export default function Governance() {
                   : 'text-sm font-bold tracking-wide'
               )}
             >
-              {pageContent.cta.button[lang]}
+              Request a Private Briefing
               {direction === 'rtl' ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
             </Link>
           </div>

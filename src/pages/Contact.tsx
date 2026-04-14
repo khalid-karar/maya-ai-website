@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import {
   Mail,
@@ -26,6 +26,31 @@ export default function Contact() {
 
   const contactPage = content.pages.contact;
   const commonContact = content.common.contact;
+
+  // Handle scroll-to-anchor when page loads with hash
+  useEffect(() => {
+    const handleAnchorScroll = () => {
+      const hash = window.location.hash;
+      if (hash === '#briefing-request') {
+        setTimeout(() => {
+          const element = document.getElementById('briefing-request');
+          if (element) {
+            // Account for sticky header height (~128px on desktop, ~96px on mobile)
+            const headerHeight = window.innerWidth >= 768 ? 128 : 96;
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY - headerHeight;
+            window.scrollTo({
+              top: elementPosition,
+              behavior: 'smooth',
+            });
+          }
+        }, 100);
+      }
+    };
+
+    handleAnchorScroll();
+    window.addEventListener('hashchange', handleAnchorScroll);
+    return () => window.removeEventListener('hashchange', handleAnchorScroll);
+  }, []);
 
   const inquiryOptions = [
     { value: 'agents', label: { ar: 'AI Agents & Workflow Automation', en: 'AI Agents & Workflow Automation' } },
@@ -84,7 +109,7 @@ export default function Contact() {
       </section>
 
       {/* Main content */}
-      <section className="container mx-auto px-6 py-20 md:py-24">
+      <section className="container mx-auto px-6 py-20 md:py-24" id="briefing-request">
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 xl:gap-14">
           {/* Contact Form */}
           <div>
