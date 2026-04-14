@@ -205,7 +205,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                   </p>
 
                   <Link
-                    to={idx === 1 ? '/capabilities' : '/solutions'}
+                    to={idx === 0 ? '/capabilities?tab=agents' : idx === 1 ? '/capabilities?tab=voice' : idx === 2 ? '/capabilities?tab=spatial' : idx === 3 ? '/capabilities?tab=knowledge' : idx === 4 ? '/capabilities?tab=platforms' : '/capabilities?tab=deployment'}
                     className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
                   >
                     Learn More
@@ -392,7 +392,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                     {tab.detects[lang]}
                   </p>
                   <Link
-                    to="/capabilities"
+                    to={`/capabilities?tab=spatial&subtab=${tab.id}`}
                     className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors uppercase tracking-widest"
                   >
                     Learn More
