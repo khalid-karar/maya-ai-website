@@ -532,7 +532,7 @@ export default function GeoAI() {
             </p>
 
             <Link
-              to="/contact"
+              to="/contact#briefing-request"
               className="inline-flex items-center gap-2 px-10 py-5 bg-maya-gold text-maya-navy hover:bg-white transition-colors font-bold text-sm uppercase tracking-widest"
             >
               Request a Private Briefing
