@@ -1,579 +1,509 @@
 {
   "config": {
-    "defaultLang": "en",
-    "domains": ["mayaai.sa", "mayaai.net"],
+    "domains": ["mayaai.net", "mayaai.sa"],
     "fonts": {
-      "ar": "Inter, sans-serif",
-      "en": "Inter, sans-serif"
+      "display": "Newsreader, Georgia, serif",
+      "body": "Inter, sans-serif"
     }
   },
   "common": {
     "contact": {
       "ksa": {
-        "entity": { "ar": "Maya AI", "en": "Maya AI" },
-        "address": {
-          "ar": "Riyadh, Saudi Arabia",
-          "en": "Riyadh, Saudi Arabia"
-        },
-        "phone": "+966 50 477 9551"
+        "entity": "Maya AI KSA",
+        "legalForm": "Saudi-registered operating entity",
+        "address": "Riyadh, Kingdom of Saudi Arabia",
+        "cr": "CR: pending publication",
+        "phone": "+966 50 477 9551",
+        "email": "info@mayaai.sa"
       },
       "usa": {
-        "entity": { "ar": "Maya AI", "en": "Maya AI" },
-        "address": {
-          "ar": "Virginia, USA",
-          "en": "Virginia, USA"
-        },
-        "phone": "+1 202 802 1976"
+        "entity": "Maya AI, Inc.",
+        "legalForm": "Delaware-incorporated, Virginia HQ",
+        "address": "Virginia, United States",
+        "phone": "+1 202 802 1976",
+        "email": "info@mayaai.net"
       },
       "emails": ["info@mayaai.sa", "info@mayaai.net"]
     },
     "footer": {
-      "operatingEntities": {
-        "ar": "Operating Presence: Saudi Arabia • United States",
-        "en": "Operating Presence: Saudi Arabia • United States"
-      },
-      "disclaimer": {
-        "ar": "Content on this site is provided for informational purposes only. Specific solutions, deployment models, and implementation scope are discussed in direct engagements.",
-        "en": "Content on this site is provided for informational purposes only. Specific solutions, deployment models, and implementation scope are discussed in direct engagements."
-      },
-      "rights": {
-        "ar": "© 2026 Maya AI. All rights reserved.",
-        "en": "© 2026 Maya AI. All rights reserved."
-      }
+      "positioning": "Maya AI builds sovereign-ready applied intelligence systems for enterprises, governments, and regulated industries across the United States and the Kingdom of Saudi Arabia.",
+      "disclaimer": "Content on this site is provided for informational purposes only. Specific solutions, deployment models, and implementation scope are discussed in direct engagements.",
+      "rights": "© 2026 Maya AI, Inc. and Maya AI KSA. Operating across the United States and the Kingdom of Saudi Arabia.",
+      "operatingEntities": "Operating Presence: United States \u2022 Kingdom of Saudi Arabia",
+      "complianceBadges": [
+        { "label": "NIST 800-53", "status": "Mapped" },
+        { "label": "SOC2 Type II", "status": "In Progress" },
+        { "label": "ISO 27001", "status": "Planned" },
+        { "label": "PDPL", "status": "Aligned" },
+        { "label": "NCA ECC", "status": "Mapped" },
+        { "label": "SDAIA Guidance", "status": "Applied" }
+      ]
     }
   },
   "nav": [
-    { "id": "home", "path": "/", "label": { "ar": "Home", "en": "Home" } },
-    { "id": "capabilities", "path": "/capabilities", "label": { "ar": "Capabilities", "en": "Capabilities" } },
-    { "id": "solutions", "path": "/solutions", "label": { "ar": "Solutions", "en": "Solutions" } },
-    { "id": "deployment", "path": "/deployment", "label": { "ar": "Deployment", "en": "Deployment" } },
-    { "id": "company", "path": "/company", "label": { "ar": "Company", "en": "Company" } },
-    { "id": "contact", "path": "/contact", "label": { "ar": "Contact", "en": "Contact" } }
+    { "id": "home", "path": "/", "label": "Home" },
+    { "id": "capabilities", "path": "/capabilities", "label": "Capabilities" },
+    { "id": "solutions", "path": "/solutions", "label": "Solutions" },
+    { "id": "deployment", "path": "/deployment", "label": "Deployment" },
+    { "id": "company", "path": "/company", "label": "Company" },
+    { "id": "leadership", "path": "/leadership", "label": "Leadership" },
+    { "id": "contact", "path": "/contact", "label": "Contact" }
   ],
   "pages": {
     "home": {
       "hero": {
         "video": "/assets/hero.mp4",
         "poster": "/assets/hero-poster.jpg",
-        "headline": {
-          "ar": "Secure AI systems for real-world operations",
-          "en": "Secure AI systems for real-world operations"
-        },
-        "subhead": {
-          "ar": "Maya AI designs and deploys applied intelligence systems that improve workflows, decision-making, and service delivery across enterprise and mission-critical environments. Operating across Saudi Arabia and the United States, we build for organizations that need capability, security, and operational impact.",
-          "en": "Maya AI designs and deploys applied intelligence systems that improve workflows, decision-making, and service delivery across enterprise and mission-critical environments. Operating across Saudi Arabia and the United States, we build for organizations that need capability, security, and operational impact."
-        },
+        "headline": "Secure AI systems for real-world operations",
+        "subhead": "Maya AI designs and deploys applied intelligence systems that improve workflows, decision-making, and service delivery across enterprise and mission-critical environments. Operating across the United States and the Kingdom of Saudi Arabia, we build for organizations that need capability, security, and operational impact.",
+        "eyebrow_us": "Enterprise-Ready \u2022 Operating in US & KSA",
+        "eyebrow_sa": "Sovereign-Ready \u2022 Operating in KSA & US",
         "cta": {
           "primary": {
-            "label": { "ar": "Request a Private Briefing", "en": "Request a Private Briefing" },
-            "path": "/contact"
+            "label": "Request a Private Briefing",
+            "path": "/contact#briefing-request"
           }
         },
-        "status": { "ar": "Operationally Ready", "en": "Operationally Ready" }
+        "status": "Operationally Ready"
       },
-      "partners": null,
       "pillars": {
-        "headline": { "ar": "Core capabilities", "en": "Core capabilities" },
-        "subhead": {
-          "ar": "Applied AI capabilities designed for organizations that need secure deployment, operational usefulness, and measurable value.",
-          "en": "Applied AI capabilities designed for organizations that need secure deployment, operational usefulness, and measurable value."
-        },
+        "headline": "Six core capability pillars",
+        "subhead": "Applied AI capabilities designed for organizations that need secure deployment, operational usefulness, and measurable value.",
         "items": [
           {
-            "title": { "ar": "AI Agents & Automation", "en": "AI Agents & Automation" },
-            "desc": {
-              "ar": "AI systems that support and accelerate structured workflows, service operations, and internal execution with appropriate human oversight.",
-              "en": "AI systems that support and accelerate structured workflows, service operations, and internal execution with appropriate human oversight."
-            },
-            "icon": "Cpu"
+            "title": "AI Agents & Workflow Automation",
+            "desc": "Structured automation for high-value internal workflows, approvals, and service execution with human oversight and audit trails built in from day one.",
+            "icon": "Cpu",
+            "tabId": "agents"
           },
           {
-            "title": { "ar": "Spatial & Operational Intelligence", "en": "Spatial & Operational Intelligence" },
-            "desc": {
-              "ar": "Applied intelligence capabilities for environments where assets, infrastructure, location, and operational visibility matter.",
-              "en": "Applied intelligence capabilities for environments where assets, infrastructure, location, and operational visibility matter."
-            },
-            "icon": "Globe"
+            "title": "Voice & Service Intelligence",
+            "desc": "AI voice agents, contact-center copilots, and multi-channel response systems that handle inbound service operations with consistency and control.",
+            "icon": "Headphones",
+            "tabId": "voice"
           },
           {
-            "title": { "ar": "Private AI Deployment", "en": "Private AI Deployment" },
-            "desc": {
-              "ar": "Flexible deployment models for organizations that require control over security, data handling, access, and integration boundaries.",
-              "en": "Flexible deployment models for organizations that require control over security, data handling, access, and integration boundaries."
-            },
-            "icon": "Shield"
+            "title": "Spatial & Operational Intelligence",
+            "desc": "Infrastructure monitoring, field operations awareness, and environmental visibility through applied intelligence for asset-linked and distributed environments.",
+            "icon": "Globe",
+            "tabId": "spatial"
+          },
+          {
+            "title": "Knowledge & Document Intelligence",
+            "desc": "Enterprise-grade document retrieval, knowledge management, and multilingual content intelligence for organizations managing large regulated document estates.",
+            "icon": "FileText",
+            "tabId": "knowledge"
+          },
+          {
+            "title": "Private AI Deployment",
+            "desc": "Flexible deployment models — cloud, private cloud, on-prem, and hybrid — for organizations requiring strong data control, sovereignty, and integration discipline.",
+            "icon": "Shield",
+            "tabId": "deployment"
+          },
+          {
+            "title": "Custom AI Platforms",
+            "desc": "Purpose-built operator consoles, vertical applications, and private agent platforms tailored to regulated sectors, mission-critical environments, and complex operating contexts.",
+            "icon": "AppWindow",
+            "tabId": "platforms"
           }
         ]
       },
       "governance": {
-        "headline": { "ar": "Built for serious operating environments", "en": "Built for serious operating environments" },
+        "headline": "Built for serious operating environments",
         "features": [
-          { "label": { "ar": "Secure by design", "en": "Secure by design" } },
-          { "label": { "ar": "Human-controlled execution", "en": "Human-controlled execution" } },
-          { "label": { "ar": "Auditability and traceability", "en": "Auditability and traceability" } },
-          { "label": { "ar": "Cross-market operating presence", "en": "Cross-market operating presence" } }
-        ]
-      },
-      "deployment": {
-        "headline": { "ar": "Deployment models", "en": "Deployment models" },
-        "subhead": {
-          "ar": "Deployment paths aligned to security, control, integration realities, and operational requirements.",
-          "en": "Deployment paths aligned to security, control, integration realities, and operational requirements."
-        },
-        "options": [
-          {
-            "title": { "ar": "Cloud", "en": "Cloud" },
-            "description": {
-              "ar": "For speed, scalability, and managed delivery.",
-              "en": "For speed, scalability, and managed delivery."
-            },
-            "badge": { "ar": "Scalable", "en": "Scalable" }
-          },
-          {
-            "title": { "ar": "Private Cloud", "en": "Private Cloud" },
-            "description": {
-              "ar": "For stronger environmental control and enterprise isolation.",
-              "en": "For stronger environmental control and enterprise isolation."
-            },
-            "badge": { "ar": "Controlled", "en": "Controlled" }
-          },
-          {
-            "title": { "ar": "On-Prem", "en": "On-Prem" },
-            "description": {
-              "ar": "For highly controlled or internally hosted environments.",
-              "en": "For highly controlled or internally hosted environments."
-            },
-            "badge": { "ar": "High Security", "en": "High Security" }
-          },
-          {
-            "title": { "ar": "Hybrid", "en": "Hybrid" },
-            "description": {
-              "ar": "For organizations balancing flexibility with governance requirements.",
-              "en": "For organizations balancing flexibility with governance requirements."
-            },
-            "badge": { "ar": "Flexible", "en": "Flexible" }
-          }
-        ]
-      },
-      "global": {
-        "headline": { "ar": "Operating presence", "en": "Operating presence" },
-        "locations": [
-          {
-            "city": "Saudi Arabia",
-            "role": { "ar": "Regional operating presence", "en": "Regional operating presence" }
-          },
-          {
-            "city": "United States",
-            "role": { "ar": "International operating presence", "en": "International operating presence" }
-          }
+          { "label": "Secure by design" },
+          { "label": "Human-controlled execution" },
+          { "label": "Auditability and traceability" },
+          { "label": "Cross-market operating presence" }
         ]
       },
       "cta": {
-        "headline": { "ar": "Start the conversation", "en": "Start the conversation" },
-        "subhead": {
-          "ar": "Tell us about your environment, priorities, or the kind of capability you are exploring. Maya will respond with the most relevant next step.",
-          "en": "Tell us about your environment, priorities, or the kind of capability you are exploring. Maya will respond with the most relevant next step."
-        },
+        "headline": "Start the conversation",
+        "subhead": "Tell us about your environment, priorities, or the kind of capability you are exploring. Maya will respond with the most relevant next step.",
         "form": {
-          "title": { "ar": "Request a private briefing", "en": "Request a private briefing" },
-          "submitLabel": { "ar": "Submit", "en": "Submit" },
-          "disclaimer": {
-            "ar": "All inquiries are handled with appropriate confidentiality.",
-            "en": "All inquiries are handled with appropriate confidentiality."
-          }
+          "title": "Request a private briefing",
+          "submitLabel": "Submit",
+          "disclaimer": "All inquiries are handled with appropriate confidentiality."
         }
       }
     },
     "governance": {
       "hero": {
-        "title": { "ar": "Deployment", "en": "Deployment" },
-        "subtitle": {
-          "ar": "Deployment built around security, control, and operational fit.",
-          "en": "Deployment built around security, control, and operational fit."
-        },
-        "description": {
-          "ar": "Maya structures AI systems around the realities of each environment, including security requirements, data sensitivity, integration boundaries, and operating constraints.",
-          "en": "Maya structures AI systems around the realities of each environment, including security requirements, data sensitivity, integration boundaries, and operating constraints."
-        }
+        "title": "Deployment",
+        "subtitle": "Deployment built around security, control, and operational fit.",
+        "description": "Maya structures AI systems around the realities of each environment — including security requirements, data sensitivity, integration boundaries, and operating constraints. Every deployment is sized, scoped, and structured for sustained operational use."
       },
       "pillars": [
         {
-          "title": { "ar": "Security by design", "en": "Security by design" },
-          "desc": {
-            "ar": "Access control, operational safeguards, and deployment discipline are built in from the start.",
-            "en": "Access control, operational safeguards, and deployment discipline are built in from the start."
-          }
+          "title": "Security by design",
+          "desc": "Access control, operational safeguards, and deployment discipline are built in from the start — not added after delivery."
         },
         {
-          "title": { "ar": "Deployment flexibility", "en": "Deployment flexibility" },
-          "desc": {
-            "ar": "Cloud, private cloud, on-prem, and hybrid options based on the needs of the environment.",
-            "en": "Cloud, private cloud, on-prem, and hybrid options based on the needs of the environment."
-          }
+          "title": "Deployment flexibility",
+          "desc": "Cloud, private cloud, on-prem, and hybrid options selected based on the control, compliance, and connectivity needs of your environment."
         },
         {
-          "title": { "ar": "Operational control", "en": "Operational control" },
-          "desc": {
-            "ar": "Human-reviewed workflows, auditability, and traceable execution where it matters.",
-            "en": "Human-reviewed workflows, auditability, and traceable execution where it matters."
-          }
+          "title": "Operational control",
+          "desc": "Human-reviewed workflows, auditability, and traceable execution for every touchpoint that carries governance or sensitivity weight."
         }
       ],
       "deploymentModels": {
-        "title": { "ar": "Deployment models", "en": "Deployment models" },
+        "title": "Deployment models",
         "items": [
           {
-            "title": { "ar": "Cloud", "en": "Cloud" },
-            "desc": {
-              "ar": "For speed, scalability, and managed delivery.",
-              "en": "For speed, scalability, and managed delivery."
-            }
+            "title": "Cloud",
+            "desc": "For speed, scalability, and managed delivery. Hosted on enterprise cloud infrastructure with full encryption in transit and at rest.",
+            "badge": "Scalable"
           },
           {
-            "title": { "ar": "Private Cloud", "en": "Private Cloud" },
-            "desc": {
-              "ar": "For stronger environmental control and enterprise isolation.",
-              "en": "For stronger environmental control and enterprise isolation."
-            }
+            "title": "Private Cloud",
+            "desc": "For stronger environmental control and enterprise isolation. Dedicated tenant environments on approved infrastructure providers.",
+            "badge": "Controlled"
           },
           {
-            "title": { "ar": "On-Prem", "en": "On-Prem" },
-            "desc": {
-              "ar": "For highly controlled or internally hosted environments.",
-              "en": "For highly controlled or internally hosted environments."
-            }
+            "title": "On-Premises",
+            "desc": "For highly controlled or internally hosted environments requiring in-facility data handling and network isolation.",
+            "badge": "High Security"
           },
           {
-            "title": { "ar": "Hybrid", "en": "Hybrid" },
-            "desc": {
-              "ar": "For organizations balancing flexibility with governance requirements.",
-              "en": "For organizations balancing flexibility with governance requirements."
-            }
+            "title": "Hybrid",
+            "desc": "For organizations balancing flexibility with data governance requirements — splitting workloads across deployment boundaries by sensitivity.",
+            "badge": "Flexible"
           }
         ]
       },
       "controls": {
-        "title": { "ar": "Core operating principles", "en": "Core operating principles" },
+        "title": "Core operating principles",
         "items": [
           {
-            "title": { "ar": "Role-based access", "en": "Role-based access" },
-            "desc": {
-              "ar": "Structured access aligned to teams, responsibilities, and control boundaries.",
-              "en": "Structured access aligned to teams, responsibilities, and control boundaries."
-            }
+            "title": "Role-based access",
+            "desc": "Structured access aligned to teams, responsibilities, and control boundaries with full RBAC enforcement."
           },
           {
-            "title": { "ar": "Auditability", "en": "Auditability" },
-            "desc": {
-              "ar": "Traceability across actions, workflows, and system use.",
-              "en": "Traceability across actions, workflows, and system use."
-            }
+            "title": "Auditability",
+            "desc": "Traceability across actions, workflows, and system use — every significant event is logged and reviewable."
           },
           {
-            "title": { "ar": "Human oversight", "en": "Human oversight" },
-            "desc": {
-              "ar": "Human-reviewed execution where operational risk, governance, or sensitivity requires it.",
-              "en": "Human-reviewed execution where operational risk, governance, or sensitivity requires it."
-            }
+            "title": "Human oversight",
+            "desc": "Human-reviewed execution where operational risk, governance, or sensitivity requires it — no autonomous action in high-stakes contexts."
           },
           {
-            "title": { "ar": "Integration-aware delivery", "en": "Integration-aware delivery" },
-            "desc": {
-              "ar": "Implementation designed around existing systems and enterprise realities.",
-              "en": "Implementation designed around existing systems and enterprise realities."
-            }
+            "title": "Integration-aware delivery",
+            "desc": "Implementation designed around existing systems, enterprise data sources, and the real integration realities of each environment."
           }
+        ]
+      },
+      "deploymentTimeline": {
+        "title": "Deployment timeline",
+        "steps": [
+          {
+            "step": "1",
+            "label": "Assessment",
+            "duration": "2\u20134 weeks",
+            "deliverables": "Environment review, use-case scoping, security requirements, deployment model selection, integration mapping"
+          },
+          {
+            "step": "2",
+            "label": "Pilot",
+            "duration": "4\u20138 weeks",
+            "deliverables": "Limited-scope deployment, integration validation, user acceptance testing, control verification, refinement"
+          },
+          {
+            "step": "3",
+            "label": "Production",
+            "duration": "4\u201312 weeks",
+            "deliverables": "Full environment deployment, RBAC configuration, audit trail activation, staff enablement, go-live"
+          },
+          {
+            "step": "4",
+            "label": "Operate & Evolve",
+            "duration": "Ongoing",
+            "deliverables": "Performance monitoring, capability extension, compliance reviews, model updates, quarterly business reviews"
+          }
+        ]
+      },
+      "controlMatrix": {
+        "title": "Control alignment",
+        "rows": [
+          { "area": "Access Control", "nist": "Mapped", "soc2": "Mapped", "iso": "Mapped", "pdpl": "Mapped", "nca": "Mapped", "sdaia": "Mapped" },
+          { "area": "Audit Logging", "nist": "Mapped", "soc2": "Mapped", "iso": "Mapped", "pdpl": "In Progress", "nca": "Mapped", "sdaia": "Mapped" },
+          { "area": "Data Residency", "nist": "Mapped", "soc2": "In Progress", "iso": "Planned", "pdpl": "Mapped", "nca": "Mapped", "sdaia": "Mapped" },
+          { "area": "Encryption", "nist": "Mapped", "soc2": "Mapped", "iso": "Mapped", "pdpl": "Mapped", "nca": "Mapped", "sdaia": "Applied" },
+          { "area": "Incident Response", "nist": "Mapped", "soc2": "In Progress", "iso": "Planned", "pdpl": "In Progress", "nca": "Mapped", "sdaia": "Applied" },
+          { "area": "Human Oversight", "nist": "Mapped", "soc2": "Mapped", "iso": "Mapped", "pdpl": "Mapped", "nca": "Mapped", "sdaia": "Mapped" }
         ]
       },
       "operatingModel": {
-        "title": { "ar": "Operating model", "en": "Operating model" },
+        "title": "Operating model",
         "items": [
           {
-            "label": { "ar": "Saudi Arabia", "en": "Saudi Arabia" },
-            "value": {
-              "ar": "Regional delivery, implementation alignment, and direct engagement across the Saudi market.",
-              "en": "Regional delivery, implementation alignment, and direct engagement across the Saudi market."
-            }
+            "label": "Saudi Arabia",
+            "value": "Regional delivery, implementation alignment, and direct engagement with KSA enterprises, government entities, and regulated sectors."
           },
           {
-            "label": { "ar": "United States", "en": "United States" },
-            "value": {
-              "ar": "International operating presence and cross-market positioning.",
-              "en": "International operating presence and cross-market positioning."
-            }
+            "label": "United States",
+            "value": "Operating from Virginia with engagement across US enterprise, federal-adjacent, and regulated-industry clients."
           },
           {
-            "label": { "ar": "Path to production", "en": "Path to production" },
-            "value": {
-              "ar": "A structured progression from initial assessment to pilot and production deployment.",
-              "en": "A structured progression from initial assessment to pilot and production deployment."
-            }
+            "label": "Path to production",
+            "value": "A structured progression from initial assessment through pilot deployment to production and long-term operation."
           }
         ]
       },
       "cta": {
-        "title": { "ar": "Discuss the right deployment model", "en": "Discuss the right deployment model" },
-        "subtitle": {
-          "ar": "Connect with Maya to review your environment, security needs, and deployment priorities.",
-          "en": "Connect with Maya to review your environment, security needs, and deployment priorities."
-        },
-        "button": { "ar": "Contact Maya", "en": "Contact Maya" }
+        "title": "Discuss the right deployment model",
+        "subtitle": "Connect with Maya to review your environment, security needs, and deployment priorities.",
+        "button": "Contact Maya"
       }
-    },
-    "nationalPrograms": {
-      "hero": {
-        "title": { "ar": "Mission-Critical Environments", "en": "Mission-Critical Environments" },
-        "subtitle": {
-          "ar": "Applied AI for complex operating contexts.",
-          "en": "Applied AI for complex operating contexts."
-        },
-        "disclaimer": {
-          "ar": "Detailed implementation information is shared only in direct discussions.",
-          "en": "Detailed implementation information is shared only in direct discussions."
-        }
-      },
-      "systems": [
-        {
-          "id": "operations",
-          "title": { "ar": "Operational Coordination", "en": "Operational Coordination" },
-          "desc": {
-            "ar": "AI-supported workflows for environments that require coordination, visibility, and faster response.",
-            "en": "AI-supported workflows for environments that require coordination, visibility, and faster response."
-          },
-          "features": [
-            { "ar": "Workflow support", "en": "Workflow support" },
-            { "ar": "Cross-team visibility", "en": "Cross-team visibility" },
-            { "ar": "Controlled execution", "en": "Controlled execution" }
-          ],
-          "readiness": "strategic"
-        },
-        {
-          "id": "monitoring",
-          "title": { "ar": "Monitoring & Decision Support", "en": "Monitoring & Decision Support" },
-          "desc": {
-            "ar": "Operational visibility and structured insight for high-value environments.",
-            "en": "Operational visibility and structured insight for high-value environments."
-          },
-          "features": [
-            { "ar": "Insight layers", "en": "Insight layers" },
-            { "ar": "Prioritization support", "en": "Prioritization support" },
-            { "ar": "Operational reporting", "en": "Operational reporting" }
-          ],
-          "readiness": "strategic"
-        }
-      ],
-      "governance": {
-        "title": { "ar": "Operating standards", "en": "Operating standards" },
-        "items": [
-          {
-            "title": { "ar": "Security alignment", "en": "Security alignment" },
-            "desc": {
-              "ar": "Deployment aligned to environmental sensitivity and control requirements.",
-              "en": "Deployment aligned to environmental sensitivity and control requirements."
-            }
-          },
-          {
-            "title": { "ar": "Auditability", "en": "Auditability" },
-            "desc": {
-              "ar": "Traceable execution and reviewable workflows.",
-              "en": "Traceable execution and reviewable workflows."
-            }
-          },
-          {
-            "title": { "ar": "Operational fit", "en": "Operational fit" },
-            "desc": {
-              "ar": "Structured around real workflows, systems, and operating constraints.",
-              "en": "Structured around real workflows, systems, and operating constraints."
-            }
-          }
-        ]
-      },
-      "cta": {
-        "title": { "ar": "Start the conversation", "en": "Start the conversation" },
-        "button": { "ar": "Contact Maya", "en": "Contact Maya" }
-      }
-    },
-    "geoai": {
-      "hero": {
-        "title": { "ar": "Spatial & Operational Intelligence", "en": "Spatial & Operational Intelligence" },
-        "subtitle": {
-          "ar": "Applied intelligence for environments where assets, infrastructure, and location matter.",
-          "en": "Applied intelligence for environments where assets, infrastructure, and location matter."
-        },
-        "description": {
-          "ar": "Maya applies intelligence capabilities to environments where physical context matters, helping organizations improve visibility, coordination, and informed action across distributed or infrastructure-linked workflows.",
-          "en": "Maya applies intelligence capabilities to environments where physical context matters, helping organizations improve visibility, coordination, and informed action across distributed or infrastructure-linked workflows."
-        }
-      },
-      "cta": {
-        "title": { "ar": "Discuss a use case", "en": "Discuss a use case" },
-        "subtitle": {
-          "ar": "We can review the environment, data context, and deployment approach in a private conversation.",
-          "en": "We can review the environment, data context, and deployment approach in a private conversation."
-        },
-        "button": { "ar": "Talk to Maya", "en": "Talk to Maya" }
-      },
-      "sampleImagery": {
-        "note": {
-          "ar": "Displayed visuals are representative only. Specific implementations are discussed privately.",
-          "en": "Displayed visuals are representative only. Specific implementations are discussed privately."
-        },
-        "watermark": "Maya AI"
-      },
-      "tabs": [
-        {
-          "id": "infrastructure",
-          "label": { "ar": "Infrastructure Monitoring", "en": "Infrastructure Monitoring" },
-          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/infrastructure-map_sgrcqb.png",
-          "readiness": "available",
-          "detects": {
-            "ar": "Visibility across infrastructure-linked environments and physical assets.",
-            "en": "Visibility across infrastructure-linked environments and physical assets."
-          },
-          "outputs": {
-            "ar": "Dashboards, operational summaries, spatial outputs",
-            "en": "Dashboards, operational summaries, spatial outputs"
-          },
-          "buyers": {
-            "ar": "Infrastructure, operations, and field-based organizations",
-            "en": "Infrastructure, operations, and field-based organizations"
-          },
-          "pilot": { "ar": "Use-case review available", "en": "Use-case review available" }
-        },
-        {
-          "id": "field",
-          "label": { "ar": "Field Operations", "en": "Field Operations" },
-          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751438/mobility-map_njppie.jpg",
-          "readiness": "available",
-          "detects": {
-            "ar": "Operational awareness for distributed assets, movement, and field-linked workflows.",
-            "en": "Operational awareness for distributed assets, movement, and field-linked workflows."
-          },
-          "outputs": {
-            "ar": "Dashboards, alerts, decision-support views",
-            "en": "Dashboards, alerts, decision-support views"
-          },
-          "buyers": {
-            "ar": "Operations, logistics, and service environments",
-            "en": "Operations, logistics, and service environments"
-          },
-          "pilot": { "ar": "Use-case review available", "en": "Use-case review available" }
-        },
-        {
-          "id": "environment",
-          "label": { "ar": "Environmental Visibility", "en": "Environmental Visibility" },
-          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/vegetation-map_e5a5yl.jpg",
-          "readiness": "available",
-          "detects": {
-            "ar": "Structured visibility across physical and environmental conditions.",
-            "en": "Structured visibility across physical and environmental conditions."
-          },
-          "outputs": {
-            "ar": "Spatial outputs, reports, monitoring views",
-            "en": "Spatial outputs, reports, monitoring views"
-          },
-          "buyers": {
-            "ar": "Organizations managing land, assets, or large-area environments",
-            "en": "Organizations managing land, assets, or large-area environments"
-          },
-          "pilot": { "ar": "Use-case review available", "en": "Use-case review available" }
-        }
-      ]
     },
     "solutions": {
       "hero": {
-        "title": { "ar": "Solutions", "en": "Solutions" },
-        "subtitle": {
-          "ar": "Applied AI for high-value operational workflows.",
-          "en": "Applied AI for high-value operational workflows."
-        },
-        "description": {
-          "ar": "Maya helps organizations apply AI where it can create real operational value, from internal process execution to customer-facing workflows and decision support environments.",
-          "en": "Maya helps organizations apply AI where it can create real operational value, from internal process execution to customer-facing workflows and decision support environments."
-        }
+        "title": "Solutions",
+        "subtitle": "Applied AI for high-value operational workflows.",
+        "description": "Maya helps organizations apply AI where it creates real operational value — from internal process execution to customer-facing workflows, compliance operations, and decision support environments. Serving regulated enterprises across KSA and US financial services, energy, government-adjacent, and telco."
       },
       "cta": {
-        "text": { "ar": "Need a more tailored discussion?", "en": "Need a more tailored discussion?" },
-        "link": { "ar": "Request a Private Briefing", "en": "Request a Private Briefing" }
+        "text": "Need a more tailored discussion?",
+        "link": "Request a Private Briefing"
       },
       "categories": [
         {
           "id": "enterprise-operations",
-          "label": { "ar": "Enterprise Operations", "en": "Enterprise Operations" },
-          "description": {
-            "ar": "AI capabilities that improve execution across internal workflows, coordination, approvals, reporting, and structured business processes.",
-            "en": "AI capabilities that improve execution across internal workflows, coordination, approvals, reporting, and structured business processes."
-          },
+          "label": "Enterprise Operations",
+          "eyebrow": "Operational Execution",
+          "description": "AI capabilities that improve execution across internal workflows, coordination, approvals, reporting, and structured business processes at enterprise scale.",
           "items": [
             {
-              "title": { "ar": "Workflow Automation", "en": "Workflow Automation" },
-              "readiness": "available",
-              "desc": {
-                "ar": "Structured automation for high-value internal workflows and operational handoffs.",
-                "en": "Structured automation for high-value internal workflows and operational handoffs."
-              },
-              "buyer": { "ar": "Enterprise teams", "en": "Enterprise teams" },
-              "deployment": { "ar": "Cloud / Private Cloud / Hybrid", "en": "Cloud / Private Cloud / Hybrid" }
+              "title": "Internal Workflow Automation",
+              "readiness": "production-ready",
+              "desc": "End-to-end automation of high-volume internal processes — from intake to approval routing to back-office handoff. Designed for enterprise teams managing recurring, rule-bound workflows at scale with full human override capabilities.",
+              "buyer": "Operations, Shared Services, COO office",
+              "deployment": "Cloud / Private Cloud / Hybrid",
+              "sectors": ["Government", "Financial Services", "Energy", "Telco"]
             },
             {
-              "title": { "ar": "Decision Support", "en": "Decision Support" },
-              "readiness": "available",
-              "desc": {
-                "ar": "Visibility, prioritization, and insight support for operating teams and leadership.",
-                "en": "Visibility, prioritization, and insight support for operating teams and leadership."
-              },
-              "buyer": { "ar": "Operations and leadership functions", "en": "Operations and leadership functions" },
-              "deployment": { "ar": "Cloud / Private Cloud / On-Prem", "en": "Cloud / Private Cloud / On-Prem" }
+              "title": "Approvals & Routing Intelligence",
+              "readiness": "production-ready",
+              "desc": "AI-powered routing and approval acceleration for structured decision chains — contracts, procurement, HR actions, and compliance reviews. Reduces cycle times while preserving audit trails and escalation paths.",
+              "buyer": "Finance, Legal, Procurement, Operations",
+              "deployment": "Cloud / Private Cloud / On-Prem",
+              "sectors": ["Financial Services", "Government", "Energy"]
+            },
+            {
+              "title": "Back-office Orchestration",
+              "readiness": "production-ready",
+              "desc": "Orchestration layer connecting disparate back-office systems into coherent, automated workflows. Eliminates manual handoffs between ERP, CRM, document stores, and case management tools without replacing existing infrastructure.",
+              "buyer": "IT Operations, Enterprise Architecture, COO office",
+              "deployment": "Private Cloud / Hybrid / On-Prem",
+              "sectors": ["Financial Services", "Energy", "Telco", "Enterprise"]
+            },
+            {
+              "title": "Reporting & Ops Intelligence",
+              "readiness": "pilot-ready",
+              "desc": "Automated generation of operational reports, performance summaries, and executive briefings from live system data. Structured outputs aligned to leadership review cadences with configurable audience tiers.",
+              "buyer": "Operations Leadership, Strategy, PMO",
+              "deployment": "Cloud / Private Cloud",
+              "sectors": ["Government", "Financial Services", "Enterprise"]
             }
           ]
         },
         {
           "id": "service-workflows",
-          "label": { "ar": "Customer & Service Workflows", "en": "Customer & Service Workflows" },
-          "description": {
-            "ar": "Human-supervised AI support for response handling, information access, workflow orchestration, and service operations.",
-            "en": "Human-supervised AI support for response handling, information access, workflow orchestration, and service operations."
-          },
+          "label": "Customer & Service Workflows",
+          "eyebrow": "Service Enablement",
+          "description": "Human-supervised AI support for response handling, information access, workflow orchestration, and service operations across enterprise and citizen-facing environments.",
           "items": [
             {
-              "title": { "ar": "Service Operations Support", "en": "Service Operations Support" },
-              "readiness": "available",
-              "desc": {
-                "ar": "AI assistance for service environments that require faster handling and better operational consistency.",
-                "en": "AI assistance for service environments that require faster handling and better operational consistency."
-              },
-              "buyer": { "ar": "Service and support organizations", "en": "Service and support organizations" },
-              "deployment": { "ar": "Cloud / Private Cloud / Hybrid", "en": "Cloud / Private Cloud / Hybrid" }
+              "title": "AI Voice Agents",
+              "readiness": "production-ready",
+              "desc": "Deployable voice AI for inbound service handling, outbound updates, and call triage. Supports Arabic and English with configurable escalation paths, CRM integration, and post-call summaries that feed directly into case workflows.",
+              "buyer": "Customer Operations, Contact Center, Service Excellence",
+              "deployment": "Cloud / Private Cloud / Hybrid",
+              "sectors": ["Government", "Financial Services", "Telco", "Energy"]
             },
             {
-              "title": { "ar": "Knowledge Access", "en": "Knowledge Access" },
-              "readiness": "pilot",
-              "desc": {
-                "ar": "Operational access to information across documents, records, and internal knowledge sources.",
-                "en": "Operational access to information across documents, records, and internal knowledge sources."
-              },
-              "buyer": { "ar": "Client-facing and internal teams", "en": "Client-facing and internal teams" },
-              "deployment": { "ar": "Private Cloud / On-Prem / Hybrid", "en": "Private Cloud / On-Prem / Hybrid" }
+              "title": "Contact-center Copilots",
+              "readiness": "production-ready",
+              "desc": "Real-time agent assistance tools that surface relevant knowledge, suggest responses, and generate post-interaction documentation during live service interactions. Reduces handle time while improving consistency and compliance.",
+              "buyer": "Contact Center, Service Quality, Compliance",
+              "deployment": "Cloud / Private Cloud",
+              "sectors": ["Financial Services", "Telco", "Government", "Enterprise"]
+            },
+            {
+              "title": "Citizen & Customer Service Automation",
+              "readiness": "production-ready",
+              "desc": "End-to-end automation for recurring citizen or customer service journeys — form intake, verification, routing, status updates, and resolution — across web, mobile, and voice channels with full audit capability.",
+              "buyer": "Digital Transformation, Operations, CX Leadership",
+              "deployment": "Cloud / Hybrid / Private Cloud",
+              "sectors": ["Government", "Financial Services", "Telco"]
+            },
+            {
+              "title": "Multi-channel Response Intelligence",
+              "readiness": "pilot-ready",
+              "desc": "Unified response orchestration across email, chat, voice, and portal channels. Maintains context across sessions, enforces response governance policies, and routes to human agents when thresholds or policy triggers are met.",
+              "buyer": "CX, Operations, Digital Channels",
+              "deployment": "Cloud / Private Cloud",
+              "sectors": ["Financial Services", "Government", "Enterprise", "Telco"]
             }
           ]
         },
         {
           "id": "compliance-risk",
-          "label": { "ar": "Compliance & Risk Operations", "en": "Compliance & Risk Operations" },
-          "description": {
-            "ar": "Applied intelligence for oversight, evidence handling, policy-linked processes, and environments where accountability matters.",
-            "en": "Applied intelligence for oversight, evidence handling, policy-linked processes, and environments where accountability matters."
-          },
+          "label": "Compliance & Risk Operations",
+          "eyebrow": "Oversight & Control",
+          "description": "Applied intelligence for oversight, evidence handling, policy-linked processes, and environments where accountability, audit, and regulated decision support matter.",
           "items": [
             {
-              "title": { "ar": "Operational Oversight Support", "en": "Operational Oversight Support" },
-              "readiness": "pilot",
-              "desc": {
-                "ar": "Support for review, tracking, and process consistency in control-focused environments.",
-                "en": "Support for review, tracking, and process consistency in control-focused environments."
-              },
-              "buyer": { "ar": "Governance, compliance, and review teams", "en": "Governance, compliance, and review teams" },
-              "deployment": { "ar": "Private Cloud / On-Prem", "en": "Private Cloud / On-Prem" }
+              "title": "Policy-linked Case Handling",
+              "readiness": "production-ready",
+              "desc": "Case management workflows that enforce policy rules at each step — surfacing relevant regulatory guidance, flagging deviations, and generating structured decision records for audit. Designed for compliance, AML, and risk review teams.",
+              "buyer": "Compliance, Risk, Legal, Audit",
+              "deployment": "Private Cloud / On-Prem / Hybrid",
+              "sectors": ["Financial Services", "Government", "Energy"]
+            },
+            {
+              "title": "Evidence & Document Review",
+              "readiness": "production-ready",
+              "desc": "Automated review of document sets, evidence packages, and structured records against defined compliance criteria. Extracts key data points, flags anomalies, and produces reviewer-ready summaries with source traceability.",
+              "buyer": "Legal, Compliance, Audit, Investigation",
+              "deployment": "Private Cloud / On-Prem",
+              "sectors": ["Government", "Financial Services", "Energy"]
+            },
+            {
+              "title": "Oversight Dashboards",
+              "readiness": "pilot-ready",
+              "desc": "Real-time visibility dashboards for compliance officers and risk leadership — aggregating operational signals, case statuses, policy adherence indicators, and exception queues into a configurable review surface.",
+              "buyer": "Chief Compliance Officer, Risk Leadership, Board Secretariat",
+              "deployment": "Cloud / Private Cloud",
+              "sectors": ["Financial Services", "Government", "Enterprise"]
+            },
+            {
+              "title": "Regulated Decision Support",
+              "readiness": "pilot-ready",
+              "desc": "Structured decision-support workflows for high-stakes, human-in-the-loop determinations — credit, licensing, sanctions screening, or permit review. AI surfaces evidence and precedent; the human makes the decision with full traceability.",
+              "buyer": "Regulators, Compliance Officers, Risk Committees",
+              "deployment": "Private Cloud / On-Prem",
+              "sectors": ["Government", "Financial Services"]
+            }
+          ]
+        },
+        {
+          "id": "spatial-field",
+          "label": "Spatial & Field Intelligence",
+          "eyebrow": "Operational Visibility",
+          "description": "Applied intelligence for environments where infrastructure, assets, geography, and distributed field operations require persistent visibility and rapid response.",
+          "items": [
+            {
+              "title": "Infrastructure Visibility",
+              "readiness": "production-ready",
+              "desc": "Continuous monitoring of physical infrastructure — utilities, networks, pipelines, and built assets — using imagery, sensor feeds, and operational data. Detects anomalies, generates alerts, and feeds field dispatch workflows.",
+              "buyer": "Infrastructure Operations, Asset Management, Engineering",
+              "deployment": "Cloud / Private Cloud / On-Prem",
+              "sectors": ["Energy", "Government", "Telco"]
+            },
+            {
+              "title": "Field-operations Intelligence",
+              "readiness": "production-ready",
+              "desc": "Operational awareness for distributed field teams — combining location signals, work orders, and real-time status to optimize dispatch, track task completion, and surface issues before they escalate.",
+              "buyer": "Field Operations, Logistics, Maintenance",
+              "deployment": "Cloud / Hybrid",
+              "sectors": ["Energy", "Government", "Enterprise"]
+            },
+            {
+              "title": "Asset & Environmental Monitoring",
+              "readiness": "production-ready",
+              "desc": "Monitoring of physical assets and environmental conditions across large-area sites using satellite imagery, drone feeds, and ground sensors. Delivers structured change-detection outputs aligned to maintenance and safety workflows.",
+              "buyer": "HSE, Asset Management, Operations",
+              "deployment": "Cloud / Private Cloud / On-Prem",
+              "sectors": ["Energy", "Government", "Enterprise"]
+            },
+            {
+              "title": "Distributed Asset Analytics",
+              "readiness": "pilot-ready",
+              "desc": "Aggregated performance analytics across distributed physical asset portfolios — identifying underperformance patterns, maintenance risk clusters, and investment prioritization signals from multi-source operational data.",
+              "buyer": "Asset Owners, Portfolio Management, Engineering Leadership",
+              "deployment": "Cloud / Private Cloud",
+              "sectors": ["Energy", "Government", "Financial Services"]
+            }
+          ]
+        },
+        {
+          "id": "knowledge-intelligence",
+          "label": "Knowledge & Document Intelligence",
+          "eyebrow": "Enterprise Knowledge",
+          "description": "Enterprise-grade document retrieval, knowledge management, and multilingual content intelligence for organizations managing large, regulated document and knowledge estates.",
+          "items": [
+            {
+              "title": "Document Intelligence",
+              "readiness": "production-ready",
+              "desc": "Structured extraction, classification, and analysis of complex enterprise documents — contracts, reports, technical manuals, regulatory filings, and correspondence — at scale with provenance tracking and confidence scoring.",
+              "buyer": "Legal, Compliance, Operations, Knowledge Management",
+              "deployment": "Private Cloud / On-Prem / Hybrid",
+              "sectors": ["Financial Services", "Government", "Energy", "Enterprise"]
+            },
+            {
+              "title": "Knowledge Retrieval Systems",
+              "readiness": "production-ready",
+              "desc": "Private, role-gated knowledge retrieval systems that surface accurate, source-traced answers from internal document estates. Deployed on private infrastructure — no data leaves the organization's control perimeter.",
+              "buyer": "Operations Teams, Policy Staff, Technical Support",
+              "deployment": "Private Cloud / On-Prem",
+              "sectors": ["Government", "Financial Services", "Energy", "Telco"]
+            },
+            {
+              "title": "Content Operationalization",
+              "readiness": "pilot-ready",
+              "desc": "Transforms unstructured content repositories — SharePoint estates, legacy databases, policy archives — into queryable, governed knowledge assets. Includes ingestion pipelines, permission mapping, and ongoing synchronization.",
+              "buyer": "Knowledge Management, IT, Operations",
+              "deployment": "Private Cloud / Hybrid",
+              "sectors": ["Government", "Financial Services", "Enterprise"]
+            },
+            {
+              "title": "Multilingual Content Intelligence",
+              "readiness": "pilot-ready",
+              "desc": "Cross-language document analysis, translation, and knowledge extraction optimized for Arabic-English enterprise environments. Handles formal Arabic, mixed-language documents, and technical terminology without loss of regulatory nuance.",
+              "buyer": "Legal, Government Affairs, Compliance, Operations",
+              "deployment": "Private Cloud / On-Prem",
+              "sectors": ["Government", "Financial Services", "Energy"]
+            }
+          ]
+        },
+        {
+          "id": "platforms-custom",
+          "label": "Custom Platforms & Applications",
+          "eyebrow": "Sovereign Platforms",
+          "description": "Purpose-built AI platforms, operator consoles, and vertical applications designed for regulated sectors, mission-critical environments, and complex operating contexts where off-the-shelf tools cannot meet requirements.",
+          "items": [
+            {
+              "title": "Custom AI Platforms",
+              "readiness": "production-ready",
+              "desc": "Fully bespoke AI platforms engineered around a client's specific operational context, data architecture, compliance requirements, and user workflows. Delivered as a complete, production-grade system — not a prototype.",
+              "buyer": "CTO, Chief Digital Officer, Program Leadership",
+              "deployment": "Private Cloud / On-Prem / Hybrid",
+              "sectors": ["Government", "Financial Services", "Energy", "Telco"]
+            },
+            {
+              "title": "Operator Consoles",
+              "readiness": "production-ready",
+              "desc": "Configurable command-and-review interfaces for operations teams, compliance officers, and field managers. Surfaces AI outputs, flags requiring review, case queues, and workflow statuses in a single governed pane.",
+              "buyer": "Operations Leadership, Compliance, Field Management",
+              "deployment": "Cloud / Private Cloud / On-Prem",
+              "sectors": ["Government", "Financial Services", "Energy"]
+            },
+            {
+              "title": "Private Agent Platforms",
+              "readiness": "pilot-ready",
+              "desc": "Deployable multi-agent orchestration environments hosted entirely within the client's infrastructure perimeter. Enables complex, multi-step AI workflows with full audit logging, policy enforcement, and human review gates.",
+              "buyer": "CTO, IT Architecture, Security Leadership",
+              "deployment": "On-Prem / Private Cloud",
+              "sectors": ["Government", "Financial Services", "Energy"]
+            },
+            {
+              "title": "Purpose-built Vertical Applications",
+              "readiness": "strategic",
+              "desc": "Sector-specific AI applications engineered to the regulatory, workflow, and integration constraints of a defined vertical — government permitting, financial surveillance, energy dispatch, or telco operations. Delivered under a structured co-development model.",
+              "buyer": "Ministry/Agency Leadership, Sector CTOs, Program Owners",
+              "deployment": "Private Cloud / On-Prem",
+              "sectors": ["Government", "Financial Services", "Energy", "Telco"]
             }
           ]
         }
@@ -581,216 +511,454 @@
     },
     "contact": {
       "hero": {
-        "title": { "ar": "Start the conversation", "en": "Start the conversation" },
-        "subtitle": {
-          "ar": "Tell us about your environment, priorities, or the kind of capability you are exploring.",
-          "en": "Tell us about your environment, priorities, or the kind of capability you are exploring."
-        }
+        "title": "Start the conversation",
+        "subtitle": "Tell us about your environment, priorities, or the kind of capability you are exploring."
       },
       "form": {
-        "name": { "ar": "Full Name", "en": "Full Name" },
-        "email": { "ar": "Work Email", "en": "Work Email" },
-        "org": { "ar": "Company", "en": "Company" },
-        "phone": { "ar": "Phone", "en": "Phone" },
-        "type": { "ar": "Area of Interest", "en": "Area of Interest" },
-        "message": { "ar": "Message", "en": "Message" },
-        "submit": { "ar": "Send Inquiry", "en": "Send Inquiry" }
-      }
+        "name": "Full Name",
+        "email": "Work Email",
+        "org": "Company",
+        "phone": "Phone",
+        "type": "Area of Interest",
+        "message": "Message",
+        "submit": "Send Inquiry"
+      },
+      "entryPaths": [
+        {
+          "id": "government",
+          "label": "Government & Ministry Engagements",
+          "desc": "Structured briefings for ministry and agency leadership. NDA-ready secure engagement on request.",
+          "email": "info@mayaai.net",
+          "icon": "Building2"
+        },
+        {
+          "id": "enterprise",
+          "label": "Enterprise Procurement",
+          "desc": "For enterprise procurement, sourcing, and RFP engagement. Named BD contacts available on request.",
+          "email": "procurement@mayaai.net",
+          "icon": "Briefcase"
+        },
+        {
+          "id": "partners",
+          "label": "Partnerships & Technical Due Diligence",
+          "desc": "Partner integrations, co-sell arrangements, and technical due diligence.",
+          "email": "partners@mayaai.net",
+          "icon": "Globe"
+        }
+      ]
     },
     "requestModal": {
-      "title": { "ar": "Request a Private Briefing", "en": "Request a Private Briefing" },
+      "title": "Request a Private Briefing",
       "fields": {
-        "name": { "ar": "Full Name", "en": "Full Name" },
-        "entity": { "ar": "Company", "en": "Company" },
-        "position": { "ar": "Role", "en": "Role" },
-        "sector": { "ar": "Sector", "en": "Sector" },
-        "scope": { "ar": "Area of Interest", "en": "Area of Interest" },
-        "location": { "ar": "City / Country", "en": "City / Country" },
-        "email": { "ar": "Email", "en": "Email" },
-        "phone": { "ar": "Phone", "en": "Phone" },
-        "nda": { "ar": "Require NDA before deeper discussion?", "en": "Require NDA before deeper discussion?" },
-        "notes": { "ar": "Notes", "en": "Notes" }
+        "name": "Full Name",
+        "entity": "Company",
+        "position": "Role",
+        "sector": "Sector",
+        "scope": "Area of Interest",
+        "location": "City / Country",
+        "email": "Email",
+        "phone": "Phone",
+        "nda": "Require NDA before deeper discussion?",
+        "notes": "Notes"
       },
       "options": {
         "sectors": [
-          { "value": "government", "label": { "ar": "Government", "en": "Government" } },
-          { "value": "enterprise", "label": { "ar": "Enterprise", "en": "Enterprise" } },
-          { "value": "infrastructure", "label": { "ar": "Infrastructure", "en": "Infrastructure" } },
-          { "value": "operations", "label": { "ar": "Operations", "en": "Operations" } },
-          { "value": "services", "label": { "ar": "Services", "en": "Services" } },
-          { "value": "other", "label": { "ar": "Other", "en": "Other" } }
+          { "value": "government", "label": "Government" },
+          { "value": "financial", "label": "Financial Services" },
+          { "value": "energy", "label": "Energy" },
+          { "value": "telco", "label": "Telecommunications" },
+          { "value": "enterprise", "label": "Enterprise" },
+          { "value": "other", "label": "Other" }
         ],
         "scopes": [
-          { "value": "automation", "label": { "ar": "AI Agents & Automation", "en": "AI Agents & Automation" } },
-          { "value": "knowledge", "label": { "ar": "Knowledge & Document Intelligence", "en": "Knowledge & Document Intelligence" } },
-          { "value": "spatial", "label": { "ar": "Spatial & Operational Intelligence", "en": "Spatial & Operational Intelligence" } },
-          { "value": "decision", "label": { "ar": "Decision Support Systems", "en": "Decision Support Systems" } },
-          { "value": "deployment", "label": { "ar": "Private AI Deployment", "en": "Private AI Deployment" } },
-          { "value": "general", "label": { "ar": "General Inquiry", "en": "General Inquiry" } }
+          { "value": "automation", "label": "AI Agents & Automation" },
+          { "value": "knowledge", "label": "Knowledge & Document Intelligence" },
+          { "value": "spatial", "label": "Spatial & Operational Intelligence" },
+          { "value": "decision", "label": "Decision Support Systems" },
+          { "value": "deployment", "label": "Private AI Deployment" },
+          { "value": "platforms", "label": "Custom Platforms & Applications" },
+          { "value": "general", "label": "General Inquiry" }
         ],
         "nda": [
-          { "value": "yes", "label": { "ar": "Yes", "en": "Yes" } },
-          { "value": "no", "label": { "ar": "No", "en": "No" } }
+          { "value": "yes", "label": "Yes" },
+          { "value": "no", "label": "No" }
         ]
       },
-      "submit": { "ar": "Submit Request", "en": "Submit Request" },
-      "success": {
-        "ar": "Request received. We will contact you shortly.",
-        "en": "Request received. We will contact you shortly."
-      }
+      "submit": "Submit Request",
+      "success": "Request received. We will contact you shortly."
     },
     "company": {
       "hero": {
-        "title": { "ar": "Company", "en": "Company" },
-        "subtitle": {
-          "ar": "A focused AI company operating across Saudi Arabia and the United States.",
-          "en": "A focused AI company operating across Saudi Arabia and the United States."
-        },
-        "description": {
-          "ar": "Maya AI builds applied intelligence systems for organizations that need secure deployment, practical execution, and measurable operational value. We work across Saudi Arabia and the United States through a unified operating model centered on serious delivery.",
-          "en": "Maya AI builds applied intelligence systems for organizations that need secure deployment, practical execution, and measurable operational value. We work across Saudi Arabia and the United States through a unified operating model centered on serious delivery."
-        },
+        "title": "Company",
+        "subtitle": "A focused AI company operating across the United States and the Kingdom of Saudi Arabia.",
+        "description": "Maya AI builds applied intelligence systems for organizations that need secure deployment, practical execution, and measurable operational value. We operate through Maya AI, Inc. (Delaware-incorporated, Virginia HQ) in the United States, and Maya AI KSA (Saudi-registered, Riyadh) in the Kingdom.",
         "proofs": [
-          { "ar": "Applied AI", "en": "Applied AI" },
-          { "ar": "Secure deployment", "en": "Secure deployment" },
-          { "ar": "Saudi Arabia + United States", "en": "Saudi Arabia + United States" },
-          { "ar": "Enterprise-ready", "en": "Enterprise-ready" }
+          "Applied AI for enterprise and government",
+          "Sovereign-ready deployment models",
+          "Operating in KSA and the United States",
+          "Security and compliance aligned"
         ]
       },
       "sections": {
         "whoWeAre": {
-          "title": { "ar": "About Maya", "en": "About Maya" },
-          "content": {
-            "ar": "Maya was built around a simple principle: AI should improve real operations, not just generate interest. Our work focuses on applied systems that support execution, intelligence, and control across enterprise and mission-critical environments.",
-            "en": "Maya was built around a simple principle: AI should improve real operations, not just generate interest. Our work focuses on applied systems that support execution, intelligence, and control across enterprise and mission-critical environments."
-          }
+          "title": "About Maya",
+          "content": "Maya was built around a simple principle: AI should improve real operations, not just generate interest. Our work focuses on applied systems that support execution, intelligence, and control across enterprise and mission-critical environments. We design for deployment — not demonstration — and measure success by operational impact, not feature count."
         },
         "identity": {
-          "title": { "ar": "How we operate", "en": "How we operate" },
-          "content": {
-            "ar": "We combine cross-market perspective with practical delivery discipline. Our work is shaped around secure implementation, operational usefulness, and long-term fit inside real environments.",
-            "en": "We combine cross-market perspective with practical delivery discipline. Our work is shaped around secure implementation, operational usefulness, and long-term fit inside real environments."
-          }
+          "title": "How we operate",
+          "content": "We combine cross-market perspective with practical delivery discipline. Our work is shaped around secure implementation, operational usefulness, and long-term fit inside real environments. We bring the same delivery standard to every engagement regardless of market or sector."
         },
         "mission": {
-          "title": { "ar": "Our mission", "en": "Our mission" },
-          "content": {
-            "ar": "To turn AI into a trusted operational capability through systems that are useful, controlled, and built for deployment in serious environments.",
-            "en": "To turn AI into a trusted operational capability through systems that are useful, controlled, and built for deployment in serious environments."
-          }
+          "title": "Our mission",
+          "content": "To turn AI into a trusted operational capability through systems that are useful, controlled, and built for deployment in serious environments. We believe the right measure of AI is whether it changes how work gets done — not whether it generates impressive outputs in isolation."
         },
         "vision": {
-          "title": { "ar": "Our focus", "en": "Our focus" },
-          "content": {
-            "ar": "We focus on applied AI delivery for organizations that need security, practicality, and measurable value rather than broad experimentation.",
-            "en": "We focus on applied AI delivery for organizations that need security, practicality, and measurable value rather than broad experimentation."
-          }
+          "title": "Our focus",
+          "content": "We focus on applied AI delivery for organizations that need security, practicality, and measurable value rather than broad experimentation. Serving regulated enterprises across KSA and US financial services, energy, government-adjacent, and telco — with the same commitment to operational discipline in both markets."
         }
       },
       "differentiators": {
-        "title": { "ar": "Why Maya", "en": "Why Maya" },
-        "subtitle": {
-          "ar": "Our model is designed for organizations that need more than general-purpose AI. They need secure, deployable, and operationally useful systems.",
-          "en": "Our model is designed for organizations that need more than general-purpose AI. They need secure, deployable, and operationally useful systems."
-        },
+        "title": "Why Maya",
+        "subtitle": "Our model is designed for organizations that need more than general-purpose AI — they need secure, deployable, and operationally useful systems delivered by a team that understands regulated environments.",
         "items": [
           {
-            "title": { "ar": "Operational usefulness", "en": "Operational usefulness" },
-            "desc": {
-              "ar": "We focus on AI that fits real workflows and creates value in day-to-day operations.",
-              "en": "We focus on AI that fits real workflows and creates value in day-to-day operations."
-            }
+            "title": "Operational usefulness",
+            "desc": "We focus on AI that fits real workflows and creates day-to-day operational value. Every system we deliver is designed around how people actually work, which means faster time-to-value and higher adoption."
           },
           {
-            "title": { "ar": "Secure deployment", "en": "Secure deployment" },
-            "desc": {
-              "ar": "Deployment models aligned to control, security, and enterprise realities.",
-              "en": "Deployment models aligned to control, security, and enterprise realities."
-            }
+            "title": "Secure deployment",
+            "desc": "Deployment models aligned to control, security, and enterprise realities. We design for on-prem, private cloud, and hybrid environments as first-class options and map every deployment to relevant compliance requirements."
           },
           {
-            "title": { "ar": "Human-controlled execution", "en": "Human-controlled execution" },
-            "desc": {
-              "ar": "Automation where it helps, oversight where it matters.",
-              "en": "Automation where it helps, oversight where it matters."
-            }
+            "title": "Human-controlled execution",
+            "desc": "Automation where it helps, oversight where it matters. Maya systems include configurable human review gates, escalation paths, and audit trails as standard — giving operations teams the control they need."
           },
           {
-            "title": { "ar": "Cross-market perspective", "en": "Cross-market perspective" },
-            "desc": {
-              "ar": "Operating across Saudi Arabia and the United States with a unified company story.",
-              "en": "Operating across Saudi Arabia and the United States with a unified company story."
-            }
+            "title": "Cross-market perspective",
+            "desc": "Operating across the Kingdom of Saudi Arabia and the United States with a unified delivery model and shared compliance spine. We understand both markets' regulatory environments and procurement realities."
           }
         ]
       },
       "operatingModel": {
-        "title": { "ar": "Operating presence", "en": "Operating presence" },
-        "content": {
-          "ar": "Maya serves organizations across Saudi Arabia and the United States through a unified model focused on applied AI delivery, secure implementation, and long-term operational value.",
-          "en": "Maya serves organizations across Saudi Arabia and the United States through a unified model focused on applied AI delivery, secure implementation, and long-term operational value."
-        },
+        "title": "Operating presence",
+        "content": "Maya serves organizations across Saudi Arabia and the United States through a unified model focused on applied AI delivery, secure implementation, and long-term operational value.",
         "items": [
           {
-            "label": { "ar": "Saudi Arabia", "en": "Saudi Arabia" },
-            "value": {
-              "ar": "Regional market engagement, implementation alignment, and direct delivery support.",
-              "en": "Regional market engagement, implementation alignment, and direct delivery support."
-            }
+            "label": "Saudi Arabia",
+            "value": "Maya AI KSA operates from Riyadh, serving government entities, regulated enterprises, and mission-critical environments across the Kingdom. Aligned to PDPL, NCA ECC, and SDAIA guidance."
           },
           {
-            "label": { "ar": "United States", "en": "United States" },
-            "value": {
-              "ar": "International operating presence and broader cross-market positioning.",
-              "en": "International operating presence and broader cross-market positioning."
-            }
+            "label": "United States",
+            "value": "Maya AI, Inc. operates from Virginia, serving federal-adjacent, enterprise, and regulated-industry clients across the United States. Aligned to NIST 800-53 and SOC2 Type II (in progress)."
           },
           {
-            "label": { "ar": "Delivery approach", "en": "Delivery approach" },
-            "value": {
-              "ar": "Understand the environment, define the right use case, choose the right deployment model, and build for sustained use.",
-              "en": "Understand the environment, define the right use case, choose the right deployment model, and build for sustained use."
-            }
+            "label": "Delivery approach",
+            "value": "Understand the environment, define the right use case, select the deployment model, build for sustained operational use. Our delivery model includes ongoing operational partnership."
           }
         ]
       },
       "values": {
-        "title": { "ar": "Values", "en": "Values" },
+        "title": "Values",
         "items": [
           {
             "key": "practicality",
-            "title": { "ar": "Practicality", "en": "Practicality" },
-            "desc": {
-              "ar": "We care about systems that work in real operational settings.",
-              "en": "We care about systems that work in real operational settings."
-            }
+            "title": "Practicality",
+            "desc": "We care about systems that work in real operational settings — not systems that perform well in demos. Every design decision is tested against the question: will this hold up in production?"
           },
           {
             "key": "control",
-            "title": { "ar": "Control", "en": "Control" },
-            "desc": {
-              "ar": "Security, access, and oversight are part of the design, not an afterthought.",
-              "en": "Security, access, and oversight are part of the design, not an afterthought."
-            }
+            "title": "Control",
+            "desc": "Security, access, and oversight are part of the design, not an afterthought. We build RBAC, audit logging, and human review into the system architecture from the start."
           },
           {
             "key": "reliability",
-            "title": { "ar": "Reliability", "en": "Reliability" },
-            "desc": {
-              "ar": "We build for sustained use, not short-lived demos.",
-              "en": "We build for sustained use, not short-lived demos."
-            }
+            "title": "Reliability",
+            "desc": "We build for sustained use, not short-lived demos. Our delivery model includes operational monitoring, capability extension, and long-term partnership as standard components."
           },
           {
             "key": "discipline",
-            "title": { "ar": "Discipline", "en": "Discipline" },
-            "desc": {
-              "ar": "Clear scope, thoughtful deployment, and serious execution.",
-              "en": "Clear scope, thoughtful deployment, and serious execution."
-            }
+            "title": "Discipline",
+            "desc": "Clear scope, thoughtful deployment, and serious execution. We engage only where we can be genuinely useful — and we hold ourselves to the same operational discipline we ask of our clients."
           }
         ]
       }
+    },
+    "geoai": {
+      "hero": {
+        "title": "Capabilities",
+        "subtitle": "Applied intelligence across six capability domains.",
+        "description": "Maya applies intelligence capabilities across the full operational lifecycle — from workflow execution and voice service to spatial monitoring, knowledge management, and sovereign platform deployment."
+      },
+      "cta": {
+        "title": "Discuss a use case",
+        "subtitle": "We can review the environment, data context, and deployment approach in a private conversation.",
+        "button": "Talk to Maya"
+      },
+      "sampleImagery": {
+        "note": "Displayed visuals are representative only. Specific implementations are discussed privately.",
+        "watermark": "Maya AI"
+      },
+      "tabs": [
+        {
+          "id": "infrastructure",
+          "label": "Infrastructure Monitoring",
+          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/infrastructure-map_sgrcqb.png",
+          "readiness": "available",
+          "detects": "Continuous visibility across infrastructure-linked environments and physical assets.",
+          "outputs": "Dashboards, operational summaries, spatial outputs",
+          "buyers": "Infrastructure, operations, and field-based organizations",
+          "pilot": "Use-case review available"
+        },
+        {
+          "id": "field",
+          "label": "Field Operations",
+          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751438/mobility-map_njppie.jpg",
+          "readiness": "available",
+          "detects": "Operational awareness for distributed assets, movement, and field-linked workflows.",
+          "outputs": "Dashboards, alerts, decision-support views",
+          "buyers": "Operations, logistics, and service environments",
+          "pilot": "Use-case review available"
+        },
+        {
+          "id": "environment",
+          "label": "Environmental Visibility",
+          "image": "https://res.cloudinary.com/dzipj6lnb/image/upload/v1773751439/vegetation-map_e5a5yl.jpg",
+          "readiness": "available",
+          "detects": "Structured visibility across physical and environmental conditions.",
+          "outputs": "Spatial outputs, reports, monitoring views",
+          "buyers": "Organizations managing land, assets, or large-area environments",
+          "pilot": "Use-case review available"
+        }
+      ]
+    },
+    "nationalPrograms": {
+      "hero": {
+        "title": "Mission-Critical Environments",
+        "subtitle": "Applied AI for complex operating contexts.",
+        "disclaimer": "Detailed implementation information is shared only in direct discussions."
+      },
+      "systems": [
+        {
+          "id": "operations",
+          "title": "Operational Coordination",
+          "desc": "AI-supported workflows for environments that require coordination, visibility, and faster response.",
+          "features": ["Workflow support", "Cross-team visibility", "Controlled execution"],
+          "readiness": "strategic"
+        },
+        {
+          "id": "monitoring",
+          "title": "Monitoring & Decision Support",
+          "desc": "Operational visibility and structured insight for high-value environments.",
+          "features": ["Insight layers", "Prioritization support", "Operational reporting"],
+          "readiness": "strategic"
+        }
+      ],
+      "governance": {
+        "title": "Operating standards",
+        "items": [
+          {
+            "title": "Security alignment",
+            "desc": "Deployment aligned to environmental sensitivity and control requirements."
+          },
+          {
+            "title": "Auditability",
+            "desc": "Traceable execution and reviewable workflows."
+          },
+          {
+            "title": "Operational fit",
+            "desc": "Structured around real workflows, systems, and operating constraints."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Start the conversation",
+        "button": "Contact Maya"
+      }
+    },
+    "leadership": {
+      "hero": {
+        "title": "The people behind Maya",
+        "subtitle": "Practitioners who have operated at the intersection of AI, enterprise delivery, and regulated environments across the United States and the Kingdom of Saudi Arabia."
+      },
+      "placeholder": "Leadership profiles are being finalized for public release. Contact us for a direct introduction.",
+      "leaders": [
+        {
+          "id": "ceo",
+          "name": "Chief Executive Officer",
+          "title": "CEO",
+          "bio": "Maya's Chief Executive brings two decades of experience building and scaling technology-driven operations across regulated markets. Prior career spans enterprise software delivery, government digital transformation, and cross-border operating strategy in the US and GCC.",
+          "linkedin": "#",
+          "avatar": "CEO"
+        },
+        {
+          "id": "cto",
+          "name": "Chief Technology Officer",
+          "title": "CTO",
+          "bio": "Responsible for Maya's technical architecture, AI platform strategy, and sovereign deployment engineering. Deep background in applied ML, enterprise systems integration, and secure-by-design infrastructure across regulated environments.",
+          "linkedin": "#",
+          "avatar": "CTO"
+        },
+        {
+          "id": "cdo",
+          "name": "Chief Delivery Officer",
+          "title": "CDO",
+          "bio": "Leads delivery across all Maya engagements — from assessment through production deployment and ongoing operations. Previous experience delivering mission-critical technology programs in financial services, energy, and government sectors.",
+          "linkedin": "#",
+          "avatar": "CDO"
+        },
+        {
+          "id": "ksa-lead",
+          "name": "KSA Country Lead",
+          "title": "Country Lead, Kingdom of Saudi Arabia",
+          "bio": "Heads Maya's in-Kingdom operations from Riyadh. Extensive experience building enterprise technology relationships within KSA's government and regulated private sector, with deep understanding of Vision 2030 priorities and SDAIA-aligned AI frameworks.",
+          "linkedin": "#",
+          "avatar": "KSA"
+        },
+        {
+          "id": "gov-affairs",
+          "name": "Head of Government Affairs",
+          "title": "Head of Government Affairs",
+          "bio": "Manages Maya's government and regulatory engagement in both markets. Prior background in public sector technology policy, procurement strategy, and regulatory frameworks translated into operational AI governance requirements.",
+          "linkedin": "#",
+          "avatar": "GOV"
+        },
+        {
+          "id": "security",
+          "name": "Head of Security",
+          "title": "Head of Security & Compliance",
+          "bio": "Responsible for Maya's security architecture, compliance posture, and sovereign deployment standards. Background in enterprise cybersecurity, regulatory mapping (NIST, NCA ECC, PDPL), and secure-by-default AI system architectures.",
+          "linkedin": "#",
+          "avatar": "SEC"
+        }
+      ],
+      "advisors": [
+        {
+          "id": "advisor-1",
+          "name": "Senior Advisor — AI Strategy",
+          "desc": "Advisory focus on enterprise AI strategy, responsible AI frameworks, and cross-market commercialization."
+        },
+        {
+          "id": "advisor-2",
+          "name": "Senior Advisor — Sovereign Technology",
+          "desc": "Advisory focus on sovereign AI infrastructure, in-Kingdom technology policy, and government engagement in the GCC."
+        },
+        {
+          "id": "advisor-3",
+          "name": "Senior Advisor — Regulated Industries",
+          "desc": "Advisory focus on AI deployment in financial services, energy, and government-adjacent sectors across the US and MENA."
+        }
+      ]
+    },
+    "trust": {
+      "hero": {
+        "title": "Security, compliance, and sovereign readiness",
+        "subtitle": "Maya is designed from first principles for deployment in environments where security, data sovereignty, and regulatory alignment are operational requirements. Our compliance posture spans both KSA and US regulatory regimes, with the same control architecture applied to both markets."
+      },
+      "complianceMatrix": {
+        "title": "Compliance control mapping",
+        "intro": "Maya maps its control architecture against the major regulatory frameworks applicable to its operating markets.",
+        "controlAreas": [
+          "Access Control",
+          "Audit Logging",
+          "Data Residency",
+          "Encryption",
+          "Incident Response",
+          "Change Management",
+          "Third-party Risk"
+        ],
+        "frameworks_us": ["NIST 800-53", "SOC2 Type II", "ISO 27001", "PDPL", "NCA ECC", "SDAIA Guidance"],
+        "frameworks_sa": ["PDPL", "NCA ECC", "SDAIA Guidance", "NIST 800-53", "SOC2 Type II", "ISO 27001"],
+        "rows": [
+          { "area": "Access Control", "nist": "Mapped", "soc2": "Mapped", "iso": "Mapped", "pdpl": "Mapped", "nca": "Mapped", "sdaia": "Mapped" },
+          { "area": "Audit Logging", "nist": "Mapped", "soc2": "Mapped", "iso": "Mapped", "pdpl": "In Progress — target Q3 2025", "nca": "Mapped", "sdaia": "Mapped" },
+          { "area": "Data Residency", "nist": "Mapped", "soc2": "In Progress — target Q4 2025", "iso": "Planned — target Q1 2026", "pdpl": "Mapped", "nca": "Mapped", "sdaia": "Mapped" },
+          { "area": "Encryption", "nist": "Mapped", "soc2": "Mapped", "iso": "Mapped", "pdpl": "Mapped", "nca": "Mapped", "sdaia": "Applied" },
+          { "area": "Incident Response", "nist": "Mapped", "soc2": "In Progress — target Q4 2025", "iso": "Planned — target Q2 2026", "pdpl": "In Progress — target Q4 2025", "nca": "Mapped", "sdaia": "Applied" },
+          { "area": "Change Management", "nist": "Mapped", "soc2": "In Progress — target Q4 2025", "iso": "Planned — target Q2 2026", "pdpl": "Mapped", "nca": "Mapped", "sdaia": "Applied" },
+          { "area": "Third-party Risk", "nist": "Mapped", "soc2": "In Progress — target Q1 2026", "iso": "Planned — target Q2 2026", "pdpl": "In Progress — target Q1 2026", "nca": "Mapped", "sdaia": "Applied" }
+        ]
+      },
+      "dataResidency": {
+        "title": "Data residency & sovereignty",
+        "content": "Maya supports multiple data residency configurations aligned to the sovereignty requirements of each deployment. In-Kingdom deployments can be hosted entirely within KSA infrastructure with no data crossing sovereign boundaries. US deployments support AWS GovCloud intent and US-only configurations. Hybrid deployments allow organizations to split workloads by data classification.",
+        "options": [
+          { "label": "In-Kingdom (KSA)", "desc": "Full data residency within Saudi Arabia. Aligned to PDPL and NCA data localisation guidance." },
+          { "label": "US Regional", "desc": "US-only infrastructure. AWS GovCloud alignment in progress. Suitable for federal-adjacent deployments." },
+          { "label": "Hybrid / Split", "desc": "Sensitive data in designated residency zone. Non-sensitive processing on preferred cloud." },
+          { "label": "On-Premises", "desc": "Full client infrastructure deployment. No cloud dependency. Maximum sovereignty and air-gap capability." }
+        ]
+      },
+      "subprocessors": {
+        "title": "Infrastructure & platform partners",
+        "intro": "Maya integrates with industry-standard enterprise platforms. Partner-tier designations and co-sell arrangements are confirmed on request.",
+        "partners": [
+          { "name": "AWS", "role": "Primary cloud infrastructure. GovCloud alignment in progress.", "link": "https://aws.amazon.com/security/" },
+          { "name": "Microsoft Azure", "role": "Enterprise cloud and AI platform integration.", "link": "https://azure.microsoft.com/en-us/explore/trusted-cloud" },
+          { "name": "Google Cloud", "role": "AI/ML infrastructure and data platform.", "link": "https://cloud.google.com/security" },
+          { "name": "NVIDIA", "role": "GPU infrastructure and model deployment.", "link": "https://www.nvidia.com/en-us/industries/enterprise/" }
+        ]
+      },
+      "contact": {
+        "title": "Security contact",
+        "content": "For security disclosures, vulnerability reports, or coordinated disclosure requests, contact security@mayaai.net or security@mayaai.sa. Maya operates a responsible disclosure process — reports are acknowledged within 48 hours.",
+        "emails": ["security@mayaai.net", "security@mayaai.sa"]
+      }
+    },
+    "careers": {
+      "hero": {
+        "title": "Join Maya",
+        "subtitle": "We are building AI systems that matter — in environments where the stakes are real."
+      },
+      "intro": "We are hiring across engineering, delivery, and go-to-market in Riyadh and Virginia. We work in small, focused teams where every person contributes to outcomes that are visible and meaningful.",
+      "roles": [
+        {
+          "title": "Senior AI Engineer",
+          "location": "Riyadh / Virginia (Remote-eligible)",
+          "type": "Full-time",
+          "desc": "Build and deploy production AI systems across enterprise workflows, voice, and document intelligence — with a strong bias toward operational reliability and security-first architecture."
+        },
+        {
+          "title": "Enterprise Delivery Lead",
+          "location": "Riyadh / Virginia",
+          "type": "Full-time",
+          "desc": "Own the delivery lifecycle for complex enterprise and government engagements — from assessment and scoping through production deployment and operational handoff."
+        },
+        {
+          "title": "AI Solutions Architect",
+          "location": "Riyadh / Virginia",
+          "type": "Full-time",
+          "desc": "Design the technical solution architecture for Maya's enterprise and government clients — translating requirements into secure, scalable AI system designs across our six capability domains."
+        }
+      ]
+    },
+    "insights": {
+      "hero": {
+        "title": "Insights",
+        "subtitle": "Thinking on sovereign AI, enterprise deployment, and the realities of operating AI systems in regulated environments."
+      },
+      "articles": [
+        {
+          "id": "sovereign-ai-ksa",
+          "title": "What sovereign AI really means in the Kingdom",
+          "excerpt": "As Saudi Arabia accelerates its AI National Strategy, the meaning of 'sovereign AI' has moved from a policy aspiration to a procurement requirement. This piece explores what in-Kingdom data residency, SDAIA-aligned architecture, and NCA ECC compliance actually demand from AI system vendors.",
+          "category": "Policy & Governance",
+          "readTime": "8 min read"
+        },
+        {
+          "id": "agent-workflows-regulated",
+          "title": "Deploying agent workflows in regulated US environments",
+          "excerpt": "Autonomous AI agents present a governance challenge that most enterprise frameworks weren't designed for. Drawing on deployments in financial services and government-adjacent environments, this piece examines the control architectures, audit requirements, and human-in-the-loop patterns that make agent workflows viable.",
+          "category": "Architecture & Deployment",
+          "readTime": "10 min read"
+        },
+        {
+          "id": "data-residency-architecture",
+          "title": "Reference architecture for in-Kingdom data residency",
+          "excerpt": "Building AI systems that keep all data within the Kingdom requires more than selecting a KSA-hosted cloud provider. This piece lays out the architectural decisions that determine whether a system genuinely meets KSA data localisation requirements.",
+          "category": "Architecture & Deployment",
+          "readTime": "12 min read"
+        }
+      ]
     }
   }
 }

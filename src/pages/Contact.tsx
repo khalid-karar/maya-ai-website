@@ -8,22 +8,15 @@ import {
   Globe,
   Shield,
   ArrowRight,
-  ChevronLeft,
   ChevronRight,
   CheckCircle2,
   Briefcase,
   Lock,
 } from 'lucide-react';
 import content from '../data/site-content.json';
-import { useLanguage } from '@/context/LanguageContext';
 import { cn } from '@/lib/utils';
 
-type Lang = 'ar' | 'en';
-
 export default function Contact() {
-  const { language, direction } = useLanguage();
-  const lang: Lang = language === 'en' ? 'en' : 'ar';
-
   const contactPage = content.pages.contact;
   const commonContact = content.common.contact;
 
@@ -53,13 +46,13 @@ export default function Contact() {
   }, []);
 
   const inquiryOptions = [
-    { value: 'agents', label: { ar: 'AI Agents & Workflow Automation', en: 'AI Agents & Workflow Automation' } },
-    { value: 'voice', label: { ar: 'Voice & Service Intelligence', en: 'Voice & Service Intelligence' } },
-    { value: 'spatial', label: { ar: 'Spatial & Operational Intelligence', en: 'Spatial & Operational Intelligence' } },
-    { value: 'knowledge', label: { ar: 'Knowledge & Document Intelligence', en: 'Knowledge & Document Intelligence' } },
-    { value: 'platforms', label: { ar: 'Custom AI Platforms & Applications', en: 'Custom AI Platforms & Applications' } },
-    { value: 'deployment', label: { ar: 'Private AI Deployment', en: 'Private AI Deployment' } },
-    { value: 'general', label: { ar: 'General Inquiry', en: 'General Inquiry' } },
+    { value: 'agents', label: 'AI Agents & Workflow Automation' },
+    { value: 'voice', label: 'Voice & Service Intelligence' },
+    { value: 'spatial', label: 'Spatial & Operational Intelligence' },
+    { value: 'knowledge', label: 'Knowledge & Document Intelligence' },
+    { value: 'platforms', label: 'Custom AI Platforms & Applications' },
+    { value: 'deployment', label: 'Private AI Deployment' },
+    { value: 'general', label: 'General Inquiry' },
   ];
 
   return (
@@ -86,11 +79,11 @@ export default function Contact() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
-              {contactPage.hero.title[lang]}
+              {contactPage.hero.title}
             </h1>
 
             <p className="text-xl md:text-2xl text-white/68 leading-relaxed max-w-3xl mb-10">
-              {contactPage.hero.subtitle[lang]}
+              {contactPage.hero.subtitle}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl">
@@ -125,7 +118,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                      {contactPage.form.name[lang]}
+                      {contactPage.form.name}
                     </label>
                     <input
                       type="text"
@@ -136,7 +129,7 @@ export default function Contact() {
 
                   <div>
                     <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                      {contactPage.form.email[lang]}
+                      {contactPage.form.email}
                     </label>
                     <input
                       type="email"
@@ -149,7 +142,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                      {contactPage.form.org[lang]}
+                      {contactPage.form.org}
                     </label>
                     <input
                       type="text"
@@ -160,7 +153,7 @@ export default function Contact() {
 
                   <div>
                     <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                      {contactPage.form.phone[lang]}
+                      {contactPage.form.phone}
                     </label>
                     <input
                       type="tel"
@@ -173,7 +166,7 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                    {contactPage.form.type[lang]}
+                    {contactPage.form.type}
                   </label>
 
                   <select
@@ -185,7 +178,7 @@ export default function Contact() {
                     </option>
                     {inquiryOptions.map((opt) => (
                       <option key={opt.value} value={opt.value} className="bg-[#0b0816] text-white">
-                        {opt.label[lang]}
+                        {opt.label}
                       </option>
                     ))}
                   </select>
@@ -193,7 +186,7 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                    {contactPage.form.message[lang]}
+                    {contactPage.form.message}
                   </label>
                   <textarea
                     rows={5}
@@ -216,12 +209,8 @@ export default function Contact() {
                     type="button"
                     className="w-full py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest"
                   >
-                    {contactPage.form.submit[lang]}
-                    {direction === 'rtl' ? (
-                      <ArrowRight size={16} className="rotate-180" />
-                    ) : (
-                      <ArrowRight size={16} />
-                    )}
+                    {contactPage.form.submit}
+                    <ArrowRight size={16} />
                   </button>
 
                   <p className="text-[11px] text-white/30 text-center mt-4 leading-relaxed">
@@ -244,8 +233,8 @@ export default function Contact() {
               <div className="space-y-8">
                 {/* US */}
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-6 items-stretch">
-                  <div className={cn('relative border-maya-gold', direction === 'rtl' ? 'pr-6 border-r' : 'pl-6 border-l')}>
-                    <h4 className="font-bold text-white text-lg mb-1">{commonContact.usa.entity[lang]}</h4>
+                  <div className={cn('relative border-maya-gold', 'pl-6 border-l')}>
+                    <h4 className="font-bold text-white text-lg mb-1">{commonContact.usa.entity}</h4>
                     <p className="text-maya-gold mb-4 text-xs uppercase tracking-widest">
                       United States of America
                     </p>
@@ -253,7 +242,7 @@ export default function Contact() {
                     <div className="space-y-3 text-sm text-white/62">
                       <div className="flex items-start gap-3">
                         <MapPin size={16} className="mt-1 shrink-0" />
-                        <p>{commonContact.usa.address[lang]}</p>
+                        <p>{commonContact.usa.address}</p>
                       </div>
                       <div className="flex items-center gap-3">
                         <Phone size={16} className="shrink-0" />
@@ -301,8 +290,8 @@ export default function Contact() {
 
                 {/* Saudi */}
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-6 items-stretch">
-                  <div className={cn('relative border-white/20', direction === 'rtl' ? 'pr-6 border-r' : 'pl-6 border-l')}>
-                    <h4 className="font-bold text-white text-lg mb-1">{commonContact.ksa.entity[lang]}</h4>
+                  <div className={cn('relative border-white/20', 'pl-6 border-l')}>
+                    <h4 className="font-bold text-white text-lg mb-1">{commonContact.ksa.entity}</h4>
                     <p className="text-white/40 mb-4 text-xs uppercase tracking-widest">
                       Kingdom of Saudi Arabia
                     </p>
@@ -310,7 +299,7 @@ export default function Contact() {
                     <div className="space-y-3 text-sm text-white/62">
                       <div className="flex items-start gap-3">
                         <MapPin size={16} className="mt-1 shrink-0" />
-                        <p>{commonContact.ksa.address[lang]}</p>
+                        <p>{commonContact.ksa.address}</p>
                       </div>
                       <div className="flex items-center gap-3">
                         <Phone size={16} className="shrink-0" />
@@ -374,7 +363,7 @@ export default function Contact() {
                 className="text-maya-gold hover:text-white transition-colors inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide"
               >
                 Contact Support
-                {direction === 'rtl' ? <ChevronLeft size={14} /> : <ChevronRight size={14} />}
+                <ChevronRight size={14} />
               </a>
             </div>
           </div>

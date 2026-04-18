@@ -12,9 +12,6 @@ import {
   Lock,
 } from 'lucide-react';
 import content from '../data/site-content.json';
-import { useLanguage } from '@/context/LanguageContext';
-
-type Lang = 'ar' | 'en';
 
 const valueIconMap = {
   practicality: Briefcase,
@@ -24,8 +21,6 @@ const valueIconMap = {
 };
 
 export default function Company() {
-  const { language, direction } = useLanguage();
-  const lang = language as Lang;
   const companyContent = content.pages.company;
 
   return (
@@ -46,25 +41,25 @@ export default function Company() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-gold/10 mb-6">
               <span className="text-xs text-maya-gold font-mono uppercase tracking-[0.25em]">
-                {companyContent.hero.title[lang]}
+                {companyContent.hero.title}
               </span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              {companyContent.hero.subtitle[lang]}
+              {companyContent.hero.subtitle}
             </h1>
 
             <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/70 leading-relaxed mb-10">
-              {companyContent.hero.description[lang]}
+              {companyContent.hero.description}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
-              {companyContent.hero.proofs.map((proof: Record<Lang, string>, idx: number) => (
+              {companyContent.hero.proofs.map((proof: string, idx: number) => (
                 <div
                   key={idx}
                   className="px-4 py-3 border border-white/10 bg-white/[0.03] text-white/85 text-sm md:text-[15px] leading-relaxed"
                 >
-                  {proof[lang]}
+                  {proof}
                 </div>
               ))}
             </div>
@@ -97,7 +92,7 @@ export default function Company() {
 
               <div>
                 <h2 className="text-3xl md:text-4xl font-display text-white mb-6 leading-tight">
-                  {companyContent.sections.whoWeAre.title[lang]}
+                  {companyContent.sections.whoWeAre.title}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <motion.p
@@ -107,7 +102,7 @@ export default function Company() {
                     transition={{ duration: 0.5, delay: 0.15 }}
                     className="text-white/78 text-base md:text-lg leading-relaxed max-w-2xl col-span-2"
                   >
-                    {companyContent.sections.whoWeAre.content[lang]}
+                    {companyContent.sections.whoWeAre.content}
                   </motion.p>
                 </div>
               </div>
@@ -124,10 +119,10 @@ export default function Company() {
               className="max-w-3xl mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-display text-white mb-5 leading-tight">
-                {companyContent.differentiators.title[lang]}
+                {companyContent.differentiators.title}
               </h2>
               <p className="text-white/65 text-lg leading-relaxed">
-                {companyContent.differentiators.subtitle[lang]}
+                {companyContent.differentiators.subtitle}
               </p>
             </motion.div>
 
@@ -147,10 +142,10 @@ export default function Company() {
                   )}
                 >
                   <h3 className="text-xl md:text-2xl font-display text-white mb-4 leading-snug group-hover:text-maya-gold transition-colors">
-                    {item.title[lang]}
+                    {item.title}
                   </h3>
                   <p className="text-white/70 leading-relaxed text-base">
-                    {item.desc[lang]}
+                    {item.desc}
                   </p>
                 </motion.div>
               ))}
@@ -171,10 +166,10 @@ export default function Company() {
                 <Shield size={28} />
               </div>
               <h2 className="text-2xl md:text-3xl font-display text-white mb-5 leading-tight">
-                {companyContent.sections.identity.title[lang]}
+                {companyContent.sections.identity.title}
               </h2>
               <p className="text-white/72 text-base md:text-lg leading-relaxed">
-                {companyContent.sections.identity.content[lang]}
+                {companyContent.sections.identity.content}
               </p>
             </motion.div>
 
@@ -190,10 +185,10 @@ export default function Company() {
                 <Globe2 size={28} />
               </div>
               <h2 className="text-2xl md:text-3xl font-display text-white mb-6 leading-tight">
-                {companyContent.operatingModel.title[lang]}
+                {companyContent.operatingModel.title}
               </h2>
               <p className="text-white/72 text-base md:text-lg leading-relaxed mb-8">
-                {companyContent.operatingModel.content[lang]}
+                {companyContent.operatingModel.content}
               </p>
 
               <div className="space-y-4">
@@ -207,10 +202,10 @@ export default function Company() {
                     className="border border-maya-gold/15 bg-maya-gold/[0.04] p-4"
                   >
                     <div className="text-xs text-maya-gold/90 font-bold uppercase tracking-[0.2em] mb-2">
-                      {item.label[lang]}
+                      {item.label}
                     </div>
                     <div className="text-white/82 text-sm leading-relaxed">
-                      {item.value[lang]}
+                      {item.value}
                     </div>
                   </motion.div>
                 ))}
@@ -221,7 +216,7 @@ export default function Company() {
           {/* Mission & Focus */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24 md:mb-28">
             <motion.div
-              initial={{ opacity: 0, x: direction === 'rtl' ? 30 : -30 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-6 items-start bg-maya-gold/5 p-8 md:p-10 border border-maya-gold/20"
@@ -231,16 +226,16 @@ export default function Company() {
               </div>
               <div>
                 <h3 className="text-2xl font-display text-maya-gold mb-3">
-                  {companyContent.sections.mission.title[lang]}
+                  {companyContent.sections.mission.title}
                 </h3>
                 <p className="text-white/80 text-base md:text-lg leading-relaxed">
-                  {companyContent.sections.mission.content[lang]}
+                  {companyContent.sections.mission.content}
                 </p>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: direction === 'rtl' ? -30 : 30 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-6 items-start bg-white/[0.03] p-8 md:p-10 border border-white/10"
@@ -250,10 +245,10 @@ export default function Company() {
               </div>
               <div>
                 <h3 className="text-2xl font-display text-white mb-3">
-                  {companyContent.sections.vision.title[lang]}
+                  {companyContent.sections.vision.title}
                 </h3>
                 <p className="text-white/80 text-base md:text-lg leading-relaxed">
-                  {companyContent.sections.vision.content[lang]}
+                  {companyContent.sections.vision.content}
                 </p>
               </div>
             </motion.div>
@@ -268,7 +263,7 @@ export default function Company() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-display text-white mb-6">
-              {companyContent.values.title[lang]}
+              {companyContent.values.title}
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-transparent via-maya-gold to-transparent mx-auto" />
           </motion.div>
@@ -307,10 +302,10 @@ export default function Company() {
                     <Icon size={24} />
                   </motion.div>
                   <h4 className="text-lg md:text-xl font-display font-bold text-white mb-3 leading-snug">
-                    {item.title[lang]}
+                    {item.title}
                   </h4>
                   <p className="text-white/68 text-sm md:text-base leading-relaxed">
-                    {item.desc[lang]}
+                    {item.desc}
                   </p>
                 </motion.div>
               );

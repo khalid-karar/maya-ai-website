@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
 
 interface HeroVideoProps {
   poster: string;
@@ -12,7 +11,6 @@ export default function HeroVideo({ poster, videoSrc }: HeroVideoProps) {
   const [shouldLoad, setShouldLoad] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   
-  const { direction } = useLanguage();
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
@@ -104,7 +102,7 @@ export default function HeroVideo({ poster, videoSrc }: HeroVideoProps) {
         className={`
           absolute z-[100] pointer-events-auto
           top-6 md:top-8
-          ${direction === 'rtl' ? 'left-4 md:left-8' : 'right-4 md:right-8'}
+          right-4 md:right-8
           w-12 h-12 md:w-14 md:h-14 flex items-center justify-center
           rounded-full
           bg-[#0b0816]/78 backdrop-blur-md
