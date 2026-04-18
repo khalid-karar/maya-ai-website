@@ -6,21 +6,15 @@ import {
   Server,
   Database,
   CheckCircle2,
-  ChevronLeft,
   ChevronRight,
   Building2,
   Globe,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import content from '../data/site-content.json';
-import { useLanguage } from '@/context/LanguageContext';
 import { cn } from '@/lib/utils';
 
-type Lang = 'ar' | 'en';
-
 export default function Governance() {
-  const { language, direction } = useLanguage();
-  const lang: Lang = language === 'en' ? 'en' : 'ar';
   const pageContent = content.pages.governance;
 
   const pillarIcons = [Shield, Globe, Lock];
@@ -59,15 +53,11 @@ export default function Governance() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              {pageContent.hero.title[lang]}
+              {pageContent.hero.title}
             </h1>
 
             <p className="text-xl md:text-2xl text-white/68 leading-relaxed mb-6 max-w-3xl">
-              {pageContent.hero.subtitle[lang]}
-            </p>
-
-            <p className="text-white/58 text-lg leading-relaxed max-w-3xl">
-              {pageContent.hero.description[lang]}
+              {pageContent.hero.subtitle}
             </p>
           </motion.div>
         </div>
@@ -102,8 +92,8 @@ export default function Governance() {
                   <Icon size={18} />
                 </div>
 
-                <h3 className="text-2xl font-display text-white mb-4">{item.title[lang]}</h3>
-                <p className="text-white/58 leading-relaxed">{item.desc[lang]}</p>
+                <h3 className="text-2xl font-display text-white mb-4">{item.title}</h3>
+                <p className="text-white/58 leading-relaxed">{item.desc}</p>
               </motion.div>
             );
           })}
@@ -114,7 +104,7 @@ export default function Governance() {
       <section className="container mx-auto px-6 pb-20">
         <div className="max-w-3xl mb-10">
           <h2 className="text-3xl md:text-4xl font-display text-white mb-4">
-            {pageContent.deploymentModels.title[lang]}
+            {pageContent.deploymentModels.title}
           </h2>
           <p className="text-white/58 text-lg leading-relaxed">
             Deployment choices should reflect the environment, not force it. Maya supports sovereign-ready
@@ -134,8 +124,8 @@ export default function Governance() {
                   <Icon size={18} />
                 </div>
 
-                <h3 className="text-xl font-display text-white mb-3">{item.title[lang]}</h3>
-                <p className="text-white/58 leading-relaxed text-sm md:text-base">{item.desc[lang]}</p>
+                <h3 className="text-xl font-display text-white mb-3">{item.title}</h3>
+                <p className="text-white/58 leading-relaxed text-sm md:text-base">{item.desc}</p>
               </div>
             );
           })}
@@ -146,7 +136,7 @@ export default function Governance() {
       <section className="container mx-auto px-6 pb-20">
         <div className="max-w-3xl mb-10">
           <h2 className="text-3xl md:text-4xl font-display text-white mb-4">
-            {pageContent.controls.title[lang]}
+            {pageContent.controls.title}
           </h2>
           <p className="text-white/58 text-lg leading-relaxed">
             Sovereign solutions require more than hosting choices. They require operational controls,
@@ -167,9 +157,9 @@ export default function Governance() {
                     <Icon size={18} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-display text-white mb-2">{item.title[lang]}</h3>
+                    <h3 className="text-xl font-display text-white mb-2">{item.title}</h3>
                     <p className="text-white/58 leading-relaxed text-sm md:text-base">
-                      {item.desc[lang]}
+                      {item.desc}
                     </p>
                   </div>
                 </div>
@@ -184,7 +174,7 @@ export default function Governance() {
         <div className="border-t border-white/10 pt-16">
           <div className="max-w-3xl mb-10">
             <h2 className="text-3xl md:text-4xl font-display text-white mb-4">
-              {pageContent.operatingModel.title[lang]}
+              {pageContent.operatingModel.title}
             </h2>
             <p className="text-white/58 text-lg leading-relaxed">
               Maya serves organizations across Saudi Arabia and the United States through a unified model
@@ -195,19 +185,12 @@ export default function Governance() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {pageContent.operatingModel.items.map((item: any, idx: number) => (
               <div key={idx} className="border border-white/10 bg-white/[0.02] p-6">
-                <div
-                  className={cn(
-                    'text-maya-gold mb-3',
-                    lang === 'en'
-                      ? 'text-xs font-bold uppercase tracking-widest'
-                      : 'text-xs font-bold tracking-wide'
-                  )}
-                >
-                  {item.label[lang]}
+                <div className="text-maya-gold mb-3 text-xs font-bold uppercase tracking-widest">
+                  {item.label}
                 </div>
 
                 <p className="text-white/68 leading-relaxed text-sm md:text-base">
-                  {item.value[lang]}
+                  {item.value}
                 </p>
               </div>
             ))}
@@ -223,24 +206,19 @@ export default function Governance() {
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-display text-white leading-tight mb-4">
-                {pageContent.cta.title[lang]}
+                {pageContent.cta.title}
               </h3>
               <p className="text-white/58 max-w-3xl leading-relaxed">
-                {pageContent.cta.subtitle[lang]}
+                {pageContent.cta.subtitle}
               </p>
             </div>
 
             <Link
               to="/contact"
-              className={cn(
-                'inline-flex items-center justify-center gap-2 px-8 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors',
-                lang === 'en'
-                  ? 'text-sm font-bold uppercase tracking-widest'
-                  : 'text-sm font-bold tracking-wide'
-              )}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
             >
               Request a Private Briefing
-              {direction === 'rtl' ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
+              <ChevronRight size={16} />
             </Link>
           </div>
         </div>

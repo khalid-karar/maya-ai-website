@@ -6,7 +6,6 @@ import {
   Shield,
   Cpu,
   ChevronRight,
-  ChevronLeft,
   Check,
   Server,
   Lock,
@@ -18,18 +17,10 @@ import { Link } from 'react-router-dom';
 import content from '../data/site-content.json';
 import { cn } from '@/lib/utils';
 import HeroVideo from '@/components/ui/HeroVideo';
-import { useLanguage } from '@/context/LanguageContext';
-
-type Lang = 'ar' | 'en';
 
 export default function Home() {
-  const { language, direction } = useLanguage();
-  const lang: Lang = language === 'en' ? 'en' : 'ar';
-
   const homeContent = content.pages.home;
   const solutionsContent = content.pages.solutions;
-const geoHero = content?.pages?.geoai?.hero;
-const geoTabs = content?.pages?.geoai?.tabs ?? [];
 
   const capabilityIcons = {
     Shield,
@@ -38,40 +29,28 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
   };
 
   const heroProofs = [
-    { ar: 'Applied AI for enterprise and mission-critical environments', en: 'Applied AI for enterprise and mission-critical environments' },
-    { ar: 'Operating across Saudi Arabia and the United States', en: 'Operating across Saudi Arabia and the United States' },
-    { ar: 'Cloud, private cloud, on-prem, and hybrid deployment', en: 'Cloud, private cloud, on-prem, and hybrid deployment' },
-    { ar: 'Built for security, control, and operational impact', en: 'Built for security, control, and operational impact' },
+    'Applied AI for enterprise and mission-critical environments',
+    'Operating across Saudi Arabia and the United States',
+    'Cloud, private cloud, on-prem, and hybrid deployment',
+    'Built for security, control, and operational impact',
   ];
 
   const solutionHighlights = [
     {
-      title: { ar: 'Enterprise Operations', en: 'Enterprise Operations' },
-      desc: {
-        ar: 'AI capabilities that improve execution across internal workflows, reporting, coordination, and structured business processes.',
-        en: 'AI capabilities that improve execution across internal workflows, reporting, coordination, and structured business processes.',
-      },
+      title: 'Enterprise Operations',
+      desc: 'AI capabilities that improve execution across internal workflows, reporting, coordination, and structured business processes.',
     },
     {
-      title: { ar: 'Customer & Service Workflows', en: 'Customer & Service Workflows' },
-      desc: {
-        ar: 'Human-supervised AI support for response handling, information access, and service operations.',
-        en: 'Human-supervised AI support for response handling, information access, and service operations.',
-      },
+      title: 'Customer & Service Workflows',
+      desc: 'Human-supervised AI support for response handling, information access, and service operations.',
     },
     {
-      title: { ar: 'Compliance & Risk Operations', en: 'Compliance & Risk Operations' },
-      desc: {
-        ar: 'Applied intelligence for oversight, evidence handling, policy-linked processes, and environments where accountability matters.',
-        en: 'Applied intelligence for oversight, evidence handling, policy-linked processes, and environments where accountability matters.',
-      },
+      title: 'Compliance & Risk Operations',
+      desc: 'Applied intelligence for oversight, evidence handling, policy-linked processes, and environments where accountability matters.',
     },
     {
-      title: { ar: 'Infrastructure & Field Intelligence', en: 'Infrastructure & Field Intelligence' },
-      desc: {
-        ar: 'Operational visibility and intelligence support for environments linked to assets, infrastructure, and distributed activity.',
-        en: 'Operational visibility and intelligence support for environments linked to assets, infrastructure, and distributed activity.',
-      },
+      title: 'Infrastructure & Field Intelligence',
+      desc: 'Operational visibility and intelligence support for environments linked to assets, infrastructure, and distributed activity.',
     },
   ];
 
@@ -97,21 +76,18 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
             <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-navy/50 backdrop-blur-sm mb-6">
               <span className="w-2 h-2 rounded-full bg-maya-gold animate-pulse" />
               <span
-                className={cn(
-                  'text-xs text-maya-gold',
-                  'font-mono uppercase tracking-[0.22em]'
-                )}
+                className="text-xs text-maya-gold font-mono uppercase tracking-[0.22em]"
               >
-                {homeContent.hero.status[lang]}
+                {homeContent.hero.status}
               </span>
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-display font-bold leading-[0.95] mb-8 max-w-5xl drop-shadow-[0_12px_40px_rgba(0,0,0,0.75)]">
-              {homeContent.hero.headline[lang]}
+              {homeContent.hero.headline}
             </h1>
 
             <p className="text-lg md:text-2xl text-white/72 max-w-3xl mb-10 leading-relaxed drop-shadow-[0_8px_30px_rgba(0,0,0,0.65)]">
-              {homeContent.hero.subhead[lang]}
+              {homeContent.hero.subhead}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -120,11 +96,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                 className="px-8 py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest hover:bg-white transition-colors flex items-center justify-center gap-2"
               >
                 Start Strategic Conversation
-                {direction === 'rtl' ? (
-                  <ArrowRight size={16} className="rotate-180" />
-                ) : (
-                  <ArrowRight size={16} />
-                )}
+                <ArrowRight size={16} />
               </Link>
 
               <Link
@@ -132,7 +104,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                 className="px-8 py-4 border border-white/15 bg-white/[0.03] text-white font-bold text-sm uppercase tracking-widest hover:bg-white/[0.08] transition-colors flex items-center justify-center gap-2"
               >
                 Explore Capabilities
-                {direction === 'rtl' ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
+                <ChevronRight size={16} />
               </Link>
             </div>
 
@@ -142,7 +114,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                   key={idx}
                   className="px-4 py-3 border border-white/10 bg-white/[0.05] backdrop-blur-sm text-white/85 text-sm leading-relaxed"
                 >
-                  {proof[lang]}
+                  {proof}
                 </div>
               ))}
             </div>
@@ -200,10 +172,10 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-14">
             <h2 className="text-3xl md:text-5xl font-display mb-4">
-              {homeContent.pillars.headline[lang]}
+              {homeContent.pillars.headline}
             </h2>
             <p className="text-white/55 text-lg leading-relaxed">
-              {homeContent.pillars.subhead[lang]}
+              {homeContent.pillars.subhead}
             </p>
           </div>
 
@@ -228,11 +200,11 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                   </div>
 
                   <h3 className="text-2xl font-display mb-4 group-hover:text-maya-gold transition-colors">
-                    {item.title[lang]}
+                    {item.title}
                   </h3>
 
                   <p className="text-white/65 mb-8 leading-relaxed flex-grow text-base">
-                    {item.desc[lang]}
+                    {item.desc}
                   </p>
 
                   <Link
@@ -240,7 +212,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                     className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
                   >
                     Learn More
-                    {direction === 'rtl' ? <ChevronLeft size={12} /> : <ChevronRight size={12} />}
+                    <ChevronRight size={12} />
                   </Link>
                 </motion.div>
               );
@@ -257,7 +229,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-10">
             <h2 id="why-maya-heading" className="text-3xl md:text-4xl font-display font-bold mb-4">
-              {homeContent.governance.headline[lang]}
+              {homeContent.governance.headline}
             </h2>
             <p className="text-white/55 text-lg leading-relaxed">
               Our work is shaped around operational usefulness, secure deployment, and controlled execution.
@@ -275,7 +247,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                   <Check size={18} />
                 </div>
                 <h3 className="text-white/90 leading-snug font-medium text-sm md:text-base">
-                  {feature.label[lang]}
+                  {feature.label}
                 </h3>
               </div>
             ))}
@@ -316,10 +288,10 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-display text-white mb-3">{item.title[lang]}</h3>
+                <h3 className="text-2xl font-display text-white mb-3">{item.title}</h3>
 
                 <p className="text-white/62 text-sm md:text-base mb-8 leading-relaxed flex-grow">
-                  {item.desc[lang]}
+                  {item.desc}
                 </p>
 
                 <Link
@@ -327,7 +299,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                   className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
                 >
                   Explore Solutions
-                  {direction === 'rtl' ? <ChevronLeft size={12} /> : <ChevronRight size={12} />}
+                  <ChevronRight size={12} />
                 </Link>
               </motion.div>
             ))}
@@ -451,37 +423,32 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
             </div>
 
             <h2 className="text-4xl md:text-5xl font-display mb-4">
-              {geoHero?.title?.[lang] ?? 'Spatial & Operational Intelligence'}
+              Spatial &amp; Operational Intelligence
             </h2>
             <p className="text-white/60 text-lg leading-relaxed">
-              {geoHero?.description?.[lang] ?? 'Applied intelligence for environments where assets, infrastructure, and location matter.'}
+              Applied intelligence for environments where assets, infrastructure, and location matter.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {geoTabs.slice(0, 3).map((tab, idx) => (
+            {[
+              { id: 'monitoring', label: 'Infrastructure Monitoring', detects: 'Asset-linked operational awareness for critical infrastructure, utilities, and distributed field environments.' },
+              { id: 'field', label: 'Field Operations', detects: 'AI-assisted coordination and visibility for teams and assets operating in physically distributed or high-complexity environments.' },
+              { id: 'environmental', label: 'Environmental Intelligence', detects: 'Integrated spatial analysis for environmental monitoring, land use, and operational territory awareness.' },
+            ].map((tab) => (
               <div
                 key={tab.id}
-                className="relative border border-white/10 bg-white/[0.02] overflow-hidden"
+                className="border border-white/10 bg-white/[0.02] p-8 hover:border-maya-gold/25 transition-colors"
               >
-                <div
-                  className="h-56 bg-cover bg-center opacity-55"
-                  style={{ backgroundImage: `url(${tab.image})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-maya-navy via-[#0b0817]/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-xl font-display text-white mb-2">{tab.label[lang]}</h3>
-                  <p className="text-white/75 text-sm leading-relaxed mb-4">
-                    {tab.detects[lang]}
-                  </p>
-                  <Link
-                    to={`/capabilities?tab=spatial&subtab=${tab.id}`}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors uppercase tracking-widest"
-                  >
-                    Learn More
-                    {direction === 'rtl' ? <ChevronLeft size={12} /> : <ChevronRight size={12} />}
-                  </Link>
-                </div>
+                <h3 className="text-xl font-display text-white mb-3">{tab.label}</h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-5">{tab.detects}</p>
+                <Link
+                  to={`/geoai`}
+                  className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors uppercase tracking-widest"
+                >
+                  Learn More
+                  <ChevronRight size={12} />
+                </Link>
               </div>
             ))}
           </div>
@@ -493,15 +460,20 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-display mb-4">
-              {homeContent.deployment.headline[lang]}
+              Flexible, sovereign deployment
             </h2>
             <p className="text-white/55 text-lg leading-relaxed">
-              {homeContent.deployment.subhead[lang]}
+              Every deployment is scoped, structured, and sized for the operational and security requirements of your environment.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {homeContent.deployment.options.map((opt, idx) => (
+            {([
+              { title: 'Cloud', description: 'Hosted on enterprise cloud infrastructure with full encryption and operational isolation.', badge: 'Scalable' },
+              { title: 'Private Cloud', description: 'Dedicated tenant environments on approved infrastructure — stronger control without on-prem complexity.', badge: 'Controlled' },
+              { title: 'On-Premises', description: 'For highly controlled environments requiring in-facility data handling and network isolation.', badge: 'High Security' },
+              { title: 'Hybrid', description: 'Split workloads across deployment boundaries by sensitivity, combining flexibility with data governance.', badge: 'Flexible' },
+            ] as Array<{title:string;description:string;badge:string}>).map((opt, idx) => (
               <div
                 key={idx}
                 className="bg-white/[0.02] border border-white/10 p-8 text-center hover:border-maya-gold/30 transition-colors"
@@ -518,13 +490,13 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                   )}
                 </div>
 
-                <h3 className="text-xl font-display text-white mb-3">{opt.title[lang]}</h3>
+                <h3 className="text-xl font-display text-white mb-3">{opt.title}</h3>
                 <p className="text-white/55 text-sm md:text-base mb-5 leading-relaxed">
-                  {opt.description[lang]}
+                  {opt.description}
                 </p>
 
                 <span className="inline-block px-2.5 py-1 bg-maya-gold/10 text-maya-gold text-[10px] uppercase tracking-widest rounded border border-maya-gold/20">
-                  {opt.badge[lang]}
+                  {opt.badge}
                 </span>
               </div>
             ))}
@@ -553,7 +525,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
               >
                 <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-4">Global Operations</div>
                 <h2 className="text-2xl md:text-3xl font-display mb-6">
-                  {homeContent.global.headline[lang]}
+                  Operating across two markets, one standard
                 </h2>
                 <p className="text-white/60 max-w-2xl leading-relaxed text-base">
                   Maya serves organizations across Saudi Arabia and the United States through a unified operating model focused on applied AI delivery, secure implementation, and long-term operational value. Our teams operate across both regions with unified standards and shared operational excellence.
@@ -567,13 +539,16 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                 transition={{ duration: 0.5, delay: 0.15 }}
                 className="grid grid-cols-1 sm:grid-cols-2 gap-5"
               >
-                {homeContent.global.locations.map((loc, idx) => (
+                {([
+                  { city: 'San Francisco, CA', role: 'Global headquarters — corporate, product, and technology leadership.' },
+                  { city: 'Riyadh, KSA', role: 'In-Kingdom operations — delivery, government, and enterprise engagement.' },
+                ] as Array<{city:string;role:string}>).map((loc, idx) => (
                   <div key={idx} className="border border-white/15 bg-white/[0.04] p-6 hover:border-maya-gold/25 transition-colors">
                     <div className="flex items-center gap-3 text-maya-gold mb-3">
                       <MapPin size={18} className="shrink-0" />
                       <span className="font-bold text-base">{loc.city}</span>
                     </div>
-                    <div className="text-white/65 text-sm leading-relaxed">{loc.role[lang]}</div>
+                    <div className="text-white/65 text-sm leading-relaxed">{loc.role}</div>
                   </div>
                 ))}
               </motion.div>
@@ -717,11 +692,7 @@ const geoTabs = content?.pages?.geoai?.tabs ?? [];
                 className="inline-flex items-center gap-3 px-10 py-5 bg-maya-gold text-maya-navy hover:bg-white transition-colors font-bold text-sm uppercase tracking-widest"
               >
                 Request a Private Briefing
-                {direction === 'rtl' ? (
-                  <ArrowRight size={18} className="rotate-180" />
-                ) : (
-                  <ArrowRight size={18} />
-                )}
+                <ArrowRight size={18} />
               </Link>
 
               <p className="text-white/35 text-xs mt-10">

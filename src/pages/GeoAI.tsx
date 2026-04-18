@@ -13,183 +13,71 @@ import {
   Target,
   Users,
   ChevronRight,
-  ChevronLeft,
   CheckCircle2,
   Lock,
 } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { useLanguage } from '@/context/LanguageContext';
-
-type Lang = 'ar' | 'en';
 
 const capabilityTabs = [
   {
     id: 'agents',
-    label: {
-      ar: 'AI Agents & Workflow Automation',
-      en: 'AI Agents & Workflow Automation',
-    },
-    eyebrow: {
-      ar: 'Sovereign Execution Layer',
-      en: 'Sovereign Execution Layer',
-    },
-    description: {
-      ar: 'AI systems that support and accelerate structured workflows, internal operations, approvals, and service processes with appropriate human oversight.',
-      en: 'AI systems that support and accelerate structured workflows, internal operations, approvals, and service processes with appropriate human oversight.',
-    },
-    supports: {
-      ar: 'Workflow automation, internal operations, service coordination, task routing, human-supervised execution',
-      en: 'Workflow automation, internal operations, service coordination, task routing, human-supervised execution',
-    },
-    outputs: {
-      ar: 'Operational workflows, case actions, escalations, summaries, orchestration layers',
-      en: 'Operational workflows, case actions, escalations, summaries, orchestration layers',
-    },
-    fit: {
-      ar: 'Enterprise operations teams, service organizations, internal shared services',
-      en: 'Enterprise operations teams, service organizations, internal shared services',
-    },
+    label: 'AI Agents & Workflow Automation',
+    eyebrow: 'Sovereign Execution Layer',
+    description: 'AI systems that support and accelerate structured workflows, internal operations, approvals, and service processes with appropriate human oversight.',
+    supports: 'Workflow automation, internal operations, service coordination, task routing, human-supervised execution',
+    outputs: 'Operational workflows, case actions, escalations, summaries, orchestration layers',
+    fit: 'Enterprise operations teams, service organizations, internal shared services',
     visual: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop',
   },
   {
     id: 'voice',
-    label: {
-      ar: 'Voice & Service Intelligence',
-      en: 'Voice & Service Intelligence',
-    },
-    eyebrow: {
-      ar: 'Sovereign Service Systems',
-      en: 'Sovereign Service Systems',
-    },
-    description: {
-      ar: 'Voice-enabled AI capabilities for service operations, customer interaction handling, call workflows, ticket creation, and response consistency.',
-      en: 'Voice-enabled AI capabilities for service operations, customer interaction handling, call workflows, ticket creation, and response consistency.',
-    },
-    supports: {
-      ar: 'AI voice agents, service response handling, inbound workflows, outbound updates, ticket generation',
-      en: 'AI voice agents, service response handling, inbound workflows, outbound updates, ticket generation',
-    },
-    outputs: {
-      ar: 'Call summaries, service tickets, escalation paths, response logs, workflow triggers',
-      en: 'Call summaries, service tickets, escalation paths, response logs, workflow triggers',
-    },
-    fit: {
-      ar: 'Customer operations, service centers, support environments, public-facing organizations',
-      en: 'Customer operations, service centers, support environments, public-facing organizations',
-    },
+    label: 'Voice & Service Intelligence',
+    eyebrow: 'Sovereign Service Systems',
+    description: 'Voice-enabled AI capabilities for service operations, customer interaction handling, call workflows, ticket creation, and response consistency.',
+    supports: 'AI voice agents, service response handling, inbound workflows, outbound updates, ticket generation',
+    outputs: 'Call summaries, service tickets, escalation paths, response logs, workflow triggers',
+    fit: 'Customer operations, service centers, support environments, public-facing organizations',
     visual: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1600&auto=format&fit=crop',
   },
   {
     id: 'spatial',
-    label: {
-      ar: 'Spatial & Operational Intelligence',
-      en: 'Spatial & Operational Intelligence',
-    },
-    eyebrow: {
-      ar: 'Sovereign Monitoring & Visibility',
-      en: 'Sovereign Monitoring & Visibility',
-    },
-    description: {
-      ar: 'Applied intelligence for environments where infrastructure, assets, geography, field operations, and satellite-linked visibility matter.',
-      en: 'Applied intelligence for environments where infrastructure, assets, geography, field operations, and satellite-linked visibility matter.',
-    },
-    supports: {
-      ar: 'Satellite imagery analysis, infrastructure monitoring, field operations, environmental visibility, operational awareness',
-      en: 'Satellite imagery analysis, infrastructure monitoring, field operations, environmental visibility, operational awareness',
-    },
-    outputs: {
-      ar: 'Dashboards, spatial outputs, monitoring views, alerts, operational summaries',
-      en: 'Dashboards, spatial outputs, monitoring views, alerts, operational summaries',
-    },
-    fit: {
-      ar: 'Infrastructure operators, field organizations, large-area environments, monitoring-heavy operations',
-      en: 'Infrastructure operators, field organizations, large-area environments, monitoring-heavy operations',
-    },
+    label: 'Spatial & Operational Intelligence',
+    eyebrow: 'Sovereign Monitoring & Visibility',
+    description: 'Applied intelligence for environments where infrastructure, assets, geography, field operations, and satellite-linked visibility matter.',
+    supports: 'Satellite imagery analysis, infrastructure monitoring, field operations, environmental visibility, operational awareness',
+    outputs: 'Dashboards, spatial outputs, monitoring views, alerts, operational summaries',
+    fit: 'Infrastructure operators, field organizations, large-area environments, monitoring-heavy operations',
     visual: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop',
   },
   {
     id: 'knowledge',
-    label: {
-      ar: 'Knowledge & Document Intelligence',
-      en: 'Knowledge & Document Intelligence',
-    },
-    eyebrow: {
-      ar: 'Sovereign Information Intelligence',
-      en: 'Sovereign Information Intelligence',
-    },
-    description: {
-      ar: 'Capabilities for extracting, organizing, interpreting, and operationalizing information across documents, records, policies, and enterprise content.',
-      en: 'Capabilities for extracting, organizing, interpreting, and operationalizing information across documents, records, policies, and enterprise content.',
-    },
-    supports: {
-      ar: 'Document understanding, knowledge retrieval, structured extraction, case support, record intelligence',
-      en: 'Document understanding, knowledge retrieval, structured extraction, case support, record intelligence',
-    },
-    outputs: {
-      ar: 'Structured records, summaries, tagged content, searchable knowledge layers, review support',
-      en: 'Structured records, summaries, tagged content, searchable knowledge layers, review support',
-    },
-    fit: {
-      ar: 'Compliance teams, operations teams, case handlers, document-heavy organizations',
-      en: 'Compliance teams, operations teams, case handlers, document-heavy organizations',
-    },
+    label: 'Knowledge & Document Intelligence',
+    eyebrow: 'Sovereign Information Intelligence',
+    description: 'Capabilities for extracting, organizing, interpreting, and operationalizing information across documents, records, policies, and enterprise content.',
+    supports: 'Document understanding, knowledge retrieval, structured extraction, case support, record intelligence',
+    outputs: 'Structured records, summaries, tagged content, searchable knowledge layers, review support',
+    fit: 'Compliance teams, operations teams, case handlers, document-heavy organizations',
     visual: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1600&auto=format&fit=crop',
   },
   {
     id: 'platforms',
-    label: {
-      ar: 'Custom AI Platforms & Applications',
-      en: 'Custom AI Platforms & Applications',
-    },
-    eyebrow: {
-      ar: 'Sovereign Digital Platforms',
-      en: 'Sovereign Digital Platforms',
-    },
-    description: {
-      ar: 'Custom-built AI-enabled systems, applications, dashboards, and operational platforms designed around specific organizational environments.',
-      en: 'Custom-built AI-enabled systems, applications, dashboards, and operational platforms designed around specific organizational environments.',
-    },
-    supports: {
-      ar: 'Operational platforms, intelligence interfaces, AI-enabled apps, workflow systems, custom dashboards',
-      en: 'Operational platforms, intelligence interfaces, AI-enabled apps, workflow systems, custom dashboards',
-    },
-    outputs: {
-      ar: 'Business systems, operational portals, management dashboards, AI-enabled applications, control interfaces',
-      en: 'Business systems, operational portals, management dashboards, AI-enabled applications, control interfaces',
-    },
-    fit: {
-      ar: 'Organizations needing tailored AI systems rather than generic tools',
-      en: 'Organizations needing tailored AI systems rather than generic tools',
-    },
+    label: 'Custom AI Platforms & Applications',
+    eyebrow: 'Sovereign Digital Platforms',
+    description: 'Custom-built AI-enabled systems, applications, dashboards, and operational platforms designed around specific organizational environments.',
+    supports: 'Operational platforms, intelligence interfaces, AI-enabled apps, workflow systems, custom dashboards',
+    outputs: 'Business systems, operational portals, management dashboards, AI-enabled applications, control interfaces',
+    fit: 'Organizations needing tailored AI systems rather than generic tools',
     visual: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop',
   },
   {
     id: 'deployment',
-    label: {
-      ar: 'Private AI Deployment',
-      en: 'Private AI Deployment',
-    },
-    eyebrow: {
-      ar: 'Sovereign Deployment Models',
-      en: 'Sovereign Deployment Models',
-    },
-    description: {
-      ar: 'Deployment models designed for organizations that require control over security, data handling, access, integration boundaries, and operational architecture.',
-      en: 'Deployment models designed for organizations that require control over security, data handling, access, integration boundaries, and operational architecture.',
-    },
-    supports: {
-      ar: 'Cloud, private cloud, on-prem, hybrid, controlled integration, security-aligned deployment',
-      en: 'Cloud, private cloud, on-prem, hybrid, controlled integration, security-aligned deployment',
-    },
-    outputs: {
-      ar: 'Deployment architecture, control layers, access models, integration paths, operational hosting strategies',
-      en: 'Deployment architecture, control layers, access models, integration paths, operational hosting strategies',
-    },
-    fit: {
-      ar: 'Enterprise and government-scale environments requiring stronger control and deployment discipline',
-      en: 'Enterprise and government-scale environments requiring stronger control and deployment discipline',
-    },
+    label: 'Private AI Deployment',
+    eyebrow: 'Sovereign Deployment Models',
+    description: 'Deployment models designed for organizations that require control over security, data handling, access, integration boundaries, and operational architecture.',
+    supports: 'Cloud, private cloud, on-prem, hybrid, controlled integration, security-aligned deployment',
+    outputs: 'Deployment architecture, control layers, access models, integration paths, operational hosting strategies',
+    fit: 'Enterprise and government-scale environments requiring stronger control and deployment discipline',
     visual: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop',
   },
 ];
@@ -204,11 +92,8 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export default function GeoAI() {
-  const { language, direction } = useLanguage();
-  const lang: Lang = language === 'en' ? 'en' : 'ar';
   const [searchParams] = useSearchParams();
 
-  // Initialize tab from query param or default to first tab
   const tabParam = searchParams.get('tab');
   const initialTab = tabParam && capabilityTabs.some(t => t.id === tabParam)
     ? tabParam
@@ -216,7 +101,6 @@ export default function GeoAI() {
 
   const [activeTab, setActiveTab] = useState(initialTab);
 
-  // Scroll to capabilities section when page loads with query param
   useEffect(() => {
     if (tabParam) {
       const capabilitiesSection = document.querySelector('[data-capabilities-section]');
@@ -327,18 +211,11 @@ export default function GeoAI() {
                       type="button"
                     >
                       <Icon size={18} className={cn(isActive ? 'text-maya-gold' : 'text-white/45')} />
-                      <span className="font-medium text-sm">{tab.label[lang]}</span>
-                      {direction === 'rtl' ? (
-                        <ChevronLeft
-                          size={14}
-                          className={cn('mr-auto', isActive ? 'text-maya-gold' : 'text-white/30')}
-                        />
-                      ) : (
-                        <ChevronRight
-                          size={14}
-                          className={cn('ml-auto', isActive ? 'text-maya-gold' : 'text-white/30')}
-                        />
-                      )}
+                      <span className="font-medium text-sm">{tab.label}</span>
+                      <ChevronRight
+                        size={14}
+                        className={cn('ml-auto', isActive ? 'text-maya-gold' : 'text-white/30')}
+                      />
                     </button>
                   );
                 })}
@@ -350,18 +227,13 @@ export default function GeoAI() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
-                  initial={{ opacity: 0, x: direction === 'rtl' ? -16 : 16 }}
+                  initial={{ opacity: 0, x: 16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: direction === 'rtl' ? 16 : -16 }}
+                  exit={{ opacity: 0, x: -16 }}
                   transition={{ duration: 0.26 }}
                   className="bg-white/[0.02] border border-white/10 p-8 md:p-10 lg:p-12 relative overflow-hidden"
                 >
-                  <div
-                    className={cn(
-                      'absolute top-0 p-10 opacity-[0.045] pointer-events-none',
-                      direction === 'rtl' ? 'left-0' : 'right-0'
-                    )}
-                  >
+                  <div className="absolute top-0 right-0 p-10 opacity-[0.045] pointer-events-none">
                     <ActiveIcon size={280} />
                   </div>
 
@@ -371,16 +243,16 @@ export default function GeoAI() {
                       <div className="flex items-center gap-3 mb-3 text-maya-gold">
                         <ActiveIcon size={22} />
                         <span className="text-xs font-bold uppercase tracking-widest">
-                          {activeContent.eyebrow[lang]}
+                          {activeContent.eyebrow}
                         </span>
                       </div>
 
                       <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                        {activeContent.label[lang]}
+                        {activeContent.label}
                       </h2>
 
                       <p className="text-white/65 max-w-3xl leading-relaxed">
-                        {activeContent.description[lang]}
+                        {activeContent.description}
                       </p>
                     </div>
 
@@ -404,7 +276,7 @@ export default function GeoAI() {
                         </div>
 
                         <ul className="space-y-3">
-                          {splitList(activeContent.supports[lang]).map((item, i) => (
+                          {splitList(activeContent.supports).map((item, i) => (
                             <li
                               key={i}
                               className="flex items-start gap-3 text-white/65 text-sm md:text-base leading-relaxed"
@@ -425,7 +297,7 @@ export default function GeoAI() {
                         </div>
 
                         <ul className="space-y-3">
-                          {splitList(activeContent.outputs[lang]).map((item, i) => (
+                          {splitList(activeContent.outputs).map((item, i) => (
                             <li
                               key={i}
                               className="flex items-start gap-3 text-white/65 text-sm md:text-base leading-relaxed"
@@ -449,7 +321,7 @@ export default function GeoAI() {
                         </div>
 
                         <div className="flex flex-wrap gap-2">
-                          {splitList(activeContent.fit[lang]).map((item, i) => (
+                          {splitList(activeContent.fit).map((item, i) => (
                             <span
                               key={i}
                               className="px-3 py-1.5 bg-white/5 border border-white/10 text-xs text-white/78"
@@ -536,11 +408,7 @@ export default function GeoAI() {
               className="inline-flex items-center gap-2 px-10 py-5 bg-maya-gold text-maya-navy hover:bg-white transition-colors font-bold text-sm uppercase tracking-widest"
             >
               Request a Private Briefing
-              {direction === 'rtl' ? (
-                <ArrowRight size={16} className="rotate-180" />
-              ) : (
-                <ArrowRight size={16} />
-              )}
+              <ArrowRight size={16} />
             </Link>
           </div>
         </div>

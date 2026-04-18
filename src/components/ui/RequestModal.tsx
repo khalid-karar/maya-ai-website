@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, CheckCircle2, Lock } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
 import content from '@/data/site-content.json';
 import { cn } from '@/lib/utils';
 
@@ -18,7 +17,6 @@ export default function RequestModal({
   solutionTitle,
   readinessType,
 }: RequestModalProps) {
-  const { direction } = useLanguage();
   const modalContent = content.pages.requestModal;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -62,7 +60,7 @@ export default function RequestModal({
                   </span>
                 </div>
                 <h2 className="text-xl font-display font-bold text-white">
-                  {modalContent.title.en}
+                  {modalContent.title}
                 </h2>
                 {solutionTitle && (
                   <p className="text-white/50 text-sm mt-1">
@@ -92,7 +90,7 @@ export default function RequestModal({
                   </h3>
 
                   <p className="text-white/60 max-w-sm">
-                    {modalContent.success.en}
+                    {modalContent.success}
                   </p>
 
                   <button
@@ -151,9 +149,9 @@ export default function RequestModal({
                         <option value="" disabled className="bg-maya-navy text-white/50">
                           Select...
                         </option>
-                        {modalContent.options.sectors.map((opt) => (
+                        {(modalContent.options.sectors as Array<{value:string;label:string}>).map((opt) => (
                           <option key={opt.value} value={opt.value} className="bg-maya-navy">
-                            {opt.label.en}
+                            {opt.label}
                           </option>
                         ))}
                       </select>
@@ -197,9 +195,9 @@ export default function RequestModal({
                       <option value="" disabled className="bg-maya-navy text-white/50">
                         Select...
                       </option>
-                      {modalContent.options.scopes.map((opt) => (
+                      {(modalContent.options.scopes as Array<{value:string;label:string}>).map((opt) => (
                         <option key={opt.value} value={opt.value} className="bg-maya-navy">
-                          {opt.label.en}
+                          {opt.label}
                         </option>
                       ))}
                     </select>
@@ -221,11 +219,11 @@ export default function RequestModal({
                       Require NDA before deeper discussion?
                     </label>
                     <div className="flex gap-6 flex-wrap">
-                      {modalContent.options.nda.map((opt) => (
+                      {(modalContent.options.nda as Array<{value:string;label:string}>).map((opt) => (
                         <label key={opt.value} className="flex items-center gap-2 cursor-pointer group">
                           <input type="radio" name="nda" value={opt.value} className="accent-maya-gold" />
                           <span className="text-white/80 text-sm group-hover:text-white transition-colors">
-                            {opt.label.en}
+                            {opt.label}
                           </span>
                         </label>
                       ))}
@@ -250,7 +248,7 @@ export default function RequestModal({
                     {isSubmitting ? (
                       <div className="w-5 h-5 border-2 border-maya-navy/30 border-t-maya-navy rounded-full animate-spin" />
                     ) : (
-                      modalContent.submit.en
+                      modalContent.submit
                     )}
                   </button>
                 </form>
