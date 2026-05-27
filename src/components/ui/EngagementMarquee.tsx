@@ -3,61 +3,49 @@ import React from 'react';
 /**
  * EngagementMarquee — Selected Engagement Experience
  *
- * To replace a placeholder with an approved logo:
- *   1. Change `type` to 'image'
- *   2. Set `src` to the asset path (e.g. '/assets/logos/org-name.svg')
- *   3. Update `name` and `abbrev` with the correct organisation name
+ * To swap a placeholder for a real logo:
+ *   1. Drop the real SVG/PNG into /public/logos/clients/<filename>
+ *   2. If the source file has colour (not pre-exported white), keep
+ *      `invert: true` so the CSS filter converts it to white on dark bg.
+ *   3. If it is already white/mono, set `invert: false`.
  *
  * Data format:
- *   { id: string; name: string; abbrev: string; src?: string; type: 'text' | 'image' }
+ *   { id, name, src, invert? }
+ *   — `invert: true`  → applies filter: brightness(0) invert(1)
+ *   — `invert: false` → logo is already white; no filter applied
  */
 
 interface Engagement {
   id: string;
   name: string;
-  abbrev: string;
-  src?: string;
-  type: 'text' | 'image';
+  src: string;
+  /** Apply brightness(0) invert(1) to make a coloured logo appear white */
+  invert?: boolean;
 }
 
-// ─── Replace with approved logos before going live ───────────────────────────
+// ─── Swap src files as real logos arrive — no component changes needed ────────
 const engagements: Engagement[] = [
-  { id: 'org-1', name: 'Organisation Name', abbrev: 'Organisation', type: 'text' },
-  { id: 'org-2', name: 'Organisation Name', abbrev: 'Organisation', type: 'text' },
-  { id: 'org-3', name: 'Organisation Name', abbrev: 'Organisation', type: 'text' },
-  { id: 'org-4', name: 'Organisation Name', abbrev: 'Organisation', type: 'text' },
-  { id: 'org-5', name: 'Organisation Name', abbrev: 'Organisation', type: 'text' },
-  { id: 'org-6', name: 'Organisation Name', abbrev: 'Organisation', type: 'text' },
-  { id: 'org-7', name: 'Organisation Name', abbrev: 'Organisation', type: 'text' },
-  { id: 'org-8', name: 'Organisation Name', abbrev: 'Organisation', type: 'text' },
+  { id: 'sdaia',     name: 'SDAIA',        src: '/logos/clients/sdaia.svg',      invert: false },
+  { id: 'nca',       name: 'NCA',          src: '/logos/clients/nca.svg',        invert: false },
+  { id: 'vision',    name: 'Vision 2030',  src: '/logos/clients/vision2030.svg', invert: false },
+  { id: 'neom',      name: 'NEOM',         src: '/logos/clients/neom.svg',       invert: false },
+  { id: 'stc',       name: 'STC',          src: '/logos/clients/stc.svg',        invert: false },
+  { id: 'aws',       name: 'Amazon Web Services', src: '/logos/clients/aws.svg', invert: true  },
+  { id: 'microsoft', name: 'Microsoft',    src: '/logos/clients/microsoft.svg',  invert: false },
+  { id: 'c3ai',      name: 'C3.AI',        src: '/logos/clients/c3ai.svg',       invert: false },
 ];
 // ─────────────────────────────────────────────────────────────────────────────
 
 function LogoItem({ engagement }: { engagement: Engagement }) {
-  if (engagement.type === 'image' && engagement.src) {
-    return (
-      <div
-        className="flex items-center justify-center h-7 w-auto max-w-[160px] min-w-[80px] opacity-50 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-700 cursor-default shrink-0"
-        title={engagement.name}
-      >
-        <img
-          src={engagement.src}
-          alt={engagement.name}
-          className="h-full w-auto object-contain"
-        />
-      </div>
-    );
-  }
-
   return (
-    <div
-      className="flex items-center justify-center h-7 shrink-0 cursor-default select-none opacity-55 hover:opacity-80 transition-opacity duration-700"
+    <img
+      src={engagement.src}
+      alt={engagement.name}
+      loading="lazy"
       title={engagement.name}
-    >
-      <span className="text-white font-display font-semibold text-[13px] tracking-[0.12em] uppercase whitespace-nowrap">
-        {engagement.abbrev}
-      </span>
-    </div>
+      className="h-7 w-auto object-contain opacity-40 hover:opacity-70 transition-opacity duration-300 shrink-0 cursor-default select-none"
+      style={engagement.invert ? { filter: 'brightness(0) invert(1)' } : undefined}
+    />
   );
 }
 
