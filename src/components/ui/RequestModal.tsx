@@ -89,7 +89,7 @@ export default function RequestModal({
                     Request Received
                   </h3>
 
-                  <p className="text-white/60 max-w-sm">
+                  <p className="text-white/85 max-w-sm">
                     {modalContent.success}
                   </p>
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronRight } from 'lucide-react';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore – lucide-react marks brand icons @deprecated but they still ship and render
+import { Menu, X, ChevronRight, LinkedinIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { useMarket } from '@/lib/market';
@@ -10,10 +12,20 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+const TICKER_MESSAGES = [
+  '🇸🇦  Saudi-registered operating entity — Riyadh, Kingdom of Saudi Arabia',
+  '🇺🇸  Virginia-based LLC — serving US enterprise and government',
+  'Aligned to NCA-ECC  ·  PDPL  ·  NIST 800-53  ·  SDAIA Guidance',
+  'Sovereign AI deployment — cloud, private cloud, and on-premises',
+];
+
 export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [topStripVisible, setTopStripVisible] = useState(true);
+  const [tickerIndex, setTickerIndex] = useState(0);
+  const [lang, setLang] = useState('EN');
+  const [arToast, setArToast] = useState(false);
 
   const location = useLocation();
   const market = useMarket();
@@ -32,6 +44,13 @@ export default function Layout({ children }: LayoutProps) {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTickerIndex((i) => (i + 1) % TICKER_MESSAGES.length);
+    }, 4000);
+    return () => clearInterval(id);
+  }, []);
 
   const navLinks = content.nav;
   const footerContent = content.common.footer;
@@ -55,14 +74,19 @@ export default function Layout({ children }: LayoutProps) {
             transition={{ duration: 0.25 }}
             className="bg-[#06040d] border-b border-white/5 overflow-hidden"
           >
-            <div className="container mx-auto px-6 py-1.5 flex items-center justify-center gap-4">
-              <span className="text-xs text-white/35 tracking-widest uppercase font-mono">
-                Maya AI, Inc. (US)
-              </span>
-              <span className="text-white/15">•</span>
-              <span className="text-xs text-white/35 tracking-widest uppercase font-mono">
-                Maya AI KSA
-              </span>
+            <div className="container mx-auto px-6 py-1.5 flex items-center justify-center overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={tickerIndex}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.35 }}
+                  className="text-xs text-white/70 tracking-wide font-mono text-center"
+                >
+                  {TICKER_MESSAGES[tickerIndex]}
+                </motion.span>
+              </AnimatePresence>
             </div>
           </motion.div>
         )}
@@ -70,6 +94,7 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* Navigation */}
       <header
+        role="banner"
         className={cn(
           'fixed left-0 right-0 z-50 transition-all duration-300 border-b',
           topStripVisible ? 'top-[30px]' : 'top-0',
@@ -85,8 +110,10 @@ export default function Layout({ children }: LayoutProps) {
             <div className="flex items-center gap-10 lg:gap-12">
               <Link to="/" className="relative z-50 shrink-0 flex items-center">
                 <img
-                  src="https://res.cloudinary.com/dzipj6lnb/image/upload/v1772830830/Just-Logo-No-Border_kgjs9d.png"
+                  src="https://res.cloudinary.com/dzipj6lnb/image/upload/f_auto,q_auto/v1772830830/Just-Logo-No-Border_kgjs9d.png"
                   alt="Maya AI"
+                  loading="eager"
+                  fetchPriority="high"
                   className={cn(
                     'w-auto transition-all duration-300 object-contain',
                     isScrolled ? 'h-10' : 'h-12'
@@ -95,7 +122,7 @@ export default function Layout({ children }: LayoutProps) {
               </Link>
 
               {/* Desktop Nav */}
-              <nav className="hidden md:flex items-center gap-5 lg:gap-7">
+              <nav role="navigation" aria-label="Main navigation" className="hidden md:flex items-center gap-5 lg:gap-7">
                 {navLinks.map((link) => (
                   <Link
                     key={link.id}
@@ -117,8 +144,40 @@ export default function Layout({ children }: LayoutProps) {
               </nav>
             </div>
 
-            {/* Right side: CTA + Mobile toggle */}
-            <div className="flex items-center gap-3">
+            {/* Right side: AR/EN toggle + CTA + Mobile toggle */}
+            <div className="flex items-center gap-3 relative">
+
+              {/* Language toggle */}
+              <div className="hidden md:flex items-center gap-1 text-xs font-semibold tracking-widest">
+                <button
+                  type="button"
+                  onClick={() => { setLang('AR'); setArToast(true); setTimeout(() => setArToast(false), 4000); }}
+                  className={lang === 'AR' ? 'text-maya-gold' : 'text-white/40 hover:text-white/70 transition-colors'}
+                >AR</button>
+                <span className="text-white/20">|</span>
+                <button
+                  type="button"
+                  onClick={() => { setLang('EN'); setArToast(false); }}
+                  className={lang === 'EN' ? 'text-maya-gold' : 'text-white/40 hover:text-white/70 transition-colors'}
+                >EN</button>
+              </div>
+
+              {/* AR toast */}
+              <AnimatePresence>
+                {arToast && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full right-0 mt-3 w-72 bg-[#0b0816] border border-maya-gold/30 px-4 py-3 text-xs text-white/70 shadow-xl z-50 leading-relaxed"
+                  >
+                    Arabic version coming soon.{' '}
+                    <span dir="rtl" lang="ar">النسخة العربية قادمة قريباً: info@mayaai.sa</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <Link
                 to="/contact#briefing-request"
                 className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-maya-gold text-maya-navy font-bold text-xs uppercase tracking-widest hover:bg-white transition-colors"
@@ -164,6 +223,21 @@ export default function Layout({ children }: LayoutProps) {
                   {link.label}
                 </Link>
               ))}
+              {/* AR/EN toggle in mobile menu */}
+              <div className="flex items-center justify-center gap-2 text-sm font-semibold tracking-widest mt-2">
+                <button
+                  type="button"
+                  onClick={() => { setLang('AR'); setArToast(true); setTimeout(() => setArToast(false), 4000); setMobileMenuOpen(false); }}
+                  className={lang === 'AR' ? 'text-maya-gold' : 'text-white/40'}
+                >AR</button>
+                <span className="text-white/20">|</span>
+                <button
+                  type="button"
+                  onClick={() => { setLang('EN'); setArToast(false); }}
+                  className={lang === 'EN' ? 'text-maya-gold' : 'text-white/40'}
+                >EN</button>
+              </div>
+
               <Link
                 to="/contact#briefing-request"
                 className="mt-4 px-8 py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest"
@@ -176,10 +250,10 @@ export default function Layout({ children }: LayoutProps) {
       </AnimatePresence>
 
       {/* Main Content */}
-      <main className="relative pt-[88px] md:pt-[88px]">{children}</main>
+      <main role="main" className="relative pt-[88px] md:pt-[88px]">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-[#0a0816] border-t border-white/5 pt-16 pb-8">
+      <footer role="contentinfo" className="bg-[#0a0816] border-t border-white/5 pt-16 pb-8">
         <div className="container mx-auto px-6">
 
           {/* 5-column grid */}
@@ -189,7 +263,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="lg:col-span-1">
               <Link to="/" className="mb-6 block">
                 <img
-                  src="https://res.cloudinary.com/dzipj6lnb/image/upload/v1772830830/Just-Logo-No-Border_kgjs9d.png"
+                  src="https://res.cloudinary.com/dzipj6lnb/image/upload/f_auto,q_auto/v1772830830/Just-Logo-No-Border_kgjs9d.png"
                   alt="Maya AI"
                   className="h-14 w-auto object-contain"
                 />
@@ -201,8 +275,20 @@ export default function Layout({ children }: LayoutProps) {
 
               <div className="space-y-1.5 text-xs text-white/30">
                 <p className="font-mono uppercase tracking-widest text-white/20 text-[10px] mb-2">Operating Presence</p>
-                <p>Maya AI, Inc. — Delaware (US) — Virginia HQ</p>
-                <p>Maya AI KSA — Riyadh — {contactInfo.ksa.cr}</p>
+                <p>Maya AI, LLC — Virginia, United States</p>
+                <p>Maya AI KSA — Riyadh, Kingdom of Saudi Arabia</p>
+              </div>
+
+              <div className="mt-5">
+                <a
+                  href="https://www.linkedin.com/company/maya-ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Maya AI on LinkedIn"
+                  className="text-white/50 hover:text-maya-gold transition-colors inline-flex"
+                >
+                  <LinkedinIcon size={18} />
+                </a>
               </div>
             </div>
 
@@ -211,7 +297,7 @@ export default function Layout({ children }: LayoutProps) {
               <h4 className="text-maya-gold mb-5 font-bold uppercase tracking-widest text-xs">
                 {primaryEntity.entity}
               </h4>
-              <div className="space-y-3 text-sm text-white/55">
+              <div className="space-y-3 text-sm text-white/70">
                 <p className="text-white/35 text-xs">{primaryEntity.legalForm}</p>
                 <p>{primaryEntity.address}</p>
                 <div className="pt-1 space-y-1">
@@ -226,7 +312,7 @@ export default function Layout({ children }: LayoutProps) {
               <h4 className="text-maya-gold mb-5 font-bold uppercase tracking-widest text-xs">
                 {secondaryEntity.entity}
               </h4>
-              <div className="space-y-3 text-sm text-white/55">
+              <div className="space-y-3 text-sm text-white/70">
                 <p className="text-white/35 text-xs">{secondaryEntity.legalForm}</p>
                 <p>{secondaryEntity.address}</p>
                 <div className="pt-1 space-y-1">

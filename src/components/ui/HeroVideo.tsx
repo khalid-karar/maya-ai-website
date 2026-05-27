@@ -66,7 +66,7 @@ export default function HeroVideo({ poster, videoSrc }: HeroVideoProps) {
         style={{ backgroundImage: `url(${poster})` }}
       />
 
-      {/* Video */}
+      {/* Video — mobile gets a lighter Cloudinary transform */}
       <video
         ref={videoRef}
         className={`
@@ -80,7 +80,19 @@ export default function HeroVideo({ poster, videoSrc }: HeroVideoProps) {
         playsInline
         preload="none"
       >
-        {shouldLoad && <source src={videoSrc} type="video/mp4" />}
+        {shouldLoad && (
+          <>
+            <source
+              src={videoSrc.replace('/upload/', '/upload/w_800,q_auto:eco/')}
+              media="(max-width: 768px)"
+              type="video/mp4"
+            />
+            <source
+              src={videoSrc.replace('/upload/', '/upload/q_auto/')}
+              type="video/mp4"
+            />
+          </>
+        )}
       </video>
 
       {/* Overlays (Kept at z-0 so they stay behind your text and boxes) */}

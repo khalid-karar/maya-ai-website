@@ -44,7 +44,7 @@ export default function Insights() {
           <div className="border border-white/10 bg-white/[0.02] p-10 md:p-12 text-center">
             <BookOpen size={40} className="text-maya-gold/40 mx-auto mb-6" />
             <h2 className="text-xl font-display text-white mb-4">Content Coming Soon</h2>
-            <p className="text-white/55 text-base leading-relaxed mb-8">
+            <p className="text-white/85 text-base leading-relaxed mb-8">
               Maya's insights, perspectives, and technical guidance on applied AI for enterprise and government environments will be published here.
             </p>
             <Link

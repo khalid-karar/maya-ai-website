@@ -251,7 +251,7 @@ export default function GeoAI() {
                         {activeContent.label}
                       </h2>
 
-                      <p className="text-white/65 max-w-3xl leading-relaxed">
+                      <p className="text-white/85 max-w-3xl leading-relaxed">
                         {activeContent.description}
                       </p>
                     </div>
@@ -398,7 +398,7 @@ export default function GeoAI() {
               Discuss the right capability mix for your environment
             </h2>
 
-            <p className="text-white/60 text-lg mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-white/85 text-lg mb-10 max-w-3xl mx-auto leading-relaxed">
               We can review your priorities, operating environment, and deployment requirements to determine the right
               sovereign-ready capability and solution direction.
             </p>

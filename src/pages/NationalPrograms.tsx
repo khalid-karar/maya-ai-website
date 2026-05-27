@@ -112,7 +112,7 @@ export default function NationalPrograms() {
       <section className="container mx-auto px-6 py-20 md:py-24">
         <div className="max-w-3xl mb-12">
           <h2 className="text-3xl md:text-5xl font-display mb-4 text-white">Core Programs</h2>
-          <p className="text-white/55 text-lg leading-relaxed">
+          <p className="text-white/85 text-lg leading-relaxed">
             Sovereign systems designed for governments and critical sectors that require operational
             reliability, clear governance, and enterprise-grade execution.
           </p>
@@ -195,7 +195,7 @@ export default function NationalPrograms() {
                 {pageContent.governance.title}
               </h2>
             </div>
-            <p className="text-white/55 text-lg leading-relaxed">
+            <p className="text-white/85 text-lg leading-relaxed">
               These programs are built around clear sovereignty, compliance, and operational
               integrity requirements for sensitive environments.
             </p>
@@ -211,7 +211,7 @@ export default function NationalPrograms() {
                   {idx === 0 ? <Database size={18} /> : idx === 1 ? <Building2 size={18} /> : <Shield size={18} />}
                 </div>
                 <h4 className="text-white font-bold mb-3 text-lg">{item.title}</h4>
-                <p className="text-white/55 text-sm md:text-base leading-relaxed">{item.desc}</p>
+                <p className="text-white/85 text-sm md:text-base leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

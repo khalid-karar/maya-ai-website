@@ -18,7 +18,7 @@ export default function Privacy() {
               <span className="text-xs text-maya-gold font-mono uppercase tracking-widest">Privacy Notice</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-display font-bold mb-4">Privacy Notice</h1>
-            <p className="text-white/60 leading-relaxed">Effective date: January 2026</p>
+            <p className="text-white/85 leading-relaxed">Effective date: January 2026</p>
           </motion.div>
         </div>
       </section>
@@ -27,7 +27,7 @@ export default function Privacy() {
         <div className="max-w-3xl space-y-10 text-white/70 leading-relaxed">
           <div>
             <h2 className="text-xl font-display font-bold text-white mb-3">1. Who We Are</h2>
-            <p>Maya AI, Inc. (Delaware, USA) and Maya AI KSA (Riyadh, KSA) operate this website and related services. References to "Maya AI," "we," or "our" refer to these entities operating jointly.</p>
+            <p>Maya AI, LLC (Virginia, USA) and Maya AI KSA (Riyadh, KSA) operate this website and related services. References to "Maya AI," "we," or "our" refer to these entities operating jointly.</p>
           </div>
 
           <div>

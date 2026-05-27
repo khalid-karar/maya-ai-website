@@ -49,7 +49,7 @@ export default function Company() {
               {companyContent.hero.subtitle}
             </h1>
 
-            <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/70 leading-relaxed mb-10">
+            <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/85 leading-relaxed mb-10">
               {companyContent.hero.description}
             </p>
 
@@ -121,7 +121,7 @@ export default function Company() {
               <h2 className="text-3xl md:text-4xl font-display text-white mb-5 leading-tight">
                 {companyContent.differentiators.title}
               </h2>
-              <p className="text-white/65 text-lg leading-relaxed">
+              <p className="text-white/85 text-lg leading-relaxed">
                 {companyContent.differentiators.subtitle}
               </p>
             </motion.div>
@@ -144,7 +144,7 @@ export default function Company() {
                   <h3 className="text-xl md:text-2xl font-display text-white mb-4 leading-snug group-hover:text-maya-gold transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-white/70 leading-relaxed text-base">
+                  <p className="text-white/85 leading-relaxed text-base">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -311,6 +311,16 @@ export default function Company() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Leadership experience — plain text, no logo/visual treatment */}
+      <section className="bg-[#0a0816] border-t border-white/[0.06] py-10">
+        <div className="container mx-auto px-6">
+          <p className="text-white/45 text-sm leading-relaxed max-w-3xl">
+            Leadership experience spans U.S. federal, defense, healthcare, and enterprise
+            environments, delivered through direct roles and approved partner engagements.
+          </p>
         </div>
       </section>
     </div>

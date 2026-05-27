@@ -25,6 +25,17 @@
   }
 }
 
+/* Global behaviour */
+html {
+  scroll-behavior: smooth;
+}
+
+*:focus-visible {
+  outline: 2px solid rgb(172, 133, 48);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* Base Styles */
 body {
   background-color: var(--color-maya-navy);
