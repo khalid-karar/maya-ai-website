@@ -32,13 +32,6 @@ const HERO_EASE = [0.21, 0.47, 0.32, 0.98] as const;
 /** Applied to every H2 for a faint gold ambient glow */
 const H2_GLOW = 'drop-shadow-[0_0_30px_rgba(172,133,48,0.15)]';
 
-/** Subtle inner-border + drop-shadow that lifts cards off the dark bg */
-const CARD_SHADOW =
-  'shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_4px_24px_rgba(0,0,0,0.4)]';
-
-/** Gold border-glow + upward lift on hover */
-const CARD_HOVER =
-  'hover:shadow-[0_0_0_1px_rgba(172,133,48,0.3),0_4px_32px_rgba(172,133,48,0.08)] hover:-translate-y-1';
 
 /** Radial gold shimmer overlay for bg-maya-navy sections */
 function GoldOverlay() {
@@ -294,7 +287,7 @@ export default function Home() {
                 <FadeInUp
                   key={idx}
                   delay={idx * 0.08}
-                  className={`group relative p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 h-full flex flex-col ${CARD_SHADOW} ${CARD_HOVER}`}
+                  className={`group relative p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 h-full flex flex-col maya-card`}
                 >
                   <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
@@ -359,7 +352,7 @@ export default function Home() {
               <FadeInUp
                 key={idx}
                 delay={idx * 0.08}
-                className={`border border-white/10 bg-white/[0.02] p-6 flex flex-col hover:border-maya-gold/25 transition-all duration-300 rounded-lg ${CARD_SHADOW} ${CARD_HOVER}`}
+                className={`border border-white/10 bg-white/[0.02] p-6 flex flex-col hover:border-maya-gold/25 transition-all duration-300 rounded-lg maya-card`}
               >
                 <div className="w-10 h-10 rounded-full bg-maya-gold/10 text-maya-gold flex items-center justify-center mb-4 shrink-0">
                   <Check size={18} />
@@ -417,7 +410,7 @@ export default function Home() {
               <FadeInUp
                 key={idx}
                 delay={idx * 0.1}
-                className={`p-8 border border-white/10 bg-maya-navy hover:border-maya-gold/30 transition-all duration-300 group relative overflow-hidden flex flex-col ${CARD_SHADOW} ${CARD_HOVER}`}
+                className={`p-8 border border-white/10 bg-maya-navy hover:border-maya-gold/30 transition-all duration-300 group relative overflow-hidden flex flex-col maya-card`}
               >
                 <div className="mb-5">
                   <div className="w-11 h-11 rounded-full bg-white/5 text-maya-gold flex items-center justify-center">
@@ -477,7 +470,7 @@ export default function Home() {
               <FadeInUp
                 key={idx}
                 delay={idx * 0.08}
-                className={`bg-white/[0.02] border border-white/10 p-8 text-center hover:border-maya-gold/30 transition-all duration-300 ${CARD_SHADOW} ${CARD_HOVER}`}
+                className={`bg-white/[0.02] border border-white/10 p-8 text-center hover:border-maya-gold/30 transition-all duration-300 maya-card`}
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/5 mb-6 text-maya-gold">
                   <Icon size={22} />
