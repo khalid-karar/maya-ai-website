@@ -389,7 +389,7 @@ export default function Home() {
       </section>
 
       {/* ── SOLUTIONS PREVIEW ────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#0e0c1d]">
+      <section className="py-24 bg-[#0e0c1d] border-t border-white/5">
         <div className="container mx-auto px-6">
           <div className="mb-14 max-w-3xl">
             <FadeInUp>
@@ -450,7 +450,7 @@ export default function Home() {
       </section>
 
       {/* ── DEPLOYMENT MODELS ────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#0e0c1d]">
+      <section className="py-24 bg-[#0e0c1d] border-t border-white/5">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <FadeInUp>
