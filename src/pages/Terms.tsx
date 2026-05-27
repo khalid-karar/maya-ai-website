@@ -18,7 +18,7 @@ export default function Terms() {
               <span className="text-xs text-maya-gold font-mono uppercase tracking-widest">Terms of Use</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-display font-bold mb-4">Terms of Use</h1>
-            <p className="text-white/60 leading-relaxed">Effective date: January 2026</p>
+            <p className="text-white/85 leading-relaxed">Effective date: January 2026</p>
           </motion.div>
         </div>
       </section>
@@ -32,7 +32,7 @@ export default function Terms() {
 
           <div>
             <h2 className="text-xl font-display font-bold text-white mb-3">2. Ownership</h2>
-            <p>All content on this website, including text, graphics, and code, is the property of Maya AI, Inc. or its affiliates and is protected by applicable intellectual property laws. Unauthorized reproduction is prohibited.</p>
+            <p>All content on this website, including text, graphics, and code, is the property of Maya AI, LLC or its affiliates and is protected by applicable intellectual property laws. Unauthorized reproduction is prohibited.</p>
           </div>
 
           <div>
@@ -47,12 +47,12 @@ export default function Terms() {
 
           <div>
             <h2 className="text-xl font-display font-bold text-white mb-3">5. Limitation of Liability</h2>
-            <p>To the maximum extent permitted by law, Maya AI, Inc. and its affiliates shall not be liable for any indirect, incidental, or consequential damages arising from your use of this website.</p>
+            <p>To the maximum extent permitted by law, Maya AI, LLC and its affiliates shall not be liable for any indirect, incidental, or consequential damages arising from your use of this website.</p>
           </div>
 
           <div>
             <h2 className="text-xl font-display font-bold text-white mb-3">6. Governing Law</h2>
-            <p>These terms are governed by the laws of the State of Delaware, USA, for mayaai.net, and the laws of the Kingdom of Saudi Arabia for mayaai.sa.</p>
+            <p>These terms are governed by the laws of the Commonwealth of Virginia, USA, for mayaai.net, and the laws of the Kingdom of Saudi Arabia for mayaai.sa.</p>
           </div>
 
           <div>

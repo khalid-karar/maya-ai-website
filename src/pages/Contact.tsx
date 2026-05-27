@@ -354,7 +354,7 @@ export default function Contact() {
                 Support & Operations
               </h4>
 
-              <p className="text-sm text-white/55 mb-5 leading-relaxed">
+              <p className="text-sm text-white/85 mb-5 leading-relaxed">
                 For existing clients requiring operational support or service coordination.
               </p>
 

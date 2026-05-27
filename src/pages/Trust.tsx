@@ -114,7 +114,7 @@ export default function Trust() {
             <Lock size={22} className="text-maya-gold shrink-0 mt-1" />
             <div>
               <h3 className="text-xl font-display font-bold text-white mb-3">Security Contact</h3>
-              <p className="text-white/60 text-sm leading-relaxed mb-4">
+              <p className="text-white/85 text-sm leading-relaxed mb-4">
                 For security disclosures, vulnerability reports, and responsible disclosure inquiries, please contact our security team directly. We respond to all credible disclosures within 72 hours.
               </p>
               <a
@@ -138,7 +138,7 @@ export default function Trust() {
               <h3 className="text-2xl font-display text-white mb-3">
                 Discuss compliance and security requirements
               </h3>
-              <p className="text-white/55 leading-relaxed">
+              <p className="text-white/85 leading-relaxed">
                 Our team can address specific compliance, audit, and security questions for enterprise procurement and institutional engagement.
               </p>
             </div>

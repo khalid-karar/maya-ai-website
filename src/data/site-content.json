@@ -17,8 +17,8 @@
         "email": "info@mayaai.sa"
       },
       "usa": {
-        "entity": "Maya AI, Inc.",
-        "legalForm": "Delaware-incorporated, Virginia HQ",
+        "entity": "Maya AI, LLC",
+        "legalForm": "Virginia-based operating entity",
         "address": "Virginia, United States",
         "phone": "+1 202 802 1976",
         "email": "info@mayaai.net"
@@ -28,7 +28,7 @@
     "footer": {
       "positioning": "Maya AI builds sovereign-ready applied intelligence systems for enterprises, governments, and regulated industries across the United States and the Kingdom of Saudi Arabia.",
       "disclaimer": "Content on this site is provided for informational purposes only. Specific solutions, deployment models, and implementation scope are discussed in direct engagements.",
-      "rights": "© 2026 Maya AI, Inc. and Maya AI KSA. Operating across the United States and the Kingdom of Saudi Arabia.",
+      "rights": "© 2026 Maya AI, LLC and Maya AI KSA. Operating across the United States and the Kingdom of Saudi Arabia.",
       "operatingEntities": "Operating Presence: United States \u2022 Kingdom of Saudi Arabia",
       "complianceBadges": [
         { "label": "NIST 800-53", "status": "Mapped" },
@@ -41,7 +41,6 @@
     }
   },
   "nav": [
-    { "id": "home", "path": "/", "label": "Home" },
     { "id": "capabilities", "path": "/capabilities", "label": "Capabilities" },
     { "id": "solutions", "path": "/solutions", "label": "Solutions" },
     { "id": "deployment", "path": "/deployment", "label": "Deployment" },
@@ -54,8 +53,8 @@
       "hero": {
         "video": "/assets/hero.mp4",
         "poster": "/assets/hero-poster.jpg",
-        "headline": "Secure AI systems for real-world operations",
-        "subhead": "Maya AI designs and deploys applied intelligence systems that improve workflows, decision-making, and service delivery across enterprise and mission-critical environments. Operating across the United States and the Kingdom of Saudi Arabia, we build for organizations that need capability, security, and operational impact.",
+        "headline": "Applied AI for Enterprise and Government Operations",
+        "subhead": "Operational AI for organizations that can't afford failure — built for the United States and the Kingdom of Saudi Arabia.",
         "eyebrow_us": "Enterprise-Ready \u2022 Operating in US & KSA",
         "eyebrow_sa": "Sovereign-Ready \u2022 Operating in KSA & US",
         "cta": {
@@ -73,13 +72,13 @@
           {
             "title": "AI Agents & Workflow Automation",
             "desc": "Structured automation for high-value internal workflows, approvals, and service execution with human oversight and audit trails built in from day one.",
-            "icon": "Cpu",
+            "icon": "Bot",
             "tabId": "agents"
           },
           {
             "title": "Voice & Service Intelligence",
             "desc": "AI voice agents, contact-center copilots, and multi-channel response systems that handle inbound service operations with consistency and control.",
-            "icon": "Headphones",
+            "icon": "Mic",
             "tabId": "voice"
           },
           {
@@ -91,7 +90,7 @@
           {
             "title": "Knowledge & Document Intelligence",
             "desc": "Enterprise-grade document retrieval, knowledge management, and multilingual content intelligence for organizations managing large regulated document estates.",
-            "icon": "FileText",
+            "icon": "BookOpen",
             "tabId": "knowledge"
           },
           {
@@ -103,7 +102,7 @@
           {
             "title": "Custom AI Platforms",
             "desc": "Purpose-built operator consoles, vertical applications, and private agent platforms tailored to regulated sectors, mission-critical environments, and complex operating contexts.",
-            "icon": "AppWindow",
+            "icon": "Layers",
             "tabId": "platforms"
           }
         ]
@@ -111,10 +110,10 @@
       "governance": {
         "headline": "Built for serious operating environments",
         "features": [
-          { "label": "Secure by design" },
-          { "label": "Human-controlled execution" },
-          { "label": "Auditability and traceability" },
-          { "label": "Cross-market operating presence" }
+          { "label": "Secure by design", "desc": "Zero-trust architecture principles, air-gapped deployment options, and alignment to NCA-ECC and NIST 800-53 security controls." },
+          { "label": "Human-controlled execution", "desc": "All AI actions operate within defined approval workflows. No autonomous execution without human authorization at each control boundary." },
+          { "label": "Auditability and traceability", "desc": "Full decision logging, action trails, and output versioning across all deployed systems — built for regulated environment accountability." },
+          { "label": "Cross-market operating presence", "desc": "Active teams in Virginia (United States) and Riyadh (Kingdom of Saudi Arabia) delivering to both markets under unified operational standards." }
         ]
       },
       "cta": {
@@ -591,7 +590,7 @@
       "hero": {
         "title": "Company",
         "subtitle": "A focused AI company operating across the United States and the Kingdom of Saudi Arabia.",
-        "description": "Maya AI builds applied intelligence systems for organizations that need secure deployment, practical execution, and measurable operational value. We operate through Maya AI, Inc. (Delaware-incorporated, Virginia HQ) in the United States, and Maya AI KSA (Saudi-registered, Riyadh) in the Kingdom.",
+        "description": "Maya AI builds applied intelligence systems for organizations that need secure deployment, practical execution, and measurable operational value. We operate through Maya AI, LLC (Virginia, United States) in the United States, and Maya AI KSA (Saudi-registered, Riyadh) in the Kingdom.",
         "proofs": [
           "Applied AI for enterprise and government",
           "Sovereign-ready deployment models",
@@ -649,7 +648,7 @@
           },
           {
             "label": "United States",
-            "value": "Maya AI, Inc. operates from Virginia, serving federal-adjacent, enterprise, and regulated-industry clients across the United States. Aligned to NIST 800-53 and SOC2 Type II (in progress)."
+            "value": "Maya AI, LLC operates from Virginia, serving federal-adjacent, enterprise, and regulated-industry clients across the United States. Aligned to NIST 800-53 and SOC2 Type II (in progress)."
           },
           {
             "label": "Delivery approach",

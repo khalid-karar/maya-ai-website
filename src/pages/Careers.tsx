@@ -40,7 +40,7 @@ export default function Careers() {
       {/* Content */}
       <section className="container mx-auto px-6 py-20 md:py-24">
         <div className="max-w-3xl mb-12">
-          <p className="text-white/65 text-lg leading-relaxed">{pageContent.intro}</p>
+          <p className="text-white/85 text-lg leading-relaxed">{pageContent.intro}</p>
         </div>
 
         <div className="space-y-6 max-w-3xl mb-16">
@@ -63,14 +63,14 @@ export default function Careers() {
                 <MapPin size={13} className="text-maya-gold/60" />
                 <span>{role.location}</span>
               </div>
-              <p className="text-white/60 text-sm leading-relaxed">{role.desc}</p>
+              <p className="text-white/85 text-sm leading-relaxed">{role.desc}</p>
             </motion.div>
           ))}
         </div>
 
         <div className="border border-white/10 bg-white/[0.02] p-10 md:p-12 max-w-3xl">
           <h2 className="text-2xl font-display text-white mb-4">Apply</h2>
-          <p className="text-white/60 text-base leading-relaxed mb-8">
+          <p className="text-white/85 text-base leading-relaxed mb-8">
             Send your CV and a brief note about the role you're interested in.
           </p>
           <a

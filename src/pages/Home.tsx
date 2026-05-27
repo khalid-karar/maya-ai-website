@@ -1,4 +1,4 @@
-import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -10,30 +10,33 @@ import {
   Server,
   Lock,
   MapPin,
-  Briefcase,
   Building2,
+  Bot,
+  Mic,
+  BookOpen,
+  Layers,
+  Headphones,
+  ShieldCheck,
+  Network,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import content from '../data/site-content.json';
-import { cn } from '@/lib/utils';
 import HeroVideo from '@/components/ui/HeroVideo';
+import EngagementMarquee from '@/components/ui/EngagementMarquee';
+import BriefingForm from '@/components/ui/BriefingForm';
 
 export default function Home() {
   const homeContent = content.pages.home;
-  const solutionsContent = content.pages.solutions;
 
   const capabilityIcons = {
     Shield,
     Globe,
     Cpu,
+    Bot,
+    Mic,
+    BookOpen,
+    Layers,
   };
-
-  const heroProofs = [
-    'Applied AI for enterprise and mission-critical environments',
-    'Operating across Saudi Arabia and the United States',
-    'Cloud, private cloud, on-prem, and hybrid deployment',
-    'Built for security, control, and operational impact',
-  ];
 
   const solutionHighlights = [
     {
@@ -56,6 +59,43 @@ export default function Home() {
 
   return (
     <div className="w-full bg-maya-navy">
+      <Helmet>
+        <title>Maya AI | Applied AI for Enterprise &amp; Government Operations</title>
+        <meta name="description" content="Maya AI designs and deploys operational AI systems for enterprise and government — workflow automation, voice intelligence, spatial intelligence, and sovereign deployment across the United States and Saudi Arabia." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://mayaai.sa/" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Maya AI | Applied AI for Enterprise & Government Operations" />
+        <meta property="og:description" content="Operational AI systems for enterprise and government — built for the United States and Kingdom of Saudi Arabia." />
+        <meta property="og:url" content="https://mayaai.sa/" />
+        <meta property="og:image" content="https://mayaai.sa/og-image.png" />
+        <meta property="og:site_name" content="Maya AI" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Maya AI | Applied AI for Enterprise & Government" />
+        <meta name="twitter:description" content="Operational AI systems for enterprise and government across the US and Saudi Arabia." />
+        <meta name="twitter:image" content="https://mayaai.sa/og-image.png" />
+
+        {/* JSON-LD Organization schema */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Maya AI",
+          "legalName": "Maya AI, LLC",
+          "url": "https://mayaai.sa",
+          "description": "Applied AI systems for enterprise and government operations across the United States and Saudi Arabia.",
+          "areaServed": ["United States", "Saudi Arabia"],
+          "contactPoint": [
+            { "@type": "ContactPoint", "telephone": "+1-202-802-1976", "contactType": "sales", "areaServed": "US", "email": "info@mayaai.net" },
+            { "@type": "ContactPoint", "telephone": "+966-50-477-9551", "contactType": "sales", "areaServed": "SA", "email": "info@mayaai.sa" }
+          ],
+          "sameAs": ["https://mayaai.net", "https://mayaai.sa"]
+        })}</script>
+      </Helmet>
+
       {/* Hero */}
       <section className="relative min-h-screen w-full overflow-hidden flex items-center">
         <HeroVideo
@@ -86,7 +126,7 @@ export default function Home() {
               {homeContent.hero.headline}
             </h1>
 
-            <p className="text-lg md:text-2xl text-white/72 max-w-3xl mb-10 leading-relaxed drop-shadow-[0_8px_30px_rgba(0,0,0,0.65)]">
+            <p className="text-lg md:text-2xl text-white/85 max-w-3xl mb-10 leading-relaxed drop-shadow-[0_8px_30px_rgba(0,0,0,0.65)]">
               {homeContent.hero.subhead}
             </p>
 
@@ -95,7 +135,7 @@ export default function Home() {
                 to="/contact"
                 className="px-8 py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest hover:bg-white transition-colors flex items-center justify-center gap-2"
               >
-                Start Strategic Conversation
+                Request a Private Briefing
                 <ArrowRight size={16} />
               </Link>
 
@@ -108,14 +148,14 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 max-w-5xl">
-              {heroProofs.map((proof, idx) => (
-                <div
-                  key={idx}
-                  className="px-4 py-3 border border-white/10 bg-white/[0.05] backdrop-blur-sm text-white/85 text-sm leading-relaxed"
+            <div className="flex flex-wrap gap-3">
+              {['6 Capability Domains', '2-Market Operations', '5 Compliance Frameworks'].map((chip) => (
+                <span
+                  key={chip}
+                  className="border border-white/15 rounded-sm px-3 py-1.5 text-xs font-semibold tracking-widest text-white/70 inline-flex"
                 >
-                  {proof}
-                </div>
+                  {chip}
+                </span>
               ))}
             </div>
           </motion.div>
@@ -123,7 +163,7 @@ export default function Home() {
       </section>
 
       {/* What Maya does */}
-      <section className="py-20 md:py-28 border-t border-white/10 bg-gradient-to-b from-maya-navy via-maya-navy to-[#0e0c1d]">
+      <section className="py-20 md:py-28 border-t border-white/10 bg-[#0e0c1d]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
             <motion.div
@@ -144,28 +184,39 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="space-y-6"
             >
-              <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-3xl">
-                Maya designs and deploys intelligence systems proven across enterprise, infrastructure, and mission-critical environments. We don't build generic tools—we build operational AI that integrates into real workflows, scales with governance requirements, and delivers measurable value.
+              <p className="text-white/85 text-lg md:text-xl leading-relaxed max-w-3xl">
+                Maya designs and deploys intelligence systems proven across enterprise, infrastructure, and mission-critical environments.
+              </p>
+              <blockquote className="border-l-2 border-maya-gold pl-6 my-8">
+                <p className="text-xl italic text-white/90 leading-relaxed">
+                  We don't build generic tools — we build operational AI
+                </p>
+              </blockquote>
+              <p className="text-white/85 text-lg md:text-xl leading-relaxed max-w-3xl">
+                that integrates into real workflows, scales with governance requirements, and delivers measurable value.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-3xl pt-4">
                 <div className="pl-4 border-l border-maya-gold/40">
                   <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-2">Real Integration</div>
-                  <p className="text-white/65 text-sm">Operational AI, not theoretical</p>
+                  <p className="text-white/85 text-sm">Operational AI, not theoretical</p>
                 </div>
                 <div className="pl-4 border-l border-maya-gold/40">
                   <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-2">Enterprise Scale</div>
-                  <p className="text-white/65 text-sm">Governance and control built-in</p>
+                  <p className="text-white/85 text-sm">Governance and control built-in</p>
                 </div>
                 <div className="pl-4 border-l border-maya-gold/40">
                   <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-2">Measurable Impact</div>
-                  <p className="text-white/65 text-sm">Proven value delivery</p>
+                  <p className="text-white/85 text-sm">Proven value delivery</p>
                 </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Engagement credibility strip */}
+      <EngagementMarquee />
 
       {/* Core Capabilities */}
       <section className="py-24 bg-maya-navy relative">
@@ -174,7 +225,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-display mb-4">
               {homeContent.pillars.headline}
             </h2>
-            <p className="text-white/55 text-lg leading-relaxed">
+            <p className="text-white/85 text-lg leading-relaxed">
               {homeContent.pillars.subhead}
             </p>
           </div>
@@ -203,7 +254,7 @@ export default function Home() {
                     {item.title}
                   </h3>
 
-                  <p className="text-white/65 mb-8 leading-relaxed flex-grow text-base">
+                  <p className="text-white/85 mb-8 leading-relaxed flex-grow text-base">
                     {item.desc}
                   </p>
 
@@ -211,8 +262,7 @@ export default function Home() {
                     to={idx === 0 ? '/capabilities?tab=agents' : idx === 1 ? '/capabilities?tab=voice' : idx === 2 ? '/capabilities?tab=spatial' : idx === 3 ? '/capabilities?tab=knowledge' : idx === 4 ? '/capabilities?tab=platforms' : '/capabilities?tab=deployment'}
                     className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
                   >
-                    Learn More
-                    <ChevronRight size={12} />
+                    {idx === 0 ? 'Explore Agents & Automation' : idx === 1 ? 'Explore Voice Intelligence' : idx === 2 ? 'Explore Spatial Intelligence' : idx === 3 ? 'Explore Knowledge Systems' : idx === 4 ? 'Explore Private Deployment' : 'Explore Custom Platforms'} →
                   </Link>
                 </motion.div>
               );
@@ -231,25 +281,47 @@ export default function Home() {
             <h2 id="why-maya-heading" className="text-3xl md:text-4xl font-display font-bold mb-4">
               {homeContent.governance.headline}
             </h2>
-            <p className="text-white/55 text-lg leading-relaxed">
+            <p className="text-white/85 text-lg leading-relaxed">
               Our work is shaped around operational usefulness, secure deployment, and controlled execution.
               We focus on systems that fit real enterprise environments rather than abstract demonstrations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {homeContent.governance.features.map((feature, idx) => (
               <div
                 key={idx}
-                className="border border-white/10 bg-white/[0.02] p-5 md:p-6 flex items-center gap-4 hover:border-maya-gold/25 transition-colors rounded-lg"
+                className="border border-white/10 bg-white/[0.02] p-6 flex flex-col hover:border-maya-gold/25 transition-colors rounded-lg"
               >
-                <div className="w-10 h-10 rounded-full bg-maya-gold/10 text-maya-gold flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-full bg-maya-gold/10 text-maya-gold flex items-center justify-center mb-4 shrink-0">
                   <Check size={18} />
                 </div>
-                <h3 className="text-white/90 leading-snug font-medium text-sm md:text-base">
+                <h3 className="text-white/90 font-semibold text-base mb-2 leading-snug">
                   {feature.label}
                 </h3>
+                <p className="text-sm text-white/85 mt-1 leading-relaxed">
+                  {(feature as typeof feature & { desc?: string }).desc}
+                </p>
               </div>
+            ))}
+          </div>
+
+          {/* Compliance badges */}
+          <div className="flex flex-wrap gap-3 mt-10 justify-center">
+            {[
+              { label: 'NIST 800-53', status: 'Mapped', gold: true },
+              { label: 'SOC2 Type II', status: 'In Progress', gold: false },
+              { label: 'ISO 27001', status: 'Planned', gold: false },
+              { label: 'PDPL', status: 'Aligned', gold: true },
+              { label: 'NCA ECC', status: 'Mapped', gold: true },
+              { label: 'SDAIA Guidance', status: 'Applied', gold: true },
+            ].map((b) => (
+              <span
+                key={b.label}
+                className={`text-xs font-semibold tracking-widest px-4 py-2 rounded-sm ${b.gold ? 'border border-maya-gold/50 text-maya-gold/80' : 'border border-white/20 text-white/50'}`}
+              >
+                {b.label} &nbsp;·&nbsp; {b.status}
+              </span>
             ))}
           </div>
         </div>
@@ -262,7 +334,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-display mb-4">
               Where Maya creates value
             </h2>
-            <p className="text-white/55 text-lg leading-relaxed">
+            <p className="text-white/85 text-lg leading-relaxed">
               Maya helps organizations apply AI where it can create real operational value,
               from internal process execution to customer-facing workflows and decision support environments.
             </p>
@@ -278,178 +350,25 @@ export default function Home() {
                 transition={{ delay: idx * 0.06 }}
                 className="p-8 border border-white/10 bg-maya-navy hover:border-maya-gold/30 transition-colors group relative overflow-hidden flex flex-col"
               >
-                <div className="flex justify-between items-start gap-4 mb-5">
-                  <div className="w-11 h-11 rounded-full bg-white/5 text-maya-gold flex items-center justify-center shrink-0">
-                    {idx % 2 === 0 ? <Building2 size={18} /> : <Briefcase size={18} />}
+                <div className="mb-5">
+                  <div className="w-11 h-11 rounded-full bg-white/5 text-maya-gold flex items-center justify-center">
+                    {idx === 0 ? <Building2 size={28} className="text-maya-gold" /> : idx === 1 ? <Headphones size={28} className="text-maya-gold" /> : idx === 2 ? <ShieldCheck size={28} className="text-maya-gold" /> : <Network size={28} className="text-maya-gold" />}
                   </div>
-
-                  <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded border bg-white/5 text-white/70 border-white/10">
-                    Operational Use Case
-                  </span>
                 </div>
 
                 <h3 className="text-2xl font-display text-white mb-3">{item.title}</h3>
 
-                <p className="text-white/62 text-sm md:text-base mb-8 leading-relaxed flex-grow">
+                <p className="text-white/85 text-sm md:text-base mb-8 leading-relaxed flex-grow">
                   {item.desc}
                 </p>
 
                 <Link
-                  to={idx === 0 ? '/solutions?category=enterprise-operations' : idx === 1 ? '/solutions?category=service-workflows' : idx === 2 ? '/solutions?category=compliance-risk' : '/solutions?category=enterprise-operations'}
+                  to={idx === 0 ? '/solutions?category=enterprise-operations' : idx === 1 ? '/solutions?category=service-workflows' : idx === 2 ? '/solutions?category=compliance-risk' : '/solutions?category=infrastructure-field'}
                   className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
                 >
-                  Explore Solutions
-                  <ChevronRight size={12} />
+                  {idx === 0 ? 'Explore Enterprise Solutions' : idx === 1 ? 'Explore Service Solutions' : idx === 2 ? 'Explore Compliance Solutions' : 'Explore Infrastructure Solutions'} →
                 </Link>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* All Capabilities Breadth */}
-      <section className="py-28 bg-[#0e0c1d] border-y border-white/5">
-        <div className="container mx-auto px-6">
-          <div className="max-w-2xl mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-display mb-4">
-                Six core capability pillars
-              </h2>
-              <p className="text-white/55 text-lg leading-relaxed">
-                From workflow automation to spatial intelligence—Maya's capabilities span the full spectrum of applied AI. Organizations combine these to build sovereign-ready solutions.
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {/* Execution - Featured (larger) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0 }}
-              className="lg:col-span-1 border border-white/15 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-8 hover:border-maya-gold/30 transition-all group relative lg:row-span-1"
-            >
-              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="text-xs font-bold text-maya-gold/90 uppercase tracking-widest mb-3">Core Execution</div>
-              <h3 className="text-xl font-display text-white mb-3 leading-tight">AI Agents & Workflow Automation</h3>
-              <p className="text-white/60 text-sm leading-relaxed flex-grow">Structured automation for internal workflows, approvals, and service execution with human oversight and control.</p>
-            </motion.div>
-
-            {/* Voice - Featured */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.08 }}
-              className="lg:col-span-1 border border-white/15 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-8 hover:border-maya-gold/30 transition-all group relative"
-            >
-              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="text-xs font-bold text-maya-gold/90 uppercase tracking-widest mb-3">Voice & Service</div>
-              <h3 className="text-xl font-display text-white mb-3 leading-tight">Voice & Service Intelligence</h3>
-              <p className="text-white/60 text-sm leading-relaxed flex-grow">AI voice agents, call handling, service workflows, and customer interaction intelligence systems.</p>
-            </motion.div>
-
-            {/* Spatial */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.16 }}
-              className="lg:col-span-1 border border-white/15 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-8 hover:border-maya-gold/30 transition-all group relative"
-            >
-              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="text-xs font-bold text-maya-gold/90 uppercase tracking-widest mb-3">Spatial Visibility</div>
-              <h3 className="text-xl font-display text-white mb-3 leading-tight">Spatial & Operational Intelligence</h3>
-              <p className="text-white/60 text-sm leading-relaxed flex-grow">Infrastructure monitoring, field operations, and environmental visibility through applied intelligence.</p>
-            </motion.div>
-
-            {/* Knowledge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.24 }}
-              className="md:col-span-1 lg:col-span-1 border border-white/10 bg-white/[0.03] p-7 hover:border-maya-gold/20 transition-all group"
-            >
-              <div className="text-xs font-bold text-maya-gold/70 uppercase tracking-widest mb-3">Knowledge Systems</div>
-              <h3 className="text-lg font-display text-white mb-2 leading-tight">Knowledge & Document Intelligence</h3>
-              <p className="text-white/55 text-sm leading-relaxed">Document understanding, information extraction, knowledge retrieval, and content operationalization.</p>
-            </motion.div>
-
-            {/* Applications */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.32 }}
-              className="md:col-span-1 lg:col-span-1 border border-white/10 bg-white/[0.03] p-7 hover:border-maya-gold/20 transition-all group"
-            >
-              <div className="text-xs font-bold text-maya-gold/70 uppercase tracking-widest mb-3">Custom Platforms</div>
-              <h3 className="text-lg font-display text-white mb-2 leading-tight">Custom AI Platforms & Applications</h3>
-              <p className="text-white/55 text-sm leading-relaxed">Purpose-built intelligence systems, dashboards, and operational platforms tailored to your environment.</p>
-            </motion.div>
-
-            {/* Deployment */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="md:col-span-1 lg:col-span-1 border border-white/10 bg-white/[0.03] p-7 hover:border-maya-gold/20 transition-all group"
-            >
-              <div className="text-xs font-bold text-maya-gold/70 uppercase tracking-widest mb-3">Deployment Options</div>
-              <h3 className="text-lg font-display text-white mb-2 leading-tight">Private AI Deployment</h3>
-              <p className="text-white/55 text-sm leading-relaxed">Cloud, private cloud, on-prem, and hybrid deployment models aligned to your control requirements.</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Spatial Intelligence */}
-      <section className="py-24 bg-maya-navy relative overflow-hidden border-y border-white/5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(201,162,39,0.08),transparent_18%)] pointer-events-none" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-3xl mb-12">
-            <div className="inline-block px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-gold/10 mb-6">
-              <span className="text-xs text-maya-gold font-mono uppercase tracking-widest">
-                Spatial & Operational Intelligence
-              </span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-display mb-4">
-              Spatial &amp; Operational Intelligence
-            </h2>
-            <p className="text-white/60 text-lg leading-relaxed">
-              Applied intelligence for environments where assets, infrastructure, and location matter.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { id: 'monitoring', label: 'Infrastructure Monitoring', detects: 'Asset-linked operational awareness for critical infrastructure, utilities, and distributed field environments.' },
-              { id: 'field', label: 'Field Operations', detects: 'AI-assisted coordination and visibility for teams and assets operating in physically distributed or high-complexity environments.' },
-              { id: 'environmental', label: 'Environmental Intelligence', detects: 'Integrated spatial analysis for environmental monitoring, land use, and operational territory awareness.' },
-            ].map((tab) => (
-              <div
-                key={tab.id}
-                className="border border-white/10 bg-white/[0.02] p-8 hover:border-maya-gold/25 transition-colors"
-              >
-                <h3 className="text-xl font-display text-white mb-3">{tab.label}</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-5">{tab.detects}</p>
-                <Link
-                  to={`/geoai`}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors uppercase tracking-widest"
-                >
-                  Learn More
-                  <ChevronRight size={12} />
-                </Link>
-              </div>
             ))}
           </div>
         </div>
@@ -462,7 +381,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-display mb-4">
               Flexible, sovereign deployment
             </h2>
-            <p className="text-white/55 text-lg leading-relaxed">
+            <p className="text-white/85 text-lg leading-relaxed">
               Every deployment is scoped, structured, and sized for the operational and security requirements of your environment.
             </p>
           </div>
@@ -491,7 +410,7 @@ export default function Home() {
                 </div>
 
                 <h3 className="text-xl font-display text-white mb-3">{opt.title}</h3>
-                <p className="text-white/55 text-sm md:text-base mb-5 leading-relaxed">
+                <p className="text-white/85 text-sm md:text-base mb-5 leading-relaxed">
                   {opt.description}
                 </p>
 
@@ -527,7 +446,7 @@ export default function Home() {
                 <h2 className="text-2xl md:text-3xl font-display mb-6">
                   Operating across two markets, one standard
                 </h2>
-                <p className="text-white/60 max-w-2xl leading-relaxed text-base">
+                <p className="text-white/85 max-w-2xl leading-relaxed text-base">
                   Maya serves organizations across Saudi Arabia and the United States through a unified operating model focused on applied AI delivery, secure implementation, and long-term operational value. Our teams operate across both regions with unified standards and shared operational excellence.
                 </p>
               </motion.div>
@@ -540,8 +459,8 @@ export default function Home() {
                 className="grid grid-cols-1 sm:grid-cols-2 gap-5"
               >
                 {([
-                  { city: 'San Francisco, CA', role: 'Global headquarters — corporate, product, and technology leadership.' },
-                  { city: 'Riyadh, KSA', role: 'In-Kingdom operations — delivery, government, and enterprise engagement.' },
+                  { city: 'Virginia, United States', role: 'US operations — enterprise delivery, technology partnerships, and corporate structure.' },
+                  { city: 'Riyadh, Kingdom of Saudi Arabia', role: 'KSA operations — enterprise delivery, government engagements, and Vision 2030-aligned programs.' },
                 ] as Array<{city:string;role:string}>).map((loc, idx) => (
                   <div key={idx} className="border border-white/15 bg-white/[0.04] p-6 hover:border-maya-gold/25 transition-colors">
                     <div className="flex items-center gap-3 text-maya-gold mb-3">
@@ -571,14 +490,14 @@ export default function Home() {
       </section>
 
       {/* Credibility & Context */}
-      <section className="py-28 bg-[#0e0c1d] border-y border-white/5">
+      <section className="py-14 bg-[#0e0c1d] border-y border-white/5">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-5xl mx-auto"
           >
             {/* Technology & Infrastructure */}
             <motion.div
@@ -586,7 +505,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8"
+              className="border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8 max-w-3xl"
             >
               <div className="text-xs font-bold text-maya-gold uppercase tracking-widest mb-2 flex items-center gap-2">
                 <Cpu size={14} />
@@ -595,10 +514,10 @@ export default function Home() {
               <h2 className="text-2xl md:text-3xl font-display text-white mb-6">
                 Built on enterprise-grade platforms
               </h2>
-              <p className="text-white/60 text-base mb-10 leading-relaxed">
+              <p className="text-white/85 text-base mb-8 leading-relaxed">
                 Maya integrates with industry-leading cloud providers, data infrastructures, and operational systems. Solutions are architected for seamless integration within existing enterprise ecosystems.
               </p>
-              <div className="space-y-4 text-white/65 text-sm leading-relaxed">
+              <div className="space-y-4 text-white/65 text-sm leading-relaxed mb-10">
                 <div className="flex items-start gap-3">
                   <span className="text-maya-gold/60 mt-1">▪</span>
                   <span><strong className="text-white/80">Cloud:</strong> AWS, Azure, Google Cloud</span>
@@ -615,6 +534,24 @@ export default function Home() {
                   <span className="text-maya-gold/60 mt-1">▪</span>
                   <span><strong className="text-white/80">Data:</strong> Enterprise databases, data lakes, data warehouses</span>
                 </div>
+              </div>
+
+              {/* Partner logos */}
+              <div className="flex flex-wrap items-center gap-10 opacity-40 hover:opacity-60 transition-opacity">
+                {[
+                  { src: '/logos/aws.svg', alt: 'Amazon Web Services' },
+                  { src: '/logos/azure.svg', alt: 'Microsoft Azure' },
+                  { src: '/logos/gcp.svg', alt: 'Google Cloud' },
+                  { src: '/logos/kubernetes.svg', alt: 'Kubernetes' },
+                ].map((logo) => (
+                  <img
+                    key={logo.alt}
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    className="h-8 w-auto object-contain filter grayscale brightness-200"
+                  />
+                ))}
               </div>
             </motion.div>
 
@@ -633,7 +570,7 @@ export default function Home() {
               <h2 className="text-2xl md:text-3xl font-display text-white mb-6">
                 Proven across serious environments
               </h2>
-              <p className="text-white/60 text-base mb-10 leading-relaxed">
+              <p className="text-white/85 text-base mb-10 leading-relaxed">
                 Maya's systems operate in mission-critical, enterprise-scale, and compliance-heavy environments where operational reliability, security, and auditability are non-negotiable.
               </p>
               <div className="space-y-4 text-white/65 text-sm leading-relaxed">
@@ -662,7 +599,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-16 pt-14 border-t border-white/10"
+            className="mt-8 pt-6 border-t border-white/10"
           >
             <p className="text-white/40 text-xs leading-relaxed max-w-3xl">
               Maya prioritizes confidentiality in all client engagements. Specific organizational references, detailed case studies, deployment architectures, and implementation results are shared directly with appropriate confidentiality agreements.
@@ -675,29 +612,31 @@ export default function Home() {
       <section className="py-28 bg-maya-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-maya-gold/5" />
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-5xl mx-auto bg-[#0b0816] border border-white/10 p-10 md:p-12 shadow-2xl relative">
+          <div className="max-w-2xl mx-auto bg-[#0b0816] border border-white/10 p-10 md:p-12 shadow-2xl relative">
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-maya-light-gold to-maya-gold" />
 
-            <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-display mb-6">
-                Ready to discuss sovereign AI deployment?
-              </h2>
+            <h2 className="text-3xl md:text-4xl font-display mb-4 text-center">
+              Ready to discuss sovereign AI deployment?
+            </h2>
 
-              <p className="text-white/62 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-                Share your operational environment, priorities, and deployment considerations. Our team will respond with strategic recommendations aligned to your context.
+            <p className="text-white/85 text-base leading-relaxed text-center mb-8">
+              Share your operational environment, priorities, and deployment considerations. Our team will respond with strategic recommendations aligned to your context.
+            </p>
+
+            {/* Inline briefing form */}
+            <BriefingForm />
+
+            <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-white/35 text-xs leading-relaxed">
+                Our teams in Virginia and Riyadh respond within one business day. All inquiries are handled with strict confidentiality.
               </p>
-
               <Link
                 to="/contact#briefing-request"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-maya-gold text-maya-navy hover:bg-white transition-colors font-bold text-sm uppercase tracking-widest"
+                className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 border border-white/15 text-white/60 hover:text-white hover:border-white/30 transition-colors font-bold text-xs uppercase tracking-widest"
               >
-                Request a Private Briefing
-                <ArrowRight size={18} />
+                Full Contact Page
+                <ArrowRight size={12} />
               </Link>
-
-              <p className="text-white/35 text-xs mt-10">
-                Incoming inquiries are handled with professional confidentiality and reviewed in accordance with your organization's context and deployment requirements.
-              </p>
             </div>
           </div>
         </div>

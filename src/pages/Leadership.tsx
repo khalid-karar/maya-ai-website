@@ -44,44 +44,92 @@ export default function Leadership() {
       <section className="container mx-auto px-6 py-20 md:py-24">
         <div className="max-w-3xl mb-12">
           <h2 className="text-2xl md:text-3xl font-display text-white mb-4">
-            Our Team
+            Founding Leadership
           </h2>
           <p className="text-white/58 text-lg leading-relaxed">
-            {pageContent.placeholder}
+            Maya AI is headquartered in the United States with an operational presence in the Kingdom of Saudi Arabia.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {(pageContent.leaders as any[]).map((member: any, idx: number) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08, duration: 0.5 }}
-              className="border border-white/10 bg-white/[0.02] p-8 hover:border-maya-gold/25 transition-colors"
-            >
-              <div className="w-14 h-14 rounded-full bg-maya-gold/10 border border-maya-gold/20 flex items-center justify-center text-maya-gold mb-5">
-                <Users size={22} />
-              </div>
-              <h3 className="text-xl font-display font-bold text-white mb-1">{member.name}</h3>
-              <div className="text-xs text-maya-gold/80 font-bold uppercase tracking-widest mb-3">{member.title}</div>
-              <p className="text-white/60 text-sm leading-relaxed mb-4">{member.bio}</p>
-              {member.focus && (
-                <div className="flex flex-wrap gap-2">
-                  {(member.focus as string[]).map((f: string, fi: number) => (
-                    <span key={fi} className="px-2 py-0.5 bg-white/[0.04] border border-white/8 text-[10px] text-white/50 rounded">
-                      {f}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_0.8fr] gap-8 max-w-5xl items-stretch">
+
+          {/* Card 1 — Khalid Abdelrahman */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0, duration: 0.5 }}
+            className="border border-white/10 bg-white/[0.02] p-8 hover:border-maya-gold/25 transition-colors"
+          >
+            {/* Avatar placeholder */}
+            <div className="w-16 h-16 rounded-full bg-maya-gold/10 border border-maya-gold/20 flex items-center justify-center text-maya-gold mb-5">
+              <Users size={24} />
+            </div>
+            <div className="text-[10px] font-bold font-mono uppercase tracking-[0.18em] text-maya-gold/60 mb-2">
+              Founding Leadership
+            </div>
+            <h3 className="text-xl font-display font-bold text-white mb-1">Khalid Abdelrahman</h3>
+            <div className="text-xs text-maya-gold/80 font-bold uppercase tracking-widest mb-4">Founder &amp; CEO</div>
+            <p className="text-white/85 text-sm leading-relaxed">
+              Leads Maya AI globally across US and KSA operations. Two decades of experience building and scaling
+              technology-driven operations across regulated markets. Prior career spans enterprise software delivery,
+              government digital transformation, and cross-border operating strategy in the US and GCC.
+            </p>
+          </motion.div>
+
+          {/* Card 2 — Co-Founder, KSA */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.08, duration: 0.5 }}
+            className="border border-white/10 bg-white/[0.02] p-8 hover:border-maya-gold/25 transition-colors"
+          >
+            {/* Avatar placeholder */}
+            <div className="w-16 h-16 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white/40 mb-5">
+              <Users size={24} />
+            </div>
+            <div className="text-[10px] font-bold font-mono uppercase tracking-[0.18em] text-maya-gold/60 mb-2">
+              Co-Founder, KSA
+            </div>
+            <h3 className="text-xl font-display font-bold text-white mb-1">Partner Name</h3>
+            <div className="text-xs text-maya-gold/80 font-bold uppercase tracking-widest mb-4">Co-Founder, KSA</div>
+            <p className="text-white/85 text-sm leading-relaxed">
+              Leads Maya AI's in-Kingdom operations and delivery. Extensive experience building enterprise technology
+              relationships within KSA's government and regulated private sector, with deep understanding of Vision 2030
+              priorities and SDAIA-aligned AI frameworks.
+            </p>
+          </motion.div>
+
+          {/* Decorative panel */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.16, duration: 0.5 }}
+            className="bg-[#0a0816] flex flex-col items-center justify-center px-8 py-14 text-center min-h-full"
+          >
+            <p className="font-display font-black leading-[0.9] tracking-tight">
+              <span className="block text-4xl text-white whitespace-nowrap">US-rooted.</span>
+              <span className="block text-4xl text-white whitespace-nowrap">Kingdom-ready.</span>
+              <span className="block text-4xl text-maya-gold whitespace-nowrap">Built for both.</span>
+            </p>
+          </motion.div>
+
         </div>
       </section>
 
       {/* Advisory placeholder — removed: not in JSON */}
+
+      {/* Leadership experience — plain text only */}
+      <section className="bg-[#0a0816] border-t border-white/[0.06] py-10">
+        <div className="container mx-auto px-6">
+          <p className="text-white/45 text-sm leading-relaxed max-w-3xl">
+            Leadership experience spans U.S. federal, defense, healthcare, and enterprise
+            environments, delivered through direct roles and approved partner engagements.
+          </p>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="container mx-auto px-6 pb-8">
@@ -92,7 +140,7 @@ export default function Leadership() {
               <h3 className="text-2xl font-display text-white mb-3">
                 Engage with our leadership team
               </h3>
-              <p className="text-white/55 leading-relaxed">
+              <p className="text-white/85 leading-relaxed">
                 For strategic partnerships, institutional engagement, and senior-level briefings.
               </p>
             </div>
