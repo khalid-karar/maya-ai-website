@@ -233,7 +233,7 @@ export default function Layout({ children }: LayoutProps) {
 
               <div className="mt-5">
                 <a
-                  href="https://www.linkedin.com/company/maya-ai"
+                  href="https://mayaai.sa"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Maya AI on LinkedIn"
