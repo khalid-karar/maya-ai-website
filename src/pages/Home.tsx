@@ -24,6 +24,35 @@ import content from '../data/site-content.json';
 import HeroVideo from '@/components/ui/HeroVideo';
 import EngagementMarquee from '@/components/ui/EngagementMarquee';
 import BriefingForm from '@/components/ui/BriefingForm';
+import { FadeInUp, FadeIn, CountUp } from '@/components/ui/FadeInUp';
+
+// ─── Shared style tokens ─────────────────────────────────────────────────────
+const HERO_EASE = [0.21, 0.47, 0.32, 0.98] as const;
+
+/** Applied to every H2 for a faint gold ambient glow */
+const H2_GLOW = 'drop-shadow-[0_0_30px_rgba(172,133,48,0.15)]';
+
+/** Subtle inner-border + drop-shadow that lifts cards off the dark bg */
+const CARD_SHADOW =
+  'shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_4px_24px_rgba(0,0,0,0.4)]';
+
+/** Gold border-glow + upward lift on hover */
+const CARD_HOVER =
+  'hover:shadow-[0_0_0_1px_rgba(172,133,48,0.3),0_4px_32px_rgba(172,133,48,0.08)] hover:-translate-y-1';
+
+/** Radial gold shimmer overlay for bg-maya-navy sections */
+function GoldOverlay() {
+  return (
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        background:
+          'radial-gradient(ellipse at 50% 0%, rgba(172,133,48,0.04) 0%, transparent 70%)',
+      }}
+    />
+  );
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default function Home() {
   const homeContent = content.pages.home;
@@ -57,6 +86,19 @@ export default function Home() {
     },
   ];
 
+  const deploymentOptions = [
+    { title: 'Cloud',         description: 'Hosted on enterprise cloud infrastructure with full encryption and operational isolation.',                          badge: 'Scalable',     Icon: Server },
+    { title: 'Private Cloud', description: 'Dedicated tenant environments on approved infrastructure — stronger control without on-prem complexity.',           badge: 'Controlled',   Icon: Shield },
+    { title: 'On-Premises',   description: 'For highly controlled environments requiring in-facility data handling and network isolation.',                     badge: 'High Security', Icon: Lock   },
+    { title: 'Hybrid',        description: 'Split workloads across deployment boundaries by sensitivity, combining flexibility with data governance.',          badge: 'Flexible',     Icon: Globe  },
+  ];
+
+  const trustChips = [
+    { target: 6, label: 'Capability Domains' },
+    { target: 2, label: 'Market Operations' },
+    { target: 5, label: 'Compliance Frameworks' },
+  ];
+
   return (
     <div className="w-full bg-maya-navy">
       <Helmet>
@@ -64,39 +106,33 @@ export default function Home() {
         <meta name="description" content="Maya AI designs and deploys operational AI systems for enterprise and government — workflow automation, voice intelligence, spatial intelligence, and sovereign deployment across the United States and Saudi Arabia." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://mayaai.sa/" />
-
-        {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Maya AI | Applied AI for Enterprise & Government Operations" />
         <meta property="og:description" content="Operational AI systems for enterprise and government — built for the United States and Kingdom of Saudi Arabia." />
         <meta property="og:url" content="https://mayaai.sa/" />
         <meta property="og:image" content="https://mayaai.sa/og-image.png" />
         <meta property="og:site_name" content="Maya AI" />
-
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Maya AI | Applied AI for Enterprise & Government" />
         <meta name="twitter:description" content="Operational AI systems for enterprise and government across the US and Saudi Arabia." />
         <meta name="twitter:image" content="https://mayaai.sa/og-image.png" />
-
-        {/* JSON-LD Organization schema */}
         <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Maya AI",
-          "legalName": "Maya AI, LLC",
-          "url": "https://mayaai.sa",
-          "description": "Applied AI systems for enterprise and government operations across the United States and Saudi Arabia.",
-          "areaServed": ["United States", "Saudi Arabia"],
-          "contactPoint": [
-            { "@type": "ContactPoint", "telephone": "+1-202-802-1976", "contactType": "sales", "areaServed": "US", "email": "info@mayaai.net" },
-            { "@type": "ContactPoint", "telephone": "+966-50-477-9551", "contactType": "sales", "areaServed": "SA", "email": "info@mayaai.sa" }
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Maya AI',
+          legalName: 'Maya AI, LLC',
+          url: 'https://mayaai.sa',
+          description: 'Applied AI systems for enterprise and government operations across the United States and Saudi Arabia.',
+          areaServed: ['United States', 'Saudi Arabia'],
+          contactPoint: [
+            { '@type': 'ContactPoint', telephone: '+1-202-802-1976', contactType: 'sales', areaServed: 'US', email: 'info@mayaai.net' },
+            { '@type': 'ContactPoint', telephone: '+966-50-477-9551', contactType: 'sales', areaServed: 'SA', email: 'info@mayaai.sa' },
           ],
-          "sameAs": ["https://mayaai.net", "https://mayaai.sa"]
+          sameAs: ['https://mayaai.net', 'https://mayaai.sa'],
         })}</script>
       </Helmet>
 
-      {/* Hero */}
+      {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen w-full overflow-hidden flex items-center">
         <HeroVideo
           poster={homeContent.hero.poster}
@@ -107,30 +143,52 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(201,162,39,0.10),transparent_22%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.04),transparent_18%)] z-10 pointer-events-none" />
 
         <div className="container mx-auto px-6 relative z-20 pt-24 md:pt-28">
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="max-w-5xl"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-navy/50 backdrop-blur-sm mb-6">
-              <span className="w-2 h-2 rounded-full bg-maya-gold animate-pulse" />
-              <span
-                className="text-xs text-maya-gold font-mono uppercase tracking-[0.22em]"
-              >
-                {homeContent.hero.status}
-              </span>
-            </div>
+          <div className="max-w-5xl">
 
-            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-display font-bold leading-[0.95] mb-8 max-w-5xl drop-shadow-[0_12px_40px_rgba(0,0,0,0.75)]">
-              {homeContent.hero.headline}
-            </h1>
+            {/* Status pill — delay 0 */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0, ease: HERO_EASE }}
+              className="mb-6"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-navy/50 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-maya-gold animate-pulse" />
+                <span className="text-xs text-maya-gold font-mono uppercase tracking-[0.22em]">
+                  {homeContent.hero.status}
+                </span>
+              </div>
+            </motion.div>
 
-            <p className="text-lg md:text-2xl text-white/85 max-w-3xl mb-10 leading-relaxed drop-shadow-[0_8px_30px_rgba(0,0,0,0.65)]">
-              {homeContent.hero.subhead}
-            </p>
+            {/* H1 — delay 0.1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: HERO_EASE }}
+            >
+              <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-display font-bold leading-[0.95] mb-8 max-w-5xl drop-shadow-[0_12px_40px_rgba(0,0,0,0.75)]">
+                {homeContent.hero.headline}
+              </h1>
+            </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            {/* Body copy — delay 0.25 */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.25, ease: HERO_EASE }}
+            >
+              <p className="text-lg md:text-2xl text-white/85 max-w-3xl mb-10 leading-relaxed drop-shadow-[0_8px_30px_rgba(0,0,0,0.65)]">
+                {homeContent.hero.subhead}
+              </p>
+            </motion.div>
+
+            {/* CTA buttons — delay 0.4 */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: HERO_EASE }}
+              className="flex flex-col sm:flex-row gap-4 mb-10"
+            >
               <Link
                 to="/contact"
                 className="px-8 py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest hover:bg-white transition-colors flex items-center justify-center gap-2"
@@ -138,7 +196,6 @@ export default function Home() {
                 Request a Private Briefing
                 <ArrowRight size={16} />
               </Link>
-
               <Link
                 to="/capabilities"
                 className="px-8 py-4 border border-white/15 bg-white/[0.03] text-white font-bold text-sm uppercase tracking-widest hover:bg-white/[0.08] transition-colors flex items-center justify-center gap-2"
@@ -146,44 +203,41 @@ export default function Home() {
                 Explore Capabilities
                 <ChevronRight size={16} />
               </Link>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap gap-3">
-              {['6 Capability Domains', '2-Market Operations', '5 Compliance Frameworks'].map((chip) => (
+            {/* Trust chips with CountUp — delay 0.55 */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.55, ease: HERO_EASE }}
+              className="flex flex-wrap gap-3"
+            >
+              {trustChips.map((chip) => (
                 <span
-                  key={chip}
-                  className="border border-white/15 rounded-sm px-3 py-1.5 text-xs font-semibold tracking-widest text-white/70 inline-flex"
+                  key={chip.label}
+                  className="border border-white/15 rounded-sm px-3 py-1.5 text-xs font-semibold tracking-widest text-white/70 inline-flex gap-1"
                 >
-                  {chip}
+                  <CountUp target={chip.target} />
+                  {chip.label}
                 </span>
               ))}
-            </div>
-          </motion.div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
-      {/* What Maya does */}
+      {/* ── WHAT MAYA DOES ───────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 border-t border-white/10 bg-[#0e0c1d]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-5xl font-display mb-8 leading-tight">
+            <FadeInUp>
+              <h2 className={`text-3xl md:text-5xl font-display mb-8 leading-tight ${H2_GLOW}`}>
                 Applied AI for serious operations
               </h2>
-            </motion.div>
+            </FadeInUp>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="space-y-6"
-            >
+            <FadeInUp delay={0.1} className="space-y-6">
               <p className="text-white/85 text-lg md:text-xl leading-relaxed max-w-3xl">
                 Maya designs and deploys intelligence systems proven across enterprise, infrastructure, and mission-critical environments.
               </p>
@@ -197,52 +251,50 @@ export default function Home() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-3xl pt-4">
-                <div className="pl-4 border-l border-maya-gold/40">
-                  <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-2">Real Integration</div>
-                  <p className="text-white/85 text-sm">Operational AI, not theoretical</p>
-                </div>
-                <div className="pl-4 border-l border-maya-gold/40">
-                  <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-2">Enterprise Scale</div>
-                  <p className="text-white/85 text-sm">Governance and control built-in</p>
-                </div>
-                <div className="pl-4 border-l border-maya-gold/40">
-                  <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-2">Measurable Impact</div>
-                  <p className="text-white/85 text-sm">Proven value delivery</p>
-                </div>
+                {[
+                  { label: 'Real Integration', desc: 'Operational AI, not theoretical' },
+                  { label: 'Enterprise Scale',  desc: 'Governance and control built-in' },
+                  { label: 'Measurable Impact', desc: 'Proven value delivery' },
+                ].map((item) => (
+                  <div key={item.label} className="pl-4 border-l border-maya-gold/40">
+                    <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-2">{item.label}</div>
+                    <p className="text-white/85 text-sm">{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            </motion.div>
+            </FadeInUp>
           </div>
         </div>
       </section>
 
-      {/* Engagement credibility strip */}
+      {/* ── MARQUEE ──────────────────────────────────────────────────────── */}
       <EngagementMarquee />
 
-      {/* Core Capabilities */}
+      {/* ── CORE CAPABILITIES ────────────────────────────────────────────── */}
       <section className="py-24 bg-maya-navy relative">
-        <div className="container mx-auto px-6">
+        <GoldOverlay />
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mb-14">
-            <h2 className="text-3xl md:text-5xl font-display mb-4">
-              {homeContent.pillars.headline}
-            </h2>
-            <p className="text-white/85 text-lg leading-relaxed">
-              {homeContent.pillars.subhead}
-            </p>
+            <FadeInUp>
+              <h2 className={`text-3xl md:text-5xl font-display mb-4 ${H2_GLOW}`}>
+                {homeContent.pillars.headline}
+              </h2>
+            </FadeInUp>
+            <FadeInUp delay={0.1}>
+              <p className="text-white/85 text-lg leading-relaxed">
+                {homeContent.pillars.subhead}
+              </p>
+            </FadeInUp>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {homeContent.pillars.items.map((item, idx) => {
-              const Icon =
-                capabilityIcons[item.icon as keyof typeof capabilityIcons] || Cpu;
-
+              const Icon = capabilityIcons[item.icon as keyof typeof capabilityIcons] || Cpu;
               return (
-                <motion.div
+                <FadeInUp
                   key={idx}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.08 }}
-                  className="group relative p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors h-full flex flex-col"
+                  delay={idx * 0.08}
+                  className={`group relative p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 h-full flex flex-col ${CARD_SHADOW} ${CARD_HOVER}`}
                 >
                   <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
@@ -259,39 +311,55 @@ export default function Home() {
                   </p>
 
                   <Link
-                    to={idx === 0 ? '/capabilities?tab=agents' : idx === 1 ? '/capabilities?tab=voice' : idx === 2 ? '/capabilities?tab=spatial' : idx === 3 ? '/capabilities?tab=knowledge' : idx === 4 ? '/capabilities?tab=platforms' : '/capabilities?tab=deployment'}
+                    to={
+                      idx === 0 ? '/capabilities?tab=agents'
+                      : idx === 1 ? '/capabilities?tab=voice'
+                      : idx === 2 ? '/capabilities?tab=spatial'
+                      : idx === 3 ? '/capabilities?tab=knowledge'
+                      : idx === 4 ? '/capabilities?tab=platforms'
+                      : '/capabilities?tab=deployment'
+                    }
                     className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
                   >
-                    {idx === 0 ? 'Explore Agents & Automation' : idx === 1 ? 'Explore Voice Intelligence' : idx === 2 ? 'Explore Spatial Intelligence' : idx === 3 ? 'Explore Knowledge Systems' : idx === 4 ? 'Explore Private Deployment' : 'Explore Custom Platforms'} →
+                    {
+                      idx === 0 ? 'Explore Agents & Automation'
+                      : idx === 1 ? 'Explore Voice Intelligence'
+                      : idx === 2 ? 'Explore Spatial Intelligence'
+                      : idx === 3 ? 'Explore Knowledge Systems'
+                      : idx === 4 ? 'Explore Private Deployment'
+                      : 'Explore Custom Platforms'
+                    } →
                   </Link>
-                </motion.div>
+                </FadeInUp>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Why organizations choose Maya */}
-      <section
-        className="py-20 bg-[#0e0c1d] border-y border-white/5"
-        aria-labelledby="why-maya-heading"
-      >
+      {/* ── WHY MAYA ─────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-[#0e0c1d] border-y border-white/5" aria-labelledby="why-maya-heading">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-10">
-            <h2 id="why-maya-heading" className="text-3xl md:text-4xl font-display font-bold mb-4">
-              {homeContent.governance.headline}
-            </h2>
-            <p className="text-white/85 text-lg leading-relaxed">
-              Our work is shaped around operational usefulness, secure deployment, and controlled execution.
-              We focus on systems that fit real enterprise environments rather than abstract demonstrations.
-            </p>
+            <FadeInUp>
+              <h2 id="why-maya-heading" className={`text-3xl md:text-4xl font-display font-bold mb-4 ${H2_GLOW}`}>
+                {homeContent.governance.headline}
+              </h2>
+            </FadeInUp>
+            <FadeInUp delay={0.1}>
+              <p className="text-white/85 text-lg leading-relaxed">
+                Our work is shaped around operational usefulness, secure deployment, and controlled execution.
+                We focus on systems that fit real enterprise environments rather than abstract demonstrations.
+              </p>
+            </FadeInUp>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {homeContent.governance.features.map((feature, idx) => (
-              <div
+              <FadeInUp
                 key={idx}
-                className="border border-white/10 bg-white/[0.02] p-6 flex flex-col hover:border-maya-gold/25 transition-colors rounded-lg"
+                delay={idx * 0.08}
+                className={`border border-white/10 bg-white/[0.02] p-6 flex flex-col hover:border-maya-gold/25 transition-all duration-300 rounded-lg ${CARD_SHADOW} ${CARD_HOVER}`}
               >
                 <div className="w-10 h-10 rounded-full bg-maya-gold/10 text-maya-gold flex items-center justify-center mb-4 shrink-0">
                   <Check size={18} />
@@ -302,19 +370,19 @@ export default function Home() {
                 <p className="text-sm text-white/85 mt-1 leading-relaxed">
                   {(feature as typeof feature & { desc?: string }).desc}
                 </p>
-              </div>
+              </FadeInUp>
             ))}
           </div>
 
           {/* Compliance badges */}
-          <div className="flex flex-wrap gap-3 mt-10 justify-center">
+          <FadeIn delay={0.2} className="flex flex-wrap gap-3 mt-10 justify-center">
             {[
-              { label: 'NIST 800-53', status: 'Mapped', gold: true },
-              { label: 'SOC2 Type II', status: 'In Progress', gold: false },
-              { label: 'ISO 27001', status: 'Planned', gold: false },
-              { label: 'PDPL', status: 'Aligned', gold: true },
-              { label: 'NCA ECC', status: 'Mapped', gold: true },
-              { label: 'SDAIA Guidance', status: 'Applied', gold: true },
+              { label: 'NIST 800-53',    status: 'Mapped',      gold: true  },
+              { label: 'SOC2 Type II',   status: 'In Progress', gold: false },
+              { label: 'ISO 27001',      status: 'Planned',     gold: false },
+              { label: 'PDPL',           status: 'Aligned',     gold: true  },
+              { label: 'NCA ECC',        status: 'Mapped',      gold: true  },
+              { label: 'SDAIA Guidance', status: 'Applied',     gold: true  },
             ].map((b) => (
               <span
                 key={b.label}
@@ -323,36 +391,40 @@ export default function Home() {
                 {b.label} &nbsp;·&nbsp; {b.status}
               </span>
             ))}
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* Solutions Preview */}
+      {/* ── SOLUTIONS PREVIEW ────────────────────────────────────────────── */}
       <section className="py-24 bg-[#0e0c1d]">
         <div className="container mx-auto px-6">
           <div className="mb-14 max-w-3xl">
-            <h2 className="text-3xl md:text-5xl font-display mb-4">
-              Where Maya creates value
-            </h2>
-            <p className="text-white/85 text-lg leading-relaxed">
-              Maya helps organizations apply AI where it can create real operational value,
-              from internal process execution to customer-facing workflows and decision support environments.
-            </p>
+            <FadeInUp>
+              <h2 className={`text-3xl md:text-5xl font-display mb-4 ${H2_GLOW}`}>
+                Where Maya creates value
+              </h2>
+            </FadeInUp>
+            <FadeInUp delay={0.1}>
+              <p className="text-white/85 text-lg leading-relaxed">
+                Maya helps organizations apply AI where it can create real operational value,
+                from internal process execution to customer-facing workflows and decision support environments.
+              </p>
+            </FadeInUp>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {solutionHighlights.map((item, idx) => (
-              <motion.div
+              <FadeInUp
                 key={idx}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.06 }}
-                className="p-8 border border-white/10 bg-maya-navy hover:border-maya-gold/30 transition-colors group relative overflow-hidden flex flex-col"
+                delay={idx * 0.1}
+                className={`p-8 border border-white/10 bg-maya-navy hover:border-maya-gold/30 transition-all duration-300 group relative overflow-hidden flex flex-col ${CARD_SHADOW} ${CARD_HOVER}`}
               >
                 <div className="mb-5">
                   <div className="w-11 h-11 rounded-full bg-white/5 text-maya-gold flex items-center justify-center">
-                    {idx === 0 ? <Building2 size={28} className="text-maya-gold" /> : idx === 1 ? <Headphones size={28} className="text-maya-gold" /> : idx === 2 ? <ShieldCheck size={28} className="text-maya-gold" /> : <Network size={28} className="text-maya-gold" />}
+                    {idx === 0 ? <Building2 size={28} className="text-maya-gold" />
+                    : idx === 1 ? <Headphones size={28} className="text-maya-gold" />
+                    : idx === 2 ? <ShieldCheck size={28} className="text-maya-gold" />
+                    : <Network size={28} className="text-maya-gold" />}
                   </div>
                 </div>
 
@@ -363,69 +435,70 @@ export default function Home() {
                 </p>
 
                 <Link
-                  to={idx === 0 ? '/solutions?category=enterprise-operations' : idx === 1 ? '/solutions?category=service-workflows' : idx === 2 ? '/solutions?category=compliance-risk' : '/solutions?category=infrastructure-field'}
+                  to={
+                    idx === 0 ? '/solutions?category=enterprise-operations'
+                    : idx === 1 ? '/solutions?category=service-workflows'
+                    : idx === 2 ? '/solutions?category=compliance-risk'
+                    : '/solutions?category=infrastructure-field'
+                  }
                   className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
                 >
-                  {idx === 0 ? 'Explore Enterprise Solutions' : idx === 1 ? 'Explore Service Solutions' : idx === 2 ? 'Explore Compliance Solutions' : 'Explore Infrastructure Solutions'} →
+                  {
+                    idx === 0 ? 'Explore Enterprise Solutions'
+                    : idx === 1 ? 'Explore Service Solutions'
+                    : idx === 2 ? 'Explore Compliance Solutions'
+                    : 'Explore Infrastructure Solutions'
+                  } →
                 </Link>
-              </motion.div>
+              </FadeInUp>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Deployment Models */}
+      {/* ── DEPLOYMENT MODELS ────────────────────────────────────────────── */}
       <section className="py-24 bg-[#0e0c1d]">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-display mb-4">
-              Flexible, sovereign deployment
-            </h2>
-            <p className="text-white/85 text-lg leading-relaxed">
-              Every deployment is scoped, structured, and sized for the operational and security requirements of your environment.
-            </p>
+            <FadeInUp>
+              <h2 className={`text-3xl md:text-5xl font-display mb-4 ${H2_GLOW}`}>
+                Flexible, sovereign deployment
+              </h2>
+            </FadeInUp>
+            <FadeInUp delay={0.1}>
+              <p className="text-white/85 text-lg leading-relaxed">
+                Every deployment is scoped, structured, and sized for the operational and security requirements of your environment.
+              </p>
+            </FadeInUp>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {([
-              { title: 'Cloud', description: 'Hosted on enterprise cloud infrastructure with full encryption and operational isolation.', badge: 'Scalable' },
-              { title: 'Private Cloud', description: 'Dedicated tenant environments on approved infrastructure — stronger control without on-prem complexity.', badge: 'Controlled' },
-              { title: 'On-Premises', description: 'For highly controlled environments requiring in-facility data handling and network isolation.', badge: 'High Security' },
-              { title: 'Hybrid', description: 'Split workloads across deployment boundaries by sensitivity, combining flexibility with data governance.', badge: 'Flexible' },
-            ] as Array<{title:string;description:string;badge:string}>).map((opt, idx) => (
-              <div
+            {deploymentOptions.map(({ title, description, badge, Icon }, idx) => (
+              <FadeInUp
                 key={idx}
-                className="bg-white/[0.02] border border-white/10 p-8 text-center hover:border-maya-gold/30 transition-colors"
+                delay={idx * 0.08}
+                className={`bg-white/[0.02] border border-white/10 p-8 text-center hover:border-maya-gold/30 transition-all duration-300 ${CARD_SHADOW} ${CARD_HOVER}`}
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/5 mb-6 text-maya-gold">
-                  {idx === 0 ? (
-                    <Server size={22} />
-                  ) : idx === 1 ? (
-                    <Shield size={22} />
-                  ) : idx === 2 ? (
-                    <Lock size={22} />
-                  ) : (
-                    <Globe size={22} />
-                  )}
+                  <Icon size={22} />
                 </div>
-
-                <h3 className="text-xl font-display text-white mb-3">{opt.title}</h3>
+                <h3 className="text-xl font-display text-white mb-3">{title}</h3>
                 <p className="text-white/85 text-sm md:text-base mb-5 leading-relaxed">
-                  {opt.description}
+                  {description}
                 </p>
-
                 <span className="inline-block px-2.5 py-1 bg-maya-gold/10 text-maya-gold text-[10px] uppercase tracking-widest rounded border border-maya-gold/20">
-                  {opt.badge}
+                  {badge}
                 </span>
-              </div>
+              </FadeInUp>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Operating Presence */}
-      <section className="py-28 bg-maya-navy border-y border-white/10">
-        <div className="container mx-auto px-6">
+      {/* ── OPERATING PRESENCE ───────────────────────────────────────────── */}
+      <section className="py-28 bg-maya-navy border-y border-white/10 relative">
+        <GoldOverlay />
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -436,47 +509,39 @@ export default function Home() {
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/30 to-transparent" />
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr_auto] gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
+              <FadeInUp delay={0}>
                 <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-4">Global Operations</div>
-                <h2 className="text-2xl md:text-3xl font-display mb-6">
+                <h2 className={`text-2xl md:text-3xl font-display mb-6 ${H2_GLOW}`}>
                   Operating across two markets, one standard
                 </h2>
                 <p className="text-white/85 max-w-2xl leading-relaxed text-base">
                   Maya serves organizations across Saudi Arabia and the United States through a unified operating model focused on applied AI delivery, secure implementation, and long-term operational value. Our teams operate across both regions with unified standards and shared operational excellence.
                 </p>
-              </motion.div>
+              </FadeInUp>
 
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-5"
-              >
+              {/* Two market cards — staggered */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {([
-                  { city: 'Virginia, United States', role: 'US operations — enterprise delivery, technology partnerships, and corporate structure.' },
-                  { city: 'Riyadh, Kingdom of Saudi Arabia', role: 'KSA operations — enterprise delivery, government engagements, and Vision 2030-aligned programs.' },
-                ] as Array<{city:string;role:string}>).map((loc, idx) => (
-                  <div key={idx} className="border border-white/15 bg-white/[0.04] p-6 hover:border-maya-gold/25 transition-colors">
-                    <div className="flex items-center gap-3 text-maya-gold mb-3">
-                      <MapPin size={18} className="shrink-0" />
-                      <span className="font-bold text-base">{loc.city}</span>
+                  { city: 'Virginia, United States',          role: 'US operations — enterprise delivery, technology partnerships, and corporate structure.' },
+                  { city: 'Riyadh, Kingdom of Saudi Arabia',  role: 'KSA operations — enterprise delivery, government engagements, and Vision 2030-aligned programs.' },
+                ] as Array<{ city: string; role: string }>).map((loc, idx) => (
+                  <FadeInUp key={idx} delay={idx === 0 ? 0 : 0.15}>
+                    <div className="border border-white/15 bg-white/[0.04] p-6 hover:border-maya-gold/25 transition-colors">
+                      <div className="flex items-center gap-3 text-maya-gold mb-3">
+                        <MapPin size={18} className="shrink-0" />
+                        <span className="font-bold text-base">{loc.city}</span>
+                      </div>
+                      <div className="text-white/65 text-sm leading-relaxed">{loc.role}</div>
                     </div>
-                    <div className="text-white/65 text-sm leading-relaxed">{loc.role}</div>
-                  </div>
+                  </FadeInUp>
                 ))}
-              </motion.div>
+              </div>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.25 }}
                 className="text-right hidden lg:block"
               >
                 <div className="text-5xl font-display text-white/12 font-bold leading-none">
@@ -489,142 +554,104 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Credibility & Context */}
+      {/* ── CREDIBILITY & CONTEXT ─────────────────────────────────────────── */}
       <section className="py-14 bg-[#0e0c1d] border-y border-white/5">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-5xl mx-auto"
-          >
-            {/* Technology & Infrastructure */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8 max-w-3xl"
-            >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-5xl mx-auto">
+
+            <FadeInUp delay={0} className="border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8 max-w-3xl">
               <div className="text-xs font-bold text-maya-gold uppercase tracking-widest mb-2 flex items-center gap-2">
                 <Cpu size={14} />
-                Technology & Infrastructure
+                Technology &amp; Infrastructure
               </div>
-              <h2 className="text-2xl md:text-3xl font-display text-white mb-6">
+              <h2 className={`text-2xl md:text-3xl font-display text-white mb-6 ${H2_GLOW}`}>
                 Built on enterprise-grade platforms
               </h2>
               <p className="text-white/85 text-base mb-8 leading-relaxed">
                 Maya integrates with industry-leading cloud providers, data infrastructures, and operational systems. Solutions are architected for seamless integration within existing enterprise ecosystems.
               </p>
               <div className="space-y-4 text-white/65 text-sm leading-relaxed mb-10">
-                <div className="flex items-start gap-3">
-                  <span className="text-maya-gold/60 mt-1">▪</span>
-                  <span><strong className="text-white/80">Cloud:</strong> AWS, Azure, Google Cloud</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-maya-gold/60 mt-1">▪</span>
-                  <span><strong className="text-white/80">Integration:</strong> REST, gRPC, webhooks, enterprise messaging</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-maya-gold/60 mt-1">▪</span>
-                  <span><strong className="text-white/80">Orchestration:</strong> Kubernetes, containerized deployment</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-maya-gold/60 mt-1">▪</span>
-                  <span><strong className="text-white/80">Data:</strong> Enterprise databases, data lakes, data warehouses</span>
-                </div>
-              </div>
-
-              {/* Partner logos */}
-              <div className="flex flex-wrap items-center gap-10 opacity-40 hover:opacity-60 transition-opacity">
                 {[
-                  { src: '/logos/aws.svg', alt: 'Amazon Web Services' },
-                  { src: '/logos/azure.svg', alt: 'Microsoft Azure' },
-                  { src: '/logos/gcp.svg', alt: 'Google Cloud' },
-                  { src: '/logos/kubernetes.svg', alt: 'Kubernetes' },
-                ].map((logo) => (
-                  <img
-                    key={logo.alt}
-                    src={logo.src}
-                    alt={logo.alt}
-                    loading="lazy"
-                    className="h-8 w-auto object-contain filter grayscale brightness-200"
-                  />
+                  { key: 'Cloud',         val: 'AWS, Azure, Google Cloud' },
+                  { key: 'Integration',   val: 'REST, gRPC, webhooks, enterprise messaging' },
+                  { key: 'Orchestration', val: 'Kubernetes, containerized deployment' },
+                  { key: 'Data',          val: 'Enterprise databases, data lakes, data warehouses' },
+                ].map((row) => (
+                  <div key={row.key} className="flex items-start gap-3">
+                    <span className="text-maya-gold/60 mt-1">▪</span>
+                    <span><strong className="text-white/80">{row.key}:</strong> {row.val}</span>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+              <div className="flex flex-wrap items-center gap-10 opacity-40 hover:opacity-60 transition-opacity">
+                {[
+                  { src: '/logos/aws.svg',        alt: 'Amazon Web Services' },
+                  { src: '/logos/azure.svg',       alt: 'Microsoft Azure' },
+                  { src: '/logos/gcp.svg',         alt: 'Google Cloud' },
+                  { src: '/logos/kubernetes.svg',  alt: 'Kubernetes' },
+                ].map((logo) => (
+                  <img key={logo.alt} src={logo.src} alt={logo.alt} loading="lazy"
+                    className="h-8 w-auto object-contain filter grayscale brightness-200" />
+                ))}
+              </div>
+            </FadeInUp>
 
-            {/* Deployment Contexts */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8"
-            >
+            <FadeInUp delay={0.15} className="border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8">
               <div className="text-xs font-bold text-maya-gold uppercase tracking-widest mb-2 flex items-center gap-2">
                 <Shield size={14} />
                 Deployment Contexts
               </div>
-              <h2 className="text-2xl md:text-3xl font-display text-white mb-6">
+              <h2 className={`text-2xl md:text-3xl font-display text-white mb-6 ${H2_GLOW}`}>
                 Proven across serious environments
               </h2>
               <p className="text-white/85 text-base mb-10 leading-relaxed">
                 Maya's systems operate in mission-critical, enterprise-scale, and compliance-heavy environments where operational reliability, security, and auditability are non-negotiable.
               </p>
               <div className="space-y-4 text-white/65 text-sm leading-relaxed">
-                <div className="flex items-start gap-3">
-                  <span className="text-maya-gold/60 text-lg leading-none">✓</span>
-                  <span>Enterprise operations and internal workflows</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-maya-gold/60 text-lg leading-none">✓</span>
-                  <span>Infrastructure and field operations</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-maya-gold/60 text-lg leading-none">✓</span>
-                  <span>Service delivery and customer workflows</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-maya-gold/60 text-lg leading-none">✓</span>
-                  <span>Compliance, oversight, and mission-critical contexts</span>
-                </div>
+                {[
+                  'Enterprise operations and internal workflows',
+                  'Infrastructure and field operations',
+                  'Service delivery and customer workflows',
+                  'Compliance, oversight, and mission-critical contexts',
+                ].map((line) => (
+                  <div key={line} className="flex items-start gap-3">
+                    <span className="text-maya-gold/60 text-lg leading-none">✓</span>
+                    <span>{line}</span>
+                  </div>
+                ))}
               </div>
-            </motion.div>
-          </motion.div>
+            </FadeInUp>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-8 pt-6 border-t border-white/10"
-          >
+          <FadeIn delay={0.2} className="mt-8 pt-6 border-t border-white/10 max-w-5xl mx-auto">
             <p className="text-white/40 text-xs leading-relaxed max-w-3xl">
               Maya prioritizes confidentiality in all client engagements. Specific organizational references, detailed case studies, deployment architectures, and implementation results are shared directly with appropriate confidentiality agreements.
             </p>
-          </motion.div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* ── FINAL CTA ────────────────────────────────────────────────────── */}
       <section className="py-28 bg-maya-navy relative overflow-hidden">
+        <GoldOverlay />
         <div className="absolute inset-0 bg-maya-gold/5" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-2xl mx-auto bg-[#0b0816] border border-white/10 p-10 md:p-12 shadow-2xl relative">
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-maya-light-gold to-maya-gold" />
 
-            <h2 className="text-3xl md:text-4xl font-display mb-4 text-center">
-              Ready to discuss sovereign AI deployment?
-            </h2>
-
-            <p className="text-white/85 text-base leading-relaxed text-center mb-8">
-              Share your operational environment, priorities, and deployment considerations. Our team will respond with strategic recommendations aligned to your context.
-            </p>
+            <FadeInUp>
+              <h2 className={`text-3xl md:text-4xl font-display mb-4 text-center ${H2_GLOW}`}>
+                Ready to discuss sovereign AI deployment?
+              </h2>
+              <p className="text-white/85 text-base leading-relaxed text-center mb-8">
+                Share your operational environment, priorities, and deployment considerations. Our team will respond with strategic recommendations aligned to your context.
+              </p>
+            </FadeInUp>
 
             {/* Inline briefing form */}
-            <BriefingForm />
+            <FadeInUp delay={0.2}>
+              <BriefingForm />
+            </FadeInUp>
 
             <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-white/35 text-xs leading-relaxed">
@@ -641,6 +668,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }

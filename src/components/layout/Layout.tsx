@@ -24,8 +24,6 @@ export default function Layout({ children }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [topStripVisible, setTopStripVisible] = useState(true);
   const [tickerIndex, setTickerIndex] = useState(0);
-  const [lang, setLang] = useState('EN');
-  const [arToast, setArToast] = useState(false);
 
   const location = useLocation();
   const market = useMarket();
@@ -144,39 +142,8 @@ export default function Layout({ children }: LayoutProps) {
               </nav>
             </div>
 
-            {/* Right side: AR/EN toggle + CTA + Mobile toggle */}
+            {/* Right side: CTA + Mobile toggle */}
             <div className="flex items-center gap-3 relative">
-
-              {/* Language toggle */}
-              <div className="hidden md:flex items-center gap-1 text-xs font-semibold tracking-widest">
-                <button
-                  type="button"
-                  onClick={() => { setLang('AR'); setArToast(true); setTimeout(() => setArToast(false), 4000); }}
-                  className={lang === 'AR' ? 'text-maya-gold' : 'text-white/40 hover:text-white/70 transition-colors'}
-                >AR</button>
-                <span className="text-white/20">|</span>
-                <button
-                  type="button"
-                  onClick={() => { setLang('EN'); setArToast(false); }}
-                  className={lang === 'EN' ? 'text-maya-gold' : 'text-white/40 hover:text-white/70 transition-colors'}
-                >EN</button>
-              </div>
-
-              {/* AR toast */}
-              <AnimatePresence>
-                {arToast && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full right-0 mt-3 w-72 bg-[#0b0816] border border-maya-gold/30 px-4 py-3 text-xs text-white/70 shadow-xl z-50 leading-relaxed"
-                  >
-                    Arabic version coming soon.{' '}
-                    <span dir="rtl" lang="ar">النسخة العربية قادمة قريباً: info@mayaai.sa</span>
-                  </motion.div>
-                )}
-              </AnimatePresence>
 
               <Link
                 to="/contact#briefing-request"
@@ -223,21 +190,6 @@ export default function Layout({ children }: LayoutProps) {
                   {link.label}
                 </Link>
               ))}
-              {/* AR/EN toggle in mobile menu */}
-              <div className="flex items-center justify-center gap-2 text-sm font-semibold tracking-widest mt-2">
-                <button
-                  type="button"
-                  onClick={() => { setLang('AR'); setArToast(true); setTimeout(() => setArToast(false), 4000); setMobileMenuOpen(false); }}
-                  className={lang === 'AR' ? 'text-maya-gold' : 'text-white/40'}
-                >AR</button>
-                <span className="text-white/20">|</span>
-                <button
-                  type="button"
-                  onClick={() => { setLang('EN'); setArToast(false); }}
-                  className={lang === 'EN' ? 'text-maya-gold' : 'text-white/40'}
-                >EN</button>
-              </div>
-
               <Link
                 to="/contact#briefing-request"
                 className="mt-4 px-8 py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest"
