@@ -72,3 +72,22 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 0 1px rgba(172, 133, 48, 0.3), 0 4px 32px rgba(172, 133, 48, 0.08);
   transform: translateY(-4px);
 }
+
+@keyframes drift-gradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cta-animated-bg {
+  background: linear-gradient(
+    135deg,
+    #06040d 0%,
+    #0e0c1d 25%,
+    #15132a 50%,
+    #0e0c1d 75%,
+    #06040d 100%
+  );
+  background-size: 300% 300%;
+  animation: drift-gradient 12s ease infinite;
+}

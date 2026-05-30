@@ -1,6 +1,7 @@
 import React from 'react';
 import { cn } from "@/lib/utils";
 import { motion } from 'motion/react';
+import { FadeInUp, CountUp } from '@/components/ui/FadeInUp';
 import {
   Target,
   Eye,
@@ -26,7 +27,21 @@ export default function Company() {
   return (
     <div className="w-full pt-24 bg-maya-navy min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 md:py-28 overflow-hidden border-b border-white/5 bg-[#0a0816]">
+      <section className="relative py-24 md:py-28 overflow-hidden border-b border-white/5 bg-[#06040d]">
+        {/* Radial gold glow — bottom-right (first child) */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse at 80% 110%, rgba(172,133,48,0.12) 0%, transparent 60%)' }}
+        />
+        {/* Arc grid — matching Capabilities banner pattern */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="company-arc" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+              <path d="M0 120 C 25 0 60 0 120 120 Z" fill="none" stroke="white" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#company-arc)" />
+        </svg>
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[420px] bg-maya-gold/5 blur-[140px] rounded-full" />
           <div className="absolute bottom-0 right-0 w-[340px] h-[340px] bg-white/5 blur-[120px] rounded-full" />
@@ -37,7 +52,7 @@ export default function Company() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-5xl mx-auto text-center"
+            className="max-w-5xl"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-gold/10 mb-6">
               <span className="text-xs text-maya-gold font-mono uppercase tracking-[0.25em]">
@@ -49,11 +64,11 @@ export default function Company() {
               {companyContent.hero.subtitle}
             </h1>
 
-            <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/85 leading-relaxed mb-10">
+            <p className="max-w-3xl text-lg md:text-xl text-white/85 leading-relaxed mb-10">
               {companyContent.hero.description}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl">
               {companyContent.hero.proofs.map((proof: string, idx: number) => (
                 <div
                   key={idx}
@@ -64,6 +79,28 @@ export default function Company() {
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Stats Row */}
+      <section className="py-12 bg-[#0e0c1d] border-b border-white/5">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center">
+            {([
+              { target: 2, suffix: '+', label: 'Markets' },
+              { target: 6, suffix: '',  label: 'Capability Domains' },
+              { target: 5, suffix: '',  label: 'Compliance Frameworks' },
+            ] as Array<{ target: number; suffix: string; label: string }>).map((stat, idx) => (
+              <FadeInUp key={idx} delay={idx * 0.1}>
+                <div className="flex flex-col items-center">
+                  <div className="text-4xl md:text-5xl font-display font-bold text-maya-gold mb-2">
+                    <CountUp target={stat.target} />{stat.suffix}
+                  </div>
+                  <div className="text-xs text-white/50 uppercase tracking-widest font-mono">{stat.label}</div>
+                </div>
+              </FadeInUp>
+            ))}
+          </div>
         </div>
       </section>
 

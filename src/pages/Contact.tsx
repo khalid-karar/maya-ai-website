@@ -58,44 +58,57 @@ export default function Contact() {
   return (
     <div className="w-full bg-maya-navy min-h-screen pt-32 md:pt-36 pb-24">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/5 bg-[#0a0816]">
+      <section className="relative overflow-hidden border-b border-white/5 bg-[#06040d]">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[820px] h-[340px] bg-maya-gold/5 blur-[125px] rounded-full" />
-          <div className="absolute bottom-0 right-0 w-[320px] h-[320px] bg-white/5 blur-[110px] rounded-full" />
+          <div className="absolute top-0 left-1/3 w-[700px] h-[360px] bg-maya-gold/[0.07] blur-[140px] rounded-full" />
         </div>
 
-        <div className="container mx-auto px-6 py-20 md:py-24 relative z-10">
+        <div className="container mx-auto px-6 py-24 md:py-28 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
-            className="max-w-4xl"
+            className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-center max-w-6xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-gold/10 mb-6">
-              <Mail size={14} className="text-maya-gold" />
-              <span className="text-xs text-maya-gold font-mono uppercase tracking-widest">
-                Strategic Contact
-              </span>
+            {/* Left */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-maya-gold/30 rounded-full bg-maya-gold/10 mb-6">
+                <Mail size={14} className="text-maya-gold" />
+                <span className="text-xs text-maya-gold font-mono uppercase tracking-widest">
+                  Strategic Contact
+                </span>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
+                {contactPage.hero.title}
+              </h1>
+
+              <p className="text-xl md:text-2xl text-white/85 leading-relaxed max-w-2xl">
+                {contactPage.hero.subtitle}
+              </p>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
-              {contactPage.hero.title}
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/68 leading-relaxed max-w-3xl mb-10">
-              {contactPage.hero.subtitle}
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl">
-              <div className="border border-white/10 bg-white/[0.03] px-4 py-3 text-white/80 text-sm">
-                Confidential Engagement
-              </div>
-              <div className="border border-white/10 bg-white/[0.03] px-4 py-3 text-white/80 text-sm">
-                Solutions & Capability Discussions
-              </div>
-              <div className="border border-white/10 bg-white/[0.03] px-4 py-3 text-white/80 text-sm">
-                Enterprise & Sovereign Solution Focus
-              </div>
+            {/* Right — engagement process */}
+            <div className="hidden lg:block border border-white/10 bg-white/[0.02] p-8">
+              <p className="text-[10px] font-bold font-mono uppercase tracking-[0.2em] text-maya-gold/60 mb-5">What to expect</p>
+              <ul className="space-y-4">
+                {[
+                  { label: 'Acknowledged within 24 hours', sub: 'All enquiries receive a personal response' },
+                  { label: 'NDA available on request', sub: 'Confidential engagement from the first call' },
+                  { label: 'US & KSA presence', sub: 'Senior contacts in both markets' },
+                  { label: 'No sales automation', sub: 'You speak directly with the leadership team' },
+                ].map(({ label, sub }) => (
+                  <li key={label} className="flex items-start gap-3">
+                    <span className="mt-1 w-4 h-4 shrink-0 rounded-full border border-maya-gold/30 bg-maya-gold/10 flex items-center justify-center">
+                      <CheckCircle2 size={10} className="text-maya-gold" />
+                    </span>
+                    <div>
+                      <p className="text-sm font-bold text-white/85">{label}</p>
+                      <p className="text-xs text-white/45 mt-0.5">{sub}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         </div>
@@ -259,30 +272,20 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="hidden md:flex relative border border-white/10 bg-white/[0.02] rounded-xl overflow-hidden items-center justify-center min-h-[190px]">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(201,162,39,0.08),transparent_35%)]" />
-                    <div className="absolute inset-0 opacity-[0.12] flex items-center justify-center">
-                      <svg
-                        viewBox="0 0 800 500"
-                        className="w-[88%] h-auto text-[#d8b04a]"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M98 167L116 132L152 121L197 82L236 88L259 67L297 78L350 64L391 78L452 69L514 90L569 82L612 96L654 122L710 142L699 179L712 209L684 245L690 286L659 304L643 339L602 364L559 352L523 371L462 366L410 385L355 374L300 387L263 367L212 364L188 334L151 318L124 282L90 274L79 231L99 200L98 167Z"
-                          stroke="currentColor"
-                          strokeWidth="14"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-
-                    <div className="relative z-10 text-center px-4 mt-6">
-                      <div className="text-[10px] uppercase tracking-[0.22em] text-maya-gold/80 mb-2">
-                        US Presence
+                  <div className="hidden md:flex flex-col items-center justify-center w-40 h-32 border border-white/10 bg-white/[0.02] rounded-sm relative overflow-hidden">
+                    <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(172,133,48,0.12) 0%, transparent 70%)' }} />
+                    <div className="relative text-center">
+                      <div className="text-maya-gold text-xs font-mono tracking-widest mb-1">
+                        38.9°N&nbsp;&nbsp;77.0°W
                       </div>
-                      <div className="text-white/28 text-xs">
-                        International Presence
+                      <div className="text-white/20 text-[10px] tracking-widest uppercase mt-2">
+                        Virginia, USA
+                      </div>
+                      <div className="flex justify-center mt-3">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-maya-gold opacity-50" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-maya-gold" />
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -316,30 +319,20 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="hidden md:flex relative border border-white/10 bg-white/[0.02] rounded-xl overflow-hidden items-center justify-center min-h-[190px]">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_30%,rgba(201,162,39,0.06),transparent_35%)]" />
-                    <div className="absolute inset-0 opacity-[0.12] flex items-center justify-center">
-                      <svg
-                        viewBox="0 0 500 700"
-                        className="w-[58%] h-auto text-white"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M228 58L264 69L299 97L318 145L339 177L352 236L330 285L347 326L326 386L351 431L334 471L296 505L270 560L231 617L183 605L164 563L134 524L130 468L108 431L105 381L124 342L112 291L122 238L149 196L163 149L193 108L228 58Z"
-                          stroke="currentColor"
-                          strokeWidth="14"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-
-                    <div className="relative z-10 text-center px-4 mt-6">
-                      <div className="text-[10px] uppercase tracking-[0.22em] text-white/55 mb-2">
-                        Saudi Arabia
+                  <div className="hidden md:flex flex-col items-center justify-center w-40 h-32 border border-white/10 bg-white/[0.02] rounded-sm relative overflow-hidden">
+                    <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(172,133,48,0.12) 0%, transparent 70%)' }} />
+                    <div className="relative text-center">
+                      <div className="text-maya-gold text-xs font-mono tracking-widest mb-1">
+                        24.7°N&nbsp;&nbsp;46.7°E
                       </div>
-                      <div className="text-white/22 text-xs">
-                        Regional Presence
+                      <div className="text-white/20 text-[10px] tracking-widest uppercase mt-2">
+                        Riyadh, KSA
+                      </div>
+                      <div className="flex justify-center mt-3">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-maya-gold opacity-50" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-maya-gold" />
+                        </span>
                       </div>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Briefcase, ArrowRight, MapPin } from 'lucide-react';
+import { Briefcase, ArrowRight, MapPin, Info } from 'lucide-react';
 import content from '../data/site-content.json';
 
 export default function Careers() {
@@ -9,12 +9,12 @@ export default function Careers() {
   return (
     <div className="w-full bg-maya-navy min-h-screen pt-32 md:pt-36 pb-24">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/5 bg-[#0a0816]">
+      <section className="relative overflow-hidden border-b border-white/5 bg-[#06040d]">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-maya-gold/5 blur-[120px] rounded-full" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-maya-gold/[0.06] blur-[120px] rounded-full" />
         </div>
 
-        <div className="container mx-auto px-6 py-20 md:py-24 relative z-10">
+        <div className="container mx-auto px-6 py-24 md:py-28 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export default function Careers() {
               {pageContent.hero.title}
             </h1>
 
-            <p className="text-xl text-white/68 leading-relaxed max-w-2xl">
+            <p className="text-xl text-white/85 leading-relaxed max-w-2xl">
               {pageContent.hero.subtitle}
             </p>
           </motion.div>
@@ -41,6 +41,11 @@ export default function Careers() {
       <section className="container mx-auto px-6 py-20 md:py-24">
         <div className="max-w-3xl mb-12">
           <p className="text-white/85 text-lg leading-relaxed">{pageContent.intro}</p>
+        </div>
+
+        <div className="bg-white/5 border border-white/10 rounded-sm px-6 py-4 text-sm text-white/70 mb-10 max-w-3xl">
+          <Info size={16} className="text-maya-gold inline mr-2" />
+          We are not actively hiring at this time. The roles below reflect positions we anticipate opening as we grow. You are welcome to submit an expression of interest and we will be in touch when relevant opportunities arise.
         </div>
 
         <div className="space-y-6 max-w-3xl mb-16">
@@ -64,6 +69,12 @@ export default function Careers() {
                 <span>{role.location}</span>
               </div>
               <p className="text-white/85 text-sm leading-relaxed">{role.desc}</p>
+              <a
+                href={`mailto:careers@mayaai.sa?subject=Expression of Interest — ${role.title}`}
+                className="inline-flex items-center gap-2 text-xs font-bold text-white/70 border border-white/20 hover:border-maya-gold/50 hover:text-maya-gold px-4 py-2 transition-colors uppercase tracking-widest mt-4"
+              >
+                Express Interest →
+              </a>
             </motion.div>
           ))}
         </div>
@@ -74,10 +85,10 @@ export default function Careers() {
             Send your CV and a brief note about the role you're interested in.
           </p>
           <a
-            href="mailto:careers@mayaai.net"
+            href="mailto:careers@mayaai.sa"
             className="inline-flex items-center gap-2 px-8 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
           >
-            careers@mayaai.net
+            careers@mayaai.sa
             <ArrowRight size={16} />
           </a>
         </div>

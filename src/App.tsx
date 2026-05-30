@@ -1,7 +1,9 @@
-import React, { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { lazy, Suspense, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'motion/react';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
+import { PageWrapper } from './components/ui/PageWrapper';
 
 import Home from './pages/Home';
 import Solutions from './pages/Solutions';
@@ -17,31 +19,47 @@ const Insights   = lazy(() => import('./pages/Insights'));
 const Privacy    = lazy(() => import('./pages/Privacy'));
 const Terms      = lazy(() => import('./pages/Terms'));
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/"                 element={<PageWrapper><Home /></PageWrapper>} />
+        <Route path="/capabilities"     element={<PageWrapper><GeoAI /></PageWrapper>} />
+        <Route path="/solutions"        element={<PageWrapper><Solutions /></PageWrapper>} />
+        <Route path="/deployment"       element={<PageWrapper><Governance /></PageWrapper>} />
+        <Route path="/company"          element={<PageWrapper><Company /></PageWrapper>} />
+        <Route path="/leadership"       element={<PageWrapper><Leadership /></PageWrapper>} />
+        <Route path="/contact"          element={<PageWrapper><Contact /></PageWrapper>} />
+        <Route path="/trust"            element={<PageWrapper><Trust /></PageWrapper>} />
+        <Route path="/careers"          element={<PageWrapper><Careers /></PageWrapper>} />
+        <Route path="/insights"         element={<PageWrapper><Insights /></PageWrapper>} />
+        <Route path="/privacy"          element={<PageWrapper><Privacy /></PageWrapper>} />
+        <Route path="/terms"            element={<PageWrapper><Terms /></PageWrapper>} />
+
+        {/* Legacy route support */}
+        <Route path="/geoai"            element={<PageWrapper><GeoAI /></PageWrapper>} />
+        <Route path="/governance"       element={<PageWrapper><Governance /></PageWrapper>} />
+        <Route path="/national-programs" element={<PageWrapper><Home /></PageWrapper>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Layout>
           <Suspense fallback={<div className="min-h-screen bg-maya-navy" />}>
-            <Routes>
-              <Route path="/"                  element={<Home />} />
-              <Route path="/capabilities"       element={<GeoAI />} />
-              <Route path="/solutions"          element={<Solutions />} />
-              <Route path="/deployment"         element={<Governance />} />
-              <Route path="/company"            element={<Company />} />
-              <Route path="/leadership"         element={<Leadership />} />
-              <Route path="/contact"            element={<Contact />} />
-              <Route path="/trust"              element={<Trust />} />
-              <Route path="/careers"            element={<Careers />} />
-              <Route path="/insights"           element={<Insights />} />
-              <Route path="/privacy"            element={<Privacy />} />
-              <Route path="/terms"              element={<Terms />} />
-
-              {/* Legacy route support */}
-              <Route path="/geoai"              element={<GeoAI />} />
-              <Route path="/governance"         element={<Governance />} />
-              <Route path="/national-programs"  element={<Home />} />
-            </Routes>
+            <AnimatedRoutes />
           </Suspense>
         </Layout>
       </BrowserRouter>

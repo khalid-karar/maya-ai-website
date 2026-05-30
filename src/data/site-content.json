@@ -128,7 +128,7 @@
     },
     "governance": {
       "hero": {
-        "title": "Deployment",
+        "title": "Sovereign Deployment, Built for Control",
         "subtitle": "Deployment built around security, control, and operational fit.",
         "description": "Maya structures AI systems around the realities of each environment — including security requirements, data sensitivity, integration boundaries, and operating constraints. Every deployment is sized, scoped, and structured for sustained operational use."
       },
@@ -899,20 +899,20 @@
       },
       "contact": {
         "title": "Security contact",
-        "content": "For security disclosures, vulnerability reports, or coordinated disclosure requests, contact security@mayaai.net or security@mayaai.sa. Maya operates a responsible disclosure process — reports are acknowledged within 48 hours.",
-        "emails": ["security@mayaai.net", "security@mayaai.sa"]
+        "content": "For security disclosures, vulnerability reports, or coordinated disclosure requests, contact security@mayaai.sa. Maya operates a responsible disclosure process — reports are acknowledged within 48 hours.",
+        "emails": ["security@mayaai.sa"]
       }
     },
     "careers": {
       "hero": {
         "title": "Join Maya",
-        "subtitle": "We are building AI systems that matter — in environments where the stakes are real."
+        "subtitle": "Future Opportunities at Maya AI"
       },
-      "intro": "We are hiring across engineering, delivery, and go-to-market in Riyadh and Virginia. We work in small, focused teams where every person contributes to outcomes that are visible and meaningful.",
+      "intro": "Maya AI operates in small, focused teams across Riyadh and Virginia. We prioritise practitioners who bring domain depth, operational judgment, and a preference for outcomes over process.",
       "roles": [
         {
           "title": "Senior AI Engineer",
-          "location": "Riyadh / Virginia (Remote-eligible)",
+          "location": "Riyadh / Virginia",
           "type": "Full-time",
           "desc": "Build and deploy production AI systems across enterprise workflows, voice, and document intelligence — with a strong bias toward operational reliability and security-first architecture."
         },

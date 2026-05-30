@@ -10,12 +10,27 @@ export default function Leadership() {
   return (
     <div className="w-full bg-maya-navy min-h-screen pt-32 md:pt-36 pb-24">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/5 bg-[#0a0816]">
+      <section className="relative overflow-hidden border-b border-white/5 bg-[#06040d]">
+        {/* Diagonal line grid */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.08]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="leader-diag" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M 60 0 L 0 60" fill="none" stroke="rgba(172,133,48,1)" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#leader-diag)" />
+        </svg>
+        {/* Top-right radial gold glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse at 85% 0%, rgba(172,133,48,0.10) 0%, transparent 55%)' }}
+        />
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[820px] h-[340px] bg-maya-gold/5 blur-[130px] rounded-full" />
+          <div className="absolute top-0 right-1/4 w-[700px] h-[340px] bg-maya-gold/[0.06] blur-[130px] rounded-full" />
+          <div className="absolute top-0 right-0 w-[500px] h-[300px] bg-maya-gold/[0.08] blur-[120px] rounded-full" />
         </div>
 
-        <div className="container mx-auto px-6 py-20 md:py-24 relative z-10">
+        <div className="container mx-auto px-6 py-24 md:py-28 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
@@ -33,7 +48,7 @@ export default function Leadership() {
               {pageContent.hero.title}
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/68 leading-relaxed max-w-3xl">
+            <p className="text-xl md:text-2xl text-white/85 leading-relaxed max-w-3xl">
               {pageContent.hero.subtitle}
             </p>
           </motion.div>
@@ -92,7 +107,7 @@ export default function Leadership() {
             <div className="text-[10px] font-bold font-mono uppercase tracking-[0.18em] text-maya-gold/60 mb-2">
               Co-Founder, KSA
             </div>
-            <h3 className="text-xl font-display font-bold text-white mb-1">Partner Name</h3>
+            <h3 className="text-xl font-display font-bold text-white mb-1">Mufarrij Bin Shawyah</h3>
             <div className="text-xs text-maya-gold/80 font-bold uppercase tracking-widest mb-4">Co-Founder, KSA</div>
             <p className="text-white/85 text-sm leading-relaxed">
               Leads Maya AI's in-Kingdom operations and delivery. Extensive experience building enterprise technology

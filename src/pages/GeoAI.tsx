@@ -170,11 +170,11 @@ export default function GeoAI() {
               Capabilities built for sovereign solutions
             </h1>
 
-            <h2 className="text-2xl md:text-3xl text-white/82 font-light mb-8 leading-relaxed">
+            <h2 className="text-2xl md:text-3xl text-white/85 font-light mb-8 leading-relaxed">
               Secure AI systems, operational intelligence, and custom digital platforms designed for serious environments.
             </h2>
 
-            <p className="text-lg md:text-xl text-white/62 max-w-3xl leading-relaxed">
+            <p className="text-lg md:text-xl text-white/85 max-w-3xl leading-relaxed">
               Maya develops sovereign-ready capabilities for organizations that need more than generic tools. Our work spans
               AI agents, voice systems, spatial intelligence, document intelligence, custom AI platforms, and private deployment
               models aligned to security, control, and operational fit.
