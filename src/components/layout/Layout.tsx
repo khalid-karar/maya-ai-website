@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { useMarket } from '@/lib/market';
 import content from '@/data/site-content.json';
+import ReadingProgress from '@/components/ui/ReadingProgress';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -165,6 +166,7 @@ export default function Layout({ children }: LayoutProps) {
 
           </div>
         </div>
+        <ReadingProgress />
       </header>
 
       {/* Mobile Menu */}
@@ -297,7 +299,7 @@ export default function Layout({ children }: LayoutProps) {
               </h4>
               <ul className="space-y-2.5 text-sm text-white/55">
                 <li><Link to="/trust" className="hover:text-white transition-colors">Trust & Compliance</Link></li>
-                <li><a href="mailto:security@mayaai.net" className="hover:text-white transition-colors">Security Contact</a></li>
+                <li><a href="mailto:security@mayaai.sa" className="hover:text-white transition-colors">Security Contact</a></li>
                 <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Notice</Link></li>
                 <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Use</Link></li>
                 <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
@@ -329,6 +331,20 @@ export default function Layout({ children }: LayoutProps) {
                 </span>
               ))}
             </div>
+          </div>
+
+          {/* Last-chance CTA */}
+          <div className="border-t border-white/5 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-white/40 tracking-wide">
+              Still evaluating? We respond to every serious inquiry personally.
+            </p>
+            <a
+              href="/contact"
+              className="text-sm font-semibold tracking-widest text-maya-gold hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+            >
+              REQUEST A PRIVATE BRIEFING
+              <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+            </a>
           </div>
 
           {/* Copyright */}

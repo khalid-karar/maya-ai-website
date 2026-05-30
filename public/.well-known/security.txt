@@ -1,7 +1,7 @@
-Contact: security@mayaai.net
-Encryption: https://keys.openpgp.org/search?q=security%40mayaai.net
-Acknowledgments: https://mayaai.net/trust#security
-Policy: https://mayaai.net/trust#security-policy
+Contact: security@mayaai.sa
+Encryption: https://keys.openpgp.org/search?q=security%40mayaai.sa
+Acknowledgments: https://mayaai.sa/trust#security
+Policy: https://mayaai.sa/trust#security-policy
 Preferred-Languages: en
-Canonical: https://mayaai.net/.well-known/security.txt
+Canonical: https://mayaai.sa/.well-known/security.txt
 Expires: 2027-01-01T00:00:00.000Z

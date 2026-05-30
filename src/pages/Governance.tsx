@@ -53,10 +53,11 @@ export default function Governance() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              {pageContent.hero.title}
+              Sovereign Deployment,
+              <span className="block">Built for Control</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/68 leading-relaxed mb-6 max-w-3xl">
+            <p className="text-xl md:text-2xl text-white/85 leading-relaxed mb-6 max-w-3xl">
               {pageContent.hero.subtitle}
             </p>
           </motion.div>

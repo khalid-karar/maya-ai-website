@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+﻿import React, { useEffect, useRef, useCallback } from 'react';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -12,6 +12,88 @@ import {
 import { Link, useSearchParams } from 'react-router-dom';
 import content from '../data/site-content.json';
 import { cn } from '@/lib/utils';
+
+// ─── Code particle animation ──────────────────────────────────────────────────
+const CODE_CHARS = '01アイウエオ░▒▓∑∆Ωλπ∞◆◇'.split('');
+
+function CodeParticleCanvas() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const particlesRef = useRef<any[]>([]);
+  const rafRef = useRef<number>(0);
+
+  const spawnParticles = useCallback((x: number, y: number) => {
+    for (let i = 0; i < 2; i++) {
+      particlesRef.current.push({
+        x,
+        y,
+        char: CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)],
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: -(Math.random() * 1.5 + 0.5),
+        opacity: 1,
+        size: Math.random() * 8 + 9,
+        decay: Math.random() * 0.018 + 0.012,
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesRef.current = particlesRef.current.filter(p => p.opacity > 0);
+      for (const p of particlesRef.current) {
+        ctx.save();
+        ctx.globalAlpha = p.opacity;
+        ctx.font = `${p.size}px "Courier New", monospace`;
+        ctx.fillStyle = `rgba(172, 133, 48, ${p.opacity})`;
+        ctx.fillText(p.char, p.x, p.y);
+        ctx.restore();
+        p.x += p.vx;
+        p.y += p.vy;
+        p.opacity -= p.decay;
+      }
+      rafRef.current = requestAnimationFrame(draw);
+    };
+    draw();
+
+    // Attach to section so particles spawn even when mouse is over text
+    const section = canvas.closest('section');
+    if (!section) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      spawnParticles(e.clientX - rect.left, e.clientY - rect.top);
+    };
+
+    section.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener('resize', resize);
+      section.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [spawnParticles]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none z-10"
+      style={{ mixBlendMode: 'screen' }}
+    />
+  );
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 const categoryIcons: Record<string, React.ElementType> = {
   'enterprise-operations': Briefcase,
@@ -41,13 +123,27 @@ export default function Solutions() {
   return (
     <div className="w-full bg-maya-navy min-h-screen pt-32 md:pt-36 pb-24">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/5 bg-[#0a0816]">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[820px] h-[360px] bg-maya-gold/5 blur-[130px] rounded-full" />
-          <div className="absolute bottom-0 right-0 w-[320px] h-[320px] bg-white/5 blur-[110px] rounded-full" />
+      <section className="relative overflow-hidden border-b border-white/5 bg-[#06040d]">
+        {/* Texture background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20 grayscale pointer-events-none"
+          style={{ backgroundImage: "url('https://res.cloudinary.com/dzipj6lnb/image/upload/v1773752774/governance-pattern_qbxdkt.jpg')", mixBlendMode: 'overlay' }}
+        />
+        {/* Cross-hatch grid */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.1] pointer-events-none z-10" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="sol-grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(172,133,48,1)" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#sol-grid)" />
+        </svg>
+        <div className="absolute inset-0 pointer-events-none z-10">
+          <div className="absolute top-0 left-1/4 w-[760px] h-[380px] bg-maya-gold/[0.08] blur-[140px] rounded-full" />
         </div>
+        <CodeParticleCanvas />
 
-        <div className="container mx-auto px-6 py-20 md:py-24 relative z-10">
+        <div className="container mx-auto px-6 py-24 md:py-28 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
@@ -62,10 +158,11 @@ export default function Solutions() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
-              {solutionsContent.hero.title}
+              Applied AI Solutions
+              <span className="block">for Enterprise and Government</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/68 leading-relaxed max-w-3xl mb-10">
+            <p className="text-xl md:text-2xl text-white/85 leading-relaxed max-w-3xl mb-10">
               {solutionsContent.hero.subtitle}
             </p>
 

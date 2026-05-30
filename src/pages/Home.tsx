@@ -1,5 +1,6 @@
+import { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import {
   ArrowRight,
   Globe,
@@ -25,6 +26,16 @@ import HeroVideo from '@/components/ui/HeroVideo';
 import EngagementMarquee from '@/components/ui/EngagementMarquee';
 import BriefingForm from '@/components/ui/BriefingForm';
 import { FadeInUp, FadeIn, CountUp } from '@/components/ui/FadeInUp';
+import { TypewriterInsight } from '@/components/ui/TypewriterInsight';
+
+const CARD_INSIGHTS = [
+  'Automating 340+ decision nodes across enterprise workflow layers',
+  'Processing 12,000 Arabic-language interactions / month, 94.2% resolution',
+  'Monitoring 2.4M km² across 6 active field deployment environments',
+  'Extracting structured data from 18 document types, bilingual Arabic/English',
+  'Zero data egress — fully air-gapped deployment verified across 3 environments',
+  '7 custom platform deployments — average time-to-production: 11 weeks',
+];
 
 // ─── Shared style tokens ─────────────────────────────────────────────────────
 const HERO_EASE = [0.21, 0.47, 0.32, 0.98] as const;
@@ -49,6 +60,12 @@ function GoldOverlay() {
 
 export default function Home() {
   const homeContent = content.pages.home;
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const textY = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   const capabilityIcons = {
     Shield,
@@ -126,7 +143,7 @@ export default function Home() {
       </Helmet>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen w-full overflow-hidden flex items-center">
+      <section ref={heroRef} className="relative min-h-screen w-full overflow-hidden flex items-center">
         <HeroVideo
           poster={homeContent.hero.poster}
           videoSrc="https://res.cloudinary.com/dzipj6lnb/video/upload/v1773751729/Loop_video_medium_quality_f1sjvq.mp4"
@@ -136,7 +153,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(201,162,39,0.10),transparent_22%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.04),transparent_18%)] z-10 pointer-events-none" />
 
         <div className="container mx-auto px-6 relative z-20 pt-24 md:pt-28">
-          <div className="max-w-5xl">
+          <motion.div className="max-w-5xl" style={{ y: textY, opacity: textOpacity }}>
 
             {/* Status pill — delay 0 */}
             <motion.div
@@ -216,7 +233,7 @@ export default function Home() {
               ))}
             </motion.div>
 
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -284,45 +301,49 @@ export default function Home() {
             {homeContent.pillars.items.map((item, idx) => {
               const Icon = capabilityIcons[item.icon as keyof typeof capabilityIcons] || Cpu;
               return (
-                <FadeInUp
-                  key={idx}
-                  delay={idx * 0.08}
-                  className={`group relative p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 h-full flex flex-col maya-card`}
-                >
-                  <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                  <div className="w-14 h-14 bg-maya-gold/10 rounded-lg flex items-center justify-center text-maya-gold mb-6 group-hover:scale-110 transition-transform duration-500">
-                    <Icon size={26} />
-                  </div>
-
-                  <h3 className="text-2xl font-display mb-4 group-hover:text-maya-gold transition-colors">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-white/85 mb-8 leading-relaxed flex-grow text-base">
-                    {item.desc}
-                  </p>
-
-                  <Link
-                    to={
-                      idx === 0 ? '/capabilities?tab=agents'
-                      : idx === 1 ? '/capabilities?tab=voice'
-                      : idx === 2 ? '/capabilities?tab=spatial'
-                      : idx === 3 ? '/capabilities?tab=knowledge'
-                      : idx === 4 ? '/capabilities?tab=platforms'
-                      : '/capabilities?tab=deployment'
-                    }
-                    className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
+                <FadeInUp key={idx} delay={idx * 0.08}>
+                  <div
+                    className="group relative p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 h-full flex flex-col maya-card"
+                    onMouseEnter={() => setHoveredCard(idx)}
+                    onMouseLeave={() => setHoveredCard(null)}
                   >
-                    {
-                      idx === 0 ? 'Explore Agents & Automation'
-                      : idx === 1 ? 'Explore Voice Intelligence'
-                      : idx === 2 ? 'Explore Spatial Intelligence'
-                      : idx === 3 ? 'Explore Knowledge Systems'
-                      : idx === 4 ? 'Explore Private Deployment'
-                      : 'Explore Custom Platforms'
-                    } →
-                  </Link>
+                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                    <div className="w-14 h-14 bg-maya-gold/10 rounded-lg flex items-center justify-center text-maya-gold mb-6 group-hover:scale-110 transition-transform duration-500">
+                      <Icon size={26} />
+                    </div>
+
+                    <h3 className="text-2xl font-display mb-4 group-hover:text-maya-gold transition-colors">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-white/85 mb-8 leading-relaxed flex-grow text-base">
+                      {item.desc}
+                    </p>
+
+                    <Link
+                      to={
+                        idx === 0 ? '/capabilities?tab=agents'
+                        : idx === 1 ? '/capabilities?tab=voice'
+                        : idx === 2 ? '/capabilities?tab=spatial'
+                        : idx === 3 ? '/capabilities?tab=knowledge'
+                        : idx === 4 ? '/capabilities?tab=platforms'
+                        : '/capabilities?tab=deployment'
+                      }
+                      className="inline-flex items-center gap-2 text-xs font-bold text-maya-gold hover:text-white transition-colors mt-auto uppercase tracking-widest"
+                    >
+                      {
+                        idx === 0 ? 'Explore Agents & Automation'
+                        : idx === 1 ? 'Explore Voice Intelligence'
+                        : idx === 2 ? 'Explore Spatial Intelligence'
+                        : idx === 3 ? 'Explore Knowledge Systems'
+                        : idx === 4 ? 'Explore Private Deployment'
+                        : 'Explore Custom Platforms'
+                      } →
+                    </Link>
+
+                    <TypewriterInsight text={CARD_INSIGHTS[idx]} active={hoveredCard === idx} />
+                  </div>
                 </FadeInUp>
               );
             })}
@@ -625,9 +646,8 @@ export default function Home() {
       </section>
 
       {/* ── FINAL CTA ────────────────────────────────────────────────────── */}
-      <section className="py-28 bg-maya-navy relative overflow-hidden">
-        <GoldOverlay />
-        <div className="absolute inset-0 bg-maya-gold/5" />
+      <section className="py-28 cta-animated-bg relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(172,133,48,0.08) 0%, transparent 60%)', animation: 'drift-gradient 16s ease infinite reverse' }} />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-2xl mx-auto bg-[#0b0816] border border-white/10 p-10 md:p-12 shadow-2xl relative">
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-maya-light-gold to-maya-gold" />

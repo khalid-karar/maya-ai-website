@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Shield, Lock, Database, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ComplianceBadge } from '@/components/ui/ComplianceBadge';
 import { Link } from 'react-router-dom';
 import content from '../data/site-content.json';
 
@@ -10,12 +11,12 @@ export default function Trust() {
   return (
     <div className="w-full bg-maya-navy min-h-screen pt-32 md:pt-36 pb-24">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/5 bg-[#0a0816]">
+      <section className="relative overflow-hidden border-b border-white/5 bg-[#06040d]">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[820px] h-[340px] bg-maya-gold/5 blur-[130px] rounded-full" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[860px] h-[360px] bg-maya-gold/[0.07] blur-[140px] rounded-full" />
         </div>
 
-        <div className="container mx-auto px-6 py-20 md:py-24 relative z-10">
+        <div className="container mx-auto px-6 py-24 md:py-28 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
@@ -33,9 +34,33 @@ export default function Trust() {
               {pageContent.hero.title}
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/68 leading-relaxed max-w-3xl">
+            <p className="text-xl md:text-2xl text-white/85 leading-relaxed max-w-3xl mb-8">
               {pageContent.hero.subtitle}
             </p>
+
+            {/* Compliance framework badges */}
+            <div className="flex flex-wrap gap-2">
+              <ComplianceBadge
+                label="NCA-ECC"
+                tooltip="Saudi National Cybersecurity Authority — Essential Cybersecurity Controls. Maya's architecture is mapped to NCA-ECC control domains."
+              />
+              <ComplianceBadge
+                label="PDPL"
+                tooltip="Saudi Personal Data Protection Law. Maya's data handling and deployment architecture aligns to PDPL requirements for data residency and processing."
+              />
+              <ComplianceBadge
+                label="NIST 800-53"
+                tooltip="US National Institute of Standards and Technology security control framework. Maya maps system controls to NIST 800-53 Rev 5."
+              />
+              <ComplianceBadge
+                label="SDAIA Guidance"
+                tooltip="Saudi Data and AI Authority. Maya's AI systems are developed in alignment with SDAIA's published AI ethics and governance guidance."
+              />
+              <ComplianceBadge
+                label="ISO 27001 Aligned"
+                tooltip="International information security management standard. Maya is planning ISO 27001 certification as part of its enterprise compliance roadmap."
+              />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -118,10 +143,10 @@ export default function Trust() {
                 For security disclosures, vulnerability reports, and responsible disclosure inquiries, please contact our security team directly. We respond to all credible disclosures within 72 hours.
               </p>
               <a
-                href="mailto:security@mayaai.net"
+                href="mailto:security@mayaai.sa"
                 className="inline-flex items-center gap-2 text-sm font-bold text-maya-gold hover:text-white transition-colors uppercase tracking-widest"
               >
-                security@mayaai.net
+                security@mayaai.sa
                 <ArrowRight size={14} />
               </a>
             </div>

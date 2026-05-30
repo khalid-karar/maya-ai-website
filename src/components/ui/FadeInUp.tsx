@@ -57,7 +57,7 @@ interface CountUpProps {
  * Renders a bare <span> so it can be inlined inside any text node.
  */
 export function CountUp({ target, duration = 1200 }: CountUpProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number | null>(null);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref as React.RefObject<Element>, { once: true });
 
@@ -77,5 +77,5 @@ export function CountUp({ target, duration = 1200 }: CountUpProps) {
     return () => clearInterval(timer);
   }, [isInView, target, duration]);
 
-  return <span ref={ref}>{count}</span>;
+  return <span ref={ref} style={{ opacity: count === null ? 0 : 1 }}>{count ?? target}</span>;
 }

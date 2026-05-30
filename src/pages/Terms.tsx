@@ -57,7 +57,7 @@ export default function Terms() {
 
           <div>
             <h2 className="text-xl font-display font-bold text-white mb-3">7. Contact</h2>
-            <p>For legal inquiries, contact <a href="mailto:legal@mayaai.net" className="text-maya-gold hover:text-white transition-colors">legal@mayaai.net</a>.</p>
+            <p>For legal inquiries, contact <a href="mailto:legal@mayaai.sa" className="text-maya-gold hover:text-white transition-colors">legal@mayaai.sa</a>.</p>
           </div>
         </div>
       </section>
