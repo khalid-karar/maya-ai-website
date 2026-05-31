@@ -143,7 +143,7 @@ export default function Home() {
       </Helmet>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative min-h-screen w-full overflow-hidden flex items-center">
+      <section ref={heroRef} className="relative min-h-screen w-full overflow-hidden flex items-center" style={{ contain: 'layout style' }}>
         <HeroVideo
           poster={homeContent.hero.poster}
           videoSrc="https://res.cloudinary.com/dzipj6lnb/video/upload/v1773751729/Loop_video_medium_quality_f1sjvq.mp4"
@@ -153,6 +153,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(201,162,39,0.10),transparent_22%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.04),transparent_18%)] z-10 pointer-events-none" />
 
         <div className="container mx-auto px-6 relative z-20 pt-24 md:pt-28">
+          <div style={{ willChange: 'transform', isolation: 'isolate', contain: 'layout' }}>
           <motion.div className="max-w-5xl" style={{ y: textY, opacity: textOpacity }}>
 
             {/* Status pill — delay 0 */}
@@ -234,6 +235,7 @@ export default function Home() {
             </motion.div>
 
           </motion.div>
+          </div>
         </div>
       </section>
 
