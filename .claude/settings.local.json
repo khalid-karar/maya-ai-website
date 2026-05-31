@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(npx tsc *)",
+      "Bash(mkdir -p \"c:\\\\Users\\\\khali\\\\My Drive\\\\Saudi Arabia\\\\Work\\\\ابو سعد\\\\maya-ai-website\\\\public\\\\logos\")",
+      "Bash(curl -sL \"https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg\" -o aws.svg)",
+      "Bash(curl -sL \"https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg\" -o azure.svg)",
+      "Bash(curl -sL \"https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg\" -o gcp.svg)",
+      "Bash(curl -sL \"https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg\" -o kubernetes.svg)",
+      "Bash(python -c \"import json; p=json.load\\(open\\('package.json'\\)\\); print\\(json.dumps\\(p['scripts'], indent=2\\)\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"require\\('sharp'\\); console.log\\('sharp ok'\\)\")",
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\('framer-motion:', p.dependencies['framer-motion']\\); console.log\\('motion:', p.dependencies['motion']\\);\")",
+      "Bash(git add *)",
+      "Bash(git commit -m 'feat: scroll animations, card depth, hero entrance, CountUp + remove AR/EN toggle *)",
+      "Bash(git push *)"
+    ]
+  }
+}

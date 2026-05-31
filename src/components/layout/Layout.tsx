@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore – lucide-react marks brand icons @deprecated but they still ship and render
@@ -21,30 +21,17 @@ const TICKER_MESSAGES = [
 ];
 
 export default function Layout({ children }: LayoutProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [barVisible, setBarVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const [tickerIndex, setTickerIndex] = useState(0);
-  const lastScrollY = useRef(0);
 
   const location = useLocation();
   const market = useMarket();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 24);
-      if (currentScrollY < 50) {
-        setBarVisible(true);
-      } else if (currentScrollY < lastScrollY.current) {
-        setBarVisible(true);
-      } else {
-        setBarVisible(false);
-      }
-      lastScrollY.current = currentScrollY;
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 29);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -72,10 +59,7 @@ export default function Layout({ children }: LayoutProps) {
     <div className="min-h-screen bg-maya-navy text-white selection:bg-maya-gold selection:text-maya-navy font-sans">
 
       {/* Top identity strip */}
-      <div
-        className="bg-[#06040d] border-b border-white/5 overflow-hidden transition-all duration-300"
-        style={{ maxHeight: barVisible ? '40px' : '0px', opacity: barVisible ? 1 : 0 }}
-      >
+      <div className={`bg-[#06040d] border-b border-white/5 overflow-hidden transition-none ${scrolled ? 'h-0 opacity-0 pointer-events-none' : 'h-[29px] opacity-100'}`}>
         <div className="container mx-auto px-6 py-1.5 flex items-center justify-center overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.span
@@ -95,13 +79,8 @@ export default function Layout({ children }: LayoutProps) {
       {/* Navigation */}
       <header
         role="banner"
-        className={cn(
-          'fixed left-0 right-0 z-50 transition-all duration-300 border-b',
-          barVisible ? 'top-[29px]' : 'top-0',
-          isScrolled
-            ? 'bg-maya-navy/92 backdrop-blur-xl border-white/10 py-2'
-            : 'bg-[#0a0816]/60 backdrop-blur-md border-white/8 py-3'
-        )}
+        style={{ top: scrolled ? '0px' : '29px', willChange: 'transform' }}
+        className="fixed left-0 right-0 z-50 border-b border-white/10 bg-maya-navy/92 backdrop-blur-xl py-2"
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between gap-6">
@@ -114,10 +93,7 @@ export default function Layout({ children }: LayoutProps) {
                   alt="Maya AI"
                   loading="eager"
                   fetchPriority="high"
-                  className={cn(
-                    'w-auto transition-all duration-300 object-contain',
-                    isScrolled ? 'h-10' : 'h-12'
-                  )}
+                  className="h-12 w-auto object-contain"
                 />
               </Link>
 
