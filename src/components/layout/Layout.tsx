@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore – lucide-react marks brand icons @deprecated but they still ship and render
@@ -23,20 +23,27 @@ const TICKER_MESSAGES = [
 export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [topStripVisible, setTopStripVisible] = useState(true);
+  const [barVisible, setBarVisible] = useState(true);
   const [tickerIndex, setTickerIndex] = useState(0);
+  const lastScrollY = useRef(0);
 
   const location = useLocation();
   const market = useMarket();
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 24;
-      setIsScrolled(scrolled);
-      if (scrolled) setTopStripVisible(false);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 24);
+      if (currentScrollY < 50) {
+        setBarVisible(true);
+      } else if (currentScrollY < lastScrollY.current) {
+        setBarVisible(true);
+      } else {
+        setBarVisible(false);
+      }
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -65,38 +72,32 @@ export default function Layout({ children }: LayoutProps) {
     <div className="min-h-screen bg-maya-navy text-white selection:bg-maya-gold selection:text-maya-navy font-sans">
 
       {/* Top identity strip */}
-      <AnimatePresence>
-        {topStripVisible && (
-          <motion.div
-            initial={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="bg-[#06040d] border-b border-white/5 overflow-hidden"
-          >
-            <div className="container mx-auto px-6 py-1.5 flex items-center justify-center overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={tickerIndex}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.35 }}
-                  className="text-xs text-white/70 tracking-wide font-mono text-center"
-                >
-                  {TICKER_MESSAGES[tickerIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className="bg-[#06040d] border-b border-white/5 overflow-hidden transition-all duration-300"
+        style={{ maxHeight: barVisible ? '40px' : '0px', opacity: barVisible ? 1 : 0 }}
+      >
+        <div className="container mx-auto px-6 py-1.5 flex items-center justify-center overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={tickerIndex}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.35 }}
+              className="text-xs text-white/70 tracking-wide font-mono text-center"
+            >
+              {TICKER_MESSAGES[tickerIndex]}
+            </motion.span>
+          </AnimatePresence>
+        </div>
+      </div>
 
       {/* Navigation */}
       <header
         role="banner"
         className={cn(
           'fixed left-0 right-0 z-50 transition-all duration-300 border-b',
-          topStripVisible ? 'top-[30px]' : 'top-0',
+          barVisible ? 'top-[29px]' : 'top-0',
           isScrolled
             ? 'bg-maya-navy/92 backdrop-blur-xl border-white/10 py-2'
             : 'bg-[#0a0816]/60 backdrop-blur-md border-white/8 py-3'
