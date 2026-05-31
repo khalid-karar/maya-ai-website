@@ -486,7 +486,7 @@ export default function Home() {
             </FadeInUp>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {deploymentOptions.map(({ title, description, badge, Icon }, idx) => (
               <FadeInUp
                 key={idx}
@@ -522,7 +522,7 @@ export default function Home() {
           >
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-maya-gold/30 to-transparent" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr_auto] gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr_auto] gap-6 lg:gap-12 items-center">
               <FadeInUp delay={0}>
                 <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-4">Global Operations</div>
                 <h2 className={`text-2xl md:text-3xl font-display mb-6 ${H2_GLOW}`}>
@@ -662,7 +662,7 @@ export default function Home() {
             </FadeInUp>
 
             {/* Inline briefing form */}
-            <FadeInUp delay={0.2}>
+            <FadeInUp delay={0.2} className="px-4 sm:px-0">
               <BriefingForm />
             </FadeInUp>
 
