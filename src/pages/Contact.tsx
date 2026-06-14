@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import {
   Mail,
@@ -12,13 +12,40 @@ import {
   CheckCircle2,
   Briefcase,
   Lock,
+  Loader2,
 } from 'lucide-react';
 import content from '../data/site-content.json';
 import { cn } from '@/lib/utils';
 
+type FormStatus = 'idle' | 'loading' | 'success' | 'error';
+
+const encode = (data: Record<string, string>) =>
+  Object.entries(data)
+    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+    .join('&');
+
 export default function Contact() {
   const contactPage = content.pages.contact;
   const commonContact = content.common.contact;
+
+  const [form, setForm] = useState({ name: '', email: '', org: '', phone: '', type: '', message: '' });
+  const [status, setStatus] = useState<FormStatus>('idle');
+  const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    setForm(f => ({ ...f, [field]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact-inquiry', ...form }),
+      });
+      if (res.ok) { setStatus('success'); setForm({ name: '', email: '', org: '', phone: '', type: '', message: '' }); }
+      else { setStatus('error'); }
+    } catch { setStatus('error'); }
+  };
 
   // Handle scroll-to-anchor when page loads with hash
   useEffect(() => {
@@ -127,110 +154,137 @@ export default function Contact() {
                 </h2>
               </div>
 
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                      {contactPage.form.name}
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/25"
-                      placeholder="Full Name"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                      {contactPage.form.email}
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/25"
-                      placeholder="Work Email"
-                    />
-                  </div>
+              {status === 'success' ? (
+                <div className="border border-maya-gold/30 bg-maya-gold/5 p-8 text-center">
+                  <p className="text-maya-gold font-semibold text-base">✓ Request received.</p>
+                  <p className="text-white/70 text-sm mt-2">Our team will respond within one business day.</p>
                 </div>
+              ) : (
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                  data-netlify="true"
+                  name="contact-inquiry"
+                  netlify-honeypot="bot-field"
+                >
+                  <input type="hidden" name="form-name" value="contact-inquiry" />
+                  <input type="hidden" name="bot-field" />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                      {contactPage.form.org}
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/25"
-                      placeholder="Company"
-                    />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
+                        {contactPage.form.name}
+                      </label>
+                      <input
+                        type="text" name="name" required
+                        value={form.name} onChange={set('name')}
+                        className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/25"
+                        placeholder="Full Name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
+                        {contactPage.form.email}
+                      </label>
+                      <input
+                        type="email" name="email" required
+                        value={form.email} onChange={set('email')}
+                        className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/25"
+                        placeholder="Work Email"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
+                        {contactPage.form.org}
+                      </label>
+                      <input
+                        type="text" name="org"
+                        value={form.org} onChange={set('org')}
+                        className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/25"
+                        placeholder="Company"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
+                        {contactPage.form.phone}
+                      </label>
+                      <input
+                        type="tel" name="phone" dir="ltr"
+                        value={form.phone} onChange={set('phone')}
+                        className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/25"
+                        placeholder="Phone"
+                      />
+                    </div>
                   </div>
 
                   <div>
                     <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                      {contactPage.form.phone}
+                      {contactPage.form.type}
                     </label>
-                    <input
-                      type="tel"
-                      className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/25"
-                      dir="ltr"
-                      placeholder="Phone"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                    {contactPage.form.type}
-                  </label>
-
-                  <select
-                    defaultValue=""
-                    className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors"
-                  >
-                    <option value="" disabled className="bg-[#0b0816] text-white/50">
-                      Select area of interest
-                    </option>
-                    {inquiryOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value} className="bg-[#0b0816] text-white">
-                        {opt.label}
+                    <select
+                      name="type" required
+                      value={form.type} onChange={set('type')}
+                      className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors"
+                    >
+                      <option value="" disabled className="bg-[#0b0816] text-white/50">
+                        Select area of interest
                       </option>
-                    ))}
-                  </select>
-                </div>
+                      {inquiryOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value} className="bg-[#0b0816] text-white">
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                <div>
-                  <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
-                    {contactPage.form.message}
-                  </label>
-                  <textarea
-                    rows={5}
-                    className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/25 resize-none"
-                    placeholder="Briefly describe your environment, priorities, use case, or deployment considerations."
-                  />
-                </div>
+                  <div>
+                    <label className="block text-white/45 mb-2 text-xs font-bold uppercase tracking-widest">
+                      {contactPage.form.message}
+                    </label>
+                    <textarea
+                      name="message" rows={5}
+                      value={form.message} onChange={set('message')}
+                      className="w-full bg-white/5 border border-white/10 p-4 text-white text-sm focus:border-maya-gold outline-none transition-colors placeholder:text-white/25 resize-none"
+                      placeholder="Briefly describe your environment, priorities, use case, or deployment considerations."
+                    />
+                  </div>
 
-                <div className="border border-white/10 bg-white/[0.02] p-5">
-                  <div className="flex items-start gap-3">
-                    <Lock size={16} className="text-maya-gold shrink-0 mt-0.5" />
-                    <p className="text-sm text-white/62 leading-relaxed">
-                      Incoming requests are handled with professional confidentiality and reviewed in line with institutional context, sensitivity, and deployment considerations.
+                  <div className="border border-white/10 bg-white/[0.02] p-5">
+                    <div className="flex items-start gap-3">
+                      <Lock size={16} className="text-maya-gold shrink-0 mt-0.5" />
+                      <p className="text-sm text-white/62 leading-relaxed">
+                        Incoming requests are handled with professional confidentiality and reviewed in line with institutional context, sensitivity, and deployment considerations.
+                      </p>
+                    </div>
+                  </div>
+
+                  {status === 'error' && (
+                    <p className="text-red-400 text-sm text-center">
+                      Something went wrong. Please try again or email us at sales@mayaai.sa
+                    </p>
+                  )}
+
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={status === 'loading'}
+                      className="w-full py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest disabled:opacity-70"
+                    >
+                      {status === 'loading' ? (
+                        <><Loader2 size={16} className="animate-spin" /> Sending...</>
+                      ) : (
+                        <>{contactPage.form.submit} <ArrowRight size={16} /></>
+                      )}
+                    </button>
+                    <p className="text-[11px] text-white/30 text-center mt-4 leading-relaxed">
+                      By submitting this form, you acknowledge that your data will be processed in accordance with applicable privacy and compliance policies.
                     </p>
                   </div>
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    type="button"
-                    className="w-full py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest"
-                  >
-                    {contactPage.form.submit}
-                    <ArrowRight size={16} />
-                  </button>
-
-                  <p className="text-[11px] text-white/30 text-center mt-4 leading-relaxed">
-                    By submitting this form, you acknowledge that your data will be processed in accordance with applicable privacy and compliance policies.
-                  </p>
-                </div>
-              </form>
+                </form>
+              )}
             </div>
           </div>
 

@@ -167,7 +167,7 @@ export default function Trust() {
               </p>
             </div>
             <a
-              href="mailto:sales@mayaai.sa"
+              href="/contact#briefing-request"
               className="inline-flex items-center gap-2 px-8 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
             >
               Request Briefing
