@@ -200,13 +200,13 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4, ease: HERO_EASE }}
               className="flex flex-col sm:flex-row gap-4 mb-10"
             >
-              <Link
-                to="/contact"
+              <a
+                href="mailto:sales@mayaai.sa"
                 className="px-8 py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest hover:bg-white transition-colors flex items-center justify-center gap-2"
               >
                 Request a Private Briefing
                 <ArrowRight size={16} />
-              </Link>
+              </a>
               <Link
                 to="/capabilities"
                 className="px-8 py-4 border border-white/15 bg-white/[0.03] text-white font-bold text-sm uppercase tracking-widest hover:bg-white/[0.08] transition-colors flex items-center justify-center gap-2"
@@ -672,13 +672,13 @@ export default function Home() {
               <p className="text-white/35 text-xs leading-relaxed">
                 Our teams in Virginia and Riyadh respond within one business day. All inquiries are handled with strict confidentiality.
               </p>
-              <Link
-                to="/contact#briefing-request"
+              <a
+                href="mailto:sales@mayaai.sa"
                 className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 border border-white/15 text-white/60 hover:text-white hover:border-white/30 transition-colors font-bold text-xs uppercase tracking-widest"
               >
-                Full Contact Page
+                Email Us
                 <ArrowRight size={12} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

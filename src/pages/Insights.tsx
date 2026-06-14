@@ -47,13 +47,13 @@ export default function Insights() {
             <p className="text-white/85 text-base leading-relaxed mb-8">
               Maya's insights, perspectives, and technical guidance on applied AI for enterprise and government environments will be published here.
             </p>
-            <Link
-              to="/contact"
+            <a
+              href="mailto:info@mayaai.sa"
               className="inline-flex items-center gap-2 px-6 py-3 border border-maya-gold/30 text-maya-gold hover:bg-maya-gold hover:text-maya-navy transition-colors text-sm font-bold uppercase tracking-widest"
             >
               Get Notified
               <ArrowRight size={14} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

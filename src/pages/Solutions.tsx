@@ -9,7 +9,7 @@ import {
   FileText,
   AppWindow,
 } from 'lucide-react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import content from '../data/site-content.json';
 import { cn } from '@/lib/utils';
 
@@ -278,13 +278,13 @@ export default function Solutions() {
                     )}
 
                     {/* CTA */}
-                    <Link
-                      to="/contact#briefing-request"
+                    <a
+                      href="mailto:sales@mayaai.sa"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold text-maya-gold/70 hover:text-maya-gold transition-colors uppercase tracking-widest mt-auto pt-2"
                     >
                       Request Briefing
                       <ArrowRight size={12} />
-                    </Link>
+                    </a>
                   </motion.div>
                 ))}
               </div>
@@ -308,13 +308,13 @@ export default function Solutions() {
               </p>
             </div>
 
-            <Link
-              to="/contact#briefing-request"
+            <a
+              href="mailto:sales@mayaai.sa"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
             >
               Request a Private Briefing
               <ArrowRight size={16} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Shield, Lock, Database, CheckCircle2, ArrowRight } from 'lucide-react';
 import { ComplianceBadge } from '@/components/ui/ComplianceBadge';
-import { Link } from 'react-router-dom';
 import content from '../data/site-content.json';
 
 export default function Trust() {
@@ -167,13 +166,13 @@ export default function Trust() {
                 Our team can address specific compliance, audit, and security questions for enterprise procurement and institutional engagement.
               </p>
             </div>
-            <Link
-              to="/contact#briefing-request"
+            <a
+              href="mailto:sales@mayaai.sa"
               className="inline-flex items-center gap-2 px-8 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
             >
               Request Briefing
               <ArrowRight size={16} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
