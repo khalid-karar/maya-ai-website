@@ -159,13 +159,13 @@ export default function Leadership() {
                 For strategic partnerships, institutional engagement, and senior-level briefings.
               </p>
             </div>
-            <Link
-              to="/contact#briefing-request"
+            <a
+              href="mailto:sales@mayaai.sa"
               className="inline-flex items-center gap-2 px-8 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
             >
               Request Engagement
               <ArrowRight size={16} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

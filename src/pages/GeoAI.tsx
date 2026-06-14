@@ -16,7 +16,7 @@ import {
   CheckCircle2,
   Lock,
 } from 'lucide-react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const capabilityTabs = [
@@ -403,13 +403,13 @@ export default function GeoAI() {
               sovereign-ready capability and solution direction.
             </p>
 
-            <Link
-              to="/contact#briefing-request"
+            <a
+              href="mailto:sales@mayaai.sa"
               className="inline-flex items-center gap-2 px-10 py-5 bg-maya-gold text-maya-navy hover:bg-white transition-colors font-bold text-sm uppercase tracking-widest"
             >
               Request a Private Briefing
               <ArrowRight size={16} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
