@@ -124,7 +124,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="flex items-center gap-3 relative">
 
               <a
-                href="mailto:sales@mayaai.sa"
+                href="/contact#briefing-request"
                 className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-maya-gold text-maya-navy font-bold text-xs uppercase tracking-widest hover:bg-white transition-colors"
               >
                 Request Briefing
@@ -170,7 +170,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
               ))}
               <a
-                href="mailto:sales@mayaai.sa"
+                href="/contact#briefing-request"
                 className="mt-4 px-8 py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest"
               >
                 Request Briefing
@@ -316,7 +316,7 @@ export default function Layout({ children }: LayoutProps) {
               Still evaluating? We respond to every serious inquiry personally.
             </p>
             <a
-              href="mailto:sales@mayaai.sa"
+              href="/contact#briefing-request"
               className="text-sm font-semibold tracking-widest text-maya-gold hover:text-white transition-colors duration-200 flex items-center gap-2 group"
             >
               REQUEST A PRIVATE BRIEFING

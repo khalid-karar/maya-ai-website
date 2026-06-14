@@ -48,7 +48,7 @@ export default function Insights() {
               Maya's insights, perspectives, and technical guidance on applied AI for enterprise and government environments will be published here.
             </p>
             <a
-              href="mailto:info@mayaai.sa"
+              href="/contact#briefing-request"
               className="inline-flex items-center gap-2 px-6 py-3 border border-maya-gold/30 text-maya-gold hover:bg-maya-gold hover:text-maya-navy transition-colors text-sm font-bold uppercase tracking-widest"
             >
               Get Notified

@@ -27,14 +27,19 @@ export default function BriefingForm() {
   const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [field]: e.target.value }));
 
+  const encode = (data: Record<string, string>) =>
+    Object.entries(data)
+      .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+      .join('&');
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'briefing-request', ...form }),
       });
       if (res.ok) {
         setStatus('success');
@@ -61,7 +66,15 @@ export default function BriefingForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 text-left">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 text-left"
+      data-netlify="true"
+      name="briefing-request"
+      netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="briefing-request" />
+      <input type="hidden" name="bot-field" />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <input
           type="text"
@@ -124,7 +137,7 @@ export default function BriefingForm() {
 
       {status === 'error' && (
         <p className="text-red-400 text-sm text-center">
-          Something went wrong. Please try again or email us directly at info@mayaai.net
+          Something went wrong. Please try again or email us at sales@mayaai.sa
         </p>
       )}
 

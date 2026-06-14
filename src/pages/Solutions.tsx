@@ -279,7 +279,7 @@ export default function Solutions() {
 
                     {/* CTA */}
                     <a
-                      href="mailto:sales@mayaai.sa"
+                      href="/contact#briefing-request"
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold text-maya-gold/70 hover:text-maya-gold transition-colors uppercase tracking-widest mt-auto pt-2"
                     >
                       Request Briefing
@@ -309,7 +309,7 @@ export default function Solutions() {
             </div>
 
             <a
-              href="mailto:sales@mayaai.sa"
+              href="/contact#briefing-request"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
             >
               Request a Private Briefing

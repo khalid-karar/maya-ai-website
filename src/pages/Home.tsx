@@ -201,7 +201,7 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 mb-10"
             >
               <a
-                href="mailto:sales@mayaai.sa"
+                href="/contact#briefing-request"
                 className="px-8 py-4 bg-maya-gold text-maya-navy font-bold text-sm uppercase tracking-widest hover:bg-white transition-colors flex items-center justify-center gap-2"
               >
                 Request a Private Briefing
@@ -673,7 +673,7 @@ export default function Home() {
                 Our teams in Virginia and Riyadh respond within one business day. All inquiries are handled with strict confidentiality.
               </p>
               <a
-                href="mailto:sales@mayaai.sa"
+                href="/contact#briefing-request"
                 className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 border border-white/15 text-white/60 hover:text-white hover:border-white/30 transition-colors font-bold text-xs uppercase tracking-widest"
               >
                 Email Us

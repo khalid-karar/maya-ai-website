@@ -214,7 +214,7 @@ export default function Governance() {
             </div>
 
             <a
-              href="mailto:sales@mayaai.sa"
+              href="/contact#briefing-request"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-maya-gold text-maya-navy hover:bg-white transition-colors text-sm font-bold uppercase tracking-widest"
             >
               Request a Private Briefing
