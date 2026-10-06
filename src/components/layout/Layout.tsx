@@ -206,8 +206,8 @@ export default function Layout({ children }: LayoutProps) {
 
               <div className="space-y-1.5 text-xs text-white/30">
                 <p className="font-mono uppercase tracking-widest text-white/20 text-[10px] mb-2">Operating Presence</p>
-                <p>Maya AI, LLC — Virginia, United States</p>
                 <p>Maya AI KSA — Riyadh, Kingdom of Saudi Arabia</p>
+                <p>US Partner: Maya AI, LLC — Virginia, United States</p>
               </div>
 
               <div className="mt-5">

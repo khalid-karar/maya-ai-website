@@ -177,8 +177,8 @@ export default function Governance() {
               {pageContent.operatingModel.title}
             </h2>
             <p className="text-white/58 text-lg leading-relaxed">
-              Maya serves organizations across Saudi Arabia and the United States through a unified model
-              focused on applied AI delivery, secure implementation, and long-term operational value.
+              Maya serves organizations across Saudi Arabia from Riyadh, working with a US technology partner
+              on applied AI delivery, secure implementation, and long-term operational value.
             </p>
           </div>
 

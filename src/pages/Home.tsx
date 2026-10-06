@@ -528,18 +528,18 @@ export default function Home() {
               <FadeInUp delay={0}>
                 <div className="text-xs font-bold text-maya-gold/80 uppercase tracking-widest mb-4">Global Operations</div>
                 <h2 className={`text-2xl md:text-3xl font-display mb-6 ${H2_GLOW}`}>
-                  Operating across two markets, one standard
+                  Kingdom-based delivery, US-partnered capability
                 </h2>
                 <p className="text-white/85 max-w-2xl leading-relaxed text-base">
-                  Maya serves organizations across Saudi Arabia and the United States through a unified operating model focused on applied AI delivery, secure implementation, and long-term operational value. Our teams operate across both regions with unified standards and shared operational excellence.
+                  Maya AI is a Saudi company delivering from Riyadh, in partnership with Maya AI, LLC in the United States. The partnership adds engineering depth and US market reach while delivery, accountability, and operational standards stay in the Kingdom.
                 </p>
               </FadeInUp>
 
               {/* Two market cards — staggered */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {([
-                  { city: 'Virginia, United States',          role: 'US operations — enterprise delivery, technology partnerships, and corporate structure.' },
                   { city: 'Riyadh, Kingdom of Saudi Arabia',  role: 'KSA operations — enterprise delivery, government engagements, and Vision 2030-aligned programs.' },
+                  { city: 'Virginia, United States',          role: 'US partner — Maya AI, LLC, an independent partner providing engineering depth and US enterprise reach.' },
                 ] as Array<{ city: string; role: string }>).map((loc, idx) => (
                   <FadeInUp key={idx} delay={idx === 0 ? 0 : 0.15}>
                     <div className="border border-white/15 bg-white/[0.04] p-6 hover:border-maya-gold/25 transition-colors">

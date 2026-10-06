@@ -33,7 +33,7 @@ export default function Contact() {
   const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(f => ({ ...f, [field]: e.target.value }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('loading');
     try {
@@ -303,7 +303,7 @@ export default function Contact() {
                   <div className={cn('relative border-maya-gold', 'pl-6 border-l')}>
                     <h4 className="font-bold text-white text-lg mb-1">{commonContact.usa.entity}</h4>
                     <p className="text-maya-gold mb-4 text-xs uppercase tracking-widest">
-                      United States of America
+                      United States — Technology Partner
                     </p>
 
                     <div className="space-y-3 text-sm text-white/62">
