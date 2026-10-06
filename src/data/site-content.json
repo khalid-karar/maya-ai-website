@@ -18,7 +18,7 @@
       },
       "usa": {
         "entity": "Maya AI, LLC",
-        "legalForm": "Virginia-based operating entity",
+        "legalForm": "US technology partner (Virginia-registered)",
         "address": "Virginia, United States",
         "phone": "+1 202 802 1976",
         "email": "info@mayaai.net"
@@ -26,10 +26,10 @@
       "emails": ["info@mayaai.sa", "info@mayaai.net"]
     },
     "footer": {
-      "positioning": "Maya AI builds sovereign-ready applied intelligence systems for enterprises, governments, and regulated industries across the United States and the Kingdom of Saudi Arabia.",
+      "positioning": "Maya AI builds sovereign-ready applied intelligence systems for enterprises, governments, and regulated industries in the Kingdom of Saudi Arabia, in partnership with Maya AI, LLC in the United States.",
       "disclaimer": "Content on this site is provided for informational purposes only. Specific solutions, deployment models, and implementation scope are discussed in direct engagements.",
-      "rights": "© 2026 Maya AI, LLC and Maya AI KSA. Operating across the United States and the Kingdom of Saudi Arabia.",
-      "operatingEntities": "Operating Presence: United States \u2022 Kingdom of Saudi Arabia",
+      "rights": "© 2026 Maya AI KSA. Saudi-registered and independently operated, in partnership with Maya AI, LLC (Virginia, United States).",
+      "operatingEntities": "Operating Presence: Kingdom of Saudi Arabia \u2022 US Partner: Maya AI, LLC",
       "complianceBadges": [
         { "label": "NIST 800-53", "status": "Mapped" },
         { "label": "SOC2 Type II", "status": "In Progress" },
@@ -113,7 +113,7 @@
           { "label": "Secure by design", "desc": "Zero-trust architecture principles, air-gapped deployment options, and alignment to NCA-ECC and NIST 800-53 security controls." },
           { "label": "Human-controlled execution", "desc": "All AI actions operate within defined approval workflows. No autonomous execution without human authorization at each control boundary." },
           { "label": "Auditability and traceability", "desc": "Full decision logging, action trails, and output versioning across all deployed systems — built for regulated environment accountability." },
-          { "label": "Cross-market operating presence", "desc": "Active teams in Virginia (United States) and Riyadh (Kingdom of Saudi Arabia) delivering to both markets under unified operational standards." }
+          { "label": "Partner-backed delivery", "desc": "A Riyadh-based delivery team, working with US technology partner Maya AI, LLC (Virginia) under shared operational standards." }
         ]
       },
       "cta": {
@@ -240,8 +240,8 @@
             "value": "Regional delivery, implementation alignment, and direct engagement with KSA enterprises, government entities, and regulated sectors."
           },
           {
-            "label": "United States",
-            "value": "Operating from Virginia with engagement across US enterprise, federal-adjacent, and regulated-industry clients."
+            "label": "United States partner",
+            "value": "Maya AI, LLC, our Virginia-based technology partner, supports engineering depth and US enterprise, federal-adjacent, and regulated-industry engagement."
           },
           {
             "label": "Path to production",
@@ -589,12 +589,12 @@
     "company": {
       "hero": {
         "title": "Company",
-        "subtitle": "A focused AI company operating across the United States and the Kingdom of Saudi Arabia.",
-        "description": "Maya AI builds applied intelligence systems for organizations that need secure deployment, practical execution, and measurable operational value. We operate through Maya AI, LLC (Virginia, United States) in the United States, and Maya AI KSA (Saudi-registered, Riyadh) in the Kingdom.",
+        "subtitle": "A focused Saudi AI company, partnered in the United States.",
+        "description": "Maya AI builds applied intelligence systems for organizations that need secure deployment, practical execution, and measurable operational value. We operate as Maya AI KSA (Saudi-registered, Riyadh), in partnership with Maya AI, LLC (Virginia, United States) — an independent partner, not a parent company.",
         "proofs": [
           "Applied AI for enterprise and government",
           "Sovereign-ready deployment models",
-          "Operating in KSA and the United States",
+          "Saudi-operated, US-partnered",
           "Security and compliance aligned"
         ]
       },
@@ -634,21 +634,21 @@
           },
           {
             "title": "Cross-market perspective",
-            "desc": "Operating across the Kingdom of Saudi Arabia and the United States with a unified delivery model and shared compliance spine. We understand both markets' regulatory environments and procurement realities."
+            "desc": "Saudi-operated delivery, strengthened by a US technology partnership and a shared compliance spine. We understand both markets’ regulatory environments and procurement realities."
           }
         ]
       },
       "operatingModel": {
         "title": "Operating presence",
-        "content": "Maya serves organizations across Saudi Arabia and the United States through a unified model focused on applied AI delivery, secure implementation, and long-term operational value.",
+        "content": "Maya serves organizations across Saudi Arabia from Riyadh, working with a US technology partner to bring additional engineering depth to applied AI delivery, secure implementation, and long-term operational value.",
         "items": [
           {
             "label": "Saudi Arabia",
             "value": "Maya AI KSA operates from Riyadh, serving government entities, regulated enterprises, and mission-critical environments across the Kingdom. Aligned to PDPL, NCA ECC, and SDAIA guidance."
           },
           {
-            "label": "United States",
-            "value": "Maya AI, LLC operates from Virginia, serving federal-adjacent, enterprise, and regulated-industry clients across the United States. Aligned to NIST 800-53 and SOC2 Type II (in progress)."
+            "label": "United States partner",
+            "value": "Maya AI, LLC is an independent Virginia-based partner — not a parent company — contributing engineering capability and US enterprise reach. Work is aligned to NIST 800-53 and SOC2 Type II (in progress)."
           },
           {
             "label": "Delivery approach",
@@ -777,7 +777,7 @@
     "leadership": {
       "hero": {
         "title": "The people behind Maya",
-        "subtitle": "Practitioners who have operated at the intersection of AI, enterprise delivery, and regulated environments across the United States and the Kingdom of Saudi Arabia."
+        "subtitle": "Practitioners who have operated at the intersection of AI, enterprise delivery, and regulated environments in the Kingdom of Saudi Arabia and the United States."
       },
       "placeholder": "Leadership profiles are being finalized for public release. Contact us for a direct introduction.",
       "leaders": [
